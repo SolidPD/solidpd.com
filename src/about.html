@@ -3,256 +3,253 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us - Solid Product Design</title>
-    <meta name="description" content="Meet the team behind Solid Product Design. Learn about our mission, values, and expertise in hardware product design and engineering.">
-    <meta name="keywords" content="product design team, hardware engineers, startup consultants, Philadelphia design studio">
-    
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://solidpd.com/about.html">
-    <meta property="og:title" content="About Us - Solid Product Design">
-    <meta property="og:description" content="Meet the team behind Solid Product Design. Learn about our mission, values, and expertise in hardware product design and engineering.">
-    <meta property="og:image" content="https://solidpd.com/assets/images/team-photo-group.jpg">
-
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://solidpd.com/about.html">
-    <meta property="twitter:title" content="About Us - Solid Product Design">
-    <meta property="twitter:description" content="Meet the team behind Solid Product Design. Learn about our mission, values, and expertise in hardware product design and engineering.">
-    <meta property="twitter:image" content="https://solidpd.com/assets/images/team-photo-group.jpg">
-
-    <!-- Favicon -->
-    <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/logos/Stacked/PNG/Solid_Logo_Stacked_Black.png">
-    
-    <!-- Preload critical resources -->
-    <link rel="preload" href="/assets/css/main.css" as="style">
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap" as="style">
-    
-    <!-- Stylesheets -->
-    <link rel="stylesheet" href="/assets/css/main.css">
+    <title>About - Solid Product Design</title>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="./assets/css/main.css" rel="stylesheet">
 </head>
 <body>
-    <!-- Header -->
-    <div id="header"></div>
-
-    <!-- Hero Section -->
-    <section class="hero" style="min-height: 60vh;">
-        <img src="/assets/images/team-photo-group.jpg" alt="Solid Product Design Team" class="hero-background">
-        <div class="container hero-content">
-            <div class="max-w-4xl">
-                <h1 class="text-5xl md:text-6xl font-bold mb-6 text-secondary">
-                    About <span class="logo-solid text-accent">S<span class="letter-o">O</span>LID</span>
-                </h1>
-                <p class="text-xl md:text-2xl mb-8 text-secondary opacity-90 max-w-3xl">
-                    We're a team of passionate designers and engineers dedicated to bringing innovative hardware products to life.
-                </p>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="index.html"><img src="./assets/images/logos/Horizontal/Black/Solid-Product-Design-logo-horizontal-black.png" alt="Solid Product Design" class="logo"></a>
             </div>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="work.html">Work</a></li>
+                <li><a href="about.html" class="active">About us</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Header Section -->
+    <section class="hero">
+        <div class="hero-background">
+            <img src="./assets/images/hero-background.jpg" alt="Product Development Workshop" class="hero-bg-image">
+        </div>
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1>About</h1>
+                <p class="hero-subtitle">Passionate • Curious • Relentless</p>
+                <p class="hero-description">We are a team of engineers, designers, and strategists who believe in the power of thoughtful product development. Our mission is to help innovative companies bring breakthrough products to market faster and more efficiently than ever before.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- From The Workshop to the WORLD Section -->
+    <section class="workshop-world">
+        <div class="content-wrapper">
+            <h2>From The Workshop to the WORLD.</h2>
         </div>
     </section>
 
     <!-- Company Story Section -->
-    <section class="section">
-        <div class="container">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-                <div>
-                    <h2 class="text-4xl font-bold mb-6">Our Story</h2>
-                    <div class="space-y-6 text-lg text-gray-600 leading-relaxed">
-                        <p>
-                            Founded with a mission to bridge the gap between innovative ideas and market-ready products, 
-                            Solid Product Design has been at the forefront of hardware development for over a decade.
-                        </p>
-                        <p>
-                            Our team combines deep technical expertise with creative problem-solving to help startups 
-                            and established companies navigate the complex journey from concept to production.
-                        </p>
-                        <p>
-                            Based in Philadelphia, we've had the privilege of working with companies across various 
-                            industries, helping them raise over $100M in funding and bring multiple products to market.
-                        </p>
-                    </div>
-                </div>
-                <div>
-                    <img src="/assets/images/workshop-tools-equipment.jpg" alt="Design Workshop" class="rounded-lg shadow-lg">
-                </div>
-            </div>
+    <section class="company-story">
+        <div class="story-container">
+            <p>Working out of 222 Walnut Street in historic center city Philadelphia, we've built a reputation for delivering exceptional results across diverse industries. Our world-class facility offers cutting-edge prototyping capabilities and a creative environment that fosters innovation at every step of the product development process.</p>
         </div>
     </section>
 
-    <!-- Values Section -->
-    <section class="section bg-gray-50">
-        <div class="container">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl font-bold mb-6">Our Values</h2>
-                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
-                    These core principles guide everything we do and shape how we approach every project.
-                </p>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="text-center">
-                    <div class="w-16 h-16 bg-accent rounded-full flex items-center justify-center mx-auto mb-6">
-                        <span class="text-2xl font-bold text-primary">S</span>
-                    </div>
-                    <h3 class="text-2xl font-semibold mb-4">Strategic</h3>
-                    <p class="text-gray-600">
-                        We approach every project with strategic thinking, ensuring that design decisions 
-                        align with business goals and market needs.
-                    </p>
-                </div>
-
-                <div class="text-center">
-                    <div class="w-16 h-16 bg-accent rounded-full flex items-center justify-center mx-auto mb-6">
-                        <span class="text-2xl font-bold text-primary">O</span>
-                    </div>
-                    <h3 class="text-2xl font-semibold mb-4">Optimized</h3>
-                    <p class="text-gray-600">
-                        Our solutions are optimized for manufacturability, cost-effectiveness, 
-                        and user experience without compromising on quality.
-                    </p>
-                </div>
-
-                <div class="text-center">
-                    <div class="w-16 h-16 bg-accent rounded-full flex items-center justify-center mx-auto mb-6">
-                        <span class="text-2xl font-bold text-primary">L</span>
-                    </div>
-                    <h3 class="text-2xl font-semibold mb-4">Lasting</h3>
-                    <p class="text-gray-600">
-                        We build lasting relationships with our clients and create products 
-                        that stand the test of time in the marketplace.
-                    </p>
-                </div>
-
-                <div class="text-center">
-                    <div class="w-16 h-16 bg-accent rounded-full flex items-center justify-center mx-auto mb-6">
-                        <span class="text-2xl font-bold text-primary">I</span>
-                    </div>
-                    <h3 class="text-2xl font-semibold mb-4">Innovative</h3>
-                    <p class="text-gray-600">
-                        Innovation drives us to explore new technologies, materials, 
-                        and approaches to solve complex design challenges.
-                    </p>
-                </div>
-
-                <div class="text-center">
-                    <div class="w-16 h-16 bg-accent rounded-full flex items-center justify-center mx-auto mb-6">
-                        <span class="text-2xl font-bold text-primary">D</span>
-                    </div>
-                    <h3 class="text-2xl font-semibold mb-4">Detailed</h3>
-                    <p class="text-gray-600">
-                        Attention to detail is paramount in everything we do, from initial 
-                        concepts to final production specifications.
-                    </p>
-                </div>
-            </div>
+    <!-- Small Team, Big Value Section -->
+    <section class="small-team">
+        <div class="team-container">
+            <h2>Small Team, Big Value</h2>
+            <p>We are a small, agile team focused on delivering exceptional results every time. We're about quality over quantity, and building strong partnerships with our clients that last for years. Our lean structure allows us to move quickly while maintaining the personal attention and craftsmanship that sets us apart from larger agencies.</p>
         </div>
     </section>
 
-    <!-- Team Section -->
-    <section class="section">
-        <div class="container">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl font-bold mb-6">Meet the Team</h2>
-                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
-                    Our diverse team brings together expertise in design, engineering, manufacturing, 
-                    and business strategy to deliver exceptional results.
-                </p>
-            </div>
-
+    <!-- The Team Section -->
+    <section class="team-section">
+        <div class="team-container">
+            <h2>The Team</h2>
             <div class="team-grid">
                 <div class="team-member">
-                    <img src="/assets/images/team-member-founder.jpg" alt="Founder" class="team-photo">
-                    <h3 class="team-name">Alex Johnson</h3>
-                    <p class="team-role">Founder & Lead Designer</p>
-                    <p class="team-bio">
-                        With over 15 years in product design, Alex leads our creative vision and 
-                        ensures every project meets the highest standards of innovation and quality.
-                    </p>
-                </div>
-
-                <div class="team-member">
-                    <img src="/assets/images/team-member-engineer.jpg" alt="Lead Engineer" class="team-photo">
-                    <h3 class="team-name">Sarah Chen</h3>
-                    <p class="team-role">Lead Engineer</p>
-                    <p class="team-bio">
-                        Sarah brings deep technical expertise in mechanical and electrical engineering, 
-                        specializing in bringing complex designs to manufacturable reality.
-                    </p>
-                </div>
-
-                <div class="team-member">
-                    <img src="/assets/images/team-member-strategist.jpg" alt="Strategy Director" class="team-photo">
-                    <h3 class="team-name">Michael Rodriguez</h3>
-                    <p class="team-role">Strategy Director</p>
-                    <p class="team-bio">
-                        Michael guides our strategic approach, helping clients navigate market 
-                        positioning, funding, and go-to-market strategies for their products.
-                    </p>
-                </div>
-
-                <div class="team-member">
-                    <img src="/assets/images/team-member-designer.jpg" alt="Senior Designer" class="team-photo">
-                    <h3 class="team-name">Emily Park</h3>
-                    <p class="team-role">Senior Designer</p>
-                    <p class="team-bio">
-                        Emily specializes in user experience and industrial design, ensuring our 
-                        products are not only functional but delightful to use.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Location Section -->
-    <section class="section bg-gray-50">
-        <div class="container">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-                <div>
-                    <h2 class="text-4xl font-bold mb-6">Our Studio</h2>
-                    <div class="space-y-6 text-lg text-gray-600 leading-relaxed">
-                        <p>
-                            Located in the heart of Philadelphia's vibrant design and technology community, 
-                            our studio is equipped with state-of-the-art prototyping tools and design facilities.
-                        </p>
-                        <p>
-                            We're proud to be part of Philadelphia's growing hardware ecosystem, 
-                            collaborating with local manufacturers, suppliers, and fellow innovators.
-                        </p>
-                        <div class="flex items-center gap-4 mt-8">
-                            <div class="w-12 h-12 bg-accent rounded-full flex items-center justify-center">
-                                <span class="text-primary font-bold">📍</span>
-                            </div>
-                            <div>
-                                <p class="font-semibold">Philadelphia, PA</p>
-                                <p class="text-gray-500">Available for on-site consultations</p>
-                            </div>
-                        </div>
+                    <h3>Alex Numann</h3>
+                    <div class="credentials">
+                        <p><strong>Education:</strong> UPenn degree - Bachelor's in Mechanical Engineering, class of 2009</p>
+                        <p><strong>Experience:</strong> One of first employees of NextFab - part of the team that opened the original facility in University City</p>
+                        <p><strong>Certification:</strong> Certified SolidWorks Professional since 2012</p>
+                    </div>
+                    <div class="highlights">
+                        <p><strong>Notable Work:</strong></p>
+                        <ul>
+                            <li>Helped design and fabricate (2) 30 foot flamingoes currently installed in a backyard in Brooklyn, NY</li>
+                            <li>Designed and fabricated parts launched into space and deployed by Fortune 500 companies</li>
+                            <li>Designed and prototyped early microfluidics flow cells for Halo Labs (recently acquired by Waters)</li>
+                            <li>Helped develop the early core technology for the SOLItion Medical autoinjector, listed as co-inventor on patent</li>
+                            <li>Collaborated with researchers from CHOP, UPenn to develop custom hardware to enable their research</li>
+                        </ul>
                     </div>
                 </div>
-                <div>
-                    <img src="/assets/images/studio-workspace-philadelphia.jpg" alt="Philadelphia Studio" class="rounded-lg shadow-lg">
+                
+                <div class="team-member">
+                    <h3>Nick Gallagher</h3>
+                    <p><strong>Education:</strong> BA in Industrial Design from University of The Arts</p>
+                    <div class="professional">
+                        <p><strong>Professional Experience:</strong></p>
+                        <ul>
+                            <li>Collaborated on projects with Hermanmiller, Comcast, Siemens, and startup founders recognized by Forbes 30 Under 30</li>
+                            <li>Former Adviser and Educator for the University of The Arts industrial design program</li>
+                            <li>Founder of Squid Philly, a design programming and community group sponsored by Advanced Design</li>
+                            <li>Contributor to LVMH Karl Lagerfeld Prize-winning project, Sustainable Mannequins</li>
+                            <li>Helped design, build, and scale up manufacturing of 50,000 origami face masks during the early stages of the Coronavirus Pandemic in 2020</li>
+                            <li>Collaborator and Designer for Tom Miles (former studio lead for Jeff Koons)</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="team-member">
+                    <h3>Matt Starfield</h3>
+                    <div class="education">
+                        <p><strong>Education:</strong></p>
+                        <ul>
+                            <li>Drexel University - B.S. in Electrical Engineering (2004) – Concentration in Advanced Electronics</li>
+                            <li>Drexel University - M.S. in Electrical Engineering (2006) – Concentration in Wireless Communications</li>
+                        </ul>
+                    </div>
+                    <div class="professional">
+                        <p><strong>Professional:</strong></p>
+                        <ul>
+                            <li>Senior Electrical Engineer @ NextFab - Lead architect for early-stage electronic prototypes across consumer, industrial, medical, and humanitarian sectors</li>
+                            <li>Full-stack Embedded Systems Engineer - PCB design, firmware development (C/C++), RTOS, wireless integration</li>
+                            <li>CID+ Certified Interconnect Designer - Certified by Global Electronics Association (formerly IPC) in advanced PCB design</li>
+                            <li>Humanitarian Engineering: HALA Civilian Warning System - Designed, manufactured, and deployed hundreds of ruggedized IoT nodes used in Syria to warn civilians of incoming airstrikes</li>
+                        </ul>
+                    </div>
+                    <div class="personal">
+                        <p><strong>Personal:</strong></p>
+                        <ul>
+                            <li>Proud Father</li>
+                            <li>Pro Musician & (former) Touring Frontman - Vocalist, keyboardist, and drummer for synth-metal band Mose Giganticus</li>
+                            <li>Smart Home Enthusiast - 100+ smart devices running my home</li>
+                            <li>(Former) Endurance Athlete - Ran two full marathons and a Half Ironman Triathlon</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="team-member">
+                    <h3>Matt Bell</h3>
+                    <p><strong>Education:</strong> BS & MS in Engineering Science and Mechanics from Penn State University, Schreyer Honors College</p>
+                    <div class="professional">
+                        <p><strong>Professional:</strong></p>
+                        <ul>
+                            <li>Ex-Boeing design engineer, systems engineer, team manager</li>
+                            <li>Head of technical due diligence @ NextFab Ventures - Screen hardware startups seeking funding from NFV</li>
+                            <li>Have interviewed 100's of startups and seen first hand what works well and what doesn't</li>
+                            <li>Advisor to 75+ hardware startups in the NFV portfolio, including Burro, Flux Marine, Daxo Robotics, SOLUtion Medical</li>
+                            <li>Guest lecturer at UPenn graduate class "Human Centered Design for Clinical Emergency Medicine"</li>
+                            <li>Co-founder, CEO of Solid Product Design</li>
+                            <li>Hardware product development strategy expert - Craft targeted development strategies for hardware startups</li>
+                            <li>Led former NextFab team to design and manufacture 50,000 masks & face shields for hospital workers during the early stages of COVID</li>
+                            <li>Won PHL Chamber of Commerce Inspiring Excellence Award</li>
+                        </ul>
+                    </div>
+                    <div class="personal">
+                        <p><strong>Personal:</strong></p>
+                        <ul>
+                            <li>Married with 2 boys</li>
+                            <li>Youth sports coach - wrestling, baseball, soccer</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- CTA Section -->
-    <section class="cta-section">
-        <div class="container">
-            <h2 class="text-4xl md:text-5xl font-bold mb-6">Ready to Work Together?</h2>
-            <p class="text-xl mb-8 max-w-2xl mx-auto">
-                Let's discuss your project and explore how our team can help bring your vision to life.
-            </p>
-            <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                <a href="/contact.html" class="btn btn-accent btn-lg">Start a Conversation</a>
-                <a href="/work.html" class="btn btn-secondary btn-lg">See Our Work</a>
+    <!-- Experts in All Thing That Ship Section -->
+    <section class="experts-section">
+        <div class="experts-container">
+            <h2>Experts in All Thing That Ship</h2>
+            <p>We are built our expertise by working products across a wide range of industries. Whether it's a ground-up a new product concept for a startup or helping an established company optimize their existing product line, we have the experience to anticipate and solve problems before they arise, helping you reach and serve potential customers faster than you thought possible.</p>
+        </div>
+    </section>
+
+    <!-- Startup Mentality Section -->
+    <section class="startup-mentality">
+        <div class="mentality-container">
+            <h2>Startup Mentality</h2>
+            <p>Whether working with startups or established companies with an entrepreneurial mindset, we bring the same energy and urgency to every project. We understand the importance of speed to market, resource constraints, and the need to validate assumptions quickly. Our startup mentality means we're not just service providers—we're partners invested in your success and committed to helping you achieve your goals as efficiently as possible.</p>
+        </div>
+    </section>
+
+    <!-- Get In Touch Section -->
+    <section class="get-in-touch">
+        <div class="contact-container">
+            <h2>Get In Touch</h2>
+            <p>Ready to learn more about how we can help accelerate your product development? Let's start a conversation about your next big idea.</p>
+            <div class="contact-buttons">
+                <a href="https://calendar.app.google/HwNKaaJmsS37Bh4a9" target="_blank" class="btn btn-primary">Schedule a Call</a>
+                <a href="mailto:hello@solidpd.com" class="btn btn-secondary">Send a Message</a>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <div id="footer"></div>
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-sections">
+                <div class="footer-section">
+                    <h4>Menu</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="work.html">Work</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Location</h4>
+                    <p>2212 Walnut Street<br>Philadelphia PA, 19103</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Social Media</h4>
+                    <div class="social-links">
+                        <a href="#" class="social-link">LinkedIn</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="footer-logo">
+                    <img src="./assets/images/logo-horizontal-white.png" alt="Solid Product Design" class="footer-logo-img">
+                </div>
+                <div class="footer-legal">
+                    <span>SOLID PRODUCT DEVELOPMENT Copyright © 2025.</span>
+                    <div class="legal-links">
+                        <a href="#">Privacy Policy</a>
+                        <a href="#">Terms of Use</a>
+                        <a href="#">Cookies Policy</a>
+                        <a href="#">Cookies Settings</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
 
-    <!-- Scripts -->
-    <script src="/assets/js/main.js"></script>
+    <script>
+        // Hamburger menu functionality
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('nav-menu');
+
+        hamburger.addEventListener('click', function() {
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+
+        // Close menu when clicking on a link
+        document.querySelectorAll('.nav-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+            });
+        });
+    </script>
 </body>
 </html>

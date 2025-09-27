@@ -4,281 +4,231 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Services - Solid Product Design</title>
-    <meta name="description" content="Comprehensive hardware product design services including research, design, engineering, and manufacturing support for startups and established companies.">
-    <meta name="keywords" content="product design services, hardware engineering, manufacturing consulting, prototyping, research and strategy">
-    
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://solidpd.com/services.html">
-    <meta property="og:title" content="Services - Solid Product Design">
-    <meta property="og:description" content="Comprehensive hardware product design services including research, design, engineering, and manufacturing support.">
-    <meta property="og:image" content="https://solidpd.com/assets/images/service-overview-collage.jpg">
-
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://solidpd.com/services.html">
-    <meta property="twitter:title" content="Services - Solid Product Design">
-    <meta property="twitter:description" content="Comprehensive hardware product design services including research, design, engineering, and manufacturing support.">
-    <meta property="twitter:image" content="https://solidpd.com/assets/images/service-overview-collage.jpg">
-
-    <!-- Favicon -->
-    <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/logos/Stacked/PNG/Solid_Logo_Stacked_Black.png">
-    
-    <!-- Preload critical resources -->
-    <link rel="preload" href="/assets/css/main.css" as="style">
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap" as="style">
-    
-    <!-- Stylesheets -->
-    <link rel="stylesheet" href="/assets/css/main.css">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="./assets/css/main.css" rel="stylesheet">
 </head>
 <body>
-    <!-- Header -->
-    <div id="header"></div>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="index.html"><img src="./assets/images/logos/Horizontal/Black/Solid-Product-Design-logo-horizontal-black.png" alt="Solid Product Design" class="logo"></a>
+            </div>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="work.html">Work</a></li>
+                <li><a href="about.html">About us</a></li>
+                <li><a href="services.html" class="active">Services</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
 
-    <!-- Hero Section -->
-    <section class="hero" style="min-height: 60vh;">
-        <img src="/assets/images/service-overview-collage.jpg" alt="Product Design Services" class="hero-background">
-        <div class="container hero-content">
-            <div class="max-w-4xl">
-                <h1 class="text-5xl md:text-6xl font-bold mb-6 text-secondary">
-                    Our Services
-                </h1>
-                <p class="text-xl md:text-2xl mb-8 text-secondary opacity-90 max-w-3xl">
-                    From initial concept to market launch, we provide comprehensive support 
-                    for every stage of your hardware product development journey.
-                </p>
+    <!-- Header Section -->
+    <section class="hero">
+        <div class="hero-background">
+            <img src="./assets/images/hero-background.jpg" alt="Product Development Workshop" class="hero-bg-image">
+        </div>
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1>Services</h1>
+                <p class="hero-description">We offer comprehensive product development services from initial concept through manufacturing and launch. Our integrated approach ensures seamless execution across all phases of your product journey.</p>
             </div>
         </div>
     </section>
 
-    <!-- Services Overview -->
-    <section class="section">
-        <div class="container">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl font-bold mb-6">End-to-End Product Development</h2>
-                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
-                    Our integrated approach ensures seamless collaboration across all phases of development, 
-                    from strategic planning to manufacturing support.
-                </p>
+    <!-- Service Areas -->
+    <section class="service-areas">
+        <div class="services-container">
+            <div class="service-item">
+                <h3>1. Research and Strategy</h3>
+                <p>We begin every project with comprehensive research to understand your market, users, and competitive landscape. Our strategic approach ensures that design decisions are grounded in data and aligned with business objectives.</p>
             </div>
-
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-icon">
-                        <img src="/assets/images/service-research-strategy-icon.jpg" alt="Research & Strategy">
-                    </div>
-                    <h3 class="text-2xl font-semibold mb-4">Research & Strategy</h3>
-                    <p class="text-gray-600 mb-6">
-                        We start every project with thorough market research and strategic planning 
-                        to ensure your product meets real user needs and market opportunities.
-                    </p>
-                    <ul class="text-left text-gray-600 space-y-2">
-                        <li>• Market analysis and competitive research</li>
-                        <li>• User research and persona development</li>
-                        <li>• Product positioning and strategy</li>
-                        <li>• Technical feasibility assessment</li>
-                        <li>• Business model validation</li>
-                    </ul>
-                </div>
-
-                <div class="service-card">
-                    <div class="service-icon">
-                        <img src="/assets/images/service-design-icon.jpg" alt="Product Design">
-                    </div>
-                    <h3 class="text-2xl font-semibold mb-4">Product Design</h3>
-                    <p class="text-gray-600 mb-6">
-                        Our design team creates innovative, user-centered solutions that balance 
-                        aesthetics, functionality, and manufacturability.
-                    </p>
-                    <ul class="text-left text-gray-600 space-y-2">
-                        <li>• Concept development and ideation</li>
-                        <li>• Industrial design and styling</li>
-                        <li>• User experience (UX) design</li>
-                        <li>• 3D modeling and visualization</li>
-                        <li>• Design for manufacturing (DFM)</li>
-                    </ul>
-                </div>
-
-                <div class="service-card">
-                    <div class="service-icon">
-                        <img src="/assets/images/service-engineering-icon.jpg" alt="Engineering">
-                    </div>
-                    <h3 class="text-2xl font-semibold mb-4">Engineering</h3>
-                    <p class="text-gray-600 mb-6">
-                        Our engineering team brings designs to life with robust technical solutions 
-                        that are optimized for performance, reliability, and cost.
-                    </p>
-                    <ul class="text-left text-gray-600 space-y-2">
-                        <li>• Mechanical engineering and CAD</li>
-                        <li>• Electrical and electronics design</li>
-                        <li>• Firmware and software development</li>
-                        <li>• Prototyping and testing</li>
-                        <li>• Regulatory compliance support</li>
-                    </ul>
-                </div>
-
-                <div class="service-card">
-                    <div class="service-icon">
-                        <img src="/assets/images/service-manufacturing-icon.jpg" alt="Manufacturing">
-                    </div>
-                    <h3 class="text-2xl font-semibold mb-4">Manufacturing</h3>
-                    <p class="text-gray-600 mb-6">
-                        We guide you through the manufacturing process, from supplier selection 
-                        to production scaling, ensuring quality and cost-effectiveness.
-                    </p>
-                    <ul class="text-left text-gray-600 space-y-2">
-                        <li>• Manufacturing partner selection</li>
-                        <li>• Production planning and optimization</li>
-                        <li>• Quality assurance and testing</li>
-                        <li>• Supply chain management</li>
-                        <li>• Scaling and cost reduction</li>
-                    </ul>
-                </div>
+            <div class="service-item">
+                <h3>2. Design</h3>
+                <p>Our design process combines user-centered thinking with technical feasibility. We create intuitive interfaces and compelling user experiences that drive engagement and deliver measurable results.</p>
+            </div>
+            <div class="service-item">
+                <h3>3. Engineering</h3>
+                <p>Our engineering team brings designs to life with clean, scalable code. We focus on performance, accessibility, and maintainability to ensure your product can grow with your business.</p>
+            </div>
+            <div class="service-item">
+                <h3>4. Manufacturing</h3>
+                <p>We bridge the gap between design and production, working closely with manufacturing partners to ensure your product can be built efficiently and cost-effectively at scale.</p>
             </div>
         </div>
     </section>
 
-    <!-- Process Section -->
-    <section class="section bg-gray-50">
-        <div class="container">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl font-bold mb-6">Our Process</h2>
-                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
-                    We follow a proven methodology that ensures successful outcomes while maintaining 
-                    flexibility to adapt to your unique requirements.
-                </p>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                <div class="text-center">
-                    <div class="w-16 h-16 bg-accent rounded-full flex items-center justify-center mx-auto mb-6">
-                        <span class="text-2xl font-bold text-primary">1</span>
-                    </div>
-                    <h3 class="text-xl font-semibold mb-4">Discovery</h3>
-                    <p class="text-gray-600">
-                        We start by understanding your vision, goals, constraints, and market opportunity 
-                        through comprehensive discovery sessions.
-                    </p>
+    <!-- Service Packages -->
+    <section class="service-packages">
+        <div class="packages-container">
+            <h2>Service Packages</h2>
+            
+            <div class="package-grid">
+                <div class="package-item">
+                    <h3>Innovation Sprint</h3>
+                    <p class="subtitle">Ready Today</p>
+                    <p class="price">$7,500</p>
+                    <p class="duration">2 weeks</p>
+                    <p class="description">Perfect for validating new product concepts and exploring market opportunities.</p>
+                    <ul class="features">
+                        <li>Market research and competitive analysis</li>
+                        <li>User persona development</li>
+                        <li>Concept ideation and validation</li>
+                        <li>Initial prototype development</li>
+                        <li>Technical feasibility assessment</li>
+                        <li>Go-to-market strategy outline</li>
+                    </ul>
                 </div>
 
-                <div class="text-center">
-                    <div class="w-16 h-16 bg-accent rounded-full flex items-center justify-center mx-auto mb-6">
-                        <span class="text-2xl font-bold text-primary">2</span>
-                    </div>
-                    <h3 class="text-xl font-semibold mb-4">Design</h3>
-                    <p class="text-gray-600">
-                        Our design phase includes concept development, user research, and iterative 
-                        design refinement based on feedback and testing.
-                    </p>
+                <div class="package-item">
+                    <h3>Early Prototypes</h3>
+                    <p class="subtitle">Ready Today</p>
+                    <p class="price">$20,000</p>
+                    <p class="duration">4-6 weeks</p>
+                    <p class="description">Comprehensive prototype development to test and refine your product concept.</p>
+                    <ul class="features">
+                        <li>Detailed user research</li>
+                        <li>Interactive prototype development</li>
+                        <li>User testing and feedback integration</li>
+                        <li>Technical architecture planning</li>
+                        <li>Design system creation</li>
+                        <li>Manufacturing consultation</li>
+                    </ul>
                 </div>
 
-                <div class="text-center">
-                    <div class="w-16 h-16 bg-accent rounded-full flex items-center justify-center mx-auto mb-6">
-                        <span class="text-2xl font-bold text-primary">3</span>
-                    </div>
-                    <h3 class="text-xl font-semibold mb-4">Develop</h3>
-                    <p class="text-gray-600">
-                        We develop working prototypes, conduct thorough testing, and refine the design 
-                        for optimal performance and manufacturability.
-                    </p>
+                <div class="package-item">
+                    <h3>Co-Development</h3>
+                    <p class="subtitle">Ready Today</p>
+                    <p class="price">Custom</p>
+                    <p class="duration">Ongoing</p>
+                    <p class="description">Full partnership for complete product development from concept to market.</p>
+                    <ul class="features">
+                        <li>End-to-end product development</li>
+                        <li>Dedicated team assignment</li>
+                        <li>Regular milestone reviews</li>
+                        <li>Manufacturing partnership</li>
+                        <li>Quality assurance testing</li>
+                        <li>Launch support and optimization</li>
+                    </ul>
                 </div>
 
-                <div class="text-center">
-                    <div class="w-16 h-16 bg-accent rounded-full flex items-center justify-center mx-auto mb-6">
-                        <span class="text-2xl font-bold text-primary">4</span>
-                    </div>
-                    <h3 class="text-xl font-semibold mb-4">Deploy</h3>
-                    <p class="text-gray-600">
-                        We support the transition to manufacturing, helping you scale production 
-                        and launch your product successfully to market.
-                    </p>
+                <div class="package-item">
+                    <h3>Principal Collaborator</h3>
+                    <p class="subtitle">Pricing on Ask</p>
+                    <p class="price">Custom</p>
+                    <p class="duration">Flexible</p>
+                    <p class="description">Strategic partnership for complex, high-impact product initiatives.</p>
+                    <ul class="features">
+                        <li>Executive-level strategic guidance</li>
+                        <li>Cross-functional team leadership</li>
+                        <li>Investor presentation support</li>
+                        <li>Regulatory compliance guidance</li>
+                        <li>International market expansion</li>
+                        <li>Long-term product roadmap</li>
+                    </ul>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Expertise Areas -->
-    <section class="section">
-        <div class="container">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl font-bold mb-6">Industry Expertise</h2>
-                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
-                    We've worked across diverse industries, bringing specialized knowledge 
-                    and best practices to every project.
-                </p>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="bg-white p-8 rounded-lg shadow-md">
-                    <h3 class="text-xl font-semibold mb-4">Healthcare & Medical</h3>
-                    <p class="text-gray-600">
-                        Medical devices, diagnostic equipment, and healthcare technology solutions 
-                        with regulatory compliance expertise.
-                    </p>
+    <!-- Testimonials -->
+    <section class="testimonials">
+        <div class="testimonials-container">
+            <h2>Testimonials</h2>
+            <div class="testimonial-grid">
+                <div class="testimonial-item">
+                    <blockquote>"Working with Solid Product Design transformed our approach to product development. Their expertise and attention to detail exceeded our expectations."</blockquote>
+                    <cite>Sarah Johnson, TechStart Inc.</cite>
                 </div>
-
-                <div class="bg-white p-8 rounded-lg shadow-md">
-                    <h3 class="text-xl font-semibold mb-4">Consumer Electronics</h3>
-                    <p class="text-gray-600">
-                        Smart devices, wearables, and connected products that deliver exceptional 
-                        user experiences and market appeal.
-                    </p>
+                <div class="testimonial-item">
+                    <blockquote>"The team's ability to balance innovation with practical constraints helped us launch our product on time and under budget."</blockquote>
+                    <cite>Michael Chen, Innovation Labs</cite>
                 </div>
-
-                <div class="bg-white p-8 rounded-lg shadow-md">
-                    <h3 class="text-xl font-semibold mb-4">Industrial & IoT</h3>
-                    <p class="text-gray-600">
-                        Industrial equipment, IoT sensors, and automation solutions designed 
-                        for reliability and performance.
-                    </p>
-                </div>
-
-                <div class="bg-white p-8 rounded-lg shadow-md">
-                    <h3 class="text-xl font-semibold mb-4">Fitness & Sports</h3>
-                    <p class="text-gray-600">
-                        Athletic performance monitoring, fitness equipment, and sports technology 
-                        that enhances human performance.
-                    </p>
-                </div>
-
-                <div class="bg-white p-8 rounded-lg shadow-md">
-                    <h3 class="text-xl font-semibold mb-4">Automotive</h3>
-                    <p class="text-gray-600">
-                        Automotive accessories, aftermarket products, and vehicle technology 
-                        solutions with safety and durability focus.
-                    </p>
-                </div>
-
-                <div class="bg-white p-8 rounded-lg shadow-md">
-                    <h3 class="text-xl font-semibold mb-4">Sustainability</h3>
-                    <p class="text-gray-600">
-                        Eco-friendly products, renewable energy solutions, and sustainable 
-                        technology that makes a positive impact.
-                    </p>
+                <div class="testimonial-item">
+                    <blockquote>"Their strategic guidance was invaluable in navigating the complexities of bringing a hardware product to market."</blockquote>
+                    <cite>Emily Rodriguez, NextGen Devices</cite>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- CTA Section -->
-    <section class="cta-section">
-        <div class="container">
-            <h2 class="text-4xl md:text-5xl font-bold mb-6">Ready to Get Started?</h2>
-            <p class="text-xl mb-8 max-w-2xl mx-auto">
-                Let's discuss your project requirements and explore how our services 
-                can help bring your product vision to life.
-            </p>
-            <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                <a href="/contact.html" class="btn btn-accent btn-lg">Start Your Project</a>
-                <a href="/work.html" class="btn btn-secondary btn-lg">See Case Studies</a>
+    <!-- Get In Touch Section -->
+    <section class="get-in-touch">
+        <div class="contact-container">
+            <h2>Get In Touch</h2>
+            <p>Ready to start your next project? Let's discuss how we can help bring your product vision to life.</p>
+            <div class="contact-buttons">
+                <a href="https://calendar.app.google/HwNKaaJmsS37Bh4a9" target="_blank" class="btn btn-primary">Schedule a Call</a>
+                <a href="mailto:hello@solidpd.com" class="btn btn-secondary">Send a Message</a>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <div id="footer"></div>
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-sections">
+                <div class="footer-section">
+                    <h4>Menu</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="work.html">Work</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Location</h4>
+                    <p>2212 Walnut Street<br>Philadelphia PA, 19103</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Social Media</h4>
+                    <div class="social-links">
+                        <a href="#" class="social-link">LinkedIn</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="footer-logo">
+                    <img src="./assets/images/logo-horizontal-white.png" alt="Solid Product Design" class="footer-logo-img">
+                </div>
+                <div class="footer-legal">
+                    <span>SOLID PRODUCT DEVELOPMENT Copyright © 2025.</span>
+                    <div class="legal-links">
+                        <a href="#">Privacy Policy</a>
+                        <a href="#">Terms of Use</a>
+                        <a href="#">Cookies Policy</a>
+                        <a href="#">Cookies Settings</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
 
-    <!-- Scripts -->
-    <script src="/assets/js/main.js"></script>
+    <script>
+        // Hamburger menu functionality
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('nav-menu');
+
+        hamburger.addEventListener('click', function() {
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+
+        // Close menu when clicking on a link
+        document.querySelectorAll('.nav-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+            });
+        });
+    </script>
 </body>
 </html>
