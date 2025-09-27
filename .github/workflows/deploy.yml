@@ -25,12 +25,6 @@ jobs:
       - name: Build site
         run: npm run build
 
-      - name: Copy public files to dist
-        run: |
-          if [ -d "public" ]; then
-            cp -r public/* dist/
-          fi
-
       - name: Install Netlify CLI
         run: npm install -g netlify-cli
 
