@@ -368,11 +368,18 @@ blockquote::after {
     line-height: 1.6;
 }
 
-/* Featured Partners Section */
-.featured-partners {
+/* Client Names Section (no heading) */
+.client-names {
     background: white;
-    padding: 4rem 0;
+    padding: 3rem 0;
     border-bottom: 1px solid #e9ecef;
+}
+
+.client-names-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    text-align: center;
 }
 
 .partners-container {
