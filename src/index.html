@@ -3,236 +3,222 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Solid Product Design - Expert Hardware Product Design & Engineering</title>
-    <meta name="description" content="Creating a SOLID foundation for your next idea. Expert hardware product design and engineering services for startups and established companies.">
-    <meta name="keywords" content="product design, hardware engineering, startup consulting, manufacturing, prototyping">
-    
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://solidpd.com/">
-    <meta property="og:title" content="Solid Product Design - Expert Hardware Product Design & Engineering">
-    <meta property="og:description" content="Creating a SOLID foundation for your next idea. Expert hardware product design and engineering services.">
-    <meta property="og:image" content="https://solidpd.com/assets/images/hero-workshop-background.jpg">
-
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://solidpd.com/">
-    <meta property="twitter:title" content="Solid Product Design - Expert Hardware Product Design & Engineering">
-    <meta property="twitter:description" content="Creating a SOLID foundation for your next idea. Expert hardware product design and engineering services.">
-    <meta property="twitter:image" content="https://solidpd.com/assets/images/hero-workshop-background.jpg">
-
-    <!-- Favicon -->
-    <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/logos/Stacked/PNG/Solid_Logo_Stacked_Black.png">
-    
-    <!-- Preload critical resources -->
-    <link rel="preload" href="/assets/css/main.css" as="style">
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap" as="style">
-    
-    <!-- Stylesheets -->
-    <link rel="stylesheet" href="/assets/css/main.css">
+    <title>Solid Product Design - Creating a SOLID foundation for your next idea</title>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="./assets/css/main.css" rel="stylesheet">
 </head>
 <body>
-    <!-- Header -->
-    <div id="header"></div>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="index.html"><img src="./assets/images/logos/Horizontal/Black/Solid-Product-Design-logo-horizontal-black.png" alt="Solid Product Design" class="logo"></a>
+            </div>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="work.html">Work</a></li>
+                <li><a href="about.html">About us</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
 
     <!-- Hero Section -->
     <section class="hero">
-        <img src="/assets/images/hero-workshop-background.jpg" alt="Solid Product Design Workshop" class="hero-background">
-        <div class="container hero-content">
-            <div class="max-w-4xl">
-                <h1 class="text-6xl md:text-7xl font-bold mb-6 text-secondary">
-                    Creating a <br>
-                    <span class="logo-solid text-accent">S<span class="letter-o">O</span>LID</span>
-                </h1>
-                <h2 class="text-2xl md:text-3xl font-light mb-8 text-secondary opacity-90">
-                    foundation for your next idea.
-                </h2>
-                <p class="text-lg md:text-xl mb-12 text-secondary opacity-80 max-w-2xl">
-                    Our team loves to push the boundaries of what's possible. That's why we work with startup companies building game-changing hardware products, always at the forefront with speed and efficiency.
-                </p>
-                <div class="flex flex-col sm:flex-row gap-4">
-                    <a href="/contact.html" class="btn btn-accent btn-lg">Start Your Project</a>
-                    <a href="/work.html" class="btn btn-secondary btn-lg">View Our Work</a>
-                </div>
+        <div class="hero-background">
+            <img src="./assets/images/hero-background.jpg" alt="Product Development Workshop" class="hero-bg-image">
+        </div>
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1>Mechanical Engineering<br>
+                Electrical Engineering<br>
+                Industrial Design<br>
+                Design Research<br>
+                User Experience<br>
+                Manufacturing<br>
+                Shipped.</h1>
+                <p class="hero-subtitle">Now that's Solid</p>
             </div>
         </div>
     </section>
 
-    <!-- Services Section -->
-    <section class="section">
-        <div class="container">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl md:text-5xl font-bold mb-6">What That Solid</h2>
-                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
-                    Our team loves to push the boundaries of what's possible. That's why we work with startup 
-                    companies building game-changing hardware products, always at the forefront with speed and efficiency.
-                </p>
-            </div>
+    <!-- Main Content -->
+    <section class="main-content">
+        <div class="content-wrapper">
+            <h2 class="main-heading">Creating a<br>
+            <span class="solid-text">S<span class="striped">O</span>LID</span><br>
+            foundation for your next idea.</h2>
+        </div>
+    </section>
 
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-icon">
-                        <img src="/assets/images/service-research-strategy-icon.jpg" alt="Research & Strategy">
-                    </div>
-                    <h3 class="text-2xl font-semibold mb-4">Research & Strategy</h3>
-                    <p class="text-gray-600">
-                        We start every project with thorough research and strategic planning to ensure 
-                        your product meets market needs and user expectations.
-                    </p>
-                </div>
-
-                <div class="service-card">
-                    <div class="service-icon">
-                        <img src="/assets/images/service-design-icon.jpg" alt="Product Design">
-                    </div>
-                    <h3 class="text-2xl font-semibold mb-4">Product Design</h3>
-                    <p class="text-gray-600">
-                        From concept sketches to detailed CAD models, we bring your ideas to life 
-                        with innovative and user-centered design solutions.
-                    </p>
-                </div>
-
-                <div class="service-card">
-                    <div class="service-icon">
-                        <img src="/assets/images/service-engineering-icon.jpg" alt="Engineering">
-                    </div>
-                    <h3 class="text-2xl font-semibold mb-4">Engineering</h3>
-                    <p class="text-gray-600">
-                        Our engineering team ensures your product is not only beautiful but also 
-                        functional, reliable, and ready for manufacturing.
-                    </p>
-                </div>
-
-                <div class="service-card">
-                    <div class="service-icon">
-                        <img src="/assets/images/service-manufacturing-icon.jpg" alt="Manufacturing">
-                    </div>
-                    <h3 class="text-2xl font-semibold mb-4">Manufacturing</h3>
-                    <p class="text-gray-600">
-                        We guide you through the manufacturing process, from prototyping to 
-                        production, ensuring quality and cost-effectiveness.
-                    </p>
-                </div>
+    <!-- Small By Design Section -->
+    <section class="small-by-design">
+        <div class="sbd-container">
+            <div class="sbd-content">
+                <h3><img src="./assets/images/hand.png" alt="Hand Icon" class="hand-icon">Small By Design</h3>
+                <p>Small by design, innovative by practice, we partner with startups and early stage innovators to develop technology and product designs that delight and exceed expectations.</p>
             </div>
         </div>
     </section>
 
     <!-- Stats Section -->
-    <section class="stats-section">
-        <div class="container">
-            <div class="stats-grid">
-                <div class="stat-item">
-                    <div class="stat-number">$100M</div>
-                    <div class="stat-label">Raised by our clients</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-number">Multiple</div>
-                    <div class="stat-label">Products Shipped</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-number">50+</div>
-                    <div class="stat-label">Projects Completed</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-number">10+</div>
-                    <div class="stat-label">Years Experience</div>
-                </div>
+    <section class="stats">
+        <div class="stats-container">
+            <div class="stat-item">
+                <div class="stat-number">50+</div>
+                <div class="stat-label">Startup<br>Partners</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">$100M</div>
+                <div class="stat-label">Raised By our<br>Clients</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">Multiple</div>
+                <div class="stat-label">Commercial<br>Products Shipped</div>
             </div>
         </div>
     </section>
 
-    <!-- Featured Projects Section -->
-    <section class="section">
-        <div class="container">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl md:text-5xl font-bold mb-6">Featured Work</h2>
-                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
-                    Explore some of our recent projects that showcase our expertise in 
-                    hardware product design and engineering.
-                </p>
+    <!-- Quote Section -->
+    <section class="quote-section">
+        <div class="quote-container">
+            <blockquote>
+                <p>"Our team loves to push the boundaries of what's possible. That's why we work with startup companies building game changing hardware products. We're comfortable working in the unstructured early stages of development, where our focus is on helping startups reduce risk and unlock funding."</p>
+            </blockquote>
+            
+            <!-- Client Logos -->
+            <div class="client-logos">
+                <div class="client-logo">Urogenie</div>
+                <div class="client-logo">Neuralert</div>
+                <div class="client-logo">Measure</div>
+                <div class="client-logo">Rezzi</div>
+                <div class="client-logo">RxWear</div>
+                <div class="client-logo">Laminitis</div>
             </div>
+        </div>
+    </section>
 
-            <div class="projects-grid">
-                <div class="project-card">
-                    <img src="/assets/images/project-measure-tile.jpg" alt="Measure Project" class="project-image">
-                    <div class="project-content">
-                        <h3 class="project-title">Measure</h3>
-                        <p class="project-description">
-                            Advanced measurement device with precision sensors and intuitive interface 
-                            for professional applications.
-                        </p>
-                        <a href="/work.html#measure" class="btn btn-primary">Learn More</a>
-                    </div>
+    <!-- Expertise Section -->
+    <section class="expertise">
+        <div class="expertise-container">
+            <h2>Our Expertise</h2>
+            <p class="expertise-intro">Whether working with startups or established companies with an entrepreneurial culture, we understand the challenge of needing to deliver big results under time and budget constraints. Through our partnership with NextFab Ventures, we've vetted and advised 100's of startups and have seen the successes and failures first-hand. That's why we've crafted our strategic, user-centered development approach to reduce risk and maximize learning for our clients.</p>
+            
+            <div class="expertise-grid">
+                <div class="expertise-item">
+                    <h3>Research & Strategy</h3>
+                    <p>Our team loves to push the boundaries of what's possible. That's why we work with startup companies building game changing hardware products.</p>
                 </div>
-
-                <div class="project-card">
-                    <img src="/assets/images/project-rxwear-tile.jpg" alt="RxWear Project" class="project-image">
-                    <div class="project-content">
-                        <h3 class="project-title">RxWear</h3>
-                        <p class="project-description">
-                            Wearable health monitoring device that combines comfort, functionality, 
-                            and cutting-edge sensor technology.
-                        </p>
-                        <a href="/work.html#rxwear" class="btn btn-primary">Learn More</a>
-                    </div>
+                <div class="expertise-item">
+                    <h3>Design</h3>
+                    <p>We partner with clients driven to solve problems and help businesses grow through strategic design thinking and user-centered development.</p>
                 </div>
-
-                <div class="project-card">
-                    <img src="/assets/images/project-laminitis-tile.jpg" alt="Laminitis Project" class="project-image">
-                    <div class="project-content">
-                        <h3 class="project-title">Laminitis</h3>
-                        <p class="project-description">
-                            Veterinary diagnostic tool designed to help detect and monitor 
-                            laminitis in horses with precision and ease.
-                        </p>
-                        <a href="/work.html#laminitis" class="btn btn-primary">Learn More</a>
-                    </div>
+                <div class="expertise-item">
+                    <h3>Engineering</h3>
+                    <p>Complete end-to-end development services from concept to manufacturing, including mechanical and electrical engineering expertise.</p>
                 </div>
-            </div>
-
-            <div class="text-center mt-12">
-                <a href="/work.html" class="btn btn-secondary btn-lg">View All Projects</a>
+                <div class="expertise-item">
+                    <h3>Manufacturing</h3>
+                    <p>We guide our clients through the complexities of bringing products to market with manufacturing and production expertise.</p>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Clients Section -->
-    <section class="clients-section">
-        <div class="container">
-            <div class="text-center mb-12">
-                <h2 class="text-3xl font-bold mb-4">Trusted by Industry Leaders</h2>
-                <p class="text-gray-600">
-                    We're proud to work with innovative companies across various industries.
-                </p>
-            </div>
-            
-            <div class="clients-grid">
-                <img src="/assets/images/client-logo-aaplasma.png" alt="AA Plasma" class="client-logo">
-                <img src="/assets/images/client-logo-nextfab.png" alt="NextFab" class="client-logo">
-                <img src="/assets/images/client-logo-ventures.png" alt="Ventures" class="client-logo">
-                <img src="/assets/images/client-logo-generic.png" alt="Client" class="client-logo">
+    <section class="clients">
+        <div class="clients-container">
+            <h2>Our Clients</h2>
+            <div class="client-logos-grid">
+                <img src="./assets/images/v35_522.png" alt="AAPlasma" class="client-logo-img">
+                <img src="./assets/images/v35_523.png" alt="NextFab" class="client-logo-img">
+                <img src="./assets/images/v35_524.png" alt="Ventures" class="client-logo-img">
+                <img src="./assets/images/v35_525.png" alt="Client Logo" class="client-logo-img">
             </div>
         </div>
     </section>
 
-    <!-- CTA Section -->
-    <section class="cta-section">
-        <div class="container">
-            <h2 class="text-4xl md:text-5xl font-bold mb-6">Ready to Build Something Amazing?</h2>
-            <p class="text-xl mb-8 max-w-2xl mx-auto">
-                Let's discuss your project and explore how we can help bring your hardware product vision to life.
-            </p>
-            <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                <a href="/contact.html" class="btn btn-accent btn-lg">Get Started Today</a>
-                <a href="mailto:hello@solidpd.com" class="btn btn-secondary btn-lg">Email Us</a>
+    <!-- Get In Touch Section -->
+    <section class="get-in-touch">
+        <div class="contact-container">
+            <h2>Get In Touch</h2>
+            <p>Get in touch to talk about what collaboration with Solid Product Design could look like for your business.</p>
+            <div class="contact-buttons">
+                <a href="https://calendar.app.google/HwNKaaJmsS37Bh4a9" target="_blank" class="btn btn-primary">Schedule a Call</a>
+                <a href="mailto:hello@solidpd.com" class="btn btn-secondary">Send a Message</a>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <div id="footer"></div>
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-sections">
+                <div class="footer-section">
+                    <h4>Menu</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="work.html">Work</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Location</h4>
+                    <p>2212 Walnut Street, 1st Floor<br>Philadelphia, PA 19103</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <p>Email: hello@solidpd.com</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Social Media</h4>
+                    <div class="social-links">
+                        <a href="#" class="social-link">LinkedIn</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="footer-logo">
+                    <img src="./assets/images/logo-horizontal-white.png" alt="Solid Product Design" class="footer-logo-img">
+                </div>
+                <div class="footer-legal">
+                    <span>Solid Product Development Copyright © 2025.</span>
+                    <div class="legal-links">
+                        <a href="#">Privacy Policy</a>
+                        <a href="#">Terms of Use</a>
+                        <a href="#">Cookies Policy</a>
+                        <a href="#">Cookies Settings</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
 
-    <!-- Scripts -->
-    <script src="/assets/js/main.js"></script>
+    <script>
+        // Hamburger menu functionality
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('nav-menu');
+
+        hamburger.addEventListener('click', function() {
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+
+        // Close menu when clicking on a link
+        document.querySelectorAll('.nav-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+            });
+        });
+    </script>
 </body>
 </html>
