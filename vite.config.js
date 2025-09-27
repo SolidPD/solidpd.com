@@ -1,6 +1,8 @@
 import { defineConfig } from 'vite'
+import htmlInject from './vite-html-inject.js'
 
 export default defineConfig({
+  plugins: [htmlInject()],
   root: 'src',
   build: {
     outDir: '../dist',
