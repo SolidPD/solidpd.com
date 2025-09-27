@@ -378,8 +378,8 @@ blockquote::after {
 
 /* Clients Section */
 .clients {
-    background: white;
-    padding: 4rem 0;
+    background: #f8f9fa;
+    padding: 6rem 0;
 }
 
 .clients-container {
