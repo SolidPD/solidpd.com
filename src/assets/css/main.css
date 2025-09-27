@@ -271,6 +271,16 @@ blockquote::after {
     color: #4A90E2;
 }
 
+.clients-intro {
+    font-size: 1.1rem;
+    color: #666;
+    margin-bottom: 3rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.6;
+}
+
 .client-logos {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -279,12 +289,39 @@ blockquote::after {
 }
 
 .client-logo {
-    background: #f0f0f0;
+    background: white;
     padding: 2rem;
     text-align: center;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.client-logo:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+}
+
+.client-logo-img {
+    max-width: 80px;
+    height: 60px;
+    object-fit: contain;
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
+}
+
+.client-logo:hover .client-logo-img {
+    opacity: 1;
+}
+
+.client-name {
     font-weight: 600;
-    color: #666;
-    border-radius: 8px;
+    color: #333;
+    font-size: 0.9rem;
 }
 
 /* Expertise Section */
@@ -636,38 +673,538 @@ blockquote::after {
 }
 
 /* About Page Specific Styles */
-.about-hero {
-    background: #666;
+.workshop-world {
+    background: #000;
     color: white;
-    padding: 8rem 0 4rem;
-    margin-top: 80px;
+    padding: 6rem 0;
+    text-align: center;
 }
 
-.about-hero-content {
+.workshop-world h2 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin: 0;
+    line-height: 1.2;
+}
+
+.company-story {
+    background: white;
+    padding: 6rem 0;
+}
+
+.story-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    text-align: center;
+}
+
+.story-container p {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    color: #555;
+}
+
+.small-team {
+    background: #f8f9fa;
+    padding: 6rem 0;
+}
+
+.team-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    text-align: center;
+}
+
+.small-team h2 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    color: #333;
+}
+
+.small-team p {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: #666;
+}
+
+.team-section {
+    background: white;
+    padding: 6rem 0;
+}
+
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 3rem;
+    margin-top: 3rem;
+}
+
+.team-member {
+    background: #f8f9fa;
+    padding: 2rem;
+    border-radius: 12px;
+    border-left: 4px solid #4A90E2;
+}
+
+.team-member h3 {
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 1rem;
+}
+
+.team-member .credentials,
+.team-member .professional,
+.team-member .personal,
+.team-member .education,
+.team-member .highlights {
+    margin-bottom: 1.5rem;
+}
+
+.team-member p {
+    margin-bottom: 0.5rem;
+    line-height: 1.6;
+    color: #555;
+}
+
+.team-member ul {
+    margin-left: 1rem;
+    margin-top: 0.5rem;
+}
+
+.team-member li {
+    margin-bottom: 0.3rem;
+    color: #666;
+    line-height: 1.5;
+}
+
+.experts-section {
+    background: #f8f9fa;
+    padding: 6rem 0;
+}
+
+.experts-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    text-align: center;
+}
+
+.experts-section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    color: #333;
+}
+
+.experts-section p {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: #666;
+}
+
+.startup-mentality {
+    background: white;
+    padding: 6rem 0;
+}
+
+.mentality-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    text-align: center;
+}
+
+.startup-mentality h2 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    color: #333;
+}
+
+.startup-mentality p {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: #666;
+}
+
+/* Services Page Specific Styles */
+.service-areas {
+    background: white;
+    padding: 6rem 0;
+}
+
+.services-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.service-item {
+    margin-bottom: 3rem;
+    padding: 2rem;
+    background: #f8f9fa;
+    border-radius: 12px;
+    border-left: 4px solid #4A90E2;
+}
+
+.service-item h3 {
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 1rem;
+}
+
+.service-item p {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: #666;
+}
+
+.service-packages {
+    background: #f8f9fa;
+    padding: 6rem 0;
+}
+
+.packages-container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 2rem;
 }
 
-.about-hero h1 {
+.service-packages h2 {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 3rem;
+    color: #333;
+}
+
+.package-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.package-item {
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease;
+}
+
+.package-item:hover {
+    transform: translateY(-5px);
+}
+
+.package-item h3 {
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 0.5rem;
+}
+
+.package-item .subtitle {
+    color: #4A90E2;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.package-item .price {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 0.5rem;
+}
+
+.package-item .duration {
+    color: #666;
+    margin-bottom: 1rem;
+}
+
+.package-item .description {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #555;
+    margin-bottom: 1.5rem;
+}
+
+.package-item .features {
+    list-style: none;
+    padding: 0;
+}
+
+.package-item .features li {
+    padding: 0.3rem 0;
+    color: #666;
+    position: relative;
+    padding-left: 1.5rem;
+}
+
+.package-item .features li:before {
+    content: "✓";
+    color: #4A90E2;
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+}
+
+.testimonials {
+    background: white;
+    padding: 6rem 0;
+}
+
+.testimonials-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.testimonials h2 {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 3rem;
+    color: #333;
+}
+
+.testimonial-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+
+.testimonial-item {
+    background: #f8f9fa;
+    padding: 2rem;
+    border-radius: 12px;
+    text-align: center;
+}
+
+.testimonial-item blockquote {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #555;
+    margin-bottom: 1rem;
+    font-style: italic;
+}
+
+.testimonial-item cite {
+    font-weight: 600;
+    color: #333;
+    font-style: normal;
+}
+
+/* Work Page Specific Styles */
+.portfolio-items {
+    background: white;
+    padding: 6rem 0;
+}
+
+.portfolio-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+
+.portfolio-item {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease;
+    overflow: hidden;
+}
+
+.portfolio-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+}
+
+.portfolio-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 12px 12px 0 0;
+}
+
+.portfolio-item h3,
+.portfolio-item .category,
+.portfolio-item .description,
+.portfolio-item .tags {
+    padding: 0 2rem;
+}
+
+.portfolio-item h3 {
+    padding-top: 1.5rem;
+    font-size: 1.3rem;
+    color: #333;
+    margin-bottom: 0.5rem;
+}
+
+.portfolio-item .tags {
+    padding-bottom: 2rem;
+}
+
+.portfolio-item .category {
+    color: #4A90E2;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+}
+
+.portfolio-item .description {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #666;
+    margin-bottom: 1rem;
+}
+
+.portfolio-item .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.portfolio-item .tag {
+    background: #4A90E2;
+    color: white;
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+.our-process {
+    background: #f8f9fa;
+    padding: 6rem 0;
+}
+
+.process-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    text-align: center;
+}
+
+.our-process h2 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    color: #333;
+}
+
+.process-description {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: #666;
+    margin-bottom: 3rem;
+}
+
+.process-steps {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.process-step {
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.process-step h3 {
+    font-size: 1.3rem;
+    color: #4A90E2;
+    margin-bottom: 1rem;
+}
+
+.process-step p {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #666;
+}
+
+/* Contact Page Specific Styles */
+.contact-hero {
+    background: #666;
+    color: white;
+    padding: 8rem 0 6rem;
+    margin-top: 80px;
+    text-align: center;
+}
+
+.contact-hero-content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.contact-hero h1 {
     font-size: 4rem;
     font-weight: 700;
-    margin-bottom: 1rem;
-    color: white;
-}
-
-.about-hero h2 {
-    font-size: 1.5rem;
-    font-weight: 500;
+    line-height: 1.1;
     margin-bottom: 2rem;
-    color: white;
 }
 
-.about-hero p {
-    font-size: 1.1rem;
+.blue-dot {
+    color: #4A90E2;
+}
+
+.contact-hero p {
+    font-size: 1.2rem;
     line-height: 1.6;
-    max-width: 800px;
+    margin-bottom: 3rem;
     opacity: 0.9;
+    max-width: 800px;
+}
+
+/* Responsive Design Updates */
+@media (max-width: 768px) {
+    .team-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .package-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .testimonial-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .portfolio-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .process-steps {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .workshop-world h2 {
+        font-size: 2.5rem;
+    }
+    
+    .contact-hero h1 {
+        font-size: 2.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .process-steps {
+        grid-template-columns: 1fr;
+    }
+    
+    .workshop-world h2 {
+        font-size: 2rem;
+    }
+    
+    .contact-hero h1 {
+        font-size: 2rem;
+    }
 }
 
 /* World Section */
