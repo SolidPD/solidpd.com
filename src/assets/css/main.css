@@ -368,6 +368,57 @@ blockquote::after {
     line-height: 1.6;
 }
 
+/* Featured Partners Section */
+.featured-partners {
+    background: white;
+    padding: 4rem 0;
+    border-bottom: 1px solid #e9ecef;
+}
+
+.partners-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    text-align: center;
+}
+
+.featured-partners h2 {
+    font-size: 2rem;
+    margin-bottom: 3rem;
+    color: #333;
+}
+
+.partner-logos {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    align-items: center;
+    justify-items: center;
+}
+
+.partner-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 80px;
+}
+
+.partner-logo-img {
+    max-width: 150px;
+    max-height: 80px;
+    height: auto;
+    width: auto;
+    opacity: 0.6;
+    transition: opacity 0.3s ease;
+    object-fit: contain;
+    filter: grayscale(100%);
+}
+
+.partner-logo-img:hover {
+    opacity: 0.9;
+    filter: grayscale(0%);
+}
+
 /* Clients Section */
 .clients {
     background: #f8f9fa;
@@ -395,10 +446,13 @@ blockquote::after {
 }
 
 .client-logo-img {
-    max-width: 150px;
+    max-width: 120px;
+    max-height: 60px;
     height: auto;
+    width: auto;
     opacity: 0.7;
     transition: opacity 0.3s ease;
+    object-fit: contain;
 }
 
 .client-logo-img:hover {
@@ -619,6 +673,11 @@ blockquote::after {
     
     .expertise-grid {
         grid-template-columns: 1fr;
+    }
+    
+    .partner-logos {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
     }
     
     .client-logos {
