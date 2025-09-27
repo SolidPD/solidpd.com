@@ -12,9 +12,14 @@
     <nav class="navbar">
         <div class="nav-container">
             <div class="nav-logo">
-                <a href="index.html"><img src="./images/logo-horizontal-white.png" alt="Solid Product Design" class="logo"></a>
+                <a href="index.html"><img src="./images/logos/Horizontal/Black/Solid-Product-Design-logo-horizontal-black.png" alt="Solid Product Design" class="logo"></a>
             </div>
-            <ul class="nav-menu">
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-menu" id="nav-menu">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="work.html">Work</a></li>
                 <li><a href="about.html">About us</a></li>
@@ -30,8 +35,8 @@
             <h1>Get<br>In<br>Touch<span class="blue-dot">●</span></h1>
             <p>Get in touch to talk about what collaboration with Solid Product Design could look like for your business.</p>
             <div class="contact-buttons">
-                <a href="#" class="btn btn-primary">Schedule a Call</a>
-                <a href="#" class="btn btn-secondary">Send a Message</a>
+                <a href="https://calendar.app.google/HwNKaaJmsS37Bh4a9" target="_blank" class="btn btn-primary">Schedule a Call</a>
+                <a href="mailto:hello@solidpd.com" class="btn btn-secondary">Send a Message</a>
             </div>
         </div>
     </section>
@@ -77,5 +82,24 @@
             </div>
         </div>
     </footer>
+
+    <script>
+        // Hamburger menu functionality
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('nav-menu');
+
+        hamburger.addEventListener('click', function() {
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+
+        // Close menu when clicking on a link
+        document.querySelectorAll('.nav-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+            });
+        });
+    </script>
 </body>
 </html>

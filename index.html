@@ -12,9 +12,14 @@
     <nav class="navbar">
         <div class="nav-container">
             <div class="nav-logo">
-                <a href="index.html"><img src="./images/logo-horizontal-white.png" alt="Solid Product Design" class="logo"></a>
+                <a href="index.html"><img src="./images/logos/Horizontal/Black/Solid-Product-Design-logo-horizontal-black.png" alt="Solid Product Design" class="logo"></a>
             </div>
-            <ul class="nav-menu">
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-menu" id="nav-menu">
                 <li><a href="index.html" class="active">Home</a></li>
                 <li><a href="work.html">Work</a></li>
                 <li><a href="about.html">About us</a></li>
@@ -55,11 +60,8 @@
     <!-- Small By Design Section -->
     <section class="small-by-design">
         <div class="sbd-container">
-            <div class="sbd-logo">
-                <img src="./images/logo-stacked-white.png" alt="Small By Design Logo" class="sbd-logo-img">
-            </div>
             <div class="sbd-content">
-                <h3>Small By Design</h3>
+                <h3><img src="./images/hand.png" alt="Hand Icon" class="hand-icon">Small By Design</h3>
                 <p>Small by design, innovative by practice, we partner with startups and early stage innovators to develop technology and product designs that delight and exceed expectations.</p>
             </div>
         </div>
@@ -148,8 +150,8 @@
             <h2>Get In Touch</h2>
             <p>Get in touch to talk about what collaboration with Solid Product Design could look like for your business.</p>
             <div class="contact-buttons">
-                <a href="#" class="btn btn-primary">Schedule a Call</a>
-                <a href="#" class="btn btn-secondary">Send a Message</a>
+                <a href="https://calendar.app.google/HwNKaaJmsS37Bh4a9" target="_blank" class="btn btn-primary">Schedule a Call</a>
+                <a href="mailto:hello@solidpd.com" class="btn btn-secondary">Send a Message</a>
             </div>
         </div>
     </section>
@@ -170,7 +172,11 @@
                 </div>
                 <div class="footer-section">
                     <h4>Location</h4>
-                    <p>2212 Walnut Street.<br>Philadelphia PA, 19103</p>
+                    <p>2212 Walnut Street, 1st Floor<br>Philadelphia, PA 19103</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <p>Email: hello@solidpd.com</p>
                 </div>
                 <div class="footer-section">
                     <h4>Social Media</h4>
@@ -195,5 +201,24 @@
             </div>
         </div>
     </footer>
+
+    <script>
+        // Hamburger menu functionality
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('nav-menu');
+
+        hamburger.addEventListener('click', function() {
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+
+        // Close menu when clicking on a link
+        document.querySelectorAll('.nav-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+            });
+        });
+    </script>
 </body>
 </html>

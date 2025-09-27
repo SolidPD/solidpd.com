@@ -56,6 +56,35 @@ body {
     color: #4A90E2;
 }
 
+/* Hamburger Menu */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    padding: 5px;
+}
+
+.hamburger span {
+    width: 25px;
+    height: 3px;
+    background-color: #333;
+    margin: 3px 0;
+    transition: 0.3s;
+    border-radius: 2px;
+}
+
+.hamburger.active span:nth-child(1) {
+    transform: rotate(-45deg) translate(-5px, 6px);
+}
+
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+    transform: rotate(45deg) translate(-5px, -6px);
+}
+
 /* Hero Section */
 .hero {
     position: relative;
@@ -143,7 +172,7 @@ body {
 
 /* Small By Design Section */
 .small-by-design {
-    background: #333;
+    background: #000;
     color: white;
     padding: 4rem 0;
 }
@@ -152,26 +181,37 @@ body {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 2rem;
-    display: grid;
-    grid-template-columns: 1fr 2fr;
-    gap: 4rem;
-    align-items: center;
+    text-align: center;
 }
 
-.sbd-logo-img {
-    max-width: 200px;
+.sbd-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+}
+
+.hand-icon {
+    max-width: 40px;
     height: auto;
+    margin-right: 1rem;
+    vertical-align: middle;
 }
 
 .sbd-content h3 {
     font-size: 2.5rem;
     font-weight: 700;
-    margin-bottom: 1.5rem;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .sbd-content p {
     font-size: 1.1rem;
     line-height: 1.6;
+    max-width: 800px;
+    margin: 0;
 }
 
 /* Stats Section */
@@ -500,8 +540,31 @@ blockquote::after {
 
 /* Responsive Design */
 @media (max-width: 768px) {
+    .hamburger {
+        display: flex;
+    }
+    
     .nav-menu {
-        display: none;
+        position: fixed;
+        left: -100%;
+        top: 70px;
+        flex-direction: column;
+        background-color: rgba(255, 255, 255, 0.98);
+        width: 100%;
+        text-align: center;
+        transition: 0.3s;
+        box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
+        backdrop-filter: blur(10px);
+        padding: 2rem 0;
+        gap: 1rem;
+    }
+
+    .nav-menu.active {
+        left: 0;
+    }
+
+    .nav-menu li {
+        margin: 1rem 0;
     }
     
     .hero-text h1 {
@@ -512,9 +575,12 @@ blockquote::after {
         font-size: 2.5rem;
     }
     
-    .sbd-container {
-        grid-template-columns: 1fr;
-        text-align: center;
+    .sbd-content h3 {
+        font-size: 2rem;
+    }
+    
+    .hand-icon {
+        max-width: 30px;
     }
     
     .stats-container {
