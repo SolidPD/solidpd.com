@@ -12,6 +12,35 @@ The official website for Solid Product Design - a modern, responsive static site
 
 **Why this matters**: The build system generates files from `src/` to the root and `dist/` directories. Editing root files will cause your changes to be lost on the next build!
 
+## 🚨 STATIC SITE ARCHITECTURE - READ THIS!
+
+**THIS IS A STATIC SITE - DO NOT IMPLEMENT DYNAMIC LOADING!**
+
+### ❌ NEVER DO THESE THINGS:
+- **Dynamic component loading** via JavaScript fetch() calls
+- **Client-side HTML injection** from separate component files
+- **Runtime DOM manipulation** for loading headers/footers
+- **AJAX requests** to load HTML fragments
+- **JavaScript-based templating** systems
+
+### ✅ CORRECT APPROACH:
+- **Inline HTML**: All content (headers, footers, components) should be directly embedded in each HTML file
+- **Static assets**: Images, CSS, and JS files served as static resources
+- **Build-time processing**: Use Vite's build system for optimization, not runtime loading
+- **Copy-paste components**: If you need to update headers/footers across pages, manually update each HTML file
+
+### Why This Matters:
+1. **Performance**: Static sites load faster than dynamic ones
+2. **Reliability**: No JavaScript failures can break the site structure
+3. **SEO**: Search engines can properly index all content
+4. **Simplicity**: Easier to maintain and debug
+5. **Hosting**: Works on any static hosting service without server requirements
+
+### Component Management:
+- The `src/components/` folder contains reference HTML for copy-pasting
+- When updating shared components (header/footer), manually update ALL HTML files
+- Do NOT create JavaScript loaders or dynamic injection systems
+
 ### File Structure Explained
 
 ```
@@ -190,9 +219,11 @@ The site automatically deploys via GitHub Actions:
 - Ensure proper file extensions (.jpg, .png, .svg)
 
 **Components not loading**:
-- Check that header/footer files exist in `src/components/`
-- Verify JavaScript is loading properly
-- Check browser console for errors
+- ⚠️ **IMPORTANT**: This site uses STATIC components, not dynamic loading
+- Headers and footers should be directly embedded in each HTML file
+- If components appear missing, they need to be manually copied into each page
+- Do NOT try to fix this with JavaScript loaders - use inline HTML instead
+- Check that all HTML files contain the complete header and footer HTML
 
 **Styles not applying**:
 - Ensure CSS files are properly linked in HTML

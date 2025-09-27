@@ -13,6 +13,37 @@ This document provides technical guidance for AI agents working on the SolidPD.c
 
 **Why this matters**: The build system generates files from `src/` to the root and `dist/` directories. Editing root files will cause your changes to be lost on the next build!
 
+## 🚨 STATIC SITE ARCHITECTURE - MANDATORY FOR AI AGENTS
+
+**THIS IS A STATIC SITE - NEVER IMPLEMENT DYNAMIC LOADING!**
+
+### ❌ FORBIDDEN APPROACHES:
+- **Dynamic component loading** via JavaScript fetch() calls
+- **Client-side HTML injection** from separate component files  
+- **Runtime DOM manipulation** for loading headers/footers
+- **AJAX requests** to load HTML fragments
+- **JavaScript-based templating** systems
+- **Component loaders** like footer-loader.js (removed from this project)
+
+### ✅ REQUIRED APPROACH:
+- **Inline HTML**: All content (headers, footers, components) must be directly embedded in each HTML file
+- **Static assets**: Images, CSS, and JS files served as static resources only
+- **Manual updates**: When updating shared components, manually update ALL HTML files
+- **Copy-paste workflow**: Use `src/components/` as reference templates for copying into pages
+
+### Historical Context:
+This project previously had dynamic component loading that caused issues:
+- `footer-loader.js` attempted to fetch `/components/footer.html` 
+- Vite dev server root is `src/`, causing path resolution failures
+- Dynamic loading broke the footer display across all pages
+- **Solution**: Replaced with inline HTML in all pages (index, about, services, work, contact)
+
+### Component Update Workflow:
+1. Edit the reference component in `src/components/` (e.g., `footer.html`)
+2. Copy the updated HTML to ALL page files in `src/`
+3. Test that all pages display the component correctly
+4. Never create JavaScript loaders or dynamic injection systems
+
 ### Quick File Structure Check
 ```
 src/                    ← EDIT THESE FILES
@@ -76,30 +107,38 @@ cp -r public/* dist/
 - `npm run build` - Build optimized production files
 - `npm run preview` - Preview production build locally
 
-## 🧩 Component System
+## 🧩 Component System (STATIC APPROACH)
 
-### Component Loading Mechanism
-The site uses a custom component loading system via JavaScript:
+### Component Management - STATIC ONLY
+The site uses a **STATIC component system** - NO dynamic loading:
+
+```html
+<!-- CORRECT: Inline component HTML directly in each page -->
+<footer class="footer">
+  <div class="container">
+    <!-- Full footer HTML embedded here -->
+  </div>
+</footer>
+```
 
 ```javascript
-// Components are loaded asynchronously
+// ❌ FORBIDDEN: Do NOT create dynamic loaders like this
 async function loadComponent(elementId, componentPath) {
-  const response = await fetch(componentPath);
-  const html = await response.text();
-  document.getElementById(elementId).innerHTML = html;
+  // This approach is BANNED from this project
 }
 ```
 
 ### Adding New Components
-1. Create HTML file in `src/components/`
-2. Copy to `public/components/` for serving
-3. Load in pages using: `<div id="component-name"></div>`
-4. Initialize in JavaScript: `loadComponent('component-name', '/components/filename.html')`
+1. Create HTML file in `src/components/` as a **reference template**
+2. **Manually copy** the HTML into each page file in `src/`
+3. **Do NOT** create JavaScript loaders or dynamic injection
+4. Test that the component appears correctly on all pages
 
 ### Updating Existing Components
-1. Edit files in `src/components/`
-2. Copy changes to `public/components/`
-3. Components load on page initialization
+1. Edit the reference file in `src/components/`
+2. **Manually copy** the updated HTML to **ALL** page files in `src/`
+3. Verify the changes appear on all pages
+4. **Never** use JavaScript to inject or load components
 
 ## 🎨 Styling Architecture
 
@@ -145,8 +184,8 @@ async function loadComponent(elementId, componentPath) {
 
 ## 📝 Content Management
 
-### Page Structure Pattern
-Each HTML page follows this structure:
+### Page Structure Pattern (STATIC APPROACH)
+Each HTML page follows this structure with **INLINE components**:
 ```html
 <!DOCTYPE html>
 <html lang="en">
@@ -156,16 +195,34 @@ Each HTML page follows this structure:
   <link rel="stylesheet" href="/assets/css/main.css">
 </head>
 <body>
-  <div id="header"></div>
+  <!-- INLINE HEADER - Full HTML embedded here -->
+  <header class="header">
+    <nav class="navbar">
+      <!-- Complete header HTML -->
+    </nav>
+  </header>
   
   <main>
     <!-- Page-specific content -->
   </main>
   
-  <div id="footer"></div>
+  <!-- INLINE FOOTER - Full HTML embedded here -->
+  <footer class="footer">
+    <div class="container">
+      <!-- Complete footer HTML including LinkedIn links -->
+    </div>
+  </footer>
+  
   <script src="/assets/js/main.js"></script>
 </body>
 </html>
+```
+
+### ❌ WRONG Pattern (DO NOT USE):
+```html
+<!-- This is FORBIDDEN - no empty divs for dynamic loading -->
+<div id="header"></div>
+<div id="footer"></div>
 ```
 
 ### Adding New Pages
@@ -250,9 +307,12 @@ const criticalImages = [
 ### Common Issues and Solutions
 
 **Components not loading**:
-- Check if development server is running (`npm run dev`)
-- Verify component files exist in both `src/components/` and `public/components/`
-- Check browser console for fetch errors
+- ⚠️ **CRITICAL**: This site uses STATIC components, not dynamic loading
+- If headers/footers are missing, they need to be manually embedded in each HTML file
+- **DO NOT** create JavaScript loaders to fix this - use inline HTML instead
+- Check that all HTML files contain the complete header and footer HTML
+- The `src/components/` folder is for reference templates only, not for serving
+- **Historical note**: `footer-loader.js` was removed because it broke the site
 
 **Styles not applying**:
 - Verify CSS files are linked in HTML head
@@ -305,16 +365,20 @@ cp -r public/* dist/
 
 ### Code Modification Guidelines
 1. **Always test locally** with `npm run dev` before committing
-2. **Update both src/ and public/** when modifying components
-3. **Use descriptive commit messages** with clear change descriptions
-4. **Follow existing naming conventions** for files and CSS classes
-5. **Maintain responsive design** across all breakpoints
+2. **Use STATIC components only** - never implement dynamic loading
+3. **Update ALL HTML files** when modifying shared components (header/footer)
+4. **Use descriptive commit messages** with clear change descriptions
+5. **Follow existing naming conventions** for files and CSS classes
+6. **Maintain responsive design** across all breakpoints
+7. **Preserve existing improvements** (like LinkedIn SVG icons) when fixing issues
 
 ### File Management
 - **Never edit dist/ directly** - it's generated by the build process
-- **Keep public/ in sync** with src/components/ for component serving
+- **Use src/components/ as reference templates only** - not for serving
+- **Manually copy component changes** to all HTML files in src/
 - **Use descriptive image names** when adding new assets
 - **Update vite.config.js** when adding new pages
+- **Do NOT create component loaders** or dynamic injection systems
 
 ### Performance Optimization
 - **Optimize images** before adding to the project
