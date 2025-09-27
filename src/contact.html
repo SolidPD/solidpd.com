@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Solid Product Design</title>
+    <meta name="description" content="Get in touch with Solid Product Design. Start your hardware product development project with our expert team of designers and engineers.">
+    <meta name="keywords" content="contact product design, hardware development consultation, project inquiry, design services quote">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://solidpd.com/contact.html">
+    <meta property="og:title" content="Contact Us - Solid Product Design">
+    <meta property="og:description" content="Get in touch with Solid Product Design. Start your hardware product development project with our expert team.">
+    <meta property="og:image" content="https://solidpd.com/assets/images/contact-hero-office.jpg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://solidpd.com/contact.html">
+    <meta property="twitter:title" content="Contact Us - Solid Product Design">
+    <meta property="twitter:description" content="Get in touch with Solid Product Design. Start your hardware product development project with our expert team.">
+    <meta property="twitter:image" content="https://solidpd.com/assets/images/contact-hero-office.jpg">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/logos/Stacked/PNG/Solid_Logo_Stacked_Black.png">
+    
+    <!-- Preload critical resources -->
+    <link rel="preload" href="/assets/css/main.css" as="style">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap" as="style">
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="/assets/css/main.css">
+</head>
+<body>
+    <!-- Header -->
+    <div id="header"></div>
+
+    <!-- Hero Section -->
+    <section class="hero" style="min-height: 60vh;">
+        <img src="/assets/images/contact-hero-office.jpg" alt="Contact Solid Product Design" class="hero-background">
+        <div class="container hero-content">
+            <div class="max-w-4xl">
+                <h1 class="text-5xl md:text-6xl font-bold mb-6 text-secondary">
+                    Let's Build Something Great Together
+                </h1>
+                <p class="text-xl md:text-2xl mb-8 text-secondary opacity-90 max-w-3xl">
+                    Ready to transform your product idea into reality? We're here to help you 
+                    navigate every step of the development journey.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Methods -->
+    <section class="section">
+        <div class="container">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
+                <!-- Contact Form -->
+                <div>
+                    <h2 class="text-3xl font-bold mb-8">Start the Conversation</h2>
+                    <form id="contact-form" class="contact-form">
+                        <div class="form-group">
+                            <label for="name" class="form-label">Full Name *</label>
+                            <input type="text" id="name" name="name" class="form-input" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email" class="form-label">Email Address *</label>
+                            <input type="email" id="email" name="email" class="form-input" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="company" class="form-label">Company</label>
+                            <input type="text" id="company" name="company" class="form-input">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="phone" class="form-label">Phone Number</label>
+                            <input type="tel" id="phone" name="phone" class="form-input">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="project-type" class="form-label">Project Type</label>
+                            <select id="project-type" name="project-type" class="form-input">
+                                <option value="">Select project type</option>
+                                <option value="new-product">New Product Development</option>
+                                <option value="redesign">Product Redesign</option>
+                                <option value="engineering">Engineering Support</option>
+                                <option value="manufacturing">Manufacturing Consultation</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="budget" class="form-label">Project Budget Range</label>
+                            <select id="budget" name="budget" class="form-input">
+                                <option value="">Select budget range</option>
+                                <option value="under-50k">Under $50,000</option>
+                                <option value="50k-100k">$50,000 - $100,000</option>
+                                <option value="100k-250k">$100,000 - $250,000</option>
+                                <option value="250k-500k">$250,000 - $500,000</option>
+                                <option value="over-500k">Over $500,000</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="timeline" class="form-label">Desired Timeline</label>
+                            <select id="timeline" name="timeline" class="form-input">
+                                <option value="">Select timeline</option>
+                                <option value="asap">ASAP</option>
+                                <option value="3-months">Within 3 months</option>
+                                <option value="6-months">Within 6 months</option>
+                                <option value="12-months">Within 12 months</option>
+                                <option value="flexible">Flexible</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message" class="form-label">Project Description *</label>
+                            <textarea id="message" name="message" class="form-textarea" rows="6" 
+                                placeholder="Tell us about your project, goals, challenges, and any specific requirements..." required></textarea>
+                        </div>
+
+                        <button type="submit" class="btn btn-accent btn-lg w-full">
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Contact Information -->
+                <div>
+                    <h2 class="text-3xl font-bold mb-8">Get in Touch</h2>
+                    
+                    <div class="space-y-8">
+                        <!-- Email -->
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 bg-accent rounded-full flex items-center justify-center flex-shrink-0">
+                                <span class="text-primary font-bold">✉</span>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-lg mb-2">Email Us</h3>
+                                <p class="text-gray-600 mb-2">
+                                    For project inquiries and general questions
+                                </p>
+                                <a href="mailto:hello@solidpd.com" class="text-accent hover:text-accent-dark font-medium">
+                                    hello@solidpd.com
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Phone -->
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 bg-accent rounded-full flex items-center justify-center flex-shrink-0">
+                                <span class="text-primary font-bold">📞</span>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-lg mb-2">Call Us</h3>
+                                <p class="text-gray-600 mb-2">
+                                    Speak directly with our team
+                                </p>
+                                <a href="tel:+1-555-SOLID-PD" class="text-accent hover:text-accent-dark font-medium">
+                                    +1 (555) SOLID-PD
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Location -->
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 bg-accent rounded-full flex items-center justify-center flex-shrink-0">
+                                <span class="text-primary font-bold">📍</span>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-lg mb-2">Visit Our Studio</h3>
+                                <p class="text-gray-600 mb-2">
+                                    Philadelphia, PA<br>
+                                    Available for on-site consultations
+                                </p>
+                                <p class="text-sm text-gray-500">
+                                    Exact address provided upon scheduling
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Schedule -->
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 bg-accent rounded-full flex items-center justify-center flex-shrink-0">
+                                <span class="text-primary font-bold">📅</span>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-lg mb-2">Schedule a Call</h3>
+                                <p class="text-gray-600 mb-4">
+                                    Book a free 30-minute consultation to discuss your project
+                                </p>
+                                <a href="#" class="btn btn-secondary">Book Consultation</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Response Time -->
+                    <div class="mt-12 p-6 bg-gray-50 rounded-lg">
+                        <h3 class="font-semibold text-lg mb-3">Response Time</h3>
+                        <p class="text-gray-600">
+                            We typically respond to all inquiries within 24 hours during business days. 
+                            For urgent matters, please call us directly.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Overview -->
+    <section class="section bg-gray-50">
+        <div class="container">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-6">What Happens Next?</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Here's what you can expect after reaching out to us.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-accent rounded-full flex items-center justify-center mx-auto mb-6">
+                        <span class="text-2xl font-bold text-primary">1</span>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4">Initial Response</h3>
+                    <p class="text-gray-600">
+                        We'll respond within 24 hours to acknowledge your inquiry and schedule 
+                        an initial conversation.
+                    </p>
+                </div>
+
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-accent rounded-full flex items-center justify-center mx-auto mb-6">
+                        <span class="text-2xl font-bold text-primary">2</span>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4">Discovery Call</h3>
+                    <p class="text-gray-600">
+                        We'll have a detailed discussion about your project goals, requirements, 
+                        timeline, and budget.
+                    </p>
+                </div>
+
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-accent rounded-full flex items-center justify-center mx-auto mb-6">
+                        <span class="text-2xl font-bold text-primary">3</span>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4">Proposal</h3>
+                    <p class="text-gray-600">
+                        We'll prepare a detailed proposal outlining our approach, timeline, 
+                        and investment for your project.
+                    </p>
+                </div>
+
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-accent rounded-full flex items-center justify-center mx-auto mb-6">
+                        <span class="text-2xl font-bold text-primary">4</span>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4">Project Kickoff</h3>
+                    <p class="text-gray-600">
+                        Once approved, we'll kick off your project with a comprehensive 
+                        discovery and planning phase.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="section">
+        <div class="container">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-6">Frequently Asked Questions</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Common questions about working with us and our process.
+                </p>
+            </div>
+
+            <div class="max-w-4xl mx-auto space-y-8">
+                <div class="bg-white p-8 rounded-lg shadow-md">
+                    <h3 class="text-xl font-semibold mb-4">How long does a typical project take?</h3>
+                    <p class="text-gray-600">
+                        Project timelines vary depending on complexity, but most projects range from 
+                        3-12 months. Simple redesigns might take 6-8 weeks, while complex new product 
+                        development can take 12-18 months from concept to production.
+                    </p>
+                </div>
+
+                <div class="bg-white p-8 rounded-lg shadow-md">
+                    <h3 class="text-xl font-semibold mb-4">What's included in your design services?</h3>
+                    <p class="text-gray-600">
+                        Our comprehensive services include research and strategy, industrial design, 
+                        mechanical and electrical engineering, prototyping, testing, and manufacturing 
+                        support. We can handle the entire development process or specific phases.
+                    </p>
+                </div>
+
+                <div class="bg-white p-8 rounded-lg shadow-md">
+                    <h3 class="text-xl font-semibold mb-4">Do you work with startups?</h3>
+                    <p class="text-gray-600">
+                        Absolutely! We love working with startups and have helped many secure funding 
+                        and launch successful products. We understand the unique challenges startups 
+                        face and can adapt our approach to fit your budget and timeline.
+                    </p>
+                </div>
+
+                <div class="bg-white p-8 rounded-lg shadow-md">
+                    <h3 class="text-xl font-semibold mb-4">Can you help with manufacturing?</h3>
+                    <p class="text-gray-600">
+                        Yes, we provide comprehensive manufacturing support including supplier selection, 
+                        production planning, quality assurance, and scaling strategies. We work with 
+                        trusted manufacturing partners worldwide.
+                    </p>
+                </div>
+
+                <div class="bg-white p-8 rounded-lg shadow-md">
+                    <h3 class="text-xl font-semibold mb-4">What industries do you serve?</h3>
+                    <p class="text-gray-600">
+                        We work across diverse industries including healthcare, consumer electronics, 
+                        industrial IoT, fitness and sports, automotive, and sustainability. Our team's 
+                        broad expertise allows us to tackle projects in virtually any sector.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2 class="text-4xl md:text-5xl font-bold mb-6">Ready to Get Started?</h2>
+            <p class="text-xl mb-8 max-w-2xl mx-auto">
+                Don't let your great idea remain just an idea. Let's work together to bring 
+                your product vision to life.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="mailto:hello@solidpd.com" class="btn btn-accent btn-lg">Email Us Now</a>
+                <a href="tel:+1-555-SOLID-PD" class="btn btn-secondary btn-lg">Call Today</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <div id="footer"></div>
+
+    <!-- Scripts -->
+    <script src="/assets/js/main.js"></script>
+</body>
+</html>

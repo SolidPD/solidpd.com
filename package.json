@@ -1,0 +1,17 @@
+{
+  "name": "solidpd.com",
+  "version": "1.0.0",
+  "description": "A modern, responsive static website for Solid Product Design - expert hardware product design and engineering services.",
+  "main": "index.js",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "vite": "^6.3.6"
+  }
+}
