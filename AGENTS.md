@@ -2,6 +2,32 @@
 
 This document provides technical guidance for AI agents working on the SolidPD.com website. It includes project architecture, development patterns, and best practices specific to this codebase.
 
+## 🚨 CRITICAL WARNING - READ FIRST
+
+**ONLY EDIT FILES IN THE `src/` DIRECTORY!**
+
+- ✅ **DO EDIT**: Files in `src/` directory (source files)
+- ❌ **NEVER EDIT**: HTML/CSS files in root directory (index.html, about.html, etc.)
+- ❌ **NEVER EDIT**: Files in `dist/` directory (build output)
+- ❌ **NEVER COMMIT**: Built files or `dist/` directory
+
+**Why this matters**: The build system generates files from `src/` to the root and `dist/` directories. Editing root files will cause your changes to be lost on the next build!
+
+### Quick File Structure Check
+```
+src/                    ← EDIT THESE FILES
+├── index.html         ← Source homepage
+├── assets/css/main.css ← Source styles
+└── assets/images/     ← Source images
+
+Root directory         ← NEVER EDIT THESE
+├── index.html         ← Built file (ignored by git)
+└── css/               ← Built files (ignored by git)
+
+dist/                  ← NEVER EDIT THESE
+└── (build output)     ← Generated files
+```
+
 ## 🏗 Project Architecture
 
 ### Build System

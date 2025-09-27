@@ -8,6 +8,12 @@ yarn-error.log*
 dist/
 build/
 
+# Root HTML files (these are built from src/)
+/*.html
+
+# Root CSS directory (source is in src/assets/css/)
+/css/
+
 # Environment variables
 .env
 .env.local

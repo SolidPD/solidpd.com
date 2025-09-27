@@ -2,6 +2,39 @@
 
 The official website for Solid Product Design - a modern, responsive static site built with Vite and deployed to Netlify.
 
+## ⚠️ CRITICAL: File Structure Rules
+
+**🚨 ONLY EDIT FILES IN THE `src/` DIRECTORY!**
+
+- ✅ **DO EDIT**: Files in `src/` directory (source files)
+- ❌ **DO NOT EDIT**: Any HTML/CSS files in the root directory (these are built files)
+- ❌ **DO NOT COMMIT**: Files in `dist/` directory (build output)
+
+**Why this matters**: The build system generates files from `src/` to the root and `dist/` directories. Editing root files will cause your changes to be lost on the next build!
+
+### File Structure Explained
+
+```
+src/                    ← EDIT THESE FILES
+├── index.html         ← Source homepage
+├── about.html         ← Source about page
+├── contact.html       ← Source contact page
+├── services.html      ← Source services page
+├── work.html          ← Source work page
+├── assets/
+│   ├── css/main.css   ← Source styles
+│   ├── js/main.js     ← Source JavaScript
+│   └── images/        ← Source images
+
+dist/                  ← GENERATED (don't edit)
+├── index.html         ← Built homepage
+└── assets/            ← Built assets
+
+Root directory         ← GENERATED (don't edit)
+├── index.html         ← Built homepage (ignored by git)
+└── css/               ← Built styles (ignored by git)
+```
+
 ## 🚀 Quick Start
 
 ### Prerequisites
@@ -33,34 +66,6 @@ The official website for Solid Product Design - a modern, responsive static site
    npm run build
    ```
    Built files will be in the `dist/` directory.
-
-## 📁 Project Structure
-
-```
-solidpd.com/
-├── src/                          # Source files
-│   ├── index.html               # Homepage
-│   ├── about.html               # About page
-│   ├── services.html            # Services page
-│   ├── work.html                # Portfolio page
-│   ├── contact.html             # Contact page
-│   ├── assets/
-│   │   ├── css/
-│   │   │   ├── design-system.css # Design system variables
-│   │   │   └── main.css         # Main stylesheet
-│   │   ├── js/
-│   │   │   └── main.js          # Main JavaScript
-│   │   └── images/              # Image assets
-│   └── components/
-│       ├── header.html          # Reusable header
-│       └── footer.html          # Reusable footer
-├── public/                      # Static assets (copied to dist)
-├── dist/                        # Built site (generated)
-├── .github/workflows/           # CI/CD configuration
-├── package.json                 # Dependencies
-├── vite.config.js              # Build configuration
-└── README.md                    # This file
-```
 
 ## ✏️ Editing Content
 
@@ -194,6 +199,11 @@ The site automatically deploys via GitHub Actions:
 - Check for CSS syntax errors
 - Verify CSS custom properties are defined
 
+**Changes not showing up on deployed site**:
+- Make sure you edited files in `src/` directory, not root
+- Check that your changes were committed and pushed
+- Wait for GitHub Actions deployment to complete
+
 ### Development Tips
 
 1. **Hot Reload**: Changes to HTML, CSS, and JS files automatically refresh the browser
@@ -209,10 +219,10 @@ For technical issues or questions about the website:
 3. Ensure all dependencies are properly installed
 4. Contact the development team for assistance
 
-## 🔄 Contributing
+## 📝 Contributing
 
 1. Create a new branch for your changes
-2. Make your edits following the project structure
+2. Make your edits following the project structure (edit files in `src/` only!)
 3. Test locally with `npm run dev`
 4. Build and verify with `npm run build`
 5. Commit changes with descriptive messages
