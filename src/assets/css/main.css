@@ -213,9 +213,9 @@ body {
 }
 
 .hand-icon {
-    max-width: 40px;
+    max-width: 80px;
     height: auto;
-    margin-right: 1rem;
+    margin-right: -0.5rem;
     vertical-align: middle;
 }
 
