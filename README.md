@@ -2,66 +2,104 @@
 
 The official website for Solid Product Design - a modern, responsive static site built with Vite and deployed to Netlify.
 
+## 🏗️ Architecture Overview
+
+This project uses a **build-time component injection system** that combines the benefits of component-based development with static site performance:
+
+- **Components**: Reusable HTML components stored in `src/components/`
+- **Build-time injection**: Custom Vite plugin injects components into pages during build
+- **Static output**: Final site is completely static with no runtime JavaScript dependencies
+- **Hot reload**: Development server supports live component updates
+
 ## ⚠️ CRITICAL: File Structure Rules
 
 **🚨 ONLY EDIT FILES IN THE `src/` DIRECTORY!**
 
 - ✅ **DO EDIT**: Files in `src/` directory (source files)
-- ❌ **DO NOT EDIT**: Any HTML/CSS files in the root directory (these are built files)
-- ❌ **DO NOT COMMIT**: Files in `dist/` directory (build output)
+- ❌ **DO NOT EDIT**: Files in `dist/` directory (build output)
+- ❌ **DO NOT COMMIT**: Files in `dist/` directory
 
-**Why this matters**: The build system generates files from `src/` to the root and `dist/` directories. Editing root files will cause your changes to be lost on the next build!
+**Why this matters**: The build system generates optimized files from `src/` to the `dist/` directory. The `dist/` folder is automatically cleaned and rebuilt on each build.
 
-## 🚨 STATIC SITE ARCHITECTURE - READ THIS!
+## 🧩 Component System
 
-**THIS IS A STATIC SITE - DO NOT IMPLEMENT DYNAMIC LOADING!**
+### How It Works
 
-### ❌ NEVER DO THESE THINGS:
-- **Dynamic component loading** via JavaScript fetch() calls
-- **Client-side HTML injection** from separate component files
-- **Runtime DOM manipulation** for loading headers/footers
-- **AJAX requests** to load HTML fragments
-- **JavaScript-based templating** systems
+The site uses a **build-time component injection system**:
 
-### ✅ CORRECT APPROACH:
-- **Inline HTML**: All content (headers, footers, components) should be directly embedded in each HTML file
-- **Static assets**: Images, CSS, and JS files served as static resources
-- **Build-time processing**: Use Vite's build system for optimization, not runtime loading
-- **Copy-paste components**: If you need to update headers/footers across pages, manually update each HTML file
+1. **Components** are stored as HTML files in `src/components/`
+2. **Pages** use placeholder comments like `<!-- HEADER_PLACEHOLDER -->`
+3. **Build process** automatically injects component HTML into placeholders
+4. **Final output** is static HTML with components embedded
 
-### Why This Matters:
-1. **Performance**: Static sites load faster than dynamic ones
-2. **Reliability**: No JavaScript failures can break the site structure
-3. **SEO**: Search engines can properly index all content
-4. **Simplicity**: Easier to maintain and debug
-5. **Hosting**: Works on any static hosting service without server requirements
-
-### Component Management:
-- The `src/components/` folder contains reference HTML for copy-pasting
-- When updating shared components (header/footer), manually update ALL HTML files
-- Do NOT create JavaScript loaders or dynamic injection systems
-
-### File Structure Explained
+### Component Structure
 
 ```
-src/                    ← EDIT THESE FILES
-├── index.html         ← Source homepage
-├── about.html         ← Source about page
-├── contact.html       ← Source contact page
-├── services.html      ← Source services page
-├── work.html          ← Source work page
+src/components/
+├── header.html          # Navigation and site header
+└── footer.html          # Footer with social links and contact info
+```
+
+### Page Structure
+
+Each HTML page in `src/` uses placeholders:
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Meta tags, title, styles -->
+</head>
+<body>
+    <!-- HEADER_PLACEHOLDER -->
+    
+    <main>
+        <!-- Page-specific content -->
+    </main>
+    
+    <!-- FOOTER_PLACEHOLDER -->
+    
+    <!-- Scripts -->
+</body>
+</html>
+```
+
+### Updating Components
+
+1. **Edit the component file** in `src/components/` (e.g., `header.html` or `footer.html`)
+2. **Save the file** - changes are automatically applied to all pages
+3. **Test in development** - `npm run dev` shows live updates
+4. **Build for production** - `npm run build` generates final files
+
+**No manual copying required!** The build system handles component injection automatically.
+
+## 📁 File Structure
+
+```
+src/                              # Source files (edit these)
+├── index.html                   # Homepage with placeholders
+├── about.html                   # About page with placeholders
+├── services.html                # Services page with placeholders
+├── work.html                    # Work page with placeholders
+├── contact.html                 # Contact page with placeholders
+├── components/
+│   ├── header.html              # Header component
+│   └── footer.html              # Footer component
 ├── assets/
-│   ├── css/main.css   ← Source styles
-│   ├── js/main.js     ← Source JavaScript
-│   └── images/        ← Source images
+│   ├── css/
+│   │   └── main.css             # Site styles
+│   ├── js/
+│   │   └── main.js              # Site JavaScript
+│   └── images/                  # Image assets
+└── public/                      # Static assets (copied to dist)
 
-dist/                  ← GENERATED (don't edit)
-├── index.html         ← Built homepage
-└── assets/            ← Built assets
+dist/                            # Build output (generated, don't edit)
+├── index.html                   # Built homepage with components injected
+├── about.html                   # Built about page with components injected
+└── assets/                      # Optimized and versioned assets
 
-Root directory         ← GENERATED (don't edit)
-├── index.html         ← Built homepage (ignored by git)
-└── css/               ← Built styles (ignored by git)
+vite-html-inject.js              # Custom Vite plugin for component injection
+vite.config.js                   # Vite configuration with plugin setup
 ```
 
 ## 🚀 Quick Start
@@ -102,7 +140,7 @@ Root directory         ← GENERATED (don't edit)
 
 1. **Edit existing pages**: Modify HTML files in the `src/` directory
 2. **Add new pages**: 
-   - Create new HTML file in `src/`
+   - Create new HTML file in `src/` with component placeholders
    - Add to `vite.config.js` input configuration:
      ```js
      input: {
@@ -113,30 +151,18 @@ Root directory         ← GENERATED (don't edit)
      ```
    - Update navigation in `src/components/header.html`
 
-### Updating Content
+### Updating Shared Elements
 
-**Text Content**: Edit HTML files directly in the `src/` directory.
+**Header/Navigation**: Edit `src/components/header.html` - changes apply to all pages automatically
+
+**Footer**: Edit `src/components/footer.html` - changes apply to all pages automatically
+
+**Styles**: Edit `src/assets/css/main.css` for global styles
 
 **Images**: 
 - Add new images to `src/assets/images/`
 - Use descriptive filenames (e.g., `hero-workshop-background.jpg`)
 - Reference in HTML: `<img src="/assets/images/your-image.jpg" alt="Description">`
-
-**Styling**: 
-- Global styles: Edit `src/assets/css/main.css`
-- Design system: Edit `src/assets/css/design-system.css`
-- Component styles: Add to relevant sections in main.css
-
-**Navigation**: 
-- Edit `src/components/header.html` for main navigation
-- Edit `src/components/footer.html` for footer links
-
-### Brand Assets
-
-Logos are available in multiple formats in `src/assets/images/logos/`:
-- **Horizontal layouts**: Use for headers, wide spaces
-- **Stacked layouts**: Use for square spaces, favicons
-- **Color variations**: Black, White, Blue, Yellow combinations
 
 ## 🎨 Design System
 
@@ -176,8 +202,14 @@ npm run preview
 
 ### Automatic Deployment (Recommended)
 The site automatically deploys via GitHub Actions:
-- **Preview deployments**: Any branch push
-- **Production deployments**: Push to `main` branch
+- **Preview deployments**: Any branch push creates preview deployment
+- **Production deployments**: Push to `main` branch deploys to production
+
+### GitHub Actions Workflow
+Located at `.github/workflows/deploy.yml`:
+1. Install Node.js 18 and dependencies with `npm ci`
+2. Build site with `npm run build` (includes component injection)
+3. Deploy `dist/` folder to Netlify
 
 ### Manual Deployment
 1. Build the site: `npm run build`
@@ -186,23 +218,21 @@ The site automatically deploys via GitHub Actions:
 ## 🛠 Technical Details
 
 ### Build System
-- **Vite**: Modern build tool with hot reload
+- **Vite 6.x**: Modern build tool with hot reload
+- **Custom Plugin**: `vite-html-inject.js` handles component injection
 - **Multi-page**: Configured for multiple HTML entry points
 - **Asset optimization**: Automatic image optimization and versioning
-- **CSS/JS bundling**: Minification and compression
+
+### Component Injection Process
+1. **Development**: Vite plugin injects components in real-time
+2. **Build**: Components are permanently embedded in HTML files
+3. **Output**: Static HTML files with no runtime dependencies
 
 ### Performance Features
-- Lazy loading for images
+- Static HTML output (no JavaScript required for components)
 - Asset bundling and minification
-- Preloading of critical resources
-- Responsive image handling
-
-### Accessibility Features
-- Semantic HTML structure
-- Skip-to-content links
-- Proper form labeling
-- Keyboard navigation support
-- Screen reader compatibility
+- Automatic image optimization
+- CSS optimization and bundling
 
 ## 🐛 Troubleshooting
 
@@ -218,12 +248,10 @@ The site automatically deploys via GitHub Actions:
 - Check that images exist in `src/assets/images/`
 - Ensure proper file extensions (.jpg, .png, .svg)
 
-**Components not loading**:
-- ⚠️ **IMPORTANT**: This site uses STATIC components, not dynamic loading
-- Headers and footers should be directly embedded in each HTML file
-- If components appear missing, they need to be manually copied into each page
-- Do NOT try to fix this with JavaScript loaders - use inline HTML instead
-- Check that all HTML files contain the complete header and footer HTML
+**Components not showing**:
+- Verify component files exist in `src/components/`
+- Check that HTML pages have correct placeholder comments
+- Ensure placeholders match exactly: `<!-- HEADER_PLACEHOLDER -->` and `<!-- FOOTER_PLACEHOLDER -->`
 
 **Styles not applying**:
 - Ensure CSS files are properly linked in HTML
@@ -231,15 +259,15 @@ The site automatically deploys via GitHub Actions:
 - Verify CSS custom properties are defined
 
 **Changes not showing up on deployed site**:
-- Make sure you edited files in `src/` directory, not root
+- Make sure you edited files in `src/` directory
 - Check that your changes were committed and pushed
 - Wait for GitHub Actions deployment to complete
 
 ### Development Tips
 
-1. **Hot Reload**: Changes to HTML, CSS, and JS files automatically refresh the browser
+1. **Hot Reload**: Changes to components automatically refresh all pages
 2. **Asset Paths**: Always use absolute paths starting with `/assets/`
-3. **Component Updates**: Changes to header/footer require page refresh
+3. **Component Testing**: Changes to header/footer are immediately visible across all pages
 4. **Build Testing**: Test production builds locally with `npm run preview`
 
 ## 📞 Support
@@ -253,8 +281,24 @@ For technical issues or questions about the website:
 ## 📝 Contributing
 
 1. Create a new branch for your changes
-2. Make your edits following the project structure (edit files in `src/` only!)
+2. Make your edits in the `src/` directory
 3. Test locally with `npm run dev`
 4. Build and verify with `npm run build`
 5. Commit changes with descriptive messages
 6. Push to your branch and create a pull request
+
+## 🔄 Component Development Workflow
+
+### Adding New Components
+1. Create HTML file in `src/components/` (e.g., `sidebar.html`)
+2. Add placeholder to pages: `<!-- SIDEBAR_PLACEHOLDER -->`
+3. Update `vite-html-inject.js` to handle the new placeholder
+4. Test with `npm run dev`
+
+### Updating Existing Components
+1. Edit component file in `src/components/`
+2. Save file - changes automatically apply to all pages
+3. Test in browser - hot reload shows immediate updates
+4. Build for production when ready
+
+This build-time component system provides the best of both worlds: component-based development with static site performance.

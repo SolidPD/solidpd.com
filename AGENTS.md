@@ -7,82 +7,92 @@ This document provides technical guidance for AI agents working on the SolidPD.c
 **ONLY EDIT FILES IN THE `src/` DIRECTORY!**
 
 - ✅ **DO EDIT**: Files in `src/` directory (source files)
-- ❌ **NEVER EDIT**: HTML/CSS files in root directory (index.html, about.html, etc.)
 - ❌ **NEVER EDIT**: Files in `dist/` directory (build output)
 - ❌ **NEVER COMMIT**: Built files or `dist/` directory
 
-**Why this matters**: The build system generates files from `src/` to the root and `dist/` directories. Editing root files will cause your changes to be lost on the next build!
+**Why this matters**: The build system generates optimized files from `src/` to the `dist/` directory. The `dist/` folder is automatically cleaned and rebuilt on each build.
 
-## 🚨 STATIC SITE ARCHITECTURE - MANDATORY FOR AI AGENTS
+## 🏗️ BUILD-TIME COMPONENT INJECTION ARCHITECTURE
 
-**THIS IS A STATIC SITE - NEVER IMPLEMENT DYNAMIC LOADING!**
+**THIS PROJECT USES BUILD-TIME COMPONENT INJECTION - NOT RUNTIME LOADING!**
+
+### ✅ CURRENT ARCHITECTURE:
+- **Build-time injection**: Custom Vite plugin (`vite-html-inject.js`) injects components during build
+- **Component placeholders**: HTML pages use comments like `<!-- HEADER_PLACEHOLDER -->`
+- **Static output**: Final site is completely static with components embedded
+- **Hot reload**: Development server supports live component updates
+- **No runtime dependencies**: Components are injected at build time, not loaded dynamically
 
 ### ❌ FORBIDDEN APPROACHES:
-- **Dynamic component loading** via JavaScript fetch() calls
+- **Runtime component loading** via JavaScript fetch() calls
 - **Client-side HTML injection** from separate component files  
-- **Runtime DOM manipulation** for loading headers/footers
+- **Dynamic DOM manipulation** for loading headers/footers
 - **AJAX requests** to load HTML fragments
 - **JavaScript-based templating** systems
-- **Component loaders** like footer-loader.js (removed from this project)
-
-### ✅ REQUIRED APPROACH:
-- **Inline HTML**: All content (headers, footers, components) must be directly embedded in each HTML file
-- **Static assets**: Images, CSS, and JS files served as static resources only
-- **Manual updates**: When updating shared components, manually update ALL HTML files
-- **Copy-paste workflow**: Use `src/components/` as reference templates for copying into pages
 
 ### Historical Context:
-This project previously had dynamic component loading that caused issues:
-- `footer-loader.js` attempted to fetch `/components/footer.html` 
-- Vite dev server root is `src/`, causing path resolution failures
-- Dynamic loading broke the footer display across all pages
-- **Solution**: Replaced with inline HTML in all pages (index, about, services, work, contact)
+This project was previously configured for inline HTML components, but has been upgraded to use build-time component injection:
+- **Old approach**: Manual copy-paste of component HTML into each page
+- **New approach**: Automated component injection during build process
+- **Benefits**: DRY principle, easier maintenance, hot reload support
+- **Output**: Still produces static HTML files with no runtime dependencies
 
 ### Component Update Workflow:
-1. Edit the reference component in `src/components/` (e.g., `footer.html`)
-2. Copy the updated HTML to ALL page files in `src/`
-3. Test that all pages display the component correctly
-4. Never create JavaScript loaders or dynamic injection systems
+1. Edit the component file in `src/components/` (e.g., `header.html` or `footer.html`)
+2. Save the file - changes automatically apply to all pages during development
+3. Test with `npm run dev` - hot reload shows updates immediately
+4. Build with `npm run build` - components are permanently embedded in output
 
 ### Quick File Structure Check
 ```
-src/                    ← EDIT THESE FILES
-├── index.html         ← Source homepage
-├── assets/css/main.css ← Source styles
-└── assets/images/     ← Source images
+src/                              # Source files (edit these)
+├── *.html                       # Pages with component placeholders
+├── components/
+│   ├── header.html              # Header component
+│   └── footer.html              # Footer component
+├── assets/css/main.css          # Site styles
+└── assets/images/               # Image assets
 
-Root directory         ← NEVER EDIT THESE
-├── index.html         ← Built file (ignored by git)
-└── css/               ← Built files (ignored by git)
+dist/                            # Build output (generated, don't edit)
+├── *.html                       # Built pages with components injected
+└── assets/                      # Optimized assets
 
-dist/                  ← NEVER EDIT THESE
-└── (build output)     ← Generated files
+vite-html-inject.js              # Custom Vite plugin for component injection
+vite.config.js                   # Vite configuration with plugin setup
 ```
 
 ## 🏗 Project Architecture
 
 ### Build System
 - **Vite 6.x**: Modern build tool with ES modules and hot reload
+- **Custom Plugin**: `vite-html-inject.js` handles build-time component injection
 - **Multi-page configuration**: Each HTML file is a separate entry point
 - **Asset processing**: Automatic optimization, versioning, and bundling
 - **Development server**: Hot reload on port 12000 with CORS enabled
 
+### Component Injection Plugin
+The `vite-html-inject.js` plugin:
+1. **Reads component files** from `src/components/` during build
+2. **Finds placeholders** in HTML files (e.g., `<!-- HEADER_PLACEHOLDER -->`)
+3. **Replaces placeholders** with actual component HTML
+4. **Works in development** with hot reload support
+5. **Embeds components** permanently in production build
+
 ### File Structure Analysis
 ```
 src/                              # Source directory (edit these files)
-├── *.html                       # Page templates with component loading
-├── assets/css/
-│   ├── design-system.css        # CSS custom properties and design tokens
-│   └── main.css                 # Component styles and utilities
-├── assets/js/main.js            # Component loading, interactions, forms
+├── *.html                       # Page templates with component placeholders
+├── components/
+│   ├── header.html              # Header component (injected into all pages)
+│   └── footer.html              # Footer component (injected into all pages)
+├── assets/css/main.css          # Site styles and component styles
+├── assets/js/main.js            # Site interactions and functionality
 ├── assets/images/               # Optimized images with descriptive names
-└── components/                  # Reusable HTML components
-
-public/                          # Static assets (copied to dist)
-├── components/                  # Component copies for serving
-└── assets/images/logos/         # Brand assets in multiple formats
+└── public/                      # Static assets (copied to dist)
 
 dist/                            # Build output (generated, don't edit)
+├── *.html                       # Built pages with components injected
+└── assets/                      # Optimized and versioned assets
 ```
 
 ## 🔧 Development Workflow
@@ -92,53 +102,70 @@ dist/                            # Build output (generated, don't edit)
 # Install dependencies
 npm install
 
-# Start development server (required for component loading)
+# Start development server (with component injection)
 npm run dev
 
-# Build for production
+# Build for production (with component injection)
 npm run build
 
-# Copy public assets to dist
-cp -r public/* dist/
+# Preview production build locally
+npm run preview
 ```
 
 ### Key Development Commands
-- `npm run dev` - Start development server with hot reload
-- `npm run build` - Build optimized production files
+- `npm run dev` - Start development server with hot reload and component injection
+- `npm run build` - Build optimized production files with components embedded
 - `npm run preview` - Preview production build locally
 
-## 🧩 Component System (STATIC APPROACH)
+## 🧩 Component System (BUILD-TIME INJECTION)
 
-### Component Management - STATIC ONLY
-The site uses a **STATIC component system** - NO dynamic loading:
+### Component Management - BUILD-TIME INJECTION
+The site uses a **BUILD-TIME component injection system**:
 
 ```html
-<!-- CORRECT: Inline component HTML directly in each page -->
-<footer class="footer">
-  <div class="container">
-    <!-- Full footer HTML embedded here -->
-  </div>
-</footer>
+<!-- CORRECT: Use placeholders in page templates -->
+<!DOCTYPE html>
+<html>
+<body>
+    <!-- HEADER_PLACEHOLDER -->
+    <main>
+        <!-- Page content -->
+    </main>
+    <!-- FOOTER_PLACEHOLDER -->
+</body>
+</html>
 ```
 
 ```javascript
-// ❌ FORBIDDEN: Do NOT create dynamic loaders like this
-async function loadComponent(elementId, componentPath) {
-  // This approach is BANNED from this project
+// ✅ CORRECT: Build-time injection via Vite plugin
+// vite-html-inject.js handles component injection automatically
+export default function htmlInject() {
+  return {
+    name: 'html-inject',
+    transformIndexHtml: {
+      order: 'pre',
+      handler(html, ctx) {
+        // Inject components during build
+        html = html.replace('<!-- HEADER_PLACEHOLDER -->', headerHtml);
+        html = html.replace('<!-- FOOTER_PLACEHOLDER -->', footerHtml);
+        return html;
+      }
+    }
+  };
 }
 ```
 
 ### Adding New Components
-1. Create HTML file in `src/components/` as a **reference template**
-2. **Manually copy** the HTML into each page file in `src/`
-3. **Do NOT** create JavaScript loaders or dynamic injection
-4. Test that the component appears correctly on all pages
+1. Create HTML file in `src/components/` (e.g., `sidebar.html`)
+2. Add placeholder to page templates: `<!-- SIDEBAR_PLACEHOLDER -->`
+3. Update `vite-html-inject.js` to handle the new placeholder
+4. Test with `npm run dev` - component appears on all pages automatically
 
 ### Updating Existing Components
-1. Edit the reference file in `src/components/`
-2. **Manually copy** the updated HTML to **ALL** page files in `src/`
-3. Verify the changes appear on all pages
-4. **Never** use JavaScript to inject or load components
+1. Edit the component file in `src/components/`
+2. Save file - changes automatically apply to all pages
+3. Test in browser - hot reload shows immediate updates
+4. Build for production - components are permanently embedded
 
 ## 🎨 Styling Architecture
 
@@ -184,38 +211,34 @@ async function loadComponent(elementId, componentPath) {
 
 ## 📝 Content Management
 
-### Page Structure Pattern (STATIC APPROACH)
-Each HTML page follows this structure with **INLINE components**:
+### Page Structure Pattern (BUILD-TIME INJECTION)
+Each HTML page follows this structure with **COMPONENT PLACEHOLDERS**:
 ```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <!-- Meta tags, title, favicon -->
-  <link rel="stylesheet" href="/assets/css/design-system.css">
   <link rel="stylesheet" href="/assets/css/main.css">
 </head>
 <body>
-  <!-- INLINE HEADER - Full HTML embedded here -->
-  <header class="header">
-    <nav class="navbar">
-      <!-- Complete header HTML -->
-    </nav>
-  </header>
+  <!-- HEADER_PLACEHOLDER - Replaced during build -->
   
   <main>
     <!-- Page-specific content -->
   </main>
   
-  <!-- INLINE FOOTER - Full HTML embedded here -->
-  <footer class="footer">
-    <div class="container">
-      <!-- Complete footer HTML including LinkedIn links -->
-    </div>
-  </footer>
+  <!-- FOOTER_PLACEHOLDER - Replaced during build -->
   
   <script src="/assets/js/main.js"></script>
 </body>
 </html>
+```
+
+### ✅ CORRECT Pattern:
+```html
+<!-- Build-time placeholders that get replaced with component HTML -->
+<!-- HEADER_PLACEHOLDER -->
+<!-- FOOTER_PLACEHOLDER -->
 ```
 
 ### ❌ WRONG Pattern (DO NOT USE):
@@ -307,12 +330,12 @@ const criticalImages = [
 ### Common Issues and Solutions
 
 **Components not loading**:
-- ⚠️ **CRITICAL**: This site uses STATIC components, not dynamic loading
-- If headers/footers are missing, they need to be manually embedded in each HTML file
-- **DO NOT** create JavaScript loaders to fix this - use inline HTML instead
-- Check that all HTML files contain the complete header and footer HTML
-- The `src/components/` folder is for reference templates only, not for serving
-- **Historical note**: `footer-loader.js` was removed because it broke the site
+- ⚠️ **CRITICAL**: This site uses BUILD-TIME component injection, not runtime loading
+- If headers/footers are missing, check that placeholders exist in HTML files
+- Verify component files exist in `src/components/` directory
+- Ensure placeholders match exactly: `<!-- HEADER_PLACEHOLDER -->` and `<!-- FOOTER_PLACEHOLDER -->`
+- Check that `vite-html-inject.js` plugin is properly configured
+- Test with `npm run dev` to see if components inject properly
 
 **Styles not applying**:
 - Verify CSS files are linked in HTML head
@@ -365,8 +388,8 @@ cp -r public/* dist/
 
 ### Code Modification Guidelines
 1. **Always test locally** with `npm run dev` before committing
-2. **Use STATIC components only** - never implement dynamic loading
-3. **Update ALL HTML files** when modifying shared components (header/footer)
+2. **Use BUILD-TIME component injection** - components are injected during build
+3. **Edit component files** in `src/components/` - changes apply to all pages automatically
 4. **Use descriptive commit messages** with clear change descriptions
 5. **Follow existing naming conventions** for files and CSS classes
 6. **Maintain responsive design** across all breakpoints
@@ -374,11 +397,11 @@ cp -r public/* dist/
 
 ### File Management
 - **Never edit dist/ directly** - it's generated by the build process
-- **Use src/components/ as reference templates only** - not for serving
-- **Manually copy component changes** to all HTML files in src/
+- **Edit component files** in `src/components/` - changes apply automatically
+- **Use component placeholders** in HTML pages for injection points
 - **Use descriptive image names** when adding new assets
 - **Update vite.config.js** when adding new pages
-- **Do NOT create component loaders** or dynamic injection systems
+- **Ensure vite-html-inject.js** handles all component placeholders
 
 ### Performance Optimization
 - **Optimize images** before adding to the project
