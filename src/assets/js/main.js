@@ -21,4 +21,10 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
     }
+
+    // Update footer year
+    const yearSpan = document.getElementById('current-year');
+    if (yearSpan) {
+        yearSpan.textContent = new Date().getFullYear();
+    }
 });
