@@ -170,6 +170,11 @@ body {
     text-align: center;
 }
 
+.solid-word-image {
+    height: 3.5rem;
+    vertical-align: middle;
+}
+
 .content-wrapper {
     max-width: 800px;
     margin: 0 auto;
@@ -223,9 +228,9 @@ body {
 }
 
 .hand-icon {
-    max-width: 80px;
-    height: auto;
-    margin-right: -0.5rem;
+    height: 3.5rem;
+    width: auto;
+    margin-right: 0.5rem;
     vertical-align: middle;
 }
 
@@ -1465,8 +1470,10 @@ blockquote::after {
     margin-bottom: 2rem;
 }
 
-.blue-dot {
-    color: #4A90E2;
+.blue-dot-image {
+    height: 1em;
+    vertical-align: middle;
+    margin-left: 0.2em;
 }
 
 .contact-hero p {
