@@ -2,14 +2,18 @@ import fs from 'fs';
 import path from 'path';
 
 export default function htmlInject() {
+  let config;
+
   return {
     name: 'html-inject',
+    configResolved(resolvedConfig) {
+      config = resolvedConfig;
+    },
     transformIndexHtml: {
       order: 'pre',
       handler(html, ctx) {
-        // Read header and footer components
-        const headerPath = path.resolve('src/components/header.html');
-        const footerPath = path.resolve('src/components/footer.html');
+        const headerPath = path.resolve(config.root, 'components/header.html');
+        const footerPath = path.resolve(config.root, 'components/footer.html');
         
         let headerHtml = '';
         let footerHtml = '';
@@ -26,7 +30,6 @@ export default function htmlInject() {
           console.warn('Footer component not found:', footerPath);
         }
         
-        // Replace placeholders with actual components
         html = html.replace('<!-- HEADER_PLACEHOLDER -->', headerHtml);
         html = html.replace('<!-- FOOTER_PLACEHOLDER -->', footerHtml);
         
