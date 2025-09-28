@@ -670,6 +670,11 @@ blockquote::after {
 
 /* Responsive Design */
 @media (max-width: 768px) {
+    .navbar-mobile.menu-active {
+        height: 100vh;
+        align-items: flex-start;
+    }
+
     .logo-default {
         display: none;
     }
