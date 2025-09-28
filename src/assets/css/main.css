@@ -171,8 +171,7 @@ body {
 }
 
 .solid-word-image {
-    height: 3.5rem;
-    vertical-align: middle;
+    height: 7rem; /* Increased size by 2x */
 }
 
 .content-wrapper {
@@ -184,8 +183,12 @@ body {
 .main-heading {
     font-size: 4rem;
     font-weight: 400;
-    line-height: 1.1;
+    line-height: 1.4; /* Adjusted for larger image */
     color: #333;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 .solid-text {
@@ -228,10 +231,10 @@ body {
 }
 
 .hand-icon {
-    height: 3.5rem;
+    height: 4.5rem; /* Increased size */
     width: auto;
-    margin-right: 0.5rem;
-    vertical-align: middle;
+    margin-right: 0; /* Removed margin */
+    object-fit: contain; /* Ensures aspect ratio is maintained */
 }
 
 .sbd-content h3 {
@@ -718,13 +721,18 @@ blockquote::after {
     .main-heading {
         font-size: 2.5rem;
     }
+
+    .solid-word-image {
+        height: 5rem; /* Adjusted for smaller screens */
+    }
     
     .sbd-content h3 {
         font-size: 2rem;
     }
     
     .hand-icon {
-        max-width: 30px;
+        height: 3rem; /* Adjusted for smaller screens */
+        width: auto;
     }
     
     .stats-container {
@@ -780,6 +788,10 @@ blockquote::after {
     
     .main-heading {
         font-size: 2rem;
+    }
+
+    .solid-word-image {
+        height: 4rem; /* Adjusted for extra-small screens */
     }
     
     .legal-links {
