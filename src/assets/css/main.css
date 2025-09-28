@@ -39,7 +39,7 @@ body {
 }
 
 .logo {
-    height: 40px;
+    height: 60px; /* Increased logo size */
     width: auto;
     transition: height 0.3s ease;
 }
@@ -50,7 +50,7 @@ body {
 }
 
 .logo-horizontal {
-    display: none;
+    display: none; /* Hidden by default */
 }
 
 .nav-menu {
@@ -669,17 +669,17 @@ blockquote::after {
 }
 
 /* Responsive Design */
-.navbar.menu-active .logo-default {
-    display: none;
-}
-
-.navbar.menu-active .logo-horizontal {
-    display: block;
-}
-
 @media (max-width: 768px) {
+    .logo-default {
+        display: none;
+    }
+
+    .logo-horizontal {
+        display: block;
+    }
+
     .logo {
-        height: 50px; /* Increased logo size on mobile */
+        height: 40px; /* Adjusted for horizontal logo */
     }
 
     .hamburger {
