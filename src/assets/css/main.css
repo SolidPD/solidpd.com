@@ -41,6 +41,16 @@ body {
 .logo {
     height: 40px;
     width: auto;
+    transition: height 0.3s ease;
+}
+
+.nav-brand {
+    display: flex;
+    align-items: center;
+}
+
+.logo-horizontal {
+    display: none;
 }
 
 .nav-menu {
@@ -651,7 +661,19 @@ blockquote::after {
 }
 
 /* Responsive Design */
+.navbar.menu-active .logo-default {
+    display: none;
+}
+
+.navbar.menu-active .logo-horizontal {
+    display: block;
+}
+
 @media (max-width: 768px) {
+    .logo {
+        height: 50px; /* Increased logo size on mobile */
+    }
+
     .hamburger {
         display: flex;
     }
