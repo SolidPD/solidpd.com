@@ -109,8 +109,8 @@ body {
     overflow: hidden;
     display: flex;
     align-items: center;
-    justify-content: center;
-    text-align: center;
+    justify-content: flex-start; /* Left-align content */
+    text-align: left; /* Align text to the left */
 }
 
 .hero-background {
@@ -122,16 +122,6 @@ body {
     z-index: -1;
 }
 
-.hero-background::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.6);
-}
-
 .hero-bg-image {
     width: 100%;
     height: 100%;
@@ -139,14 +129,15 @@ body {
 }
 
 .hero-content {
-    padding: 2rem;
+    height: 100%;
+    width: 45%; /* Set width to a third of the page */
+    background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent gray background */
+    padding: 4rem; /* Add padding for the text */
     color: white;
     z-index: 1;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
-    max-width: 800px;
 }
 
 .hero-text {
@@ -687,7 +678,9 @@ body {
     }
 
     .hero-content {
-        width: 100%;
+        width: 100%; /* Full width on mobile */
+        max-width: 100%; /* Override desktop max-width */
+        padding: 2rem; /* Adjust padding for smaller screens */
         background: rgba(0, 0, 0, 0.6);
     }
     
