@@ -3,25 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Solid Product Design — Hardware from concept to commercialization. Deep research, time-tested strategy, thoughtful design, systematic engineering.">
+  <meta name="description" content="Portfolio of hardware product development projects across medical devices, IoT, and industrial applications.">
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
   <link rel="manifest" href="/site.webmanifest">
-  <link rel="canonical" href="https://solidpd.com">
+  <link rel="canonical" href="https://solidpd.com/work">
 
-  <meta property="og:title" content="Solid Product Design">
-  <meta property="og:description" content="Hardware from concept to commercialization. Deep research, time-tested strategy, thoughtful design, systematic engineering.">
+  <meta property="og:title" content="Our Work — Solid Product Design">
+  <meta property="og:description" content="Portfolio of hardware product development projects across medical devices, IoT, and industrial applications.">
   <meta property="og:image" content="https://solidpd.com/images/logo-horizontal-white.png">
-  <meta property="og:url" content="https://solidpd.com">
+  <meta property="og:url" content="https://solidpd.com/work">
   <meta property="og:type" content="website">
 
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Solid Product Design">
-  <meta name="twitter:description" content="Hardware from concept to commercialization. Deep research, time-tested strategy, thoughtful design, systematic engineering.">
-  <meta name="twitter:image" content="https://solidpd.com/images/logo-horizontal-white.png">
-
-  <title>Solid Product Design — Hardware from Concept to Commercialization</title>
+  <title>Our Work — Solid Product Design</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -147,98 +142,135 @@
       padding: 0.5rem;
     }
 
-    /* Hero Section */
-    .hero {
-      position: relative;
-      min-height: 90vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+    /* Page Header */
+    .page-header {
+      padding: 6rem 2rem 4rem;
       text-align: center;
-      overflow: hidden;
       background: var(--black);
     }
 
-    .hero-background {
+    .page-header h1 {
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      margin-bottom: 2rem;
+      color: var(--white);
+    }
+
+    /* Portfolio Grid */
+    .portfolio-section {
+      padding: 2rem 2rem 6rem;
+      background: var(--black);
+    }
+
+    .portfolio-grid {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+
+    .portfolio-item {
+      position: relative;
+      aspect-ratio: 4/3;
+      overflow: hidden;
+      border-radius: 8px;
+      cursor: pointer;
+      background: var(--dark-bg);
+    }
+
+    .portfolio-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+
+    .portfolio-overlay {
       position: absolute;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
-      z-index: 0;
-    }
-
-    .hero-background img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      opacity: 0.4;
-    }
-
-    .hero-content {
-      position: relative;
-      z-index: 1;
-      max-width: 1200px;
+      background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.9));
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
       padding: 2rem;
-    }
-
-    .hero h1 {
-      font-size: clamp(2rem, 5vw, 4.5rem);
-      margin-bottom: 1.5rem;
+      opacity: 0;
+      transition: opacity 0.4s ease;
       color: var(--white);
     }
 
-    .hero-subhead {
-      font-size: clamp(1rem, 2.5vw, 1.5rem);
+    .portfolio-item:hover img {
+      transform: scale(1.05);
+    }
+
+    .portfolio-item:hover .portfolio-overlay {
+      opacity: 1;
+    }
+
+    .portfolio-overlay h3 {
+      font-size: 1.3rem;
+      margin-bottom: 0.5rem;
+      color: var(--white);
+    }
+
+    .portfolio-overlay p {
+      font-size: 0.95rem;
       color: var(--gray-10);
-      margin-bottom: 2rem;
-      font-weight: 400;
+      line-height: 1.5;
     }
 
-    .hero-tagline {
-      font-size: clamp(1.1rem, 2vw, 1.3rem);
-      color: var(--white);
-      max-width: 900px;
-      margin: 0 auto 3rem;
-      line-height: 1.6;
-    }
-
-    .btn {
-      display: inline-block;
-      padding: 1rem 2rem;
-      border-radius: 6px;
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 1rem;
-      letter-spacing: 0.05em;
+    .portfolio-overlay .client {
+      font-size: 0.85rem;
+      color: var(--primary-blue);
+      margin-bottom: 0.25rem;
       text-transform: uppercase;
-      transition: all 0.3s ease;
-      border: none;
-      cursor: pointer;
+      letter-spacing: 0.05em;
     }
 
-    .btn-primary {
+    /* Client Logos Section */
+    .clients-section {
+      padding: 6rem 2rem;
       background: var(--primary-blue);
+      text-align: center;
+    }
+
+    .clients-section h2 {
+      font-size: clamp(2rem, 4vw, 3rem);
+      margin-bottom: 4rem;
       color: var(--white);
-      border: 2px solid var(--primary-blue);
     }
 
-    .btn-primary:hover {
-      background: transparent;
-      transform: translateY(-2px);
-      box-shadow: 0 4px 20px rgba(4, 149, 246, 0.3);
+    .clients-grid {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 3rem;
+      align-items: center;
     }
 
-    .btn-secondary {
-      background: transparent;
-      color: var(--white);
-      border: 2px solid var(--white);
+    .client-logo {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
     }
 
-    .btn-secondary:hover {
-      background: var(--white);
-      color: var(--black);
-      transform: translateY(-2px);
+    .client-logo img {
+      max-width: 120px;
+      max-height: 60px;
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+      filter: brightness(0) invert(1);
+      opacity: 0.9;
+      transition: opacity 0.3s ease;
+    }
+
+    .client-logo:hover img {
+      opacity: 1;
     }
 
     /* CTA Section */
@@ -284,6 +316,44 @@
       gap: 1.5rem;
       justify-content: center;
       flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 1rem 2rem;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      transition: all 0.3s ease;
+      border: none;
+      cursor: pointer;
+    }
+
+    .btn-primary {
+      background: var(--primary-blue);
+      color: var(--white);
+      border: 2px solid var(--primary-blue);
+    }
+
+    .btn-primary:hover {
+      background: transparent;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 20px rgba(4, 149, 246, 0.3);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--white);
+      border: 2px solid var(--white);
+    }
+
+    .btn-secondary:hover {
+      background: var(--white);
+      color: var(--black);
+      transform: translateY(-2px);
     }
 
     /* Footer */
@@ -372,6 +442,12 @@
     }
 
     /* Responsive Design */
+    @media (max-width: 1024px) {
+      .portfolio-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
     @media (max-width: 768px) {
       .nav-header {
         padding: 1rem;
@@ -412,8 +488,26 @@
         padding: 1rem;
       }
 
-      .hero {
-        min-height: 70vh;
+      .page-header {
+        padding: 4rem 1.5rem 3rem;
+      }
+
+      .portfolio-section {
+        padding: 2rem 1.5rem 4rem;
+      }
+
+      .portfolio-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+
+      .clients-section {
+        padding: 4rem 1.5rem;
+      }
+
+      .clients-grid {
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+        gap: 2rem;
       }
 
       .cta-section {
@@ -442,16 +536,24 @@
     }
 
     @media (max-width: 480px) {
-      .hero h1 {
-        font-size: 1.8rem;
+      .page-header h1 {
+        font-size: 2rem;
       }
 
-      .hero-subhead {
-        font-size: 0.95rem;
+      .portfolio-overlay {
+        padding: 1.5rem;
       }
 
-      .hero-tagline {
-        font-size: 1rem;
+      .portfolio-overlay h3 {
+        font-size: 1.1rem;
+      }
+
+      .portfolio-overlay p {
+        font-size: 0.85rem;
+      }
+
+      .clients-grid {
+        grid-template-columns: repeat(2, 1fr);
       }
     }
 
@@ -469,6 +571,11 @@
       outline: 2px solid var(--primary-blue);
       outline-offset: 2px;
     }
+
+    .portfolio-item:focus {
+      outline: 2px solid var(--primary-blue);
+      outline-offset: 4px;
+    }
   </style>
 </head>
 <body>
@@ -482,7 +589,7 @@
       </div>
       <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
       <ul class="nav-menu">
-        <li><a href="work.html">WORK</a></li>
+        <li><a href="work.html" class="active">WORK</a></li>
         <li><a href="about.html">ABOUT</a></li>
         <li><a href="services.html">SERVICES</a></li>
         <li><a href="contact.html">CONTACT</a></li>
@@ -491,16 +598,128 @@
     </div>
   </nav>
 
-  <!-- Hero Section -->
-  <section class="hero">
-    <div class="hero-background">
-      <img src="images/assets/Hero Image Whiteboard.png" alt="Hardware design whiteboard" />
+  <!-- Page Header -->
+  <section class="page-header">
+    <h1>Our Work</h1>
+  </section>
+
+  <!-- Portfolio Grid -->
+  <section class="portfolio-section">
+    <div class="portfolio-grid">
+      <!-- Project 1: Laminitis Sensor -->
+      <div class="portfolio-item" tabindex="0">
+        <img src="images/assets/Our Work - Laminitis Sensor.jpg" alt="Laminitis research device" />
+        <div class="portfolio-overlay">
+          <span class="client">Penn Vet</span>
+          <h3>Animal Research Device</h3>
+          <p>Wearable sensor system for equine laminitis research, enabling continuous monitoring in field conditions.</p>
+        </div>
+      </div>
+
+      <!-- Project 2: Neuralert -->
+      <div class="portfolio-item" tabindex="0">
+        <img src="images/assets/Our Work - Neuralert.png" alt="Stroke detection wearable" />
+        <div class="portfolio-overlay">
+          <span class="client">Neuralert</span>
+          <h3>Stroke Detection Wearable</h3>
+          <p>Clinical-grade wearable device for early stroke detection, integrating advanced sensors and real-time analytics.</p>
+        </div>
+      </div>
+
+      <!-- Project 3: Hala Systems IoT Switch -->
+      <div class="portfolio-item" tabindex="0">
+        <img src="images/placeholders/project-industrial-enclosures.png" alt="Hardened IoT switch" />
+        <div class="portfolio-overlay">
+          <span class="client">Hala Systems</span>
+          <h3>Hardened IoT Switch</h3>
+          <p>Ruggedized IoT device for critical infrastructure, designed for extreme environments and reliable connectivity.</p>
+        </div>
+      </div>
+
+      <!-- Project 4: UroGenie -->
+      <div class="portfolio-item" tabindex="0">
+        <img src="images/assets/Our Work - UroGenie.png" alt="Uroflow measurement device" />
+        <div class="portfolio-overlay">
+          <span class="client">UroGenie</span>
+          <h3>Uroflow Device</h3>
+          <p>Home diagnostic device for urinary health monitoring, combining medical accuracy with user-friendly design.</p>
+        </div>
+      </div>
+
+      <!-- Project 5: Vagus Nerve Stimulation -->
+      <div class="portfolio-item" tabindex="0">
+        <img src="images/placeholders/project-medical-device.png" alt="Vagus nerve stimulation device" />
+        <div class="portfolio-overlay">
+          <span class="client">Penn Vet / mindvybe</span>
+          <h3>Vagus Nerve Stimulation Device</h3>
+          <p>Therapeutic neurostimulation device for veterinary applications, featuring precise control and safety mechanisms.</p>
+        </div>
+      </div>
+
+      <!-- Project 6: Argospire Spirometer -->
+      <div class="portfolio-item" tabindex="0">
+        <img src="images/placeholders/project-cylindrical-devices.jpg" alt="Connected spirometer" />
+        <div class="portfolio-overlay">
+          <span class="client">Argospire</span>
+          <h3>Connected Spirometer</h3>
+          <p>Smart respiratory monitoring device with cloud connectivity, enabling remote patient monitoring and data analysis.</p>
+        </div>
+      </div>
     </div>
-    <div class="hero-content">
-      <h1>Hardware from Concept to Commercialization</h1>
-      <p class="hero-subhead">Deep Research • Time-Tested Strategy • Thoughtful Design • Systematic Engineering</p>
-      <p class="hero-tagline">Product design that ships, for companies building the future of hardware.</p>
-      <a href="contact.html" class="btn btn-primary">Let's Build Together</a>
+  </section>
+
+  <!-- Client Logos Section -->
+  <section class="clients-section">
+    <h2>Our Clients</h2>
+    <div class="clients-grid">
+      <div class="client-logo">
+        <img src="images/placeholders/client-neuralert.png" alt="Neuralert" />
+      </div>
+      <div class="client-logo">
+        <img src="images/placeholders/client-halasystems.png" alt="Hala Systems" />
+      </div>
+      <div class="client-logo">
+        <img src="images/placeholders/client-argospire.png" alt="Argospire" />
+      </div>
+      <div class="client-logo">
+        <img src="images/placeholders/client-strella.png" alt="Strella" />
+      </div>
+      <div class="client-logo">
+        <img src="images/placeholders/client-pike-robotics.png" alt="Pike Robotics" />
+      </div>
+      <div class="client-logo">
+        <img src="images/placeholders/client-neurava.png" alt="Neurava" />
+      </div>
+      <div class="client-logo">
+        <img src="images/placeholders/client-hexmodal.png" alt="Hexmodal" />
+      </div>
+      <div class="client-logo">
+        <img src="images/placeholders/client-aepnus.png" alt="Aepnus" />
+      </div>
+      <div class="client-logo">
+        <img src="images/placeholders/client-agtech-logic.png" alt="AgTech Logic" />
+      </div>
+      <div class="client-logo">
+        <img src="images/placeholders/client-dottir-labs.png" alt="Dottir Labs" />
+      </div>
+      <div class="client-logo">
+        <img src="images/placeholders/client-stepwise.png" alt="Stepwise" />
+      </div>
+      <div class="client-logo">
+        <img src="images/placeholders/client-hubly-surgical.png" alt="Hubly Surgical" />
+      </div>
+      <div class="client-logo">
+        <img src="images/placeholders/client-precision-livestock.png" alt="Precision Livestock" />
+      </div>
+      <div class="client-logo">
+        <img src="images/placeholders/client-portable-diagnostics.png" alt="Portable Diagnostics" />
+      </div>
+      <div class="client-logo">
+        <img src="images/placeholders/client-tourstream.png" alt="TourStream" />
+      </div>
+      <div class="client-logo">
+        <img src="images/placeholders/client-florrent.png" alt="Florrent" />
+      </div>
     </div>
   </section>
 

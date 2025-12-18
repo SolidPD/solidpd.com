@@ -3,25 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Solid Product Design — Hardware from concept to commercialization. Deep research, time-tested strategy, thoughtful design, systematic engineering.">
+  <meta name="description" content="Flexible expertise to solve your hardware challenges. Small expert team with deep engagement and startup DNA.">
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
   <link rel="manifest" href="/site.webmanifest">
-  <link rel="canonical" href="https://solidpd.com">
+  <link rel="canonical" href="https://solidpd.com/about">
 
-  <meta property="og:title" content="Solid Product Design">
-  <meta property="og:description" content="Hardware from concept to commercialization. Deep research, time-tested strategy, thoughtful design, systematic engineering.">
+  <meta property="og:title" content="About — Solid Product Design">
+  <meta property="og:description" content="Flexible expertise to solve your hardware challenges. Small expert team with deep engagement and startup DNA.">
   <meta property="og:image" content="https://solidpd.com/images/logo-horizontal-white.png">
-  <meta property="og:url" content="https://solidpd.com">
+  <meta property="og:url" content="https://solidpd.com/about">
   <meta property="og:type" content="website">
 
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Solid Product Design">
-  <meta name="twitter:description" content="Hardware from concept to commercialization. Deep research, time-tested strategy, thoughtful design, systematic engineering.">
-  <meta name="twitter:image" content="https://solidpd.com/images/logo-horizontal-white.png">
-
-  <title>Solid Product Design — Hardware from Concept to Commercialization</title>
+  <title>About — Solid Product Design</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -147,98 +142,115 @@
       padding: 0.5rem;
     }
 
-    /* Hero Section */
-    .hero {
-      position: relative;
-      min-height: 90vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+    /* Page Header */
+    .page-header {
+      padding: 6rem 2rem 4rem;
       text-align: center;
-      overflow: hidden;
       background: var(--black);
     }
 
-    .hero-background {
+    .page-header h1 {
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      margin-bottom: 2rem;
+      color: var(--white);
+    }
+
+    /* Content Sections */
+    .content-section {
+      padding: 4rem 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .content-section.alt {
+      background: var(--dark-bg);
+    }
+
+    .section-intro {
+      max-width: 900px;
+      margin: 0 auto 3rem;
+    }
+
+    .section-intro h2 {
+      font-size: clamp(1.8rem, 3vw, 2.5rem);
+      margin-bottom: 2rem;
+      color: var(--white);
+    }
+
+    .section-intro p {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      color: var(--gray-10);
+      margin-bottom: 1.5rem;
+    }
+
+    /* Pillars Grid */
+    .pillars-section {
+      padding: 6rem 2rem;
+      background: var(--black);
+    }
+
+    .pillars-section h2 {
+      text-align: center;
+      font-size: clamp(2rem, 4vw, 3rem);
+      margin-bottom: 4rem;
+      color: var(--white);
+    }
+
+    .pillars-grid {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 3rem;
+    }
+
+    .pillar-card {
+      background: var(--dark-bg);
+      border-radius: 8px;
+      padding: 2.5rem;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .pillar-card::before {
+      content: '';
       position: absolute;
       top: 0;
       left: 0;
       width: 100%;
-      height: 100%;
-      z-index: 0;
+      height: 4px;
+      background: transparent;
+      transition: background 0.3s ease;
     }
 
-    .hero-background img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      opacity: 0.4;
+    .pillar-card.accent::before {
+      background: var(--primary-yellow);
     }
 
-    .hero-content {
-      position: relative;
-      z-index: 1;
-      max-width: 1200px;
-      padding: 2rem;
+    .pillar-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 30px rgba(4, 149, 246, 0.15);
     }
 
-    .hero h1 {
-      font-size: clamp(2rem, 5vw, 4.5rem);
+    .pillar-icon {
+      width: 60px;
+      height: 60px;
       margin-bottom: 1.5rem;
+      opacity: 0.9;
+    }
+
+    .pillar-card h3 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
       color: var(--white);
     }
 
-    .hero-subhead {
-      font-size: clamp(1rem, 2.5vw, 1.5rem);
-      color: var(--gray-10);
-      margin-bottom: 2rem;
-      font-weight: 400;
-    }
-
-    .hero-tagline {
-      font-size: clamp(1.1rem, 2vw, 1.3rem);
-      color: var(--white);
-      max-width: 900px;
-      margin: 0 auto 3rem;
-      line-height: 1.6;
-    }
-
-    .btn {
-      display: inline-block;
-      padding: 1rem 2rem;
-      border-radius: 6px;
-      text-decoration: none;
-      font-weight: 600;
+    .pillar-card p {
       font-size: 1rem;
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
-      transition: all 0.3s ease;
-      border: none;
-      cursor: pointer;
-    }
-
-    .btn-primary {
-      background: var(--primary-blue);
-      color: var(--white);
-      border: 2px solid var(--primary-blue);
-    }
-
-    .btn-primary:hover {
-      background: transparent;
-      transform: translateY(-2px);
-      box-shadow: 0 4px 20px rgba(4, 149, 246, 0.3);
-    }
-
-    .btn-secondary {
-      background: transparent;
-      color: var(--white);
-      border: 2px solid var(--white);
-    }
-
-    .btn-secondary:hover {
-      background: var(--white);
-      color: var(--black);
-      transform: translateY(-2px);
+      line-height: 1.7;
+      color: var(--gray-10);
     }
 
     /* CTA Section */
@@ -284,6 +296,44 @@
       gap: 1.5rem;
       justify-content: center;
       flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 1rem 2rem;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      transition: all 0.3s ease;
+      border: none;
+      cursor: pointer;
+    }
+
+    .btn-primary {
+      background: var(--primary-blue);
+      color: var(--white);
+      border: 2px solid var(--primary-blue);
+    }
+
+    .btn-primary:hover {
+      background: transparent;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 20px rgba(4, 149, 246, 0.3);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--white);
+      border: 2px solid var(--white);
+    }
+
+    .btn-secondary:hover {
+      background: var(--white);
+      color: var(--black);
+      transform: translateY(-2px);
     }
 
     /* Footer */
@@ -412,8 +462,21 @@
         padding: 1rem;
       }
 
-      .hero {
-        min-height: 70vh;
+      .page-header {
+        padding: 4rem 1.5rem 3rem;
+      }
+
+      .content-section {
+        padding: 3rem 1.5rem;
+      }
+
+      .pillars-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+
+      .pillars-section {
+        padding: 4rem 1.5rem;
       }
 
       .cta-section {
@@ -442,16 +505,16 @@
     }
 
     @media (max-width: 480px) {
-      .hero h1 {
-        font-size: 1.8rem;
+      .page-header h1 {
+        font-size: 2rem;
       }
 
-      .hero-subhead {
-        font-size: 0.95rem;
-      }
-
-      .hero-tagline {
+      .section-intro p {
         font-size: 1rem;
+      }
+
+      .pillar-card {
+        padding: 2rem;
       }
     }
 
@@ -483,7 +546,7 @@
       <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
       <ul class="nav-menu">
         <li><a href="work.html">WORK</a></li>
-        <li><a href="about.html">ABOUT</a></li>
+        <li><a href="about.html" class="active">ABOUT</a></li>
         <li><a href="services.html">SERVICES</a></li>
         <li><a href="contact.html">CONTACT</a></li>
         <li><a href="#labs">LABS</a></li>
@@ -491,16 +554,66 @@
     </div>
   </nav>
 
-  <!-- Hero Section -->
-  <section class="hero">
-    <div class="hero-background">
-      <img src="images/assets/Hero Image Whiteboard.png" alt="Hardware design whiteboard" />
+  <!-- Value Proposition Section -->
+  <section class="content-section">
+    <div class="section-intro">
+      <h2>Flexible Expertise to Solve Your Hardware Challenges</h2>
+      <p>
+        Whether you're a startup founder with a revolutionary idea or an established company expanding your product line,
+        we bring the technical depth and strategic thinking needed to turn concepts into market-ready products.
+      </p>
+      <p>
+        Our team has worked across industries—from medical devices to industrial IoT—developing products that meet
+        rigorous standards while staying aligned with business goals. We understand the unique pressures of hardware
+        development: tight timelines, manufacturing constraints, and the need to get it right the first time.
+      </p>
+      <p>
+        We don't just design products; we build partnerships. By working closely with your team, we ensure knowledge
+        transfer and capability building, so you're equipped to sustain and scale your product long after our engagement ends.
+      </p>
     </div>
-    <div class="hero-content">
-      <h1>Hardware from Concept to Commercialization</h1>
-      <p class="hero-subhead">Deep Research • Time-Tested Strategy • Thoughtful Design • Systematic Engineering</p>
-      <p class="hero-tagline">Product design that ships, for companies building the future of hardware.</p>
-      <a href="contact.html" class="btn btn-primary">Let's Build Together</a>
+  </section>
+
+  <!-- Pillars Section -->
+  <section class="pillars-section">
+    <h2>The Solid Difference</h2>
+    <div class="pillars-grid">
+      <div class="pillar-card accent">
+        <img src="images/placeholders/icon-growth.png" alt="Chart icon" class="pillar-icon" />
+        <h3>Evidence-Based Development</h3>
+        <p>
+          We ground every decision in data and research. From validating market assumptions to stress-testing prototypes,
+          our approach minimizes risk and maximizes the likelihood of success. We don't guess—we measure, test, and iterate.
+        </p>
+      </div>
+
+      <div class="pillar-card">
+        <img src="images/placeholders/icon-team.png" alt="Team icon" class="pillar-icon" />
+        <h3>Small, Expert Team</h3>
+        <p>
+          You work directly with senior engineers and designers—no junior staff or communication layers. Our lean structure
+          means faster decisions, clearer communication, and hands-on expertise at every stage of your project.
+        </p>
+      </div>
+
+      <div class="pillar-card accent">
+        <img src="images/placeholders/icon-iceberg.png" alt="Iceberg icon" class="pillar-icon" />
+        <h3>Deep Engagement</h3>
+        <p>
+          We go beyond surface-level problem solving. We immerse ourselves in your product's ecosystem—understanding user
+          needs, regulatory requirements, manufacturing realities, and business constraints to deliver solutions that work
+          in the real world.
+        </p>
+      </div>
+
+      <div class="pillar-card">
+        <img src="images/placeholders/icon-lightning.png" alt="Lightning icon" class="pillar-icon" />
+        <h3>Startup DNA</h3>
+        <p>
+          Speed and resourcefulness are in our nature. We understand the urgency of bringing products to market and the
+          need to make every dollar count. We move fast, stay flexible, and deliver results without unnecessary overhead.
+        </p>
+      </div>
     </div>
   </section>
 

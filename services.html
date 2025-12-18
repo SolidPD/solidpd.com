@@ -3,25 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Solid Product Design — Hardware from concept to commercialization. Deep research, time-tested strategy, thoughtful design, systematic engineering.">
+  <meta name="description" content="End-to-end hardware product development services from research and strategy to manufacturing preparation.">
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
   <link rel="manifest" href="/site.webmanifest">
-  <link rel="canonical" href="https://solidpd.com">
+  <link rel="canonical" href="https://solidpd.com/services">
 
-  <meta property="og:title" content="Solid Product Design">
-  <meta property="og:description" content="Hardware from concept to commercialization. Deep research, time-tested strategy, thoughtful design, systematic engineering.">
+  <meta property="og:title" content="Services — Solid Product Design">
+  <meta property="og:description" content="End-to-end hardware product development services from research and strategy to manufacturing preparation.">
   <meta property="og:image" content="https://solidpd.com/images/logo-horizontal-white.png">
-  <meta property="og:url" content="https://solidpd.com">
+  <meta property="og:url" content="https://solidpd.com/services">
   <meta property="og:type" content="website">
 
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Solid Product Design">
-  <meta name="twitter:description" content="Hardware from concept to commercialization. Deep research, time-tested strategy, thoughtful design, systematic engineering.">
-  <meta name="twitter:image" content="https://solidpd.com/images/logo-horizontal-white.png">
-
-  <title>Solid Product Design — Hardware from Concept to Commercialization</title>
+  <title>Services — Solid Product Design</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -147,98 +142,122 @@
       padding: 0.5rem;
     }
 
-    /* Hero Section */
-    .hero {
-      position: relative;
-      min-height: 90vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+    /* Page Header */
+    .page-header {
+      padding: 6rem 2rem 2rem;
       text-align: center;
-      overflow: hidden;
       background: var(--black);
+      max-width: 1000px;
+      margin: 0 auto;
     }
 
-    .hero-background {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      z-index: 0;
-    }
-
-    .hero-background img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      opacity: 0.4;
-    }
-
-    .hero-content {
-      position: relative;
-      z-index: 1;
-      max-width: 1200px;
-      padding: 2rem;
-    }
-
-    .hero h1 {
-      font-size: clamp(2rem, 5vw, 4.5rem);
+    .page-header h1 {
+      font-size: clamp(2.5rem, 5vw, 4rem);
       margin-bottom: 1.5rem;
       color: var(--white);
     }
 
-    .hero-subhead {
-      font-size: clamp(1rem, 2.5vw, 1.5rem);
+    .page-header p {
+      font-size: 1.2rem;
       color: var(--gray-10);
-      margin-bottom: 2rem;
-      font-weight: 400;
+      line-height: 1.7;
+      max-width: 800px;
+      margin: 0 auto;
     }
 
-    .hero-tagline {
-      font-size: clamp(1.1rem, 2vw, 1.3rem);
-      color: var(--white);
-      max-width: 900px;
-      margin: 0 auto 3rem;
-      line-height: 1.6;
+    /* Services Grid Section */
+    .services-section {
+      padding: 4rem 2rem 6rem;
+      background: var(--black);
     }
 
-    .btn {
-      display: inline-block;
-      padding: 1rem 2rem;
-      border-radius: 6px;
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 1rem;
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
-      transition: all 0.3s ease;
-      border: none;
+    .services-grid {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2.5rem;
+    }
+
+    /* Flip Card Container */
+    .flip-card {
+      perspective: 1000px;
+      height: 350px;
       cursor: pointer;
     }
 
-    .btn-primary {
-      background: var(--primary-blue);
-      color: var(--white);
-      border: 2px solid var(--primary-blue);
+    .flip-card-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      transition: transform 0.6s;
+      transform-style: preserve-3d;
     }
 
-    .btn-primary:hover {
-      background: transparent;
-      transform: translateY(-2px);
-      box-shadow: 0 4px 20px rgba(4, 149, 246, 0.3);
+    .flip-card:hover .flip-card-inner,
+    .flip-card.flipped .flip-card-inner {
+      transform: rotateY(180deg);
     }
 
-    .btn-secondary {
-      background: transparent;
-      color: var(--white);
-      border: 2px solid var(--white);
+    .flip-card-front,
+    .flip-card-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+      border-radius: 8px;
+      padding: 2.5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
     }
 
-    .btn-secondary:hover {
-      background: var(--white);
+    .flip-card-front {
+      background: var(--gray-10);
       color: var(--black);
-      transform: translateY(-2px);
+      align-items: center;
+      text-align: center;
+    }
+
+    .flip-card-back {
+      background: var(--dark-bg);
+      color: var(--white);
+      transform: rotateY(180deg);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .flip-card-front h3 {
+      font-size: 1.5rem;
+      color: var(--black);
+    }
+
+    .flip-card-back h3 {
+      font-size: 1.3rem;
+      color: var(--primary-blue);
+      margin-bottom: 1rem;
+    }
+
+    .flip-card-back ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .flip-card-back li {
+      font-size: 0.95rem;
+      line-height: 1.8;
+      color: var(--gray-10);
+      padding-left: 1.5rem;
+      position: relative;
+      margin-bottom: 0.5rem;
+    }
+
+    .flip-card-back li::before {
+      content: '•';
+      position: absolute;
+      left: 0;
+      color: var(--primary-blue);
+      font-weight: bold;
+      font-size: 1.2rem;
     }
 
     /* CTA Section */
@@ -284,6 +303,44 @@
       gap: 1.5rem;
       justify-content: center;
       flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 1rem 2rem;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      transition: all 0.3s ease;
+      border: none;
+      cursor: pointer;
+    }
+
+    .btn-primary {
+      background: var(--primary-blue);
+      color: var(--white);
+      border: 2px solid var(--primary-blue);
+    }
+
+    .btn-primary:hover {
+      background: transparent;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 20px rgba(4, 149, 246, 0.3);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--white);
+      border: 2px solid var(--white);
+    }
+
+    .btn-secondary:hover {
+      background: var(--white);
+      color: var(--black);
+      transform: translateY(-2px);
     }
 
     /* Footer */
@@ -412,8 +469,21 @@
         padding: 1rem;
       }
 
-      .hero {
-        min-height: 70vh;
+      .page-header {
+        padding: 4rem 1.5rem 2rem;
+      }
+
+      .services-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+
+      .flip-card {
+        height: 320px;
+      }
+
+      .services-section {
+        padding: 3rem 1.5rem 4rem;
       }
 
       .cta-section {
@@ -442,16 +512,33 @@
     }
 
     @media (max-width: 480px) {
-      .hero h1 {
-        font-size: 1.8rem;
+      .page-header h1 {
+        font-size: 2rem;
       }
 
-      .hero-subhead {
-        font-size: 0.95rem;
-      }
-
-      .hero-tagline {
+      .page-header p {
         font-size: 1rem;
+      }
+
+      .flip-card {
+        height: 300px;
+      }
+
+      .flip-card-front,
+      .flip-card-back {
+        padding: 2rem;
+      }
+
+      .flip-card-front h3 {
+        font-size: 1.3rem;
+      }
+
+      .flip-card-back h3 {
+        font-size: 1.1rem;
+      }
+
+      .flip-card-back li {
+        font-size: 0.9rem;
       }
     }
 
@@ -462,12 +549,22 @@
         animation-iteration-count: 1 !important;
         transition-duration: 0.01ms !important;
       }
+
+      .flip-card-inner {
+        transition: none;
+      }
     }
 
     .btn:focus,
     a:focus {
       outline: 2px solid var(--primary-blue);
       outline-offset: 2px;
+    }
+
+    .flip-card:focus {
+      outline: 2px solid var(--primary-blue);
+      outline-offset: 4px;
+      border-radius: 8px;
     }
   </style>
 </head>
@@ -484,23 +581,138 @@
       <ul class="nav-menu">
         <li><a href="work.html">WORK</a></li>
         <li><a href="about.html">ABOUT</a></li>
-        <li><a href="services.html">SERVICES</a></li>
+        <li><a href="services.html" class="active">SERVICES</a></li>
         <li><a href="contact.html">CONTACT</a></li>
         <li><a href="#labs">LABS</a></li>
       </ul>
     </div>
   </nav>
 
-  <!-- Hero Section -->
-  <section class="hero">
-    <div class="hero-background">
-      <img src="images/assets/Hero Image Whiteboard.png" alt="Hardware design whiteboard" />
-    </div>
-    <div class="hero-content">
-      <h1>Hardware from Concept to Commercialization</h1>
-      <p class="hero-subhead">Deep Research • Time-Tested Strategy • Thoughtful Design • Systematic Engineering</p>
-      <p class="hero-tagline">Product design that ships, for companies building the future of hardware.</p>
-      <a href="contact.html" class="btn btn-primary">Let's Build Together</a>
+  <!-- Page Header -->
+  <section class="page-header">
+    <h1>End-to-End Hardware Product Development</h1>
+    <p>
+      From crafting a comprehensive development strategy to scaling to pilot production, we guide hardware companies
+      through every phase of bringing innovative products to market.
+    </p>
+  </section>
+
+  <!-- Services Grid -->
+  <section class="services-section">
+    <div class="services-grid">
+      <!-- Card 1: Research & Strategy -->
+      <div class="flip-card" tabindex="0" role="button" aria-label="Research & Strategy service details">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <h3>Research & Strategy</h3>
+          </div>
+          <div class="flip-card-back">
+            <h3>Research & Strategy</h3>
+            <ul>
+              <li>Market and competitive analysis</li>
+              <li>Technical risk identification</li>
+              <li>Product roadmap development</li>
+              <li>Feasibility studies</li>
+              <li>User research and validation</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 2: Industrial Design -->
+      <div class="flip-card" tabindex="0" role="button" aria-label="Industrial Design service details">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <h3>Industrial Design</h3>
+          </div>
+          <div class="flip-card-back">
+            <h3>Industrial Design</h3>
+            <ul>
+              <li>Concept generation and ideation</li>
+              <li>User journey mapping</li>
+              <li>CMF (Color, Material, Finish) design</li>
+              <li>UI/UX design for hardware</li>
+              <li>Form factor optimization</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 3: Mechanical Engineering -->
+      <div class="flip-card" tabindex="0" role="button" aria-label="Mechanical Engineering service details">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <h3>Mechanical Engineering</h3>
+          </div>
+          <div class="flip-card-back">
+            <h3>Mechanical Engineering</h3>
+            <ul>
+              <li>Electromechanical system design</li>
+              <li>CAD modeling and simulation</li>
+              <li>Fabrication and prototyping</li>
+              <li>Structural analysis and optimization</li>
+              <li>Enclosure and housing design</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 4: Electrical Engineering -->
+      <div class="flip-card" tabindex="0" role="button" aria-label="Electrical Engineering service details">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <h3>Electrical Engineering</h3>
+          </div>
+          <div class="flip-card-back">
+            <h3>Electrical Engineering</h3>
+            <ul>
+              <li>System architecture design</li>
+              <li>Breadboard prototyping</li>
+              <li>Firmware development</li>
+              <li>PCB design and layout</li>
+              <li>Power management and sensor integration</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 5: Prototyping & Testing -->
+      <div class="flip-card" tabindex="0" role="button" aria-label="Prototyping & Testing service details">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <h3>Prototyping & Testing</h3>
+          </div>
+          <div class="flip-card-back">
+            <h3>Prototyping & Testing</h3>
+            <ul>
+              <li>Alpha and beta prototype sourcing</li>
+              <li>Test plan development</li>
+              <li>Environmental and stress testing</li>
+              <li>User validation studies</li>
+              <li>Performance analysis and iteration</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 6: Manufacturing Preparation -->
+      <div class="flip-card" tabindex="0" role="button" aria-label="Manufacturing Preparation service details">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <h3>Manufacturing Preparation</h3>
+          </div>
+          <div class="flip-card-back">
+            <h3>Manufacturing Preparation</h3>
+            <ul>
+              <li>Design for Manufacturing (DFM)</li>
+              <li>Design for Assembly (DFA)</li>
+              <li>Supply chain development</li>
+              <li>Certification and compliance support</li>
+              <li>Production scaling strategy</li>
+            </ul>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -562,6 +774,20 @@
     document.querySelectorAll('.nav-menu a').forEach(link => {
       link.addEventListener('click', () => {
         navMenu.classList.remove('active');
+      });
+    });
+
+    // Flip card accessibility - toggle on click and Enter/Space key
+    document.querySelectorAll('.flip-card').forEach(card => {
+      card.addEventListener('click', () => {
+        card.classList.toggle('flipped');
+      });
+
+      card.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          card.classList.toggle('flipped');
+        }
       });
     });
   </script>
