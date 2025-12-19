@@ -2,6 +2,59 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
+---
+
+## 🔴 CRITICAL: Production Safety Rules
+
+> **⚠️ THE `main` BRANCH IS THE LIVE PRODUCTION SITE**
+>
+> Merging to `main` immediately deploys to https://solidpd.com - the client's live website.
+
+### NEVER Do These Actions Without Explicit User Request
+
+| Action | Allowed? | Requirement |
+|--------|----------|-------------|
+| Merge PR to `main` | 🚫 NEVER autonomous | User must explicitly say "merge to main" or "deploy to production" |
+| Create PR targeting `main` | 🚫 NEVER autonomous | User must explicitly request PR to main |
+| Push directly to `main` | 🚫 NEVER | Always blocked, even if requested |
+| `git checkout main` + commit | 🚫 NEVER | Work on feature branches only |
+| `netlify deploy --prod` | 🚫 NEVER autonomous | User must explicitly request production deploy |
+
+### When User Requests Merge to Main
+
+**STOP and present this warning BEFORE proceeding:**
+
+```
+⚠️  PRODUCTION DEPLOYMENT WARNING ⚠️
+
+You are about to merge to the `main` branch.
+This will IMMEDIATELY deploy changes to the LIVE production site:
+
+  🌐 https://solidpd.com
+
+This action will affect the client's live website visible to the public.
+
+Please confirm you want to proceed with production deployment.
+```
+
+**Only proceed after user confirms.**
+
+### Safe Workflow
+
+1. **Always work on feature branches** (e.g., `ms-cc-dev-multipage-v2`)
+2. **Deploy previews** using `netlify deploy --dir=.` (without `--prod`)
+3. **Create PRs to `dev` branch** for staging/review
+4. **Only merge to `main`** when user explicitly requests production deployment
+
+### Why This Matters
+
+- `main` branch triggers automatic production deployment via GitHub Actions
+- There is NO staging environment between merge and live site
+- Mistakes affect the client's business immediately
+- Rollback requires manual intervention
+
+---
+
 ## Project Overview
 
 **Solid Product Design** - Static website for a hardware product design and engineering services company based in Philadelphia, PA. Currently a single-page splash site being expanded to a multi-page website based on client mockups.
