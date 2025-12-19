@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Solid Product Design Labs — Coming Soon">
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+
+  <title>Labs — Solid Product Design</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Quicksand:wght@600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --primary-blue: #0495F6;
+      --dark-bg: #1A1A1A;
+      --black: #000000;
+      --gray-50: #808080;
+      --white: #FFFFFF;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: "DM Sans", system-ui, -apple-system, sans-serif;
+      background: var(--black);
+      color: var(--white);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 2rem;
+    }
+
+    .placeholder-content {
+      max-width: 600px;
+    }
+
+    h1 {
+      font-family: "Quicksand", sans-serif;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      font-size: clamp(1.5rem, 4vw, 2.5rem);
+      margin-bottom: 1.5rem;
+      color: var(--white);
+    }
+
+    p {
+      color: var(--gray-50);
+      line-height: 1.6;
+      margin-bottom: 2rem;
+    }
+
+    .back-link {
+      display: inline-block;
+      color: var(--primary-blue);
+      text-decoration: none;
+      font-weight: 500;
+      transition: opacity 0.2s ease;
+    }
+
+    .back-link:hover {
+      opacity: 0.8;
+    }
+
+    .back-link:focus {
+      outline: 2px solid var(--primary-blue);
+      outline-offset: 4px;
+    }
+  </style>
+</head>
+<body>
+  <div class="placeholder-content">
+    <h1>Labs</h1>
+    <p>Intentional blank page placeholder for future redirect to external Labs site.</p>
+    <p>This demonstrates that clicking "Labs" in the navigation attempts to go to the external site, but since the site doesn't exist yet, this placeholder shows the intended functionality.</p>
+    <a href="index.html" class="back-link">← Back to Home</a>
+  </div>
+</body>
+</html>
