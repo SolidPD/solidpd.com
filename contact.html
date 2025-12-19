@@ -16,6 +16,11 @@
   <meta property="og:url" content="https://solidpd.com/contact">
   <meta property="og:type" content="website">
 
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Contact — Solid Product Design">
+  <meta name="twitter:description" content="Get in touch with Solid Product Design. Schedule a call or send us a message about your hardware project.">
+  <meta name="twitter:image" content="https://solidpd.com/images/logo-horizontal-white.png">
+
   <title>Contact — Solid Product Design</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -29,7 +34,6 @@
       --primary-yellow: #FFB75A;
       --dark-bg: #1A1A1A;
       --black: #000000;
-      --gray-90: #1A1A1A;
       --gray-70: #4D4D4D;
       --gray-50: #808080;
       --gray-30: #B3B3B3;
@@ -79,6 +83,11 @@
     }
     .skip-link:focus {
       top: 0;
+    }
+
+    /* Honeypot (spam protection) */
+    .honeypot {
+      display: none;
     }
 
     /* Navigation */
@@ -347,7 +356,7 @@
 
     /* Footer */
     .footer {
-      background: var(--gray-90);
+      background: var(--dark-bg);
       color: var(--gray-30);
       padding: 4rem 2rem 2rem;
     }
@@ -519,7 +528,7 @@
     <div class="nav-container">
       <div class="nav-logo">
         <a href="index.html">
-          <img src="images/logo-horizontal-white.png" alt="Solid Product Design" />
+          <img src="images/logo-horizontal-white.png" alt="Solid Product Design" width="6000" height="1000" />
         </a>
       </div>
       <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
@@ -527,7 +536,7 @@
         <li><a href="work.html">WORK</a></li>
         <li><a href="about.html">ABOUT</a></li>
         <li><a href="services.html">SERVICES</a></li>
-        <li><a href="contact.html" class="active">CONTACT</a></li>
+        <li><a href="contact.html" class="active" aria-current="page">CONTACT</a></li>
         <li><a href="#" title="Coming soon">LABS</a></li>
       </ul>
     </div>
@@ -548,7 +557,7 @@
         <h2>Send Us a Message</h2>
         <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
           <input type="hidden" name="form-name" value="contact" />
-          <p style="display: none;">
+          <p class="honeypot">
             <label>Don't fill this out if you're human: <input name="bot-field" /></label>
           </p>
 
@@ -626,7 +635,7 @@
       </div>
 
       <div class="footer-logo">
-        <img src="images/placeholders/solid-logo-color.png" alt="Solid Product Design O Logo" />
+        <img src="images/placeholders/solid-logo-color.png" alt="Solid Product Design O Logo" width="2048" height="945" loading="lazy" />
       </div>
 
       <div class="footer-section">
