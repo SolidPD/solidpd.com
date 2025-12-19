@@ -90,6 +90,71 @@
       display: none;
     }
 
+    /* Form States */
+    .form-status {
+      padding: 1rem 1.25rem;
+      border-radius: 6px;
+      margin-bottom: 1.5rem;
+      display: none;
+    }
+
+    .form-status.success {
+      display: block;
+      background: rgba(34, 197, 94, 0.15);
+      border: 1px solid rgba(34, 197, 94, 0.4);
+      color: #86efac;
+    }
+
+    .form-status.error {
+      display: block;
+      background: rgba(239, 68, 68, 0.15);
+      border: 1px solid rgba(239, 68, 68, 0.4);
+      color: #fca5a5;
+    }
+
+    .form-status h3 {
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
+      text-transform: none;
+      letter-spacing: normal;
+    }
+
+    .form-status p {
+      margin: 0;
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+
+    /* Loading State */
+    .submit-btn.loading {
+      position: relative;
+      color: transparent;
+      pointer-events: none;
+    }
+
+    .submit-btn.loading::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 20px;
+      height: 20px;
+      margin: -10px 0 0 -10px;
+      border: 2px solid var(--white);
+      border-top-color: transparent;
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    /* Hide form when success */
+    .contact-form.submitted form {
+      display: none;
+    }
+
     /* Navigation */
     .nav-header {
       position: sticky;
@@ -555,9 +620,10 @@
   <section class="contact-section">
     <div class="contact-container">
       <!-- Contact Form -->
-      <div class="contact-form">
+      <div class="contact-form" id="contact-form-container">
         <h2>Send Us a Message</h2>
-        <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+        <div id="form-status" class="form-status" role="alert" aria-live="polite"></div>
+        <form id="contact-form" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
           <input type="hidden" name="form-name" value="contact" />
           <p class="honeypot">
             <label>Don't fill this out if you're human: <input name="bot-field" /></label>
@@ -673,6 +739,61 @@
       link.addEventListener('click', () => {
         navMenu.classList.remove('active');
       });
+    });
+
+    // Contact Form Handling
+    const contactForm = document.getElementById('contact-form');
+    const formContainer = document.getElementById('contact-form-container');
+    const formStatus = document.getElementById('form-status');
+    const submitBtn = contactForm.querySelector('.submit-btn');
+
+    contactForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      // Show loading state
+      submitBtn.classList.add('loading');
+      submitBtn.disabled = true;
+      formStatus.className = 'form-status';
+      formStatus.innerHTML = '';
+
+      try {
+        const formData = new FormData(contactForm);
+
+        const response = await fetch('/', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+          body: new URLSearchParams(formData).toString()
+        });
+
+        if (response.ok) {
+          // Success
+          formStatus.className = 'form-status success';
+          formStatus.innerHTML = `
+            <h3>Message Sent!</h3>
+            <p>Thank you for reaching out. We'll get back to you within 1-2 business days.</p>
+          `;
+          formContainer.classList.add('submitted');
+
+          // Scroll to status message
+          formStatus.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        } else {
+          throw new Error('Form submission failed');
+        }
+      } catch (error) {
+        // Error
+        formStatus.className = 'form-status error';
+        formStatus.innerHTML = `
+          <h3>Something went wrong</h3>
+          <p>We couldn't send your message. Please try again, or email us directly at <a href="mailto:hello@solidpd.com" style="color: inherit; text-decoration: underline;">hello@solidpd.com</a>.</p>
+        `;
+
+        // Reset button
+        submitBtn.classList.remove('loading');
+        submitBtn.disabled = false;
+
+        // Scroll to error message
+        formStatus.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
     });
   </script>
 </body>
