@@ -176,6 +176,23 @@ export NETLIFY_AUTH_TOKEN=$(grep NETLIFY_API_KEY .env | cut -d'=' -f2)
 | `tavily` | Research design patterns, CSS solutions |
 | `sequential-thinking` | Complex architecture decisions |
 
+### 🔴 Playwright Visual Verification Rule
+
+**When using Playwright to verify site changes, ALWAYS verify BOTH:**
+
+1. **Visual rendering** - Take screenshots at desktop (1280px+) AND mobile (375px) viewports
+2. **Functional behavior** - Test interactions, navigation, form submissions
+
+**Never rely on code/attribute checks alone.** HTML attributes can be correct while CSS causes visual defects.
+
+**Required checks:**
+- Full-page screenshots at each viewport size
+- `document.body.scrollWidth` vs `window.innerWidth` (detect horizontal overflow)
+- Rendered element dimensions match expected values
+- Images display at correct aspect ratios
+- Text is readable and properly sized
+- Interactive elements are accessible and functional
+
 ### Slash Commands
 | Command | Use For |
 |---------|---------|
