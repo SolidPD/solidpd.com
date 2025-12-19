@@ -532,9 +532,27 @@
       outline: 2px solid var(--primary-blue);
       outline-offset: 2px;
     }
+
+    /* Skip Link */
+    .skip-link {
+      position: absolute;
+      top: -40px;
+      left: 0;
+      background: var(--primary-blue);
+      color: var(--white);
+      padding: 0.5rem 1rem;
+      z-index: 2000;
+      text-decoration: none;
+      font-family: var(--font-body);
+    }
+    .skip-link:focus {
+      top: 0;
+    }
   </style>
 </head>
 <body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
   <!-- Navigation -->
   <nav class="nav-header">
     <div class="nav-container">
@@ -549,13 +567,14 @@
         <li><a href="about.html" class="active">ABOUT</a></li>
         <li><a href="services.html">SERVICES</a></li>
         <li><a href="contact.html">CONTACT</a></li>
-        <li><a href="#labs">LABS</a></li>
+        <li><a href="#" title="Coming soon">LABS</a></li>
       </ul>
     </div>
   </nav>
 
-  <!-- Value Proposition Section -->
-  <section class="content-section">
+  <main id="main-content">
+    <!-- Value Proposition Section -->
+    <section class="content-section">
     <div class="section-intro">
       <h2>Flexible Expertise to Solve Your Hardware Challenges</h2>
       <p>
@@ -630,6 +649,7 @@
       </div>
     </div>
   </section>
+  </main>
 
   <!-- Footer -->
   <footer class="footer">

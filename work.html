@@ -65,6 +65,22 @@
       line-height: 1.2;
     }
 
+    /* Skip Link */
+    .skip-link {
+      position: absolute;
+      top: -40px;
+      left: 0;
+      background: var(--primary-blue);
+      color: var(--white);
+      padding: 0.5rem 1rem;
+      z-index: 2000;
+      text-decoration: none;
+      font-family: var(--font-body);
+    }
+    .skip-link:focus {
+      top: 0;
+    }
+
     /* Navigation */
     .nav-header {
       position: sticky;
@@ -579,6 +595,7 @@
   </style>
 </head>
 <body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
   <!-- Navigation -->
   <nav class="nav-header">
     <div class="nav-container">
@@ -593,11 +610,12 @@
         <li><a href="about.html">ABOUT</a></li>
         <li><a href="services.html">SERVICES</a></li>
         <li><a href="contact.html">CONTACT</a></li>
-        <li><a href="#labs">LABS</a></li>
+        <li><a href="#" title="Coming soon">LABS</a></li>
       </ul>
     </div>
   </nav>
 
+  <main id="main-content">
   <!-- Page Header -->
   <section class="page-header">
     <h1>Our Work</h1>
@@ -736,6 +754,7 @@
       </div>
     </div>
   </section>
+  </main>
 
   <!-- Footer -->
   <footer class="footer">
