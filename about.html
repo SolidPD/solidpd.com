@@ -59,6 +59,7 @@
       line-height: 1.6;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
+      overflow-x: hidden;
     }
 
     h1, h2, h3, h4, h5, h6 {
@@ -542,8 +543,9 @@
     /* Skip Link */
     .skip-link {
       position: absolute;
-      top: -40px;
+      top: 0;
       left: 0;
+      transform: translateY(-100%);
       background: var(--primary-blue);
       color: var(--white);
       padding: 0.5rem 1rem;
@@ -552,7 +554,7 @@
       font-family: var(--font-body);
     }
     .skip-link:focus {
-      top: 0;
+      transform: translateY(0);
     }
   </style>
 </head>
