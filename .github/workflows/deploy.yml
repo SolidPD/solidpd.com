@@ -3,8 +3,7 @@ name: Deploy Static Site to Netlify
 on:
   push:
     branches:
-      - main
-      - dev
+      - "**"
 
 jobs:
   deploy:
@@ -33,3 +32,4 @@ jobs:
           else
             netlify deploy --dir=temp_deploy
           fi
+
