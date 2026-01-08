@@ -205,6 +205,20 @@
       line-height: 1.6;
     }
 
+    /* Text emphasis styles */
+    .text-highlight {
+      background-color: var(--primary-blue);
+      padding: 0.1em 0.3em;
+      border-radius: 4px;
+    }
+
+    .text-underline {
+      text-decoration: underline;
+      text-decoration-color: var(--primary-blue);
+      text-decoration-thickness: 3px;
+      text-underline-offset: 4px;
+    }
+
     .btn {
       display: inline-block;
       padding: 1rem 2rem;
@@ -541,9 +555,9 @@
       <img src="images/assets/Hero Image Whiteboard.png" alt="Hardware design whiteboard" width="4032" height="3024" loading="lazy" />
     </div>
     <div class="hero-content">
-      <h1>Hardware from Concept to Commercialization</h1>
+      <h1><span class="text-highlight">Hardware</span> from Concept to Commercialization</h1>
       <p class="hero-subhead">Deep Research • Time-Tested Strategy • Thoughtful Design • Systematic Engineering</p>
-      <p class="hero-tagline">Product design that ships, for companies building the future of hardware.</p>
+      <p class="hero-tagline">Product design that <span class="text-underline">ships</span>, for companies building the future of hardware.</p>
       <a href="contact.html" class="btn btn-primary">Let's Build Together</a>
     </div>
   </section>
