@@ -46,7 +46,54 @@ Please confirm you want to proceed with production deployment.
 3. **Create PRs to `dev` branch** for staging/review
 4. **Only merge to `main`** when user explicitly requests production deployment
 
+---
+
+## 🔴 CRITICAL: GitHub Issue Workflow
+
+> **⚠️ ALWAYS SYNC BEFORE WORKING ON ISSUES**
+>
+> Issues are created on GitHub and may include file uploads that only exist on the remote.
+
+### Before Working on ANY GitHub Issue
+
+**MANDATORY: Run these commands FIRST before reading or addressing any issue:**
+
+```bash
+git fetch origin
+git pull origin <current-branch>
+```
+
 ### Why This Matters
+
+- **Colleagues upload assets directly to GitHub** when creating issues
+- These files exist on the **remote** but not in the **local** repository
+- Without syncing, you will report files as "missing" when they actually exist
+- This wastes time and creates confusion between team members
+
+### Trigger Phrases
+
+Perform the sync operation when the user says ANY of these:
+- "work on issue(s)"
+- "address issue(s)"
+- "fix issue(s)"
+- "resolve issue(s)"
+- "tackle issue(s)"
+- "look at the open issues"
+- "what issues are open"
+- References to specific issue numbers (e.g., "#85", "issue 85")
+
+### Sync Protocol
+
+1. **Check current branch**: `git branch --show-current`
+2. **Fetch remote changes**: `git fetch origin`
+3. **Check for divergence**: `git status`
+4. **Pull/merge if needed**: `git pull origin <branch>` or `git merge origin/<branch>`
+5. **Confirm sync**: Report any new files that were pulled down
+6. **THEN proceed** with issue work
+
+---
+
+### Why Production Safety Matters
 
 - `main` branch triggers automatic production deployment via GitHub Actions
 - There is NO staging environment between merge and live site
