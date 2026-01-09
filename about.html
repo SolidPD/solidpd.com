@@ -202,6 +202,17 @@
       font-size: clamp(2rem, 4vw, 3rem);
       margin-bottom: 4rem;
       color: var(--white);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.3em;
+    }
+
+    .solid-logo-inline {
+      height: 1em;
+      width: auto;
+      vertical-align: middle;
+      margin-top: -0.1em;
     }
 
     .pillars-grid {
@@ -621,7 +632,7 @@
 
   <!-- Pillars Section -->
   <section class="pillars-section">
-    <h2>The Solid Difference</h2>
+    <h2>The <img src="images/assets/Solid-logo-white-yellow.png" alt="Solid" class="solid-logo-inline" /> Difference</h2>
     <div class="pillars-grid">
       <div class="pillar-card accent">
         <img src="images/placeholders/icon-growth.png" alt="Chart icon" class="pillar-icon" width="1024" height="1024" loading="lazy" />
@@ -632,7 +643,7 @@
         </p>
       </div>
 
-      <div class="pillar-card">
+      <div class="pillar-card accent">
         <img src="images/placeholders/icon-team.png" alt="Team icon" class="pillar-icon" width="1024" height="1024" loading="lazy" />
         <h3>Small, Expert Team</h3>
         <p>
@@ -651,7 +662,7 @@
         </p>
       </div>
 
-      <div class="pillar-card">
+      <div class="pillar-card accent">
         <img src="images/placeholders/icon-lightning.png" alt="Lightning icon" class="pillar-icon" width="1024" height="1024" loading="lazy" />
         <h3>Startup DNA</h3>
         <p>
