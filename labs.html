@@ -3,91 +3,1155 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Solid Product Design Labs — Coming Soon">
-  <meta name="robots" content="noindex, nofollow">
+  <meta name="description" content="Solid Labs — Offices, workspace, and community for hard-tech companies in Philadelphia. Flexible workspace solutions with workshop access.">
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
   <link rel="manifest" href="/site.webmanifest">
+  <link rel="canonical" href="https://solidpd.com/labs">
 
-  <title>Labs — Solid Product Design</title>
+  <meta property="og:title" content="Solid Labs — Solid Product Design">
+  <meta property="og:description" content="Offices, workspace, and community for hard-tech companies in Philadelphia.">
+  <meta property="og:image" content="https://solidpd.com/images/logo-horizontal-white.png">
+  <meta property="og:url" content="https://solidpd.com/labs">
+  <meta property="og:type" content="website">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Solid Labs — Solid Product Design">
+  <meta name="twitter:description" content="Offices, workspace, and community for hard-tech companies in Philadelphia.">
+  <meta name="twitter:image" content="https://solidpd.com/images/logo-horizontal-white.png">
+
+  <title>Solid Labs — Solid Product Design</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Quicksand:wght@600;700&display=swap" rel="stylesheet">
 
   <style>
+    /* CSS Variables */
     :root {
       --primary-blue: #0495F6;
+      --primary-yellow: #FFB75A;
       --dark-bg: #1A1A1A;
       --black: #000000;
+      --gray-70: #4D4D4D;
       --gray-50: #808080;
+      --gray-30: #B3B3B3;
+      --gray-10: #E5E5E5;
       --white: #FFFFFF;
     }
 
+    /* Reset and Base Styles */
     * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
     }
 
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
-      font-family: "DM Sans", system-ui, -apple-system, sans-serif;
+      font-family: "DM Sans", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
       background: var(--black);
       color: var(--white);
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 2rem;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      overflow-x: hidden;
     }
 
-    .placeholder-content {
-      max-width: 600px;
-    }
-
-    h1 {
+    h1, h2, h3, h4, h5, h6 {
       font-family: "Quicksand", sans-serif;
       font-weight: 600;
       text-transform: uppercase;
       letter-spacing: 0.05em;
-      font-size: clamp(1.5rem, 4vw, 2.5rem);
-      margin-bottom: 1.5rem;
+      line-height: 1.2;
+    }
+
+    /* Skip Link for Accessibility */
+    .skip-link {
+      position: absolute;
+      top: -100%;
+      left: 0;
+      background: var(--primary-blue);
+      color: var(--white);
+      padding: 0.5rem 1rem;
+      z-index: 9999;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .skip-link:focus {
+      top: 0;
+    }
+
+    /* Navigation */
+    .nav-header {
+      position: sticky;
+      top: 0;
+      background: #333333;
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      z-index: 1000;
+      padding: 1rem 2rem;
+    }
+
+    .nav-container {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .nav-logo img {
+      height: 50px;
+      width: auto;
+      max-width: 100%;
+      min-width: 75px;
+      display: block;
+    }
+
+    .nav-menu {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+      align-items: center;
+    }
+
+    .nav-menu a {
+      color: var(--white);
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      transition: color 0.2s ease;
+      position: relative;
+    }
+
+    .nav-menu a::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--primary-blue);
+      transition: width 0.3s ease;
+    }
+
+    .nav-menu a:hover {
+      color: var(--primary-blue);
+    }
+
+    .nav-menu a:hover::after {
+      width: 100%;
+    }
+
+    .nav-menu a.active {
+      color: var(--primary-blue);
+    }
+
+    /* Mobile Menu Toggle */
+    .nav-toggle {
+      display: none;
+      background: none;
+      border: none;
+      color: var(--white);
+      font-size: 1.5rem;
+      cursor: pointer;
+      padding: 0.5rem;
+    }
+
+    /* Hero Section */
+    .hero {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: 80vh;
+    }
+
+    .hero-image {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .hero-image .image-placeholder {
+      width: 100%;
+      height: 100%;
+      min-height: 500px;
+      background: var(--gray-70);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--gray-30);
+      font-size: 0.9rem;
+    }
+
+    .hero-content {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      background: var(--black);
+    }
+
+    .hero-content-top {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 3rem;
+      text-align: center;
+      flex: 1;
+    }
+
+    .hero-logo {
+      max-width: 300px;
+      margin-bottom: 1rem;
+    }
+
+    .hero-logo img {
+      width: 100%;
+      height: auto;
+    }
+
+    .hero-logo .image-placeholder {
+      width: 300px;
+      height: 150px;
+      background: var(--gray-70);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--gray-30);
+      font-size: 0.8rem;
+    }
+
+    .hero-address {
+      font-size: 1.1rem;
+      letter-spacing: 0.1em;
+      color: var(--white);
+      margin-top: 1rem;
+    }
+
+    .hero-tagline {
+      background: var(--primary-blue);
+      padding: 3rem;
+      text-align: center;
+    }
+
+    .hero-tagline h1 {
+      font-size: clamp(1.5rem, 3vw, 2.5rem);
+      text-transform: none;
+      letter-spacing: normal;
+      font-weight: 600;
+    }
+
+    /* Section Styles */
+    .section {
+      padding: 5rem 2rem;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .section-header {
+      background: var(--black);
+      padding: 2rem 0;
+      border-bottom: 3px solid var(--primary-yellow);
+      margin-bottom: 3rem;
+    }
+
+    .section-header h2 {
+      font-size: clamp(2rem, 4vw, 3rem);
       color: var(--white);
     }
 
-    p {
-      color: var(--gray-50);
-      line-height: 1.6;
+    /* Workspace Section */
+    .workspace-intro {
+      max-width: 1000px;
+      margin-bottom: 3rem;
+    }
+
+    .workspace-intro p {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      color: var(--gray-10);
+    }
+
+    .image-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+
+    .image-grid .image-placeholder {
+      aspect-ratio: 4/3;
+      background: var(--gray-70);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--gray-30);
+      font-size: 0.8rem;
+      text-align: center;
+      padding: 1rem;
+    }
+
+    /* Amenities Section */
+    .amenities-content {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 3rem;
+      align-items: start;
+    }
+
+    .amenities-list {
+      list-style: none;
+    }
+
+    .amenities-intro {
+      font-size: 1.1rem;
+      margin-bottom: 2rem;
+      color: var(--gray-10);
+    }
+
+    .amenities-label {
+      color: var(--primary-blue);
+      font-weight: 700;
+      font-size: 1.1rem;
+      margin-bottom: 1rem;
+    }
+
+    .amenities-list li {
+      padding: 0.5rem 0;
+      padding-left: 1.5rem;
+      position: relative;
+      color: var(--gray-10);
+    }
+
+    .amenities-list li::before {
+      content: '•';
+      position: absolute;
+      left: 0;
+      color: var(--primary-blue);
+      font-weight: bold;
+    }
+
+    /* Community Section */
+    .community-intro {
+      font-size: 1.1rem;
+      margin-bottom: 3rem;
+      color: var(--gray-10);
+      max-width: 900px;
+    }
+
+    .community-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+    }
+
+    .community-column h3 {
+      color: var(--primary-blue);
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
+      text-transform: none;
+    }
+
+    .community-column ul {
+      list-style: none;
+    }
+
+    .community-column li {
+      padding: 0.4rem 0;
+      color: var(--gray-10);
+    }
+
+    /* Equipment Section */
+    .equipment-content {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 3rem;
+      align-items: start;
+    }
+
+    .equipment-list {
+      list-style: none;
+    }
+
+    .equipment-intro {
+      font-size: 1.1rem;
+      margin-bottom: 2rem;
+      color: var(--gray-10);
+    }
+
+    .equipment-label {
+      color: var(--primary-blue);
+      font-weight: 700;
+      font-size: 1.1rem;
+      margin-bottom: 1rem;
+    }
+
+    .equipment-list li {
+      padding: 0.5rem 0;
+      padding-left: 1.5rem;
+      position: relative;
+      color: var(--gray-10);
+    }
+
+    .equipment-list li::before {
+      content: '•';
+      position: absolute;
+      left: 0;
+      color: var(--primary-blue);
+      font-weight: bold;
+    }
+
+    /* Available Spaces Divider */
+    .spaces-divider {
+      background: var(--primary-blue);
+      padding: 5rem 2rem;
+      text-align: left;
+    }
+
+    .spaces-divider h2 {
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      color: var(--black);
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    /* Space Cards */
+    .space-card {
+      padding: 5rem 2rem;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .space-card-header {
+      background: var(--black);
+      padding: 2rem 0;
+      border-bottom: 3px solid var(--primary-yellow);
+      margin-bottom: 3rem;
+    }
+
+    .space-card-header h2 {
+      font-size: clamp(1.5rem, 3vw, 2.5rem);
+      color: var(--white);
+    }
+
+    .space-card-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 2rem;
+      align-items: start;
+    }
+
+    .space-image .image-placeholder {
+      width: 100%;
+      aspect-ratio: 4/3;
+      background: var(--gray-70);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--gray-30);
+      font-size: 0.8rem;
+      text-align: center;
+    }
+
+    .space-floorplan .image-placeholder {
+      width: 100%;
+      aspect-ratio: 1;
+      background: var(--gray-10);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: var(--gray-70);
+      font-size: 1rem;
+    }
+
+    .space-floorplan .sqft {
+      font-weight: 700;
+      font-size: 1.2rem;
+      color: var(--gray-70);
+    }
+
+    .space-details h3 {
+      font-size: 1.3rem;
+      margin-bottom: 1rem;
+      text-transform: none;
+    }
+
+    .space-features {
+      list-style: none;
       margin-bottom: 2rem;
     }
 
-    .back-link {
-      display: inline-block;
+    .space-features li {
+      padding: 0.4rem 0;
+      padding-left: 1.5rem;
+      position: relative;
+      color: var(--gray-10);
+    }
+
+    .space-features li::before {
+      content: '•';
+      position: absolute;
+      left: 0;
       color: var(--primary-blue);
+      font-weight: bold;
+    }
+
+    .space-price {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--primary-blue);
+    }
+
+    /* Contact Section */
+    .contact-section {
+      background: var(--black);
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+    }
+
+    .contact-content {
+      padding: 4rem;
+    }
+
+    .contact-header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .contact-header h2 {
+      font-size: clamp(2rem, 4vw, 3rem);
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+    }
+
+    .contact-form h3,
+    .contact-info h3 {
+      font-size: 1.3rem;
+      margin-bottom: 1.5rem;
+      text-transform: none;
+    }
+
+    .form-group {
+      margin-bottom: 1rem;
+    }
+
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 1rem;
+      background: var(--gray-10);
+      border: none;
+      font-family: inherit;
+      font-size: 1rem;
+    }
+
+    .form-group textarea {
+      min-height: 150px;
+      resize: vertical;
+    }
+
+    .form-group input::placeholder,
+    .form-group textarea::placeholder {
+      color: var(--gray-50);
+    }
+
+    .contact-info-label {
+      color: var(--primary-blue);
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    .contact-info p {
+      margin-bottom: 1.5rem;
+      color: var(--gray-10);
+    }
+
+    .contact-info a {
+      color: var(--gray-10);
       text-decoration: none;
-      font-weight: 500;
-      transition: opacity 0.2s ease;
     }
 
-    .back-link:hover {
-      opacity: 0.8;
+    .contact-info a:hover {
+      color: var(--primary-blue);
     }
 
-    .back-link:focus {
-      outline: 2px solid var(--primary-blue);
-      outline-offset: 4px;
+    .contact-image {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .contact-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .contact-image .image-placeholder {
+      width: 100%;
+      height: 100%;
+      min-height: 400px;
+      background: var(--gray-70);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--gray-30);
+      font-size: 0.9rem;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 1rem 2rem;
+      font-weight: 700;
+      text-decoration: none;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      font-size: 0.9rem;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      border: none;
+      font-family: inherit;
+    }
+
+    .btn-primary {
+      background: var(--primary-blue);
+      color: var(--white);
+    }
+
+    .btn-primary:hover {
+      background: #0380d6;
+    }
+
+    /* Footer */
+    .footer {
+      background: var(--dark-bg);
+      padding: 3rem 2rem;
+    }
+
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      gap: 2rem;
+      align-items: start;
+    }
+
+    .footer-section {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .footer-section:last-child {
+      text-align: right;
+      align-items: flex-end;
+    }
+
+    .footer-section p {
+      color: var(--gray-50);
+      font-size: 0.9rem;
+      line-height: 1.6;
+    }
+
+    .footer-section a {
+      color: var(--gray-50);
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: color 0.2s ease;
+    }
+
+    .footer-section a:hover {
+      color: var(--primary-blue);
+    }
+
+    .footer-logo {
+      display: flex;
+      justify-content: center;
+    }
+
+    .footer-logo img {
+      height: 80px;
+      width: auto;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 1rem;
+      margin-top: 0.5rem;
+    }
+
+    .social-links a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 32px;
+      height: 32px;
+      color: var(--gray-50);
+      transition: color 0.2s ease;
+    }
+
+    .social-links a:hover {
+      color: var(--primary-blue);
+    }
+
+    .social-links svg {
+      width: 20px;
+      height: 20px;
+      fill: currentColor;
+    }
+
+    .footer-bottom {
+      max-width: 1200px;
+      margin: 2rem auto 0;
+      padding-top: 2rem;
+      border-top: 1px solid var(--gray-70);
+      text-align: center;
+    }
+
+    .footer-bottom p {
+      color: var(--gray-50);
+      font-size: 0.85rem;
+    }
+
+    /* Responsive */
+    @media (max-width: 1024px) {
+      .hero {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-image {
+        min-height: 50vh;
+      }
+
+      .amenities-content,
+      .equipment-content {
+        grid-template-columns: 1fr;
+      }
+
+      .space-card-content {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .space-floorplan {
+        display: none;
+      }
+
+      .contact-section {
+        grid-template-columns: 1fr;
+      }
+
+      .contact-image {
+        order: -1;
+        min-height: 300px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .nav-header {
+        padding: 1rem;
+      }
+
+      .nav-toggle {
+        display: block;
+      }
+
+      .nav-menu {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: #333333;
+        flex-direction: column;
+        padding: 1rem;
+        gap: 1rem;
+      }
+
+      .nav-menu.active {
+        display: flex;
+      }
+
+      .nav-logo img {
+        max-width: 150px;
+      }
+
+      .section {
+        padding: 3rem 1rem;
+      }
+
+      .image-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .community-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .space-card-content {
+        grid-template-columns: 1fr;
+      }
+
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .contact-content {
+        padding: 2rem 1rem;
+      }
+
+      .footer-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+
+      .footer-section:last-child {
+        text-align: center;
+        align-items: center;
+      }
     }
   </style>
 </head>
 <body>
-  <div class="placeholder-content">
-    <h1>Labs</h1>
-    <p>Intentional blank page placeholder for future redirect to external Labs site.</p>
-    <p>This demonstrates that clicking "Labs" in the navigation attempts to go to the external site, but since the site doesn't exist yet, this placeholder shows the intended functionality.</p>
-    <a href="index.html" class="back-link">← Back to Home</a>
-  </div>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- Navigation -->
+  <header class="nav-header">
+    <nav class="nav-container">
+      <a href="index.html" class="nav-logo" aria-label="Solid Product Design Home">
+        <img src="images/assets/Solid-O3-horizontal-white.png" alt="Solid Product Design" width="180" height="50" />
+      </a>
+
+      <button class="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+        <span>☰</span>
+      </button>
+
+      <ul class="nav-menu">
+        <li><a href="work.html">Work</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="labs.html" class="active">Solid Labs</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main-content">
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="hero-image">
+        <img src="images/assets/Other Images/Front  Facade of Building  - Solid Labs Logo.jpg" alt="Solid Labs building at 2212 Walnut Street" width="800" height="1000" />
+      </div>
+      <div class="hero-content">
+        <div class="hero-content-top">
+          <div class="hero-logo">
+            <div class="image-placeholder">[Solid Labs Logo - Need Image]</div>
+          </div>
+          <p class="hero-address">2212 WALNUT STREET</p>
+        </div>
+        <div class="hero-tagline">
+          <h1>Offices, Workspace, and Community for Hard-Tech Companies</h1>
+        </div>
+      </div>
+    </section>
+
+    <!-- Flexible Workspace Solutions Section -->
+    <section class="section">
+      <div class="section-header">
+        <h2>Flexible Workspace Solutions</h2>
+      </div>
+      <div class="workspace-intro">
+        <p>Solid Labs offers flexible workspace options for startups, satellite enterprise teams, and professional freelancers working in hard-tech.</p>
+        <p style="margin-top: 1rem;">Located in the West Rittenhouse neighborhood of Center City Philadelphia, we're blocks away from 30th Street Station, the Schuylkill trail, University City, and Rittenhouse Square.</p>
+      </div>
+      <div class="image-grid">
+        <div class="image-placeholder">[Workspace Photo 1 - Team at kitchen counter]</div>
+        <div class="image-placeholder">[Workspace Photo 2 - Workshop with equipment]</div>
+        <div class="image-placeholder">[Workspace Photo 3 - Design review meeting]</div>
+      </div>
+    </section>
+
+    <!-- Amenities Section -->
+    <section class="section">
+      <div class="section-header">
+        <h2>Amenities</h2>
+      </div>
+      <div class="amenities-content">
+        <div class="amenities-text">
+          <p class="amenities-intro">Solid Labs provides the amenities you need and the hardware community you've been looking for.</p>
+          <p class="amenities-label">Amenities include:</p>
+          <ul class="amenities-list">
+            <li>Gigabit Internet</li>
+            <li>Business Address & Mail Handling</li>
+            <li>Conference Room</li>
+            <li>Call Pods</li>
+            <li>Community Slack</li>
+            <li>Co-location with Solid Product Design & NextFab Ventures</li>
+            <li>Storage Availability</li>
+            <li>Furnished Shared Kitchenette</li>
+            <li>Coffee</li>
+          </ul>
+        </div>
+        <div class="image-grid">
+          <div class="image-placeholder">[Conference Room Photo]</div>
+          <div class="image-placeholder">[Lounge Area Photo]</div>
+          <div class="image-placeholder">[Kitchenette Photo]</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Community Section -->
+    <section class="section">
+      <div class="section-header">
+        <h2>Community</h2>
+      </div>
+      <p class="community-intro">Co-locate with Solid Product Design, NextFab Ventures, and cutting edge Philly-based companies building the future of hardware.</p>
+      <div class="community-grid">
+        <div class="community-column">
+          <h3>Current Residents:</h3>
+          <ul>
+            <li>p-Chip</li>
+            <li>Recupero Robotics</li>
+            <li>OsciFlex</li>
+            <li>Medusa Intelligence</li>
+            <li>Environmental and Engineering Solutions</li>
+            <li>Fortunato Design</li>
+          </ul>
+        </div>
+        <div class="community-column">
+          <h3>Alumni:</h3>
+          <ul>
+            <li>Daxo Robotics</li>
+            <li>Big Idea Inc.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Equipment Section -->
+    <section class="section">
+      <div class="section-header">
+        <h2>Equipment</h2>
+      </div>
+      <div class="equipment-content">
+        <div class="equipment-text">
+          <p class="equipment-intro">All Solid Labs renters get access to a fully equipped workshop designed to meet the needs of hardware companies.</p>
+          <p class="equipment-label">Equipment includes:</p>
+          <ul class="equipment-list">
+            <li>Laser</li>
+            <li>Electronics lab with soldering, rework, and test equipment</li>
+            <li>3D printers</li>
+            <li>Casting</li>
+            <li>Mill-drill</li>
+            <li>Drill press</li>
+            <li>Band saw</li>
+            <li>Hand tools</li>
+            <li>Workbenches</li>
+          </ul>
+        </div>
+        <div class="image-grid">
+          <div class="image-placeholder">[Mill-drill Equipment Photo]</div>
+          <div class="image-placeholder">[Workshop Overview Photo]</div>
+          <div class="image-placeholder">[3D Printers Photo]</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Available Spaces Divider -->
+    <section class="spaces-divider">
+      <h2>Available Spaces</h2>
+    </section>
+
+    <!-- North Office -->
+    <section class="space-card">
+      <div class="space-card-header">
+        <h2>North Office</h2>
+      </div>
+      <div class="space-card-content">
+        <div class="space-image">
+          <div class="image-placeholder">[North Office Photo - Team working]</div>
+        </div>
+        <div class="space-floorplan">
+          <div class="image-placeholder">
+            <span class="sqft">250 sq ft</span>
+            [Floor Plan]
+          </div>
+        </div>
+        <div class="space-details">
+          <h3>Features:</h3>
+          <ul class="space-features">
+            <li>Private 250 sq ft with exposed brick, high ceilings, and natural light</li>
+            <li>Space for up to 4 collaborators</li>
+            <li>Direct entrance to lobby & conference room</li>
+            <li>Full access to workshop</li>
+          </ul>
+          <p class="space-price">$2000 / month</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Garage Space -->
+    <section class="space-card">
+      <div class="space-card-header">
+        <h2>Garage Space</h2>
+      </div>
+      <div class="space-card-content">
+        <div class="space-image">
+          <div class="image-placeholder">[Garage Space Photo - Workstation with equipment]</div>
+        </div>
+        <div class="space-floorplan">
+          <div class="image-placeholder">
+            <span class="sqft">60 sq ft</span>
+            [Floor Plan]
+          </div>
+        </div>
+        <div class="space-details">
+          <h3>Features:</h3>
+          <ul class="space-features">
+            <li>Private 60 - 180 sq ft adjacent to workshop</li>
+            <li>Space for 2 - 6 collaborators</li>
+            <li>Ideal for teams actively working on hardware</li>
+          </ul>
+          <p class="space-price">$500 / month</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Dedicated Desk -->
+    <section class="space-card">
+      <div class="space-card-header">
+        <h2>Dedicated Desk</h2>
+      </div>
+      <div class="space-card-content">
+        <div class="space-image">
+          <div class="image-placeholder">[Dedicated Desk Photo - Person working at desk]</div>
+        </div>
+        <div class="space-floorplan">
+          <div class="image-placeholder">
+            <span class="sqft">47" x 27"</span>
+            [Desk Diagram]
+          </div>
+        </div>
+        <div class="space-details">
+          <h3>Features:</h3>
+          <ul class="space-features">
+            <li>Dedicated desk with electrical and ethernet ports</li>
+            <li>Full workshop & conference room access</li>
+            <li>File cabinet storage</li>
+            <li>Dedicated mailbox</li>
+            <li>Ideal for solopreneurs, remote workers, and freelancers</li>
+          </ul>
+          <p class="space-price">$150 / month</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section">
+      <div class="contact-content">
+        <div class="contact-header">
+          <h2>Contact</h2>
+        </div>
+        <div class="contact-grid">
+          <div class="contact-form">
+            <h3>Apply To Waitlist</h3>
+            <form name="labs-waitlist" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+              <input type="hidden" name="form-name" value="labs-waitlist" />
+              <p style="display:none;">
+                <label>Don't fill this out if you're human: <input name="bot-field" /></label>
+              </p>
+              <div class="form-group">
+                <input type="text" name="name" placeholder="Name" required />
+              </div>
+              <div class="form-group">
+                <input type="email" name="email" placeholder="Email" required />
+              </div>
+              <div class="form-group">
+                <input type="text" name="company" placeholder="Company" />
+              </div>
+              <div class="form-group">
+                <textarea name="message" placeholder="Message"></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+          </div>
+          <div class="contact-info">
+            <h3>Schedule A Tour</h3>
+            <p class="contact-info-label">Email</p>
+            <p><a href="mailto:solidlabs@solidpd.com">solidlabs@solidpd.com</a></p>
+            <p class="contact-info-label">Schedule a Call</p>
+            <p><a href="https://calendar.app.google/8KWMbY5n79jBBe4U9" target="_blank" rel="noopener">Book a time that works for you</a></p>
+          </div>
+        </div>
+      </div>
+      <div class="contact-image">
+        <div class="image-placeholder">[Contact Photo - People outside building entrance]</div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-section">
+        <p>2212 Walnut Street<br>1st Floor<br>Philadelphia, PA 19103</p>
+      </div>
+
+      <div class="footer-logo">
+        <img src="images/assets/Solid-Product-Design-logo-stacked-white-blue.png" alt="Solid Product Design" loading="lazy" />
+      </div>
+
+      <div class="footer-section">
+        <a href="mailto:hello@solidpd.com">hello@solidpd.com</a>
+        <a href="https://calendar.app.google/8KWMbY5n79jBBe4U9" target="_blank" rel="noopener">Schedule a Call</a>
+        <div class="social-links">
+          <a href="https://www.linkedin.com/company/solidpd/" target="_blank" rel="noopener" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24">
+              <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.026-3.039-1.852-3.039-1.853 0-2.136 1.447-2.136 2.943v5.665H9.35V9h3.414v1.561h.049c.476-.9 1.637-1.852 3.369-1.852 3.602 0 4.268 2.371 4.268 5.455v6.288zM5.337 7.433a2.062 2.062 0 1 1 0-4.124 2.062 2.062 0 0 1 0 4.124zM6.997 20.452H3.675V9h3.322v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.226.792 24 1.771 24h20.451C23.2 24 24 23.226 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; 2026 Solid Product Design. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile navigation toggle
+    const navToggle = document.querySelector('.nav-toggle');
+    const navMenu = document.querySelector('.nav-menu');
+
+    navToggle.addEventListener('click', () => {
+      const isExpanded = navMenu.classList.toggle('active');
+      navToggle.setAttribute('aria-expanded', isExpanded);
+    });
+
+    // Close menu when clicking a link
+    document.querySelectorAll('.nav-menu a').forEach(link => {
+      link.addEventListener('click', () => {
+        navMenu.classList.remove('active');
+        navToggle.setAttribute('aria-expanded', 'false');
+      });
+    });
+  </script>
 </body>
 </html>
