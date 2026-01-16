@@ -234,6 +234,11 @@
       font-size: 0.8rem;
     }
 
+    .hero-logo img {
+      max-width: 100%;
+      height: auto;
+    }
+
     .hero-address {
       font-size: 1.1rem;
       letter-spacing: 0.1em;
@@ -301,6 +306,13 @@
       font-size: 0.8rem;
       text-align: center;
       padding: 1rem;
+    }
+
+    .image-grid img {
+      width: 100%;
+      aspect-ratio: 4/3;
+      object-fit: cover;
+      border-radius: 4px;
     }
 
     /* Amenities Section */
@@ -465,6 +477,13 @@
       text-align: center;
     }
 
+    .space-image img {
+      width: 100%;
+      aspect-ratio: 4/3;
+      object-fit: cover;
+      border-radius: 4px;
+    }
+
     .space-floorplan .image-placeholder {
       width: 100%;
       aspect-ratio: 1;
@@ -613,6 +632,13 @@
       justify-content: center;
       color: var(--gray-30);
       font-size: 0.9rem;
+    }
+
+    .contact-image img {
+      width: 100%;
+      height: 100%;
+      min-height: 400px;
+      object-fit: cover;
     }
 
     .btn {
@@ -862,7 +888,7 @@
       <div class="hero-content">
         <div class="hero-content-top">
           <div class="hero-logo">
-            <div class="image-placeholder">[Solid Labs Logo - Need Image]</div>
+            <img src="images/assets/solid-labs/solid-labs-logo.jpg" alt="Solid Labs" width="300" height="165" />
           </div>
           <p class="hero-address">2212 WALNUT STREET</p>
         </div>
@@ -882,9 +908,9 @@
         <p style="margin-top: 1rem;">Located in the West Rittenhouse neighborhood of Center City Philadelphia, we're blocks away from 30th Street Station, the Schuylkill trail, University City, and Rittenhouse Square.</p>
       </div>
       <div class="image-grid">
-        <div class="image-placeholder">[Workspace Photo 1 - Team at kitchen counter]</div>
-        <div class="image-placeholder">[Workspace Photo 2 - Workshop with equipment]</div>
-        <div class="image-placeholder">[Workspace Photo 3 - Design review meeting]</div>
+        <img src="images/assets/solid-labs/kitchen-collaboration.jpg" alt="Team collaborating at kitchen counter" loading="lazy" />
+        <img src="images/assets/solid-labs/workshop-workbenches.jpg" alt="Workshop with equipment and workbenches" loading="lazy" />
+        <img src="images/assets/solid-labs/design-collaboration.jpg" alt="Design review meeting" loading="lazy" />
       </div>
     </section>
 
@@ -910,9 +936,9 @@
           </ul>
         </div>
         <div class="image-grid">
-          <div class="image-placeholder">[Conference Room Photo]</div>
-          <div class="image-placeholder">[Lounge Area Photo]</div>
-          <div class="image-placeholder">[Kitchenette Photo]</div>
+          <img src="images/assets/solid-labs/conference-room.jpg" alt="Conference room with whiteboard and displays" loading="lazy" />
+          <img src="images/assets/solid-labs/lounge-area.jpg" alt="Comfortable lounge seating area" loading="lazy" />
+          <img src="images/assets/solid-labs/kitchen-area.jpg" alt="Shared kitchenette" loading="lazy" />
         </div>
       </div>
     </section>
@@ -967,9 +993,9 @@
           </ul>
         </div>
         <div class="image-grid">
-          <div class="image-placeholder">[Mill-drill Equipment Photo]</div>
-          <div class="image-placeholder">[Workshop Overview Photo]</div>
-          <div class="image-placeholder">[3D Printers Photo]</div>
+          <img src="images/assets/solid-labs/milling-machine.jpg" alt="Mill-drill machine" loading="lazy" />
+          <img src="images/assets/solid-labs/electronics-workstation.jpg" alt="Electronics workstation with tools" loading="lazy" />
+          <img src="images/assets/solid-labs/3d-printing-station.jpg" alt="3D printing and laser cutting station" loading="lazy" />
         </div>
       </div>
     </section>
@@ -986,7 +1012,7 @@
       </div>
       <div class="space-card-content">
         <div class="space-image">
-          <div class="image-placeholder">[North Office Photo - Team working]</div>
+          <img src="images/assets/solid-labs/team-prototyping.jpg" alt="Team working on prototypes in North Office" loading="lazy" />
         </div>
         <div class="space-floorplan">
           <div class="image-placeholder">
@@ -1014,7 +1040,7 @@
       </div>
       <div class="space-card-content">
         <div class="space-image">
-          <div class="image-placeholder">[Garage Space Photo - Workstation with equipment]</div>
+          <img src="images/assets/solid-labs/workshop-workbenches.jpg" alt="Garage workspace with workbenches" loading="lazy" />
         </div>
         <div class="space-floorplan">
           <div class="image-placeholder">
@@ -1041,7 +1067,7 @@
       </div>
       <div class="space-card-content">
         <div class="space-image">
-          <div class="image-placeholder">[Dedicated Desk Photo - Person working at desk]</div>
+          <img src="images/assets/solid-labs/cad-workspace.jpg" alt="Person working at dedicated desk" loading="lazy" />
         </div>
         <div class="space-floorplan">
           <div class="image-placeholder">
@@ -1102,7 +1128,7 @@
         </div>
       </div>
       <div class="contact-image">
-        <div class="image-placeholder">[Contact Photo - People outside building entrance]</div>
+        <img src="images/assets/solid-labs/building-entrance.jpg" alt="People outside Solid Labs building entrance at 2212" loading="lazy" />
       </div>
     </section>
   </main>
