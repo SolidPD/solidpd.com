@@ -3,29 +3,29 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Solid Labs — Offices, workspace, and community for hard-tech companies in Philadelphia. Flexible workspace solutions with workshop access.">
+  <meta name="description" content="Solid Labs - Philly's Hardware Headquarters. Flexible workspace options for startups, satellite enterprise teams, and professional freelancers working in hard-tech.">
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
   <link rel="manifest" href="/site.webmanifest">
   <link rel="canonical" href="https://solidpd.com/labs">
 
-  <meta property="og:title" content="Solid Labs — Solid Product Design">
-  <meta property="og:description" content="Offices, workspace, and community for hard-tech companies in Philadelphia.">
-  <meta property="og:image" content="https://solidpd.com/images/logo-horizontal-white.png">
+  <meta property="og:title" content="Solid Labs - Philly's Hardware Headquarters">
+  <meta property="og:description" content="Flexible workspace options for startups, satellite enterprise teams, and professional freelancers working in hard-tech.">
+  <meta property="og:image" content="https://solidpd.com/images/assets/solid-labs/solid-labs-logo.jpg">
   <meta property="og:url" content="https://solidpd.com/labs">
   <meta property="og:type" content="website">
 
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Solid Labs — Solid Product Design">
-  <meta name="twitter:description" content="Offices, workspace, and community for hard-tech companies in Philadelphia.">
-  <meta name="twitter:image" content="https://solidpd.com/images/logo-horizontal-white.png">
+  <meta name="twitter:title" content="Solid Labs - Philly's Hardware Headquarters">
+  <meta name="twitter:description" content="Flexible workspace options for startups, satellite enterprise teams, and professional freelancers working in hard-tech.">
+  <meta name="twitter:image" content="https://solidpd.com/images/assets/solid-labs/solid-labs-logo.jpg">
 
-  <title>Solid Labs — Solid Product Design</title>
+  <title>Solid Labs - Philly's Hardware Headquarters</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Quicksand:wght@600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
 
   <style>
     /* CSS Variables */
@@ -34,10 +34,11 @@
       --primary-yellow: #FFB75A;
       --dark-bg: #1A1A1A;
       --black: #000000;
+      --gray-bg: #E5E5E5;
       --gray-70: #4D4D4D;
       --gray-50: #808080;
       --gray-30: #B3B3B3;
-      --gray-10: #E5E5E5;
+      --gray-10: #F5F5F5;
       --white: #FFFFFF;
     }
 
@@ -54,8 +55,8 @@
 
     body {
       font-family: "DM Sans", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      background: var(--black);
-      color: var(--white);
+      background: var(--gray-bg);
+      color: var(--black);
       line-height: 1.6;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
@@ -64,10 +65,15 @@
 
     h1, h2, h3, h4, h5, h6 {
       font-family: "Quicksand", sans-serif;
-      font-weight: 600;
+      font-weight: 700;
       text-transform: uppercase;
-      letter-spacing: 0.05em;
+      letter-spacing: 0.02em;
       line-height: 1.2;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
     }
 
     /* Skip Link for Accessibility */
@@ -87,13 +93,13 @@
       top: 0;
     }
 
-    /* Navigation */
+    /* ==================== */
+    /* HEADER / NAVIGATION  */
+    /* ==================== */
     .nav-header {
       position: sticky;
       top: 0;
-      background: #E5E5E5;
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+      background: var(--gray-bg);
       z-index: 1000;
       padding: 1rem 2rem;
     }
@@ -106,17 +112,20 @@
       align-items: center;
     }
 
-    .nav-logo img {
+    .nav-logo {
+      display: flex;
+      align-items: center;
+    }
+
+    /* Striped logo matching mockup */
+    .nav-logo svg {
       height: 50px;
       width: auto;
-      max-width: 100%;
-      min-width: 75px;
-      display: block;
     }
 
     .nav-menu {
       display: flex;
-      gap: 2rem;
+      gap: 3rem;
       list-style: none;
       align-items: center;
     }
@@ -125,33 +134,14 @@
       color: var(--black);
       text-decoration: none;
       font-weight: 500;
-      font-size: 0.9rem;
+      font-size: 1rem;
       text-transform: uppercase;
       letter-spacing: 0.05em;
       transition: color 0.2s ease;
-      position: relative;
     }
 
-    .nav-menu a::after {
-      content: '';
-      position: absolute;
-      bottom: -4px;
-      left: 0;
-      width: 0;
-      height: 2px;
-      background: var(--primary-blue);
-      transition: width 0.3s ease;
-    }
-
-    .nav-menu a:hover {
-      color: var(--primary-blue);
-    }
-
-    .nav-menu a:hover::after {
-      width: 100%;
-    }
-
-    .nav-menu a.active {
+    .nav-menu a:hover,
+    .nav-menu a:focus {
       color: var(--primary-blue);
     }
 
@@ -166,405 +156,389 @@
       padding: 0.5rem;
     }
 
-    /* Hero Section */
+    /* ==================== */
+    /* HERO SECTION         */
+    /* ==================== */
     .hero {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      min-height: 80vh;
+      position: relative;
+      width: 100%;
+      min-height: 85vh;
+      overflow: hidden;
     }
 
     .hero-image {
-      position: relative;
-      overflow: hidden;
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
     }
 
     .hero-image img {
       width: 100%;
       height: 100%;
       object-fit: cover;
-    }
-
-    .hero-image .image-placeholder {
-      width: 100%;
-      height: 100%;
-      min-height: 500px;
-      background: var(--gray-70);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--gray-30);
-      font-size: 0.9rem;
+      object-position: center;
     }
 
     .hero-content {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      background: var(--black);
-    }
-
-    .hero-content-top {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      padding: 3rem;
-      text-align: center;
-      flex: 1;
-    }
-
-    .hero-logo {
-      max-width: 300px;
-      margin-bottom: 1rem;
-    }
-
-    .hero-logo img {
-      width: 100%;
-      height: auto;
-    }
-
-    .hero-logo .image-placeholder {
-      width: 300px;
-      height: 150px;
-      background: var(--gray-70);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--gray-30);
-      font-size: 0.8rem;
-    }
-
-    .hero-logo img {
-      max-width: 100%;
-      height: auto;
-    }
-
-    .hero-address {
-      font-size: 1.1rem;
-      letter-spacing: 0.1em;
-      color: var(--white);
-      margin-top: 1rem;
-    }
-
-    .hero-tagline {
-      background: var(--primary-blue);
-      padding: 3rem;
-      text-align: center;
-    }
-
-    .hero-tagline h1 {
-      font-size: clamp(1.5rem, 3vw, 2.5rem);
-      text-transform: none;
-      letter-spacing: normal;
-      font-weight: 600;
-    }
-
-    /* Section Styles */
-    .section {
-      padding: 5rem 2rem;
-      max-width: 1400px;
-      margin: 0 auto;
-    }
-
-    .section-header {
-      background: var(--black);
-      padding: 2rem 0;
-      border-bottom: 3px solid var(--primary-yellow);
-      margin-bottom: 3rem;
-    }
-
-    .section-header h2 {
-      font-size: clamp(2rem, 4vw, 3rem);
-      color: var(--white);
-    }
-
-    /* Workspace Section */
-    .workspace-intro {
-      max-width: 1000px;
-      margin-bottom: 3rem;
-    }
-
-    .workspace-intro p {
-      font-size: 1.1rem;
-      line-height: 1.8;
-      color: var(--gray-10);
-    }
-
-    .image-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1.5rem;
-    }
-
-    .image-grid .image-placeholder {
-      aspect-ratio: 4/3;
-      background: var(--gray-70);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--gray-30);
-      font-size: 0.8rem;
-      text-align: center;
-      padding: 1rem;
-    }
-
-    .image-grid img {
-      width: 100%;
-      aspect-ratio: 4/3;
-      object-fit: cover;
-      border-radius: 4px;
-    }
-
-    /* Amenities Section */
-    .amenities-content {
-      display: grid;
-      grid-template-columns: 1fr 2fr;
-      gap: 3rem;
-      align-items: start;
-    }
-
-    .amenities-list {
-      list-style: none;
-    }
-
-    .amenities-intro {
-      font-size: 1.1rem;
-      margin-bottom: 2rem;
-      color: var(--gray-10);
-    }
-
-    .amenities-label {
-      color: var(--primary-blue);
-      font-weight: 700;
-      font-size: 1.1rem;
-      margin-bottom: 1rem;
-    }
-
-    .amenities-list li {
-      padding: 0.5rem 0;
-      padding-left: 1.5rem;
-      position: relative;
-      color: var(--gray-10);
-    }
-
-    .amenities-list li::before {
-      content: '•';
       position: absolute;
-      left: 0;
-      color: var(--primary-blue);
-      font-weight: bold;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      width: 50%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 4rem;
+      background: linear-gradient(to right, rgba(0,0,0,0) 0%, rgba(0,0,0,0.3) 30%, rgba(0,0,0,0.5) 100%);
     }
 
-    /* Community Section */
-    .community-intro {
-      font-size: 1.1rem;
-      margin-bottom: 3rem;
-      color: var(--gray-10);
+    .hero-content h1 {
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      color: var(--white);
+      margin-bottom: 1.5rem;
+      text-shadow: 2px 2px 8px rgba(0,0,0,0.5);
+    }
+
+    .hero-content p {
+      font-size: clamp(1.1rem, 2vw, 1.4rem);
+      color: var(--white);
+      line-height: 1.7;
+      max-width: 550px;
+      text-shadow: 1px 1px 4px rgba(0,0,0,0.5);
+    }
+
+    /* ==================== */
+    /* LOCATION SECTION     */
+    /* ==================== */
+    .location-section {
+      background: var(--gray-bg);
+      padding: 4rem 2rem;
+    }
+
+    .location-section .section-title {
+      text-align: center;
+      font-size: clamp(2rem, 4vw, 3rem);
+      color: var(--black);
+      margin-bottom: 1.5rem;
+    }
+
+    .location-section .section-intro {
+      text-align: center;
+      font-size: 1.15rem;
+      color: var(--black);
       max-width: 900px;
+      margin: 0 auto 3rem;
+      line-height: 1.7;
     }
 
-    .community-grid {
+    .location-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 3rem;
+      gap: 0;
+      max-width: 1400px;
+      margin: 0 auto;
     }
 
-    .community-column h3 {
-      color: var(--primary-blue);
-      font-size: 1.2rem;
-      margin-bottom: 1rem;
-      text-transform: none;
+    .location-grid img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      min-height: 400px;
     }
 
-    .community-column ul {
-      list-style: none;
+    /* ==================== */
+    /* RESIDENT BENEFITS    */
+    /* ==================== */
+    .benefits-section {
+      background: var(--gray-bg);
+      padding: 4rem 2rem;
     }
 
-    .community-column li {
-      padding: 0.4rem 0;
-      color: var(--gray-10);
-    }
-
-    /* Equipment Section */
-    .equipment-content {
-      display: grid;
-      grid-template-columns: 1fr 2fr;
-      gap: 3rem;
-      align-items: start;
-    }
-
-    .equipment-list {
-      list-style: none;
-    }
-
-    .equipment-intro {
-      font-size: 1.1rem;
-      margin-bottom: 2rem;
-      color: var(--gray-10);
-    }
-
-    .equipment-label {
-      color: var(--primary-blue);
-      font-weight: 700;
-      font-size: 1.1rem;
-      margin-bottom: 1rem;
-    }
-
-    .equipment-list li {
-      padding: 0.5rem 0;
-      padding-left: 1.5rem;
-      position: relative;
-      color: var(--gray-10);
-    }
-
-    .equipment-list li::before {
-      content: '•';
-      position: absolute;
-      left: 0;
-      color: var(--primary-blue);
-      font-weight: bold;
-    }
-
-    /* Available Spaces Divider */
-    .spaces-divider {
-      background: var(--primary-blue);
-      padding: 5rem 2rem;
-      text-align: left;
-    }
-
-    .spaces-divider h2 {
-      font-size: clamp(2.5rem, 5vw, 4rem);
+    .benefits-section .page-title {
+      text-align: center;
+      font-size: clamp(2rem, 4vw, 3rem);
       color: var(--black);
-      max-width: 1400px;
-      margin: 0 auto;
-    }
-
-    /* Space Cards */
-    .space-card {
-      padding: 5rem 2rem;
-      max-width: 1400px;
-      margin: 0 auto;
-    }
-
-    .space-card-header {
-      background: var(--black);
-      padding: 2rem 0;
-      border-bottom: 3px solid var(--primary-yellow);
       margin-bottom: 3rem;
     }
 
-    .space-card-header h2 {
-      font-size: clamp(1.5rem, 3vw, 2.5rem);
-      color: var(--white);
-    }
-
-    .space-card-content {
+    .benefits-content {
+      max-width: 1400px;
+      margin: 0 auto;
       display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
-      gap: 2rem;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
       align-items: start;
     }
 
-    .space-image .image-placeholder {
-      width: 100%;
-      aspect-ratio: 4/3;
-      background: var(--gray-70);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--gray-30);
-      font-size: 0.8rem;
-      text-align: center;
+    .benefits-text {
+      padding-right: 2rem;
     }
 
-    .space-image img {
-      width: 100%;
-      aspect-ratio: 4/3;
-      object-fit: cover;
-      border-radius: 4px;
+    .benefits-text .subsection-title {
+      font-size: clamp(1.5rem, 3vw, 2rem);
+      color: var(--black);
+      margin-bottom: 0.5rem;
+      text-transform: uppercase;
     }
 
-    .space-floorplan .image-placeholder {
+    .benefits-text .title-underline {
       width: 100%;
-      aspect-ratio: 1;
-      background: var(--gray-10);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      color: var(--gray-70);
+      height: 4px;
+      background: var(--primary-yellow);
+      margin-bottom: 2rem;
+    }
+
+    .benefits-text .intro-text {
+      font-size: 1.15rem;
+      color: var(--black);
+      line-height: 1.7;
+      margin-bottom: 2rem;
+    }
+
+    .residents-label {
+      color: var(--primary-blue);
+      font-weight: 700;
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .residents-list {
+      list-style: none;
+      margin-bottom: 2rem;
+    }
+
+    .residents-list li {
+      padding: 0.3rem 0;
+      color: var(--black);
       font-size: 1rem;
     }
 
-    .space-floorplan .sqft {
+    .alumni-label {
+      color: var(--primary-yellow);
       font-weight: 700;
-      font-size: 1.2rem;
-      color: var(--gray-70);
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
     }
 
-    .space-details h3 {
-      font-size: 1.3rem;
-      margin-bottom: 1rem;
-      text-transform: none;
-    }
-
-    .space-features {
+    .alumni-list {
       list-style: none;
+    }
+
+    .alumni-list li {
+      padding: 0.3rem 0;
+      color: var(--black);
+      font-size: 1rem;
+    }
+
+    .benefits-image {
+      display: flex;
+      align-items: flex-start;
+    }
+
+    .benefits-image img {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+      border-radius: 4px;
+    }
+
+    /* ==================== */
+    /* AMENITIES SECTION    */
+    /* ==================== */
+    .amenities-section {
+      background: var(--gray-bg);
+      padding: 4rem 2rem;
+    }
+
+    .section-header {
+      max-width: 1400px;
+      margin: 0 auto 1.5rem;
+    }
+
+    .section-header h2 {
+      font-size: clamp(1.8rem, 3vw, 2.5rem);
+      color: var(--black);
+      text-transform: uppercase;
+    }
+
+    .section-header .title-underline {
+      width: 100%;
+      height: 4px;
+      background: var(--primary-yellow);
+      margin-top: 0.5rem;
+    }
+
+    .amenities-images {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0;
+      width: 100%;
       margin-bottom: 2rem;
     }
 
-    .space-features li {
-      padding: 0.4rem 0;
-      padding-left: 1.5rem;
-      position: relative;
-      color: var(--gray-10);
+    .amenities-images img {
+      width: 100%;
+      height: 350px;
+      object-fit: cover;
     }
 
-    .space-features li::before {
-      content: '•';
-      position: absolute;
-      left: 0;
-      color: var(--primary-blue);
-      font-weight: bold;
-    }
-
-    .space-price {
-      font-size: 1.5rem;
-      font-weight: 700;
-      color: var(--primary-blue);
-    }
-
-    /* Contact Section */
-    .contact-section {
-      background: var(--black);
+    .amenities-list-grid {
       display: grid;
-      grid-template-columns: 2fr 1fr;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 1rem;
     }
 
-    .contact-content {
-      padding: 4rem;
+    .amenities-column {
+      list-style: none;
     }
 
-    .contact-header {
+    .amenities-column li {
+      padding: 0.5rem 0;
+      color: var(--black);
+      font-size: 1.05rem;
+    }
+
+    /* ==================== */
+    /* EQUIPMENT SECTION    */
+    /* ==================== */
+    .equipment-section {
+      background: var(--gray-bg);
+      padding: 4rem 2rem;
+    }
+
+    .equipment-images {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0;
+      width: 100%;
+      margin-bottom: 2rem;
+    }
+
+    .equipment-images img {
+      width: 100%;
+      height: 350px;
+      object-fit: cover;
+    }
+
+    .equipment-list-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
+
+    .equipment-column {
+      list-style: none;
+    }
+
+    .equipment-column li {
+      padding: 0.5rem 0;
+      color: var(--black);
+      font-size: 1.05rem;
+    }
+
+    /* ==================== */
+    /* WORKSPACES SECTION   */
+    /* ==================== */
+    .workspaces-section {
+      background: var(--gray-bg);
+      padding: 4rem 2rem;
+    }
+
+    .workspaces-section .section-title {
       text-align: center;
+      font-size: clamp(2rem, 4vw, 3rem);
+      color: var(--black);
       margin-bottom: 3rem;
     }
 
-    .contact-header h2 {
-      font-size: clamp(2rem, 4vw, 3rem);
+    .workspaces-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      max-width: 1400px;
+      margin: 0 auto;
     }
 
-    .contact-grid {
+    .workspace-card {
+      background: var(--gray-bg);
+    }
+
+    .workspace-card-image {
+      width: 100%;
+      aspect-ratio: 4/3;
+      overflow: hidden;
+      margin-bottom: 1.5rem;
+    }
+
+    .workspace-card-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .workspace-card h3 {
+      color: var(--primary-blue);
+      font-size: 1.3rem;
+      margin-bottom: 1rem;
+      text-transform: uppercase;
+    }
+
+    .workspace-card ul {
+      list-style: disc;
+      margin-left: 1.5rem;
+    }
+
+    .workspace-card li {
+      padding: 0.4rem 0;
+      color: var(--black);
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+
+    .workspace-card li strong {
+      font-weight: 700;
+    }
+
+    /* ==================== */
+    /* CONTACT SECTION      */
+    /* ==================== */
+    .contact-section {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 3rem;
+      min-height: 600px;
     }
 
-    .contact-form h3,
-    .contact-info h3 {
+    .contact-form-container {
+      background: var(--black);
+      padding: 4rem;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .contact-form-container h2 {
+      color: var(--white);
+      font-size: clamp(2rem, 4vw, 3rem);
+      margin-bottom: 2rem;
+      text-align: center;
+    }
+
+    .contact-form-container h3 {
+      color: var(--white);
       font-size: 1.3rem;
       margin-bottom: 1.5rem;
       text-transform: none;
+      font-weight: 500;
+    }
+
+    .contact-form {
+      max-width: 500px;
     }
 
     .form-group {
@@ -574,16 +548,19 @@
     .form-group input,
     .form-group textarea {
       width: 100%;
-      padding: 1rem;
+      padding: 1rem 1.25rem;
       background: var(--gray-10);
       border: none;
+      border-radius: 25px;
       font-family: inherit;
       font-size: 1rem;
+      color: var(--black);
     }
 
     .form-group textarea {
       min-height: 150px;
       resize: vertical;
+      border-radius: 20px;
     }
 
     .form-group input::placeholder,
@@ -591,24 +568,35 @@
       color: var(--gray-50);
     }
 
-    .contact-info-label {
-      color: var(--primary-blue);
+    .form-group input:focus,
+    .form-group textarea:focus {
+      outline: 2px solid var(--primary-blue);
+      outline-offset: 2px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 1rem 2.5rem;
       font-weight: 700;
-      margin-bottom: 0.5rem;
-    }
-
-    .contact-info p {
-      margin-bottom: 1.5rem;
-      color: var(--gray-10);
-    }
-
-    .contact-info a {
-      color: var(--gray-10);
       text-decoration: none;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      font-size: 0.9rem;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      border: none;
+      font-family: inherit;
+      border-radius: 25px;
     }
 
-    .contact-info a:hover {
-      color: var(--primary-blue);
+    .btn-primary {
+      background: var(--primary-blue);
+      color: var(--white);
+    }
+
+    .btn-primary:hover,
+    .btn-primary:focus {
+      background: #0380d6;
     }
 
     .contact-image {
@@ -622,52 +610,12 @@
       object-fit: cover;
     }
 
-    .contact-image .image-placeholder {
-      width: 100%;
-      height: 100%;
-      min-height: 400px;
-      background: var(--gray-70);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--gray-30);
-      font-size: 0.9rem;
-    }
-
-    .contact-image img {
-      width: 100%;
-      height: 100%;
-      min-height: 400px;
-      object-fit: cover;
-    }
-
-    .btn {
-      display: inline-block;
-      padding: 1rem 2rem;
-      font-weight: 700;
-      text-decoration: none;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      font-size: 0.9rem;
-      transition: all 0.3s ease;
-      cursor: pointer;
-      border: none;
-      font-family: inherit;
-    }
-
-    .btn-primary {
-      background: var(--primary-blue);
-      color: var(--white);
-    }
-
-    .btn-primary:hover {
-      background: #0380d6;
-    }
-
-    /* Footer */
+    /* ==================== */
+    /* FOOTER               */
+    /* ==================== */
     .footer {
       background: var(--dark-bg);
-      padding: 3rem 2rem;
+      padding: 3rem 2rem 2rem;
     }
 
     .footer-content {
@@ -676,35 +624,15 @@
       display: grid;
       grid-template-columns: 1fr auto 1fr;
       gap: 2rem;
-      align-items: start;
+      align-items: center;
+      padding-bottom: 2rem;
+      border-bottom: 1px solid var(--gray-70);
     }
 
-    .footer-section {
-      display: flex;
-      flex-direction: column;
-      gap: 0.5rem;
-    }
-
-    .footer-section:last-child {
-      text-align: right;
-      align-items: flex-end;
-    }
-
-    .footer-section p {
+    .footer-address {
       color: var(--gray-50);
-      font-size: 0.9rem;
+      font-size: 1rem;
       line-height: 1.6;
-    }
-
-    .footer-section a {
-      color: var(--gray-50);
-      text-decoration: none;
-      font-size: 0.9rem;
-      transition: color 0.2s ease;
-    }
-
-    .footer-section a:hover {
-      color: var(--primary-blue);
     }
 
     .footer-logo {
@@ -715,6 +643,37 @@
     .footer-logo img {
       height: 80px;
       width: auto;
+    }
+
+    .footer-contact {
+      text-align: right;
+    }
+
+    .footer-contact a {
+      display: block;
+      color: var(--gray-50);
+      text-decoration: none;
+      font-size: 1rem;
+      margin-bottom: 0.5rem;
+      transition: color 0.2s ease;
+    }
+
+    .footer-contact a:hover {
+      color: var(--primary-blue);
+    }
+
+    .footer-bottom {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding-top: 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .footer-bottom p {
+      color: var(--gray-50);
+      font-size: 0.9rem;
     }
 
     .social-links {
@@ -730,54 +689,65 @@
       height: 32px;
       color: var(--gray-50);
       transition: color 0.2s ease;
+      border: 1px solid var(--gray-50);
+      border-radius: 4px;
     }
 
     .social-links a:hover {
       color: var(--primary-blue);
+      border-color: var(--primary-blue);
     }
 
     .social-links svg {
-      width: 20px;
-      height: 20px;
+      width: 18px;
+      height: 18px;
       fill: currentColor;
     }
 
-    .footer-bottom {
-      max-width: 1200px;
-      margin: 2rem auto 0;
-      padding-top: 2rem;
-      border-top: 1px solid var(--gray-70);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .footer-bottom p {
-      color: var(--gray-50);
-      font-size: 0.85rem;
-    }
-
-    /* Responsive */
+    /* ==================== */
+    /* RESPONSIVE STYLES    */
+    /* ==================== */
     @media (max-width: 1024px) {
-      .hero {
+      .hero-content {
+        width: 60%;
+        padding: 3rem;
+      }
+
+      .location-grid {
         grid-template-columns: 1fr;
       }
 
-      .hero-image {
-        min-height: 50vh;
+      .location-grid img {
+        min-height: 300px;
       }
 
-      .amenities-content,
-      .equipment-content {
+      .benefits-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+
+      .benefits-text {
+        padding-right: 0;
+      }
+
+      .amenities-images,
+      .equipment-images {
         grid-template-columns: 1fr;
       }
 
-      .space-card-content {
+      .amenities-images img,
+      .equipment-images img {
+        height: 280px;
+      }
+
+      .amenities-list-grid,
+      .equipment-list-grid {
         grid-template-columns: 1fr 1fr;
       }
 
-      .space-floorplan {
-        display: none;
+      .workspaces-grid {
+        grid-template-columns: 1fr;
+        gap: 3rem;
       }
 
       .contact-section {
@@ -786,11 +756,17 @@
 
       .contact-image {
         order: -1;
-        min-height: 300px;
+        min-height: 350px;
       }
 
-      .location-grid {
-        grid-template-columns: 1fr !important;
+      .footer-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 1.5rem;
+      }
+
+      .footer-contact {
+        text-align: center;
       }
     }
 
@@ -809,52 +785,74 @@
         top: 100%;
         left: 0;
         right: 0;
-        background: #333333;
+        background: var(--gray-bg);
         flex-direction: column;
-        padding: 1rem;
+        padding: 1.5rem;
         gap: 1rem;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
       }
 
       .nav-menu.active {
         display: flex;
       }
 
-      .nav-logo img {
-        max-width: 150px;
+      .hero {
+        min-height: 70vh;
       }
 
-      .section {
+      .hero-content {
+        width: 100%;
+        background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.3) 50%, rgba(0,0,0,0) 100%);
+        justify-content: flex-end;
+        padding: 2rem;
+        padding-bottom: 4rem;
+      }
+
+      .hero-content h1 {
+        font-size: 2rem;
+      }
+
+      .hero-content p {
+        font-size: 1rem;
+      }
+
+      .location-section,
+      .benefits-section,
+      .amenities-section,
+      .equipment-section,
+      .workspaces-section {
         padding: 3rem 1rem;
       }
 
-      .image-grid {
+      .amenities-list-grid,
+      .equipment-list-grid {
         grid-template-columns: 1fr;
       }
 
-      .community-grid {
-        grid-template-columns: 1fr;
+      .contact-form-container {
+        padding: 2rem 1.5rem;
       }
 
-      .space-card-content {
-        grid-template-columns: 1fr;
-      }
-
-      .contact-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .contact-content {
-        padding: 2rem 1rem;
-      }
-
-      .footer-content {
-        grid-template-columns: 1fr;
+      .footer-bottom {
+        flex-direction: column;
+        gap: 1rem;
         text-align: center;
       }
+    }
 
-      .footer-section:last-child {
-        text-align: center;
-        align-items: center;
+    @media (max-width: 480px) {
+      .hero-content h1 {
+        font-size: 1.75rem;
+      }
+
+      .location-section .section-title,
+      .benefits-section .page-title,
+      .workspaces-section .section-title {
+        font-size: 1.5rem;
+      }
+
+      .workspace-card-image {
+        aspect-ratio: 16/9;
       }
     }
   </style>
@@ -864,16 +862,23 @@
 
   <!-- Navigation -->
   <header class="nav-header">
-    <nav class="nav-container">
-      <a href="index.html" class="nav-logo" aria-label="Solid Product Design Home">
-        <img src="images/assets/Solid-O3-horizontal-black.png" alt="Solid Product Design" width="180" height="50" />
+    <nav class="nav-container" aria-label="Main navigation">
+      <a href="/" class="nav-logo" aria-label="Solid Labs Home">
+        <!-- Striped logo SVG matching mockup -->
+        <svg viewBox="0 0 100 60" width="100" height="60" aria-hidden="true">
+          <g fill="none" stroke="#000" stroke-width="5">
+            <line x1="10" y1="5" x2="40" y2="55" />
+            <line x1="25" y1="5" x2="55" y2="55" />
+            <line x1="40" y1="5" x2="70" y2="55" />
+          </g>
+        </svg>
       </a>
 
       <button class="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
-        <span>☰</span>
+        <span aria-hidden="true">&#9776;</span>
       </button>
 
-      <ul class="nav-menu">
+      <ul class="nav-menu" role="list">
         <li><a href="#location">Location</a></li>
         <li><a href="#amenities">Amenities</a></li>
         <li><a href="#workspaces">Workspaces</a></li>
@@ -884,91 +889,46 @@
 
   <main id="main-content">
     <!-- Hero Section -->
-    <section class="hero">
+    <section class="hero" aria-labelledby="hero-title">
       <div class="hero-image">
-        <img src="images/assets/Other Images/Front  Facade of Building  - Solid Labs Logo.jpg" alt="Solid Labs building at 2212 Walnut Street" width="800" height="1000" />
+        <img src="images/assets/solid-labs/kitchen-collaboration.jpg"
+             alt="Team collaborating at the Solid Labs kitchen counter workspace"
+             width="2048" height="1529"
+             fetchpriority="high" />
       </div>
       <div class="hero-content">
-        <div class="hero-content-top">
-          <div class="hero-logo">
-            <img src="images/assets/solid-labs/solid-labs-logo.jpg" alt="Solid Labs" width="300" height="165" />
-          </div>
-          <p class="hero-address">2212 WALNUT STREET</p>
-        </div>
-        <div class="hero-tagline">
-          <h1>Offices, Workspace, and Community for Hard-Tech Companies</h1>
-        </div>
+        <h1 id="hero-title">Philly's Hardware Headquarters</h1>
+        <p>Flexible workspace options for startups, satellite enterprise teams, and professional freelancers working in hard-tech.</p>
       </div>
     </section>
 
-    <!-- Location Section (anchor target) -->
-    <section class="section" id="location">
-      <div class="section-header">
-        <h2>Premier Center City Location</h2>
-      </div>
-      <div class="workspace-intro">
-        <p>Conveniently located in the West Rittenhouse neighborhood of Center City Philadelphia, we're blocks away from 30th Street Station, the Schuylkill trail, University City, and Rittenhouse Square.</p>
-      </div>
-      <div class="location-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 2rem;">
-        <img src="images/assets/solid-labs/building-facade.jpg" alt="Art Deco building facade at 2212 Walnut Street" loading="lazy" style="width: 100%; height: auto; border-radius: 8px;" />
-        <img src="images/assets/solid-labs/location-map.jpg" alt="Map showing Solid Labs location in Center City Philadelphia" loading="lazy" style="width: 100%; height: auto; border-radius: 8px;" />
-      </div>
-    </section>
-
-    <!-- Flexible Workspace Solutions Section -->
-    <section class="section" id="workspaces">
-      <div class="section-header">
-        <h2>Flexible Workspace Solutions</h2>
-      </div>
-      <div class="workspace-intro">
-        <p>Solid Labs offers flexible workspace options for startups, satellite enterprise teams, and professional freelancers working in hard-tech.</p>
-      </div>
-      <div class="image-grid">
-        <img src="images/assets/solid-labs/kitchen-collaboration.jpg" alt="Team collaborating at kitchen counter" loading="lazy" />
-        <img src="images/assets/solid-labs/workshop-workbenches.jpg" alt="Workshop with equipment and workbenches" loading="lazy" />
-        <img src="images/assets/solid-labs/design-collaboration.jpg" alt="Design review meeting" loading="lazy" />
+    <!-- Location Section -->
+    <section class="location-section" id="location" aria-labelledby="location-title">
+      <h2 class="section-title" id="location-title">Premier Center City Location</h2>
+      <p class="section-intro">Conveniently located in the West Rittenhouse neighborhood of Center City Philadelphia, we're blocks away from 30th Street Station, the Schuylkill trail, University City, and Rittenhouse Square.</p>
+      <div class="location-grid">
+        <img src="images/assets/solid-labs/building-facade.jpg"
+             alt="Art Deco building facade at 2212 Walnut Street with blue tile exterior"
+             loading="lazy"
+             width="896" height="1152" />
+        <img src="images/assets/solid-labs/location-map.jpg"
+             alt="Map showing Solid Labs location in Center City Philadelphia near 30th Street Station"
+             loading="lazy"
+             width="687" height="405" />
       </div>
     </section>
 
-    <!-- Amenities Section -->
-    <section class="section" id="amenities">
-      <div class="section-header">
-        <h2>Amenities</h2>
-      </div>
-      <div class="amenities-content">
-        <div class="amenities-text">
-          <p class="amenities-intro">Solid Labs provides the amenities you need and the hardware community you've been looking for.</p>
-          <p class="amenities-label">Amenities include:</p>
-          <ul class="amenities-list">
-            <li>Gigabit Internet</li>
-            <li>Business Address & Mail Handling</li>
-            <li>Conference Room</li>
-            <li>Call Pods</li>
-            <li>Community Slack</li>
-            <li>Co-location with Solid Product Design & NextFab Ventures</li>
-            <li>Storage Availability</li>
-            <li>Furnished Shared Kitchenette</li>
-            <li>Coffee</li>
-          </ul>
-        </div>
-        <div class="image-grid">
-          <img src="images/assets/solid-labs/conference-room.jpg" alt="Conference room with whiteboard and displays" loading="lazy" />
-          <img src="images/assets/solid-labs/lounge-area.jpg" alt="Comfortable lounge seating area" loading="lazy" />
-          <img src="images/assets/solid-labs/kitchen-area.jpg" alt="Shared kitchenette" loading="lazy" />
-        </div>
-      </div>
-    </section>
+    <!-- Resident Benefits Section -->
+    <section class="benefits-section" aria-labelledby="benefits-title">
+      <h2 class="page-title" id="benefits-title">Resident Benefits</h2>
+      <div class="benefits-content">
+        <div class="benefits-text">
+          <h3 class="subsection-title" id="community">Community</h3>
+          <div class="title-underline" aria-hidden="true"></div>
+          <p class="intro-text">Co-locate with Solid Product Design, NextFab Ventures, and cutting edge Philly-based companies building the future of hardware.</p>
 
-    <!-- Community Section -->
-    <section class="section">
-      <div class="section-header">
-        <h2>Community</h2>
-      </div>
-      <p class="community-intro">Co-locate with Solid Product Design, NextFab Ventures, and cutting edge Philly-based companies building the future of hardware.</p>
-      <div class="community-grid">
-        <div class="community-column">
-          <h3>Current Residents:</h3>
-          <ul>
+          <p class="residents-label">Current Residents:</p>
+          <ul class="residents-list">
             <li>p-Chip</li>
             <li>Recupero Robotics</li>
             <li>OsciFlex</li>
@@ -976,191 +936,215 @@
             <li>Environmental and Engineering Solutions</li>
             <li>Fortunato Design</li>
           </ul>
-        </div>
-        <div class="community-column">
-          <h3>Alumni:</h3>
-          <ul>
+
+          <p class="alumni-label">Alumni:</p>
+          <ul class="alumni-list">
             <li>Daxo Robotics</li>
             <li>Big Idea Inc.</li>
           </ul>
         </div>
+        <div class="benefits-image">
+          <img src="images/assets/solid-labs/design-collaboration.jpg"
+               alt="Two professionals reviewing product designs and prototypes at a collaboration table"
+               loading="lazy"
+               width="1529" height="2048" />
+        </div>
+      </div>
+    </section>
+
+    <!-- Amenities Section -->
+    <section class="amenities-section" id="amenities" aria-labelledby="amenities-title">
+      <div class="section-header">
+        <h2 id="amenities-title">Amenities</h2>
+        <div class="title-underline" aria-hidden="true"></div>
+      </div>
+      <div class="amenities-images">
+        <img src="images/assets/solid-labs/conference-room.jpg"
+             alt="Professional conference room with large table, whiteboard, and video display"
+             loading="lazy"
+             width="1827" height="2048" />
+        <img src="images/assets/solid-labs/lounge-area.jpg"
+             alt="Comfortable lounge seating area with modern chairs and coffee table"
+             loading="lazy"
+             width="1536" height="2048" />
+        <img src="images/assets/solid-labs/kitchen-area.jpg"
+             alt="Shared kitchenette with counter seating, appliances, and exposed brick"
+             loading="lazy"
+             width="2048" height="1536" />
+      </div>
+      <div class="amenities-list-grid">
+        <ul class="amenities-column">
+          <li>Gigabit Internet</li>
+          <li>Business Address &amp; Mail Handling</li>
+          <li>Conference Room</li>
+          <li>Call Pods</li>
+        </ul>
+        <ul class="amenities-column">
+          <li>Storage Availability</li>
+          <li>Furnished Shared Kitchenette</li>
+          <li>Coffee</li>
+          <li>Full workshop access</li>
+        </ul>
+        <ul class="amenities-column">
+          <li>24/7 Access</li>
+          <li>Color printer</li>
+          <li>Event space</li>
+        </ul>
       </div>
     </section>
 
     <!-- Equipment Section -->
-    <section class="section">
+    <section class="equipment-section" aria-labelledby="equipment-title">
       <div class="section-header">
-        <h2>Equipment</h2>
+        <h2 id="equipment-title">Equipment</h2>
+        <div class="title-underline" aria-hidden="true"></div>
       </div>
-      <div class="equipment-content">
-        <div class="equipment-text">
-          <p class="equipment-intro">All Solid Labs renters get access to a fully equipped workshop designed to meet the needs of hardware companies.</p>
-          <p class="equipment-label">Equipment includes:</p>
-          <ul class="equipment-list">
-            <li>Laser</li>
-            <li>Electronics lab with soldering, rework, and test equipment</li>
-            <li>3D printers</li>
-            <li>Casting</li>
-            <li>Mill-drill</li>
-            <li>Drill press</li>
-            <li>Band saw</li>
-            <li>Hand tools</li>
-            <li>Workbenches</li>
-          </ul>
-        </div>
-        <div class="image-grid">
-          <img src="images/assets/solid-labs/milling-machine.jpg" alt="Mill-drill machine" loading="lazy" />
-          <img src="images/assets/solid-labs/electronics-workstation.jpg" alt="Electronics workstation with tools" loading="lazy" />
-          <img src="images/assets/solid-labs/3d-printing-station.jpg" alt="3D printing and laser cutting station" loading="lazy" />
-        </div>
+      <div class="equipment-images">
+        <img src="images/assets/solid-labs/milling-machine.jpg"
+             alt="Mill-drill machine in the fully equipped workshop"
+             loading="lazy"
+             width="1392" height="2048" />
+        <img src="images/assets/solid-labs/workshop-workbenches.jpg"
+             alt="Workshop area with industrial workbenches and equipment storage"
+             loading="lazy"
+             width="2048" height="1536" />
+        <img src="images/assets/solid-labs/3d-printing-station.jpg"
+             alt="3D printing and laser cutting station with multiple machines"
+             loading="lazy"
+             width="1418" height="2048" />
+      </div>
+      <div class="equipment-list-grid">
+        <ul class="equipment-column">
+          <li>Laser</li>
+          <li>Fully equipped electronics lab</li>
+          <li>3D printers</li>
+        </ul>
+        <ul class="equipment-column">
+          <li>Mill-drill</li>
+          <li>Drill press</li>
+          <li>Band saw</li>
+        </ul>
+        <ul class="equipment-column">
+          <li>Hand tools</li>
+          <li>Casting equipment</li>
+          <li>Workbenches</li>
+        </ul>
       </div>
     </section>
 
-    <!-- Available Spaces Divider -->
-    <section class="spaces-divider">
-      <h2>Available Spaces</h2>
-    </section>
-
-    <!-- North Office -->
-    <section class="space-card">
-      <div class="space-card-header">
-        <h2>North Office</h2>
-      </div>
-      <div class="space-card-content">
-        <div class="space-image">
-          <img src="images/assets/solid-labs/team-prototyping.jpg" alt="Team working on prototypes in North Office" loading="lazy" />
-        </div>
-        <div class="space-floorplan">
-          <div class="image-placeholder">
-            <span class="sqft">250 sq ft</span>
-            [Floor Plan]
+    <!-- Workspaces Section -->
+    <section class="workspaces-section" id="workspaces" aria-labelledby="workspaces-title">
+      <h2 class="section-title" id="workspaces-title">Flexible Workspace Solutions</h2>
+      <div class="workspaces-grid">
+        <!-- Private Office Card -->
+        <article class="workspace-card">
+          <div class="workspace-card-image">
+            <img src="images/assets/solid-labs/team-prototyping.jpg"
+                 alt="Team working on prototypes in a private office with exposed brick walls"
+                 loading="lazy"
+                 width="1529" height="2048" />
           </div>
-        </div>
-        <div class="space-details">
-          <h3>Features:</h3>
-          <ul class="space-features">
-            <li>Private 250 sq ft with exposed brick, high ceilings, and natural light</li>
+          <h3>Private Office</h3>
+          <ul>
+            <li><strong>Ideal for satellite enterprise teams or startups</strong></li>
+            <li>250 sq ft with exposed brick, high ceilings, and natural light</li>
             <li>Space for up to 4 collaborators</li>
-            <li>Direct entrance to lobby & conference room</li>
-            <li>Full access to workshop</li>
+            <li>Direct entrance to lobby &amp; conference room</li>
           </ul>
-          <p class="space-price">$2000 / month</p>
-        </div>
-      </div>
-    </section>
+        </article>
 
-    <!-- Garage Space -->
-    <section class="space-card">
-      <div class="space-card-header">
-        <h2>Garage Space</h2>
-      </div>
-      <div class="space-card-content">
-        <div class="space-image">
-          <img src="images/assets/solid-labs/workshop-workbenches.jpg" alt="Garage workspace with workbenches" loading="lazy" />
-        </div>
-        <div class="space-floorplan">
-          <div class="image-placeholder">
-            <span class="sqft">60 sq ft</span>
-            [Floor Plan]
+        <!-- Garage Card -->
+        <article class="workspace-card">
+          <div class="workspace-card-image">
+            <img src="images/assets/solid-labs/electronics-workstation.jpg"
+                 alt="Garage workspace with electronics workbench and prototyping equipment"
+                 loading="lazy"
+                 width="1376" height="768" />
           </div>
-        </div>
-        <div class="space-details">
-          <h3>Features:</h3>
-          <ul class="space-features">
-            <li>Private 60 - 180 sq ft adjacent to workshop</li>
+          <h3>Garage</h3>
+          <ul>
+            <li><strong>Ideal for teams actively working on hardware</strong></li>
             <li>Space for 2 - 6 collaborators</li>
-            <li>Ideal for teams actively working on hardware</li>
+            <li>Adjacent to workshop</li>
+            <li>Opportunity to bring your own equipment</li>
+            <li>Project material storage</li>
           </ul>
-          <p class="space-price">$500 / month</p>
-        </div>
-      </div>
-    </section>
+        </article>
 
-    <!-- Dedicated Desk -->
-    <section class="space-card">
-      <div class="space-card-header">
-        <h2>Dedicated Desk</h2>
-      </div>
-      <div class="space-card-content">
-        <div class="space-image">
-          <img src="images/assets/solid-labs/cad-workspace.jpg" alt="Person working at dedicated desk" loading="lazy" />
-        </div>
-        <div class="space-floorplan">
-          <div class="image-placeholder">
-            <span class="sqft">47" x 27"</span>
-            [Desk Diagram]
+        <!-- Dedicated Desk Card -->
+        <article class="workspace-card">
+          <div class="workspace-card-image">
+            <img src="images/assets/solid-labs/cad-workspace.jpg"
+                 alt="Professional working at a dedicated desk with CAD software on laptop"
+                 loading="lazy"
+                 width="1529" height="2048" />
           </div>
-        </div>
-        <div class="space-details">
-          <h3>Features:</h3>
-          <ul class="space-features">
+          <h3>Dedicated Desk</h3>
+          <ul>
+            <li><strong>Ideal for solopreneurs, remote workers, and freelancers</strong></li>
             <li>Dedicated desk with electrical and ethernet ports</li>
-            <li>Full workshop & conference room access</li>
-            <li>File cabinet storage</li>
-            <li>Dedicated mailbox</li>
-            <li>Ideal for solopreneurs, remote workers, and freelancers</li>
+            <li>Full workshop &amp; conference room access</li>
+            <li>Business mailing address</li>
           </ul>
-          <p class="space-price">$150 / month</p>
-        </div>
+        </article>
       </div>
     </section>
 
     <!-- Contact Section -->
-    <section class="contact-section" id="contact">
-      <div class="contact-content">
-        <div class="contact-header">
-          <h2>Get In Touch</h2>
-        </div>
-        <div class="contact-grid">
-          <div class="contact-form">
-            <h3>Apply To Waitlist</h3>
-            <form name="labs-waitlist" method="POST" data-netlify="true" netlify-honeypot="bot-field">
-              <input type="hidden" name="form-name" value="labs-waitlist" />
-              <p style="display:none;">
-                <label>Don't fill this out if you're human: <input name="bot-field" /></label>
-              </p>
-              <div class="form-group">
-                <input type="text" name="name" placeholder="Name" required />
-              </div>
-              <div class="form-group">
-                <input type="email" name="email" placeholder="Email" required />
-              </div>
-              <div class="form-group">
-                <input type="text" name="company" placeholder="Company" />
-              </div>
-              <div class="form-group">
-                <textarea name="message" placeholder="Message"></textarea>
-              </div>
-              <button type="submit" class="btn btn-primary">Submit</button>
-            </form>
-          </div>
-          <div class="contact-info">
-            <h3>Schedule A Tour</h3>
-            <p class="contact-info-label">Email</p>
-            <p><a href="mailto:solidlabs@solidpd.com">solidlabs@solidpd.com</a></p>
-            <p class="contact-info-label">Schedule a Call</p>
-            <p><a href="https://calendar.app.google/8KWMbY5n79jBBe4U9" target="_blank" rel="noopener">Book a time that works for you</a></p>
-          </div>
+    <section class="contact-section" id="contact" aria-labelledby="contact-title">
+      <div class="contact-form-container">
+        <h2 id="contact-title">Get In Touch</h2>
+        <div class="contact-form">
+          <h3>Apply To Waitlist</h3>
+          <form name="labs-waitlist" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+            <input type="hidden" name="form-name" value="labs-waitlist" />
+            <p style="display:none;">
+              <label>Don't fill this out if you're human: <input name="bot-field" /></label>
+            </p>
+            <div class="form-group">
+              <label for="name" class="visually-hidden">Name</label>
+              <input type="text" id="name" name="name" placeholder="Name" required aria-required="true" />
+            </div>
+            <div class="form-group">
+              <label for="email" class="visually-hidden">Email</label>
+              <input type="email" id="email" name="email" placeholder="Email" required aria-required="true" />
+            </div>
+            <div class="form-group">
+              <label for="company" class="visually-hidden">Company</label>
+              <input type="text" id="company" name="company" placeholder="Company" />
+            </div>
+            <div class="form-group">
+              <label for="message" class="visually-hidden">Message</label>
+              <textarea id="message" name="message" placeholder="Message" rows="6"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </form>
         </div>
       </div>
       <div class="contact-image">
-        <img src="images/assets/solid-labs/building-entrance.jpg" alt="People outside Solid Labs building entrance at 2212" loading="lazy" />
+        <img src="images/assets/solid-labs/building-entrance.jpg"
+             alt="People outside the Solid Labs building entrance at 2212 Walnut Street"
+             loading="lazy"
+             width="1502" height="2048" />
       </div>
     </section>
   </main>
 
-  <!-- Footer (Unique to Solid Labs page) -->
+  <!-- Footer -->
   <footer class="footer">
     <div class="footer-content">
-      <div class="footer-section">
+      <div class="footer-address">
         <p>2212 Walnut Street, 1st Floor<br>Philadelphia, PA 19103</p>
       </div>
 
       <div class="footer-logo">
-        <img src="images/assets/solid-labs/solid-labs-logo.jpg" alt="Solid Labs" loading="lazy" />
+        <img src="images/assets/solid-labs/solid-labs-logo.jpg"
+             alt="Solid Labs"
+             loading="lazy"
+             width="200" height="110" />
       </div>
 
-      <div class="footer-section">
+      <div class="footer-contact">
         <a href="mailto:solidlabs@solidpd.com">solidlabs@solidpd.com</a>
         <a href="https://calendar.app.google/8KWMbY5n79jBBe4U9" target="_blank" rel="noopener">Schedule a call</a>
       </div>
@@ -1169,14 +1153,29 @@
     <div class="footer-bottom">
       <p>&copy; 2026 Solid Product Design. All rights reserved.</p>
       <div class="social-links">
-        <a href="https://www.linkedin.com/company/solidpd/" target="_blank" rel="noopener" aria-label="LinkedIn">
-          <svg viewBox="0 0 24 24">
+        <a href="https://www.linkedin.com/company/solidpd/" target="_blank" rel="noopener" aria-label="Follow Solid Labs on LinkedIn">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
             <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.026-3.039-1.852-3.039-1.853 0-2.136 1.447-2.136 2.943v5.665H9.35V9h3.414v1.561h.049c.476-.9 1.637-1.852 3.369-1.852 3.602 0 4.268 2.371 4.268 5.455v6.288zM5.337 7.433a2.062 2.062 0 1 1 0-4.124 2.062 2.062 0 0 1 0 4.124zM6.997 20.452H3.675V9h3.322v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.226.792 24 1.771 24h20.451C23.2 24 24 23.226 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
           </svg>
         </a>
       </div>
     </div>
   </footer>
+
+  <!-- Visually hidden class for accessibility -->
+  <style>
+    .visually-hidden {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+  </style>
 
   <script>
     // Mobile navigation toggle
@@ -1194,6 +1193,14 @@
         navMenu.classList.remove('active');
         navToggle.setAttribute('aria-expanded', 'false');
       });
+    });
+
+    // Close menu when clicking outside
+    document.addEventListener('click', (e) => {
+      if (!e.target.closest('.nav-container')) {
+        navMenu.classList.remove('active');
+        navToggle.setAttribute('aria-expanded', 'false');
+      }
     });
   </script>
 </body>
