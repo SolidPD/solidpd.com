@@ -788,6 +788,10 @@
         order: -1;
         min-height: 300px;
       }
+
+      .location-grid {
+        grid-template-columns: 1fr !important;
+      }
     }
 
     @media (max-width: 768px) {
@@ -870,11 +874,10 @@
       </button>
 
       <ul class="nav-menu">
-        <li><a href="work.html">Work</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="services.html">Services</a></li>
-        <li><a href="contact.html">Contact</a></li>
-        <li><a href="labs.html" class="active">Solid Labs</a></li>
+        <li><a href="#location">Location</a></li>
+        <li><a href="#amenities">Amenities</a></li>
+        <li><a href="#workspaces">Workspaces</a></li>
+        <li><a href="#contact">Contact</a></li>
       </ul>
     </nav>
   </header>
@@ -898,14 +901,27 @@
       </div>
     </section>
 
+    <!-- Location Section (anchor target) -->
+    <section class="section" id="location">
+      <div class="section-header">
+        <h2>Premier Center City Location</h2>
+      </div>
+      <div class="workspace-intro">
+        <p>Conveniently located in the West Rittenhouse neighborhood of Center City Philadelphia, we're blocks away from 30th Street Station, the Schuylkill trail, University City, and Rittenhouse Square.</p>
+      </div>
+      <div class="location-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 2rem;">
+        <img src="images/assets/solid-labs/building-facade.jpg" alt="Art Deco building facade at 2212 Walnut Street" loading="lazy" style="width: 100%; height: auto; border-radius: 8px;" />
+        <img src="images/assets/solid-labs/location-map.jpg" alt="Map showing Solid Labs location in Center City Philadelphia" loading="lazy" style="width: 100%; height: auto; border-radius: 8px;" />
+      </div>
+    </section>
+
     <!-- Flexible Workspace Solutions Section -->
-    <section class="section">
+    <section class="section" id="workspaces">
       <div class="section-header">
         <h2>Flexible Workspace Solutions</h2>
       </div>
       <div class="workspace-intro">
         <p>Solid Labs offers flexible workspace options for startups, satellite enterprise teams, and professional freelancers working in hard-tech.</p>
-        <p style="margin-top: 1rem;">Located in the West Rittenhouse neighborhood of Center City Philadelphia, we're blocks away from 30th Street Station, the Schuylkill trail, University City, and Rittenhouse Square.</p>
       </div>
       <div class="image-grid">
         <img src="images/assets/solid-labs/kitchen-collaboration.jpg" alt="Team collaborating at kitchen counter" loading="lazy" />
@@ -915,7 +931,7 @@
     </section>
 
     <!-- Amenities Section -->
-    <section class="section">
+    <section class="section" id="amenities">
       <div class="section-header">
         <h2>Amenities</h2>
       </div>
@@ -1090,10 +1106,10 @@
     </section>
 
     <!-- Contact Section -->
-    <section class="contact-section">
+    <section class="contact-section" id="contact">
       <div class="contact-content">
         <div class="contact-header">
-          <h2>Contact</h2>
+          <h2>Get In Touch</h2>
         </div>
         <div class="contact-grid">
           <div class="contact-form">
@@ -1133,7 +1149,7 @@
     </section>
   </main>
 
-  <!-- Footer -->
+  <!-- Footer (Unique to Solid Labs page) -->
   <footer class="footer">
     <div class="footer-content">
       <div class="footer-section">
@@ -1141,12 +1157,12 @@
       </div>
 
       <div class="footer-logo">
-        <img src="images/assets/Solid-Product-Design-logo-stacked-white-blue.png" alt="Solid Product Design" loading="lazy" />
+        <img src="images/assets/solid-labs/solid-labs-logo.jpg" alt="Solid Labs" loading="lazy" />
       </div>
 
       <div class="footer-section">
-        <a href="mailto:hello@solidpd.com">hello@solidpd.com</a>
-        <a href="https://calendar.app.google/8KWMbY5n79jBBe4U9" target="_blank" rel="noopener">Schedule a Call</a>
+        <a href="mailto:solidlabs@solidpd.com">solidlabs@solidpd.com</a>
+        <a href="https://calendar.app.google/8KWMbY5n79jBBe4U9" target="_blank" rel="noopener">Schedule a call</a>
       </div>
     </div>
 
