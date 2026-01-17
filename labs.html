@@ -247,6 +247,59 @@
       min-height: 400px;
     }
 
+    /* Map container with logo overlay */
+    .map-container {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      min-height: 400px;
+    }
+
+    .map-container iframe {
+      width: 100%;
+      height: 100%;
+      min-height: 400px;
+      border: 0;
+      display: block;
+    }
+
+    .map-logo-overlay {
+      position: absolute;
+      /* Position above the red marker pin on the map */
+      top: 45%;
+      left: 50%;
+      transform: translate(-50%, -100%);
+      background: white;
+      padding: 8px 14px;
+      border-radius: 4px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+      pointer-events: none;
+      z-index: 10;
+    }
+
+    .map-logo-overlay img {
+      display: block;
+      width: 140px !important;
+      height: auto !important;
+      min-height: auto !important;
+      max-height: none !important;
+      object-fit: contain;
+    }
+
+    /* Small triangle pointer below logo */
+    .map-logo-overlay::after {
+      content: '';
+      position: absolute;
+      bottom: -8px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 0;
+      height: 0;
+      border-left: 8px solid transparent;
+      border-right: 8px solid transparent;
+      border-top: 8px solid white;
+    }
+
     /* ==================== */
     /* RESIDENT BENEFITS    */
     /* ==================== */
@@ -721,6 +774,18 @@
         min-height: 300px;
       }
 
+      .map-container {
+        min-height: 300px;
+      }
+
+      .map-container iframe {
+        min-height: 300px;
+      }
+
+      .map-logo-overlay img {
+        width: 120px;
+      }
+
       .benefits-content {
         grid-template-columns: 1fr;
         gap: 2rem;
@@ -906,10 +971,20 @@
              alt="Art Deco building facade at 2212 Walnut Street with blue tile exterior"
              loading="lazy"
              width="896" height="1152" />
-        <img src="images/assets/solid-labs/location-map.jpg"
-             alt="Map showing Solid Labs location in Center City Philadelphia near 30th Street Station"
-             loading="lazy"
-             width="687" height="405" />
+        <div class="map-container" role="region" aria-label="Interactive map showing Solid Labs location">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3058.578122575052!2d-75.1780905!3d39.95082539999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c6c647ff210e13%3A0x6fa6196d79260cf3!2s2212%20Walnut%20St%2C%20Philadelphia%2C%20PA%2019103!5e0!3m2!1sen!2sus!4v1768687305078!5m2!1sen!2sus"
+            title="Google Map showing Solid Labs at 2212 Walnut Street, Philadelphia, PA 19103"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            allowfullscreen></iframe>
+          <div class="map-logo-overlay" aria-hidden="true">
+            <img src="images/assets/Solid-Labs-logo-horizontal-black-blue.png"
+                 alt=""
+                 width="140"
+                 height="41" />
+          </div>
+        </div>
       </div>
     </section>
 
