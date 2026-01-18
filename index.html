@@ -258,6 +258,613 @@
       box-shadow: 0 4px 20px rgba(255, 255, 255, 0.3);
     }
 
+    /* About Section Styles */
+    .content-section {
+      padding: 4rem 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .section-intro {
+      max-width: 900px;
+      margin: 0 auto 3rem;
+    }
+
+    .section-intro h2 {
+      font-size: clamp(1.8rem, 3vw, 2.5rem);
+      margin-bottom: 2rem;
+      color: var(--white);
+    }
+
+    .section-intro p {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      color: var(--gray-10);
+      margin-bottom: 1.5rem;
+    }
+
+    /* Pillars Grid */
+    .pillars-section {
+      padding: 6rem 2rem;
+      background: var(--black);
+    }
+
+    .pillars-section h2 {
+      text-align: center;
+      font-size: clamp(2rem, 4vw, 3rem);
+      margin-bottom: 4rem;
+      color: var(--white);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.3em;
+    }
+
+    .solid-text-inline {
+      color: var(--primary-yellow);
+      font-weight: 700;
+    }
+
+    .pillars-grid {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 3rem;
+    }
+
+    .pillar-card {
+      background: var(--dark-bg);
+      border-radius: 8px;
+      padding: 2.5rem;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .pillar-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: transparent;
+      transition: background 0.3s ease;
+    }
+
+    .pillar-card.accent::before {
+      background: var(--primary-yellow);
+    }
+
+    .pillar-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 30px rgba(4, 149, 246, 0.15);
+    }
+
+    .pillar-icon {
+      width: 60px;
+      height: 60px;
+      margin-bottom: 1.5rem;
+      opacity: 0.9;
+    }
+
+    .pillar-card h3 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      color: var(--white);
+    }
+
+    .pillar-card p {
+      font-size: 1rem;
+      line-height: 1.7;
+      color: var(--gray-10);
+    }
+
+    /* Services Section Styles */
+    .page-header {
+      padding: 6rem 2rem 2rem;
+      text-align: center;
+      background: var(--black);
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .page-header h1,
+    .page-header h2 {
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      margin-bottom: 1.5rem;
+      color: var(--white);
+    }
+
+    .page-header p {
+      font-size: 1.2rem;
+      color: var(--gray-10);
+      line-height: 1.7;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .services-section {
+      padding: 4rem 2rem 6rem;
+      background: var(--black);
+    }
+
+    .services-grid {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2.5rem;
+    }
+
+    /* Flip Card Container */
+    .flip-card {
+      perspective: 1000px;
+      height: 350px;
+      cursor: pointer;
+      overflow: visible;
+    }
+
+    .flip-card-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      transition: transform 0.6s;
+      transform-style: preserve-3d;
+    }
+
+    .flip-card:hover .flip-card-inner,
+    .flip-card.flipped .flip-card-inner {
+      transform: rotateY(180deg);
+    }
+
+    .flip-card-front,
+    .flip-card-back {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
+      border-radius: 8px;
+      padding: 2.5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .flip-card-front {
+      background: var(--gray-10);
+      color: var(--black);
+      align-items: center;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .flip-card-front-image {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 0;
+    }
+
+    .flip-card-front::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.4);
+      z-index: 1;
+    }
+
+    .flip-card-front h3 {
+      position: relative;
+      z-index: 2;
+      font-size: 1.5rem;
+      color: var(--white);
+      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+    }
+
+    .flip-card-back {
+      background: var(--dark-bg);
+      color: var(--white);
+      transform: rotateY(180deg);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .flip-card-back h3 {
+      font-size: 1.3rem;
+      color: var(--primary-blue);
+      margin-bottom: 1rem;
+    }
+
+    .flip-card-back ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .flip-card-back li {
+      font-size: 0.95rem;
+      line-height: 1.8;
+      color: var(--gray-10);
+      padding-left: 1.5rem;
+      position: relative;
+      margin-bottom: 0.5rem;
+    }
+
+    .flip-card-back li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      color: var(--primary-blue);
+      font-weight: bold;
+      font-size: 1.2rem;
+    }
+
+    /* Work Section Styles */
+    .portfolio-section {
+      padding: 2rem 2rem 6rem;
+      background: var(--black);
+    }
+
+    .portfolio-grid {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+
+    .portfolio-item {
+      position: relative;
+      aspect-ratio: 4/3;
+      overflow: hidden;
+      border-radius: 8px;
+      cursor: pointer;
+      background: var(--dark-bg);
+    }
+
+    .portfolio-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+
+    .portfolio-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.9));
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 2rem;
+      opacity: 0;
+      transition: opacity 0.4s ease;
+      color: var(--white);
+    }
+
+    .portfolio-item:hover img {
+      transform: scale(1.05);
+    }
+
+    .portfolio-item:hover .portfolio-overlay {
+      opacity: 1;
+    }
+
+    .portfolio-overlay h3 {
+      font-size: 1.3rem;
+      margin-bottom: 0.5rem;
+      color: var(--white);
+    }
+
+    .portfolio-overlay p {
+      font-size: 0.95rem;
+      color: var(--gray-10);
+      line-height: 1.5;
+    }
+
+    .portfolio-overlay .client {
+      font-size: 0.85rem;
+      color: var(--primary-blue);
+      margin-bottom: 0.25rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    /* Client Logos Section */
+    .clients-section {
+      padding: 6rem 2rem;
+      background: var(--primary-blue);
+      text-align: center;
+    }
+
+    .clients-section h2 {
+      font-size: clamp(2rem, 4vw, 3rem);
+      margin-bottom: 4rem;
+      color: var(--white);
+    }
+
+    .clients-grid {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 3rem;
+      align-items: center;
+    }
+
+    .client-logo {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+    }
+
+    .client-logo img {
+      max-width: 120px;
+      max-height: 60px;
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+      filter: brightness(0) invert(1);
+      opacity: 0.9;
+      transition: opacity 0.3s ease;
+    }
+
+    .client-logo:hover img {
+      opacity: 1;
+    }
+
+    /* Contact Section Styles */
+    .contact-section {
+      padding: 4rem 2rem 6rem;
+      background: var(--black);
+    }
+
+    .contact-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+    }
+
+    /* Form Styles */
+    .contact-form {
+      background: var(--dark-bg);
+      padding: 3rem;
+      border-radius: 8px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .contact-form h2 {
+      font-size: 1.8rem;
+      margin-bottom: 2rem;
+      color: var(--white);
+    }
+
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+
+    .form-group label {
+      display: block;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      color: var(--gray-10);
+      font-size: 0.95rem;
+    }
+
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 0.875rem;
+      background: var(--black);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 4px;
+      color: var(--white);
+      font-family: "DM Sans", sans-serif;
+      font-size: 1rem;
+      transition: border-color 0.3s ease;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: var(--primary-blue);
+    }
+
+    .form-group textarea {
+      min-height: 150px;
+      resize: vertical;
+    }
+
+    .submit-btn {
+      width: 100%;
+      padding: 1rem 2rem;
+      background: var(--primary-blue);
+      color: var(--white);
+      border: 2px solid var(--primary-blue);
+      border-radius: 6px;
+      font-weight: 600;
+      font-size: 1rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .submit-btn:hover {
+      background: transparent;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 20px rgba(4, 149, 246, 0.3);
+    }
+
+    .submit-btn:focus {
+      outline: 2px solid var(--primary-blue);
+      outline-offset: 2px;
+    }
+
+    /* Contact Info */
+    .contact-info {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      padding-top: 3rem;
+    }
+
+    .contact-info h2 {
+      font-size: 1.8rem;
+      margin-bottom: 2rem;
+      color: var(--white);
+    }
+
+    .contact-info > p {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      color: var(--gray-10);
+      margin-bottom: 2rem;
+    }
+
+    .info-item {
+      margin-bottom: 2rem;
+    }
+
+    .info-item h3 {
+      font-size: 1rem;
+      margin-bottom: 0.75rem;
+      color: var(--primary-blue);
+    }
+
+    .info-item a {
+      color: var(--white);
+      text-decoration: none;
+      font-size: 1rem;
+      transition: color 0.3s ease;
+      display: block;
+    }
+
+    .info-item a:hover {
+      color: var(--primary-blue);
+    }
+
+    .info-item p {
+      color: var(--gray-10);
+      font-size: 1rem;
+      line-height: 1.7;
+      margin: 0;
+    }
+
+    .contact-section .social-links {
+      display: flex;
+      gap: 1rem;
+      margin-top: 0;
+    }
+
+    .contact-section .social-links a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 50px;
+      height: 50px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 50%;
+      transition: all 0.3s ease;
+    }
+
+    .contact-section .social-links a:hover {
+      background: var(--primary-blue);
+      transform: translateY(-2px);
+    }
+
+    .contact-section .social-links svg {
+      width: 24px;
+      height: 24px;
+      fill: var(--white);
+    }
+
+    /* Honeypot (spam protection) */
+    .honeypot {
+      display: none;
+    }
+
+    /* Form States */
+    .form-status {
+      padding: 1rem 1.25rem;
+      border-radius: 6px;
+      margin-bottom: 1.5rem;
+      display: none;
+    }
+
+    .form-status.success {
+      display: block;
+      background: rgba(34, 197, 94, 0.15);
+      border: 1px solid rgba(34, 197, 94, 0.4);
+      color: #86efac;
+    }
+
+    .form-status.error {
+      display: block;
+      background: rgba(239, 68, 68, 0.15);
+      border: 1px solid rgba(239, 68, 68, 0.4);
+      color: #fca5a5;
+    }
+
+    .form-status h3 {
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
+      text-transform: none;
+      letter-spacing: normal;
+    }
+
+    .form-status p {
+      margin: 0;
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+
+    /* Loading State */
+    .submit-btn.loading {
+      position: relative;
+      color: transparent;
+      pointer-events: none;
+    }
+
+    .submit-btn.loading::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 20px;
+      height: 20px;
+      margin: -10px 0 0 -10px;
+      border: 2px solid var(--white);
+      border-top-color: transparent;
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    /* Hide form when success */
+    .contact-form.submitted form {
+      display: none;
+    }
+
     /* CTA Section */
     .cta-section {
       position: relative;
@@ -413,6 +1020,12 @@
     }
 
     /* Responsive Design */
+    @media (max-width: 1024px) {
+      .portfolio-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
     @media (max-width: 768px) {
       .nav-header {
         padding: 1rem;
@@ -455,10 +1068,72 @@
       .nav-menu a {
         display: block;
         padding: 1rem;
+        color: var(--white);
       }
 
       .hero {
         min-height: 70vh;
+      }
+
+      .content-section {
+        padding: 3rem 1.5rem;
+      }
+
+      .pillars-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+
+      .pillars-section {
+        padding: 4rem 1.5rem;
+      }
+
+      .page-header {
+        padding: 4rem 1.5rem 2rem;
+      }
+
+      .services-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+
+      .flip-card {
+        height: 320px;
+      }
+
+      .services-section {
+        padding: 3rem 1.5rem 4rem;
+      }
+
+      .portfolio-section {
+        padding: 2rem 1.5rem 4rem;
+      }
+
+      .portfolio-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+
+      .clients-section {
+        padding: 4rem 1.5rem;
+      }
+
+      .clients-grid {
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+        gap: 2rem;
+      }
+
+      .contact-section {
+        padding: 3rem 1.5rem 4rem;
+      }
+
+      .contact-container {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+      }
+
+      .contact-form {
+        padding: 2rem;
       }
 
       .cta-section {
@@ -491,7 +1166,7 @@
         order: -1;
       }
 
-      .social-links {
+      .contact-section .social-links {
         justify-content: center;
       }
     }
@@ -508,6 +1183,69 @@
       .hero-tagline {
         font-size: 1rem;
       }
+
+      .section-intro p {
+        font-size: 1rem;
+      }
+
+      .pillar-card {
+        padding: 2rem;
+      }
+
+      .page-header h1,
+      .page-header h2 {
+        font-size: 2rem;
+      }
+
+      .page-header p {
+        font-size: 1rem;
+      }
+
+      .flip-card {
+        height: 300px;
+      }
+
+      .flip-card-front,
+      .flip-card-back {
+        padding: 2rem;
+      }
+
+      .flip-card-front h3 {
+        font-size: 1.3rem;
+      }
+
+      .flip-card-back h3 {
+        font-size: 1.1rem;
+      }
+
+      .flip-card-back li {
+        font-size: 0.9rem;
+      }
+
+      .portfolio-overlay {
+        padding: 1.5rem;
+      }
+
+      .portfolio-overlay h3 {
+        font-size: 1.1rem;
+      }
+
+      .portfolio-overlay p {
+        font-size: 0.85rem;
+      }
+
+      .clients-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .contact-form {
+        padding: 1.5rem;
+      }
+
+      .contact-form h2,
+      .contact-info h2 {
+        font-size: 1.5rem;
+      }
     }
 
     /* Accessibility */
@@ -517,12 +1255,27 @@
         animation-iteration-count: 1 !important;
         transition-duration: 0.01ms !important;
       }
+
+      .flip-card-inner {
+        transition: none;
+      }
     }
 
     .btn:focus,
     a:focus {
       outline: 2px solid var(--primary-blue);
       outline-offset: 2px;
+    }
+
+    .flip-card:focus {
+      outline: 2px solid var(--primary-blue);
+      outline-offset: 4px;
+      border-radius: 8px;
+    }
+
+    .portfolio-item:focus {
+      outline: 2px solid var(--primary-blue);
+      outline-offset: 4px;
     }
 
     /* Skip Link */
@@ -550,48 +1303,439 @@
   <nav class="nav-header">
     <div class="nav-container">
       <div class="nav-logo">
-        <a href="index.html">
+        <a href="#home">
           <img src="images/assets/Solid-O3-horizontal-black.png" alt="Solid Product Design" />
         </a>
       </div>
       <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
       <ul class="nav-menu">
-        <li><a href="work.html">WORK</a></li>
-        <li><a href="about.html">ABOUT</a></li>
-        <li><a href="services.html">SERVICES</a></li>
-        <li><a href="contact.html">CONTACT</a></li>
+        <li><a href="#work">WORK</a></li>
+        <li><a href="#about">ABOUT</a></li>
+        <li><a href="#services">SERVICES</a></li>
+        <li><a href="#contact">CONTACT</a></li>
         <li><a href="labs.html">SOLID LABS</a></li>
       </ul>
     </div>
   </nav>
 
   <main id="main-content">
-    <!-- Hero Section -->
-    <section class="hero">
-    <div class="hero-background">
-      <img src="images/assets/Hero Image Whiteboard.png" alt="Hardware design whiteboard" width="4032" height="3024" loading="lazy" />
-    </div>
-    <div class="hero-content">
-      <h1><span class="text-highlight">Hardware</span> from Concept to Commercialization</h1>
-      <p class="hero-subhead">Deep Research • Time-Tested Strategy • Thoughtful Design • Systematic Engineering</p>
-      <p class="hero-tagline">Product design that <span class="text-underline">ships</span>, for companies building the future of hardware.</p>
-      <a href="contact.html" class="btn btn-primary">Let's Build Together</a>
-    </div>
-  </section>
-
-  <!-- CTA Section -->
-  <section class="cta-section">
-    <div class="cta-background">
-      <img src="images/assets/Let_s Build Something Extraordinary Image - Rezzi.jpg" alt="Engineering workspace" width="1400" height="788" loading="lazy" />
-    </div>
-    <div class="cta-content">
-      <h2>Let's Build Something Extraordinary Together</h2>
-      <div class="cta-buttons">
-        <a href="https://calendar.app.google/8KWMbY5n79jBBe4U9" target="_blank" rel="noopener" class="btn btn-primary">Schedule a Call</a>
-        <a href="contact.html" class="btn btn-secondary">Send a Message</a>
+    <!-- ==================== HOME SECTION ==================== -->
+    <section id="home" class="hero">
+      <div class="hero-background">
+        <img src="images/assets/Hero Image Whiteboard.png" alt="Hardware design whiteboard" width="4032" height="3024" loading="lazy" />
       </div>
-    </div>
-  </section>
+      <div class="hero-content">
+        <h1><span class="text-highlight">Hardware</span> from Concept to Commercialization</h1>
+        <p class="hero-subhead">Deep Research • Time-Tested Strategy • Thoughtful Design • Systematic Engineering</p>
+        <p class="hero-tagline">Product design that <span class="text-underline">ships</span>, for companies building the future of hardware.</p>
+        <a href="#contact" class="btn btn-primary">Let's Build Together</a>
+      </div>
+    </section>
+
+    <!-- ==================== ABOUT SECTION ==================== -->
+    <section id="about" class="content-section">
+      <div class="section-intro">
+        <h2>Flexible Expertise to Solve Your Hardware Challenges</h2>
+        <p>
+          Every company's hardware challenges are unique, but the kind of expertise required to solve them is remarkably consistent: seasoned design and engineering talent that delivers high-quality results and solves problems before they become costly delays.
+        </p>
+        <p>
+          Most companies face the same dilemma: they need this capability, but don't have the time, budget, or headcount to build it internally. Hiring full-time specialists you might not need long-term isn't the answer.
+        </p>
+        <p>
+          Partnering with flexible experts is. We provide that flexibility - ensuring you get the right expertise, at the right moment, without the overhead or long-term burden.
+        </p>
+      </div>
+    </section>
+
+    <!-- Pillars Section -->
+    <section class="pillars-section">
+      <h2>The <span class="solid-text-inline">SOLID</span> Difference</h2>
+      <div class="pillars-grid">
+        <div class="pillar-card accent">
+          <img src="images/placeholders/icon-growth.png" alt="Chart icon" class="pillar-icon" width="1024" height="1024" loading="lazy" />
+          <h3>Evidence-Based Development</h3>
+          <p>
+            Our work is guided by data - from testing and user feedback, not assumptions. We minimize risk by validating key design choices throughout the development process.
+          </p>
+        </div>
+
+        <div class="pillar-card accent">
+          <img src="images/placeholders/icon-team.png" alt="Team icon" class="pillar-icon" width="1024" height="1024" loading="lazy" />
+          <h3>Small, Expert Team</h3>
+          <p>
+            We've built a team of senior engineers and designers who have helped scores of clients succeed. Our low overhead, direct access approach lets you work directly with the talent you need to solve problems.
+          </p>
+        </div>
+
+        <div class="pillar-card accent">
+          <img src="images/placeholders/icon-iceberg.png" alt="Iceberg icon" class="pillar-icon" width="1024" height="1024" loading="lazy" />
+          <h3>Deep Engagement</h3>
+          <p>
+            We go deep with our projects, investing in understanding before execution. That upfront clarity ensures our work is grounded in reality and built to withstand rigorour review and real-world testing.
+          </p>
+        </div>
+
+        <div class="pillar-card accent">
+          <img src="images/placeholders/icon-lightning.png" alt="Lightning icon" class="pillar-icon" width="1024" height="1024" loading="lazy" />
+          <h3>Startup DNA</h3>
+          <p>
+            Our fast, agile approach was honed through years of collaboraiton with clients on the cutting edge of hardware innovation. We're about making maximum impact with minimal overhead and zero corporate bureaucracy.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== SERVICES SECTION ==================== -->
+    <section id="services" class="page-header">
+      <h2>End-to-End Hardware Product Development</h2>
+      <p>
+        From crafting a comprehensive development strategy to scaling to pilot production and beyond, we provide the
+        complete range of expertise needed to transform your hardware concept into a successful commercial product.
+      </p>
+    </section>
+
+    <section class="services-section">
+      <div class="services-grid">
+        <!-- Card 1: Research & Strategy -->
+        <div class="flip-card" tabindex="0" role="button" aria-label="Research & Strategy service details">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <img src="images/assets/Other Images/optimized/research-strategy.jpg" alt="" class="flip-card-front-image" loading="lazy" width="1200" height="800" />
+              <h3>Research & Strategy</h3>
+            </div>
+            <div class="flip-card-back">
+              <h3>Research & Strategy</h3>
+              <ul>
+                <li>Market analysis</li>
+                <li>Risk identification & prioritization</li>
+                <li>Product roadmap development</li>
+                <li>Technical feasibility evaluation</li>
+                <li>User research</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 2: Industrial Design -->
+        <div class="flip-card" tabindex="0" role="button" aria-label="Industrial Design service details">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <img src="images/assets/Other Images/optimized/design.jpg" alt="" class="flip-card-front-image" loading="lazy" width="1200" height="900" />
+              <h3>Industrial Design</h3>
+            </div>
+            <div class="flip-card-back">
+              <h3>Industrial Design</h3>
+              <ul>
+                <li>Concept ideation and generation</li>
+                <li>User journey mapping and storyboarding</li>
+                <li>Form factor development</li>
+                <li>CMF (Color, Material, Finish) design</li>
+                <li>Hardware UI/UX</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 3: Mechanical Engineering -->
+        <div class="flip-card" tabindex="0" role="button" aria-label="Mechanical Engineering service details">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <img src="images/assets/Other Images/optimized/mechanical-engineering.jpg" alt="" class="flip-card-front-image" loading="lazy" width="1200" height="675" />
+              <h3>Mechanical Engineering</h3>
+            </div>
+            <div class="flip-card-back">
+              <h3>Mechanical Engineering</h3>
+              <ul>
+                <li>Computer Aided Design (CAD)</li>
+                <li>Electromechanical system design</li>
+                <li>Part fabrication and sourcing</li>
+                <li>Prototype assembly</li>
+                <li>Enclosure and housing design</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 4: Electrical Engineering -->
+        <div class="flip-card" tabindex="0" role="button" aria-label="Electrical Engineering service details">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <img src="images/assets/Other Images/optimized/electrical-engineering.jpg" alt="" class="flip-card-front-image" loading="lazy" width="1200" height="632" />
+              <h3>Electrical Engineering</h3>
+            </div>
+            <div class="flip-card-back">
+              <h3>Electrical Engineering</h3>
+              <ul>
+                <li>Electrical system architecture design</li>
+                <li>Component research and selection</li>
+                <li>Breadboard prototyping</li>
+                <li>Firmware development</li>
+                <li>PCB design</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 5: Prototyping & Testing -->
+        <div class="flip-card" tabindex="0" role="button" aria-label="Prototyping & Testing service details">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <img src="images/assets/Other Images/optimized/laminitis-knolled.jpg" alt="" class="flip-card-front-image" loading="lazy" width="1200" height="900" />
+              <h3>Prototyping & Testing</h3>
+            </div>
+            <div class="flip-card-back">
+              <h3>Prototyping & Testing</h3>
+              <ul>
+                <li>Alpha and Beta prototype assembly</li>
+                <li>Test plan development</li>
+                <li>User validation studies</li>
+                <li>Prototype analysis and iteration</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 6: Manufacturing Preparation -->
+        <div class="flip-card" tabindex="0" role="button" aria-label="Manufacturing Preparation service details">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <img src="images/assets/Other Images/optimized/manufacturing.jpg" alt="" class="flip-card-front-image" loading="lazy" width="900" height="1200" />
+              <h3>Manufacturing Preparation</h3>
+            </div>
+            <div class="flip-card-back">
+              <h3>Manufacturing Preparation</h3>
+              <ul>
+                <li>Design for Manufacturability and Assembly (DFM/DFA)</li>
+                <li>Supply chain development</li>
+                <li>Certification and compliance support</li>
+                <li>In-house pilot production</li>
+                <li>Full-scale manufacturing support</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== WORK SECTION ==================== -->
+    <section id="work" class="page-header">
+      <h2>Our Work</h2>
+    </section>
+
+    <section class="portfolio-section">
+      <div class="portfolio-grid">
+        <!-- Project 1: Laminitis Sensor -->
+        <div class="portfolio-item" tabindex="0">
+          <img src="images/assets/Our Work - Laminitis Sensor.jpg" alt="Laminitis research device" width="3840" height="2560" loading="lazy" />
+          <div class="portfolio-overlay">
+            <span class="client">Penn Vet</span>
+            <h3>Animal Research Device</h3>
+            <p>Wearable sensor system for equine laminitis research, enabling continuous monitoring in field conditions.</p>
+          </div>
+        </div>
+
+        <!-- Project 2: Neuralert -->
+        <div class="portfolio-item" tabindex="0">
+          <img src="images/assets/Our Work - Neuralert.png" alt="Stroke detection wearable" width="3840" height="2160" loading="lazy" />
+          <div class="portfolio-overlay">
+            <span class="client">Neuralert</span>
+            <h3>Stroke Detection Wearable</h3>
+            <p>Clinical-grade wearable device for early stroke detection, integrating advanced sensors and real-time analytics.</p>
+          </div>
+        </div>
+
+        <!-- Project 3: Hala Systems IoT Switch -->
+        <div class="portfolio-item" tabindex="0">
+          <img src="images/placeholders/project-industrial-enclosures.png" alt="Hardened IoT switch" width="1024" height="485" loading="lazy" />
+          <div class="portfolio-overlay">
+            <span class="client">Hala Systems</span>
+            <h3>Hardened IoT Switch</h3>
+            <p>Ruggedized IoT device for critical infrastructure, designed for extreme environments and reliable connectivity.</p>
+          </div>
+        </div>
+
+        <!-- Project 4: UroGenie -->
+        <div class="portfolio-item" tabindex="0">
+          <img src="images/assets/Our Work - UroGenie.png" alt="Uroflow measurement device" width="726" height="493" loading="lazy" />
+          <div class="portfolio-overlay">
+            <span class="client">UroGenie</span>
+            <h3>Uroflow Device</h3>
+            <p>Home diagnostic device for urinary health monitoring, combining medical accuracy with user-friendly design.</p>
+          </div>
+        </div>
+
+        <!-- Project 5: Vagus Nerve Stimulation -->
+        <div class="portfolio-item" tabindex="0">
+          <img src="images/assets/Our Work - Mindvybe.png" alt="Vagus nerve stimulation device" width="832" height="1147" loading="lazy" />
+          <div class="portfolio-overlay">
+            <span class="client">MINDVYBE</span>
+            <h3>Vagus Nerve Stimulation Device</h3>
+            <p>Multi-mode vagus nerve stimulation device blending precision electronics and user-centered design to help balance the nervous system and promote overall well-being.</p>
+          </div>
+        </div>
+
+        <!-- Project 6: Argospire Spirometer -->
+        <div class="portfolio-item" tabindex="0">
+          <img src="images/placeholders/project-cylindrical-devices.jpg" alt="Connected spirometer" width="2048" height="1161" loading="lazy" />
+          <div class="portfolio-overlay">
+            <span class="client">Argospire</span>
+            <h3>Connected Spirometer</h3>
+            <p>Smart respiratory monitoring device with cloud connectivity, enabling remote patient monitoring and data analysis.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Client Logos Section -->
+    <section class="clients-section">
+      <h2>Our Clients</h2>
+      <div class="clients-grid">
+        <div class="client-logo">
+          <img src="images/placeholders/client-neuralert.png" alt="Neuralert" width="200" height="200" loading="lazy" />
+        </div>
+        <div class="client-logo">
+          <img src="images/placeholders/client-halasystems.png" alt="Hala Systems" width="752" height="132" loading="lazy" />
+        </div>
+        <div class="client-logo">
+          <img src="images/placeholders/client-argospire.png" alt="Argospire" width="1500" height="428" loading="lazy" />
+        </div>
+        <div class="client-logo">
+          <img src="images/placeholders/client-strella.png" alt="Strella" width="322" height="67" loading="lazy" />
+        </div>
+        <div class="client-logo">
+          <img src="images/placeholders/client-pike-robotics.png" alt="Pike Robotics" width="1085" height="702" loading="lazy" />
+        </div>
+        <div class="client-logo">
+          <img src="images/placeholders/client-neurava.png" alt="Neurava" width="177" height="28" loading="lazy" />
+        </div>
+        <div class="client-logo">
+          <img src="images/placeholders/client-hexmodal.png" alt="Hexmodal" width="442" height="122" loading="lazy" />
+        </div>
+        <div class="client-logo">
+          <img src="images/placeholders/client-aepnus.png" alt="Aepnus" width="1024" height="512" loading="lazy" />
+        </div>
+        <div class="client-logo">
+          <img src="images/placeholders/client-agtech-logic.png" alt="AgTech Logic" width="512" height="512" loading="lazy" />
+        </div>
+        <div class="client-logo">
+          <img src="images/placeholders/client-dottir-labs.png" alt="Dottir Labs" width="747" height="267" loading="lazy" />
+        </div>
+        <div class="client-logo">
+          <img src="images/placeholders/client-stepwise.png" alt="Stepwise" width="1356" height="904" loading="lazy" />
+        </div>
+        <div class="client-logo">
+          <img src="images/placeholders/client-hubly-surgical.png" alt="Hubly Surgical" width="200" height="70" loading="lazy" />
+        </div>
+        <div class="client-logo">
+          <img src="images/placeholders/client-precision-livestock.png" alt="Precision Livestock" width="1342" height="358" loading="lazy" />
+        </div>
+        <div class="client-logo">
+          <img src="images/placeholders/client-portable-diagnostics.png" alt="Portable Diagnostics" width="726" height="410" loading="lazy" />
+        </div>
+        <div class="client-logo">
+          <img src="images/placeholders/client-tourstream.png" alt="TourStream" width="871" height="201" loading="lazy" />
+        </div>
+        <div class="client-logo">
+          <img src="images/placeholders/client-florrent.png" alt="Florrent" width="2048" height="462" loading="lazy" />
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== CONTACT SECTION ==================== -->
+    <section id="contact" class="page-header">
+      <h2>Contact</h2>
+    </section>
+
+    <section class="contact-section">
+      <div class="contact-container">
+        <!-- Contact Form -->
+        <div class="contact-form" id="contact-form-container">
+          <h2>Send Us a Message</h2>
+          <div id="form-status" class="form-status" role="alert" aria-live="polite"></div>
+          <form id="contact-form" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+            <input type="hidden" name="form-name" value="contact" />
+            <p class="honeypot">
+              <label>Don't fill this out if you're human: <input name="bot-field" /></label>
+            </p>
+
+            <div class="form-group">
+              <label for="name">Name *</label>
+              <input type="text" id="name" name="name" required aria-required="true" />
+            </div>
+
+            <div class="form-group">
+              <label for="email">Email *</label>
+              <input type="email" id="email" name="email" required aria-required="true" />
+            </div>
+
+            <div class="form-group">
+              <label for="company">Company</label>
+              <input type="text" id="company" name="company" />
+            </div>
+
+            <div class="form-group">
+              <label for="message">Message *</label>
+              <textarea id="message" name="message" required aria-required="true"></textarea>
+            </div>
+
+            <button type="submit" class="submit-btn">Send Message</button>
+          </form>
+        </div>
+
+        <!-- Contact Info -->
+        <div class="contact-info">
+          <h2>Get in Touch</h2>
+          <p>
+            Whether you have a detailed project brief or just an idea, we're here to help. Schedule a call
+            to discuss your hardware needs, or send us a message and we'll get back to you promptly.
+          </p>
+
+          <div class="info-item">
+            <h3>Email</h3>
+            <a href="mailto:hello@solidpd.com">hello@solidpd.com</a>
+          </div>
+
+          <div class="info-item">
+            <h3>Schedule a Call</h3>
+            <a href="https://calendar.app.google/8KWMbY5n79jBBe4U9" target="_blank" rel="noopener">
+              Book a time that works for you
+            </a>
+          </div>
+
+          <div class="info-item">
+            <h3>Office</h3>
+            <p>
+              2212 Walnut Street<br>
+              1st Floor<br>
+              Philadelphia, PA 19103
+            </p>
+          </div>
+
+          <div class="social-links">
+            <a href="https://www.linkedin.com/company/solidpd/" target="_blank" rel="noopener" aria-label="LinkedIn">
+              <svg viewBox="0 0 24 24">
+                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.026-3.039-1.852-3.039-1.853 0-2.136 1.447-2.136 2.943v5.665H9.35V9h3.414v1.561h.049c.476-.9 1.637-1.852 3.369-1.852 3.602 0 4.268 2.371 4.268 5.455v6.288zM5.337 7.433a2.062 2.062 0 1 1 0-4.124 2.062 2.062 0 0 1 0 4.124zM6.997 20.452H3.675V9h3.322v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.226.792 24 1.771 24h20.451C23.2 24 24 23.226 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== CTA SECTION ==================== -->
+    <section class="cta-section">
+      <div class="cta-background">
+        <img src="images/assets/Let_s Build Something Extraordinary Image - Rezzi.jpg" alt="Engineering workspace" width="1400" height="788" loading="lazy" />
+      </div>
+      <div class="cta-content">
+        <h2>Let's Build Something Extraordinary Together</h2>
+        <div class="cta-buttons">
+          <a href="https://calendar.app.google/8KWMbY5n79jBBe4U9" target="_blank" rel="noopener" class="btn btn-primary">Schedule a Call</a>
+          <a href="#contact" class="btn btn-secondary">Send a Message</a>
+        </div>
+      </div>
+    </section>
   </main>
 
   <!-- Footer -->
@@ -636,6 +1780,95 @@
     document.querySelectorAll('.nav-menu a').forEach(link => {
       link.addEventListener('click', () => {
         navMenu.classList.remove('active');
+      });
+    });
+
+    // Flip card accessibility - toggle on click and Enter/Space key
+    document.querySelectorAll('.flip-card').forEach(card => {
+      card.addEventListener('click', () => {
+        card.classList.toggle('flipped');
+      });
+
+      card.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          card.classList.toggle('flipped');
+        }
+      });
+    });
+
+    // Contact Form Handling
+    const contactForm = document.getElementById('contact-form');
+    const formContainer = document.getElementById('contact-form-container');
+    const formStatus = document.getElementById('form-status');
+    const submitBtn = contactForm.querySelector('.submit-btn');
+
+    contactForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      // Show loading state
+      submitBtn.classList.add('loading');
+      submitBtn.disabled = true;
+      formStatus.className = 'form-status';
+      formStatus.innerHTML = '';
+
+      try {
+        const formData = new FormData(contactForm);
+
+        const response = await fetch('/', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+          body: new URLSearchParams(formData).toString()
+        });
+
+        if (response.ok) {
+          // Success
+          formStatus.className = 'form-status success';
+          formStatus.innerHTML = `
+            <h3>Message Sent!</h3>
+            <p>Thank you for reaching out. We'll get back to you within 1-2 business days.</p>
+          `;
+          formContainer.classList.add('submitted');
+
+          // Scroll to status message
+          formStatus.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        } else {
+          throw new Error('Form submission failed');
+        }
+      } catch (error) {
+        // Error
+        formStatus.className = 'form-status error';
+        formStatus.innerHTML = `
+          <h3>Something went wrong</h3>
+          <p>We couldn't send your message. Please try again, or email us directly at <a href="mailto:hello@solidpd.com" style="color: inherit; text-decoration: underline;">hello@solidpd.com</a>.</p>
+        `;
+
+        // Reset button
+        submitBtn.classList.remove('loading');
+        submitBtn.disabled = false;
+
+        // Scroll to error message
+        formStatus.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+    });
+
+    // Smooth scroll offset for sticky nav
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        const href = this.getAttribute('href');
+        if (href === '#') return;
+
+        const target = document.querySelector(href);
+        if (target) {
+          e.preventDefault();
+          const navHeight = document.querySelector('.nav-header').offsetHeight;
+          const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - navHeight;
+
+          window.scrollTo({
+            top: targetPosition,
+            behavior: 'smooth'
+          });
+        }
       });
     });
   </script>
