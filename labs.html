@@ -117,10 +117,13 @@
       align-items: center;
     }
 
-    /* Header logo */
+    /* Header logo - matched to Main page (index.html) */
     .nav-logo img {
-      height: 50px;
+      height: 68px;
       width: auto;
+      max-width: 100%;
+      min-width: 75px;
+      display: block;
     }
 
     .nav-menu {
@@ -838,6 +841,10 @@
     @media (max-width: 768px) {
       .nav-header {
         padding: 1rem;
+      }
+
+      .nav-logo img {
+        height: 45px;
       }
 
       .nav-toggle {

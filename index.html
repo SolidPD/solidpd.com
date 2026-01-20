@@ -475,8 +475,9 @@
     .flip-card-front h3 {
       position: relative;
       font-size: 1.5rem;
-      color: var(--white);
-      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+      color: #FFFFFF;
+      text-shadow: 0 2px 12px rgba(0, 0, 0, 0.8), 0 1px 3px rgba(0, 0, 0, 0.9);
+      font-weight: 700;
     }
 
     .flip-card-back {
@@ -573,6 +574,7 @@
       font-size: 1.3rem;
       margin-bottom: 0.5rem;
       color: var(--white);
+      text-transform: none;
     }
 
     .portfolio-overlay p {
@@ -919,18 +921,16 @@
     /* Footer */
     .footer {
       background: var(--dark-bg);
-      color: var(--gray-30);
-      padding: 3.4rem 2rem 1.7rem;
+      color: rgba(255, 255, 255, 0.7);
+      padding: 48px 24px;
     }
 
     .footer-content {
-      max-width: 1400px;
+      max-width: 1200px;
       margin: 0 auto;
       display: grid;
       grid-template-columns: 1fr auto 1fr;
       gap: 3rem;
-      padding-bottom: 2.5rem;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
       align-items: center;
     }
 
@@ -947,28 +947,19 @@
     .footer-section:last-child {
       text-align: right;
       justify-self: end;
-      gap: 0.5rem;
+      gap: 8px;
     }
 
     .footer-section p,
-    .footer-section a {
-      color: var(--gray-30);
+    .footer-section a.footer-email {
+      color: rgba(255, 255, 255, 0.7);
       text-decoration: none;
-      font-size: 0.95rem;
-      line-height: 1.8;
+      font-size: 14px;
+      line-height: 1.5;
       display: block;
     }
 
-    .footer-section a:hover {
-      color: var(--primary-blue);
-    }
-
-    .footer-section a.cta-primary {
-      color: var(--white);
-      font-weight: 600;
-    }
-
-    .footer-section a.cta-primary:hover {
+    .footer-section a.footer-email:hover {
       color: var(--primary-blue);
     }
 
@@ -980,27 +971,52 @@
     }
 
     .footer-logo img {
-      max-width: 209px;
-      height: auto;
+      max-height: 34px;
+      width: auto;
+      max-width: 180px;
       opacity: 0.9;
     }
 
+    .footer-divider {
+      max-width: 1200px;
+      margin: 28px auto 0;
+      padding-top: 18px;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
     .footer-bottom {
-      max-width: 1400px;
+      max-width: 1200px;
       margin: 0 auto;
       display: flex;
       justify-content: center;
       align-items: center;
-      padding-top: 1.5rem;
-      font-size: 0.85rem;
-      color: var(--gray-50);
+      font-size: 12px;
+      color: rgba(255, 255, 255, 0.4);
     }
 
     .footer-contact-with-social {
       display: flex;
       align-items: center;
       justify-content: flex-end;
-      gap: 1rem;
+      gap: 12px;
+    }
+
+    .footer-cta-button {
+      display: inline-block;
+      padding: 10px 14px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--white);
+      text-decoration: none;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      background: transparent;
+      transition: all 0.3s ease;
+    }
+
+    .footer-cta-button:hover {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: rgba(255, 255, 255, 0.3);
     }
 
     .footer-contact-with-social .social-link {
@@ -1156,9 +1172,13 @@
         max-width: 300px;
       }
 
+      .footer {
+        padding: 40px 20px;
+      }
+
       .footer-content {
         grid-template-columns: 1fr;
-        gap: 2rem;
+        gap: 20px;
         text-align: center;
       }
 
@@ -1170,6 +1190,19 @@
 
       .footer-logo {
         order: -1;
+      }
+
+      .footer-logo img {
+        max-height: 26px;
+      }
+
+      .footer-contact-with-social {
+        justify-content: center;
+      }
+
+      .footer-divider {
+        margin-top: 20px;
+        padding-top: 16px;
       }
 
       .contact-section .social-links {
@@ -1333,7 +1366,7 @@
       <div class="hero-content">
         <h1><span class="text-highlight">Hardware</span> from Concept to Commercialization</h1>
         <p class="hero-subhead">Deep Research • Time-Tested Strategy • Thoughtful Design • Systematic Engineering</p>
-        <p class="hero-tagline">Product design that <span class="text-underline">ships</span>, for companies building the future of hardware.</p>
+        <p class="hero-tagline">Product design that ships, for companies building the future of hardware.</p>
         <a href="#contact" class="btn btn-primary">Let's Build Together</a>
       </div>
     </section>
@@ -1583,7 +1616,7 @@
 
         <!-- Project 6: Argospire Spirometer -->
         <div class="portfolio-item" tabindex="0">
-          <img src="images/placeholders/project-cylindrical-devices.jpg" alt="Connected spirometer" width="2048" height="1161" loading="lazy" />
+          <img src="images/assets/Our Work - Argo Placeholder.png" alt="Connected spirometer" width="2048" height="1161" loading="lazy" />
           <div class="portfolio-overlay">
             <span class="client">Argospire</span>
             <h3>Connected Spirometer</h3>
@@ -1752,13 +1785,13 @@
       </div>
 
       <div class="footer-logo">
-        <img src="images/assets/Solid-Product-Design-logo-stacked-white-blue.png" alt="Solid Product Design" loading="lazy" />
+        <img src="images/assets/Solid-logo-white-blue.png" alt="Solid Product Design" loading="lazy" />
       </div>
 
       <div class="footer-section">
-        <a href="mailto:hello@solidpd.com">hello@solidpd.com</a>
+        <a href="mailto:hello@solidpd.com" class="footer-email">hello@solidpd.com</a>
         <div class="footer-contact-with-social">
-          <a href="https://calendar.app.google/8KWMbY5n79jBBe4U9" target="_blank" rel="noopener" class="cta-primary">Schedule a Call</a>
+          <a href="https://calendar.app.google/8KWMbY5n79jBBe4U9" target="_blank" rel="noopener" class="footer-cta-button">Schedule a Call</a>
           <a href="https://www.linkedin.com/company/solidpd/" target="_blank" rel="noopener" aria-label="LinkedIn" class="social-link">
             <svg viewBox="0 0 24 24">
               <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.026-3.039-1.852-3.039-1.853 0-2.136 1.447-2.136 2.943v5.665H9.35V9h3.414v1.561h.049c.476-.9 1.637-1.852 3.369-1.852 3.602 0 4.268 2.371 4.268 5.455v6.288zM5.337 7.433a2.062 2.062 0 1 1 0-4.124 2.062 2.062 0 0 1 0 4.124zM6.997 20.452H3.675V9h3.322v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.226.792 24 1.771 24h20.451C23.2 24 24 23.226 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
@@ -1768,8 +1801,10 @@
       </div>
     </div>
 
-    <div class="footer-bottom">
-      <p>&copy; 2026 Solid Product Design. All rights reserved.</p>
+    <div class="footer-divider">
+      <div class="footer-bottom">
+        <p>&copy; 2026 Solid Product Design. All rights reserved.</p>
+      </div>
     </div>
   </footer>
 
