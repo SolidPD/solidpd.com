@@ -208,3 +208,11 @@ __marimo__/
 
 # Local Netlify folder
 .netlify
+
+# Vale linter configuration and styles
+.vale.ini
+.vale/
+
+# QA reports and Playwright screenshots (generated)
+reports/
+.playwright-mcp/
