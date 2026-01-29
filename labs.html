@@ -704,19 +704,19 @@
     .form-group input,
     .form-group textarea {
       width: 100%;
-      padding: 1rem 1.25rem;
-      background: var(--gray-10);
-      border: none;
-      border-radius: 25px;
+      padding: 0.875rem;
+      background: var(--black);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 4px;
       font-family: inherit;
       font-size: 1rem;
-      color: var(--black);
+      color: var(--white);
+      transition: border-color 0.3s ease;
     }
 
     .form-group textarea {
       min-height: 150px;
       resize: vertical;
-      border-radius: 20px;
     }
 
     .form-group input::placeholder,
@@ -726,23 +726,24 @@
 
     .form-group input:focus,
     .form-group textarea:focus {
-      outline: 2px solid var(--primary-blue);
-      outline-offset: 2px;
+      outline: none;
+      border-color: var(--primary-blue);
     }
 
     .btn {
       display: inline-block;
-      padding: 1rem 2.5rem;
-      font-weight: 700;
+      padding: 1rem 2rem;
+      font-weight: 600;
       text-decoration: none;
       text-transform: uppercase;
       letter-spacing: 0.05em;
-      font-size: 0.9rem;
+      font-size: 1rem;
       transition: all 0.3s ease;
       cursor: pointer;
-      border: none;
+      border: 2px solid var(--primary-blue);
       font-family: inherit;
-      border-radius: 25px;
+      border-radius: 6px;
+      width: 100%;
     }
 
     .btn-primary {
@@ -765,14 +766,19 @@
     }
 
     .contact-info-item h4 {
+      font-size: 0.85rem;
       font-weight: 700;
       margin-bottom: 0.5rem;
-      color: var(--white);
+      color: var(--primary-blue);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
     }
 
     .contact-info-item a {
-      color: var(--primary-blue);
+      color: #E5E5E5;
       text-decoration: none;
+      font-size: 0.9rem;
+      line-height: 1.5;
       transition: color 0.2s ease;
     }
 
@@ -781,7 +787,8 @@
     }
 
     .contact-info-item p {
-      color: var(--gray-30);
+      color: #E5E5E5;
+      font-size: 0.9rem;
       line-height: 1.5;
     }
 
@@ -1338,7 +1345,7 @@
       <div class="contact-form-container">
         <h2 id="contact-title">Get In Touch</h2>
         <div class="contact-form">
-          <h3>Apply To Waitlist</h3>
+          <h3>Apply to our waitlist, schedule a tour, or reach out with questions about Solid Labs</h3>
           <form name="labs-waitlist" method="POST" data-netlify="true" netlify-honeypot="bot-field">
             <input type="hidden" name="form-name" value="labs-waitlist" />
             <p style="display:none;">
