@@ -74,8 +74,9 @@
     .nav-header {
       position: sticky;
       top: 0;
-      background: #E5E5E5;
-      backdrop-filter: blur(10px);
+      background: rgba(229, 229, 229, 0.85);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
       border-bottom: 1px solid rgba(0, 0, 0, 0.1);
       z-index: 1000;
       padding: 1rem 2rem;
@@ -470,10 +471,12 @@
       width: 100%;
       height: 100%;
       background: rgba(0, 0, 0, 0.4);
+      z-index: 1;
     }
 
     .flip-card-front h3 {
       position: relative;
+      z-index: 2;
       font-size: 1.5rem;
       color: #FFFFFF;
       text-shadow: 0 2px 12px rgba(0, 0, 0, 0.8), 0 1px 3px rgba(0, 0, 0, 0.9);
@@ -1323,8 +1326,8 @@
     }
 
     .portfolio-item:focus {
-      outline: 2px solid var(--primary-blue);
-      outline-offset: 4px;
+      outline: none;
+      box-shadow: 0 0 0 3px rgba(4, 149, 246, 0.3);
     }
 
     /* Skip Link */
@@ -1386,13 +1389,16 @@
       <div class="section-intro">
         <h2>Flexible Expertise to Solve Your Hardware Challenges</h2>
         <p>
-          Every company's hardware challenges are unique, but the kind of expertise required to solve them is remarkably consistent: seasoned design and engineering talent that delivers high-quality results and solves problems before they become costly delays.
+          Hardware development is a game of constraints.
         </p>
         <p>
-          Most companies face the same dilemma: they need this capability, but don't have the time, budget, or headcount to build it internally. Hiring full-time specialists you might not need long-term isn't the answer.
+          When your internal team hits their bandwidth limit, or a gap in expertise stalls your progress, you have a choice. You can spend months hiring for a permanent role you may not need next year, or you can bring in seasoned talent that is ready to ship today.
         </p>
         <p>
-          Partnering with flexible experts is. We provide that flexibility - ensuring you get the right expertise, at the right moment, without the overhead or long-term burden.
+          We provide the fresh perspective and technical depth required to move a product from the bench to the shelf. From industrial design to complex electrical and mechanical engineering, we offer the critical expertise you need without the long-term burden.
+        </p>
+        <p>
+          We don't just solve your technical issues. We restore your ability to move forward with speed and confidence.
         </p>
       </div>
     </section>

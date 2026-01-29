@@ -99,7 +99,10 @@
     .nav-header {
       position: sticky;
       top: 0;
-      background: var(--gray-bg);
+      background: rgba(229, 229, 229, 0.85);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.1);
       z-index: 1000;
       padding: 1rem 2rem;
     }
@@ -973,6 +976,7 @@
     <section class="location-section" id="location" aria-labelledby="location-title">
       <h2 class="section-title" id="location-title">Premier Center City Location</h2>
       <p class="section-intro">Conveniently located in the West Rittenhouse neighborhood of Center City Philadelphia, we're blocks away from 30th Street Station, the Schuylkill trail, University City, and Rittenhouse Square.</p>
+      <p class="section-intro">Resident companies also may be eligible for tax credits, as Solid Labs is within the University City Keystone Innovation Zone (KIZ).</p>
       <div class="location-grid">
         <img src="images/assets/solid-labs/building-facade.jpg"
              alt="Art Deco building facade at 2212 Walnut Street with blue tile exterior"
