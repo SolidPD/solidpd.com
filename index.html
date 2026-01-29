@@ -1529,7 +1529,12 @@
       outline-offset: 2px;
     }
 
+    /* Remove focus outline on mouse click, preserve for keyboard navigation */
     .flip-card:focus {
+      outline: none;
+    }
+
+    .flip-card:focus-visible {
       outline: 2px solid var(--primary-blue);
       outline-offset: 4px;
       border-radius: 8px;
@@ -1537,6 +1542,10 @@
 
     .portfolio-item:focus {
       outline: none;
+      box-shadow: none;
+    }
+
+    .portfolio-item:focus-visible {
       box-shadow: 0 0 0 3px rgba(4, 149, 246, 0.3);
     }
 
