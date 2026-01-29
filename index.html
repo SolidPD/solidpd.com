@@ -649,12 +649,14 @@
     }
 
     .clients-grid {
-      max-width: 1200px;
+      max-width: 100%;
       margin: 0 auto;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      display: flex;
       gap: 3rem;
       align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      padding: 0 2rem;
     }
 
     .client-logo {
@@ -662,16 +664,17 @@
       align-items: center;
       justify-content: center;
       padding: 1rem;
+      flex: 0 0 auto;
     }
 
     .client-logo img {
-      max-width: 120px;
-      max-height: 60px;
-      width: 100%;
+      max-width: 140px;
+      max-height: 50px;
+      width: auto;
       height: auto;
       object-fit: contain;
       filter: brightness(0) invert(1);
-      opacity: 0.9;
+      opacity: 0.85;
       transition: opacity 0.3s ease;
     }
 
@@ -1190,8 +1193,22 @@
       }
 
       .clients-grid {
-        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
         gap: 2rem;
+        padding: 1rem 2rem;
+      }
+
+      .clients-grid::-webkit-scrollbar {
+        display: none;
+      }
+
+      .client-logo {
+        scroll-snap-align: center;
       }
 
       .contact-section {
@@ -1328,7 +1345,8 @@
       }
 
       .clients-grid {
-        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+        padding: 1rem 1.5rem;
       }
 
       .contact-form {
@@ -1688,13 +1706,7 @@
       <h2>Our Clients</h2>
       <div class="clients-grid">
         <div class="client-logo">
-          <img src="images/placeholders/client-neuralert.png" alt="Neuralert" width="200" height="200" loading="lazy" />
-        </div>
-        <div class="client-logo">
           <img src="images/placeholders/client-halasystems.png" alt="Hala Systems" width="752" height="132" loading="lazy" />
-        </div>
-        <div class="client-logo">
-          <img src="images/placeholders/client-argospire.png" alt="Argospire" width="1500" height="428" loading="lazy" />
         </div>
         <div class="client-logo">
           <img src="images/placeholders/client-strella.png" alt="Strella" width="322" height="67" loading="lazy" />
@@ -1706,9 +1718,6 @@
           <img src="images/placeholders/client-neurava.png" alt="Neurava" width="177" height="28" loading="lazy" />
         </div>
         <div class="client-logo">
-          <img src="images/placeholders/client-hexmodal.png" alt="Hexmodal" width="442" height="122" loading="lazy" />
-        </div>
-        <div class="client-logo">
           <img src="images/placeholders/client-aepnus.png" alt="Aepnus" width="1024" height="512" loading="lazy" />
         </div>
         <div class="client-logo">
@@ -1716,18 +1725,6 @@
         </div>
         <div class="client-logo">
           <img src="images/placeholders/client-dottir-labs.png" alt="Dottir Labs" width="747" height="267" loading="lazy" />
-        </div>
-        <div class="client-logo">
-          <img src="images/placeholders/client-stepwise.png" alt="Stepwise" width="1356" height="904" loading="lazy" />
-        </div>
-        <div class="client-logo">
-          <img src="images/placeholders/client-hubly-surgical.png" alt="Hubly Surgical" width="200" height="70" loading="lazy" />
-        </div>
-        <div class="client-logo">
-          <img src="images/placeholders/client-precision-livestock.png" alt="Precision Livestock" width="1342" height="358" loading="lazy" />
-        </div>
-        <div class="client-logo">
-          <img src="images/placeholders/client-portable-diagnostics.png" alt="Portable Diagnostics" width="726" height="410" loading="lazy" />
         </div>
         <div class="client-logo">
           <img src="images/placeholders/client-tourstream.png" alt="TourStream" width="871" height="201" loading="lazy" />
