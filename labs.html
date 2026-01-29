@@ -526,14 +526,22 @@
     }
 
     .workspace-card {
-      background: var(--gray-bg);
+      background: var(--white);
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .workspace-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
     }
 
     .workspace-card-image {
       width: 100%;
       aspect-ratio: 4/3;
       overflow: hidden;
-      margin-bottom: 1.5rem;
     }
 
     .workspace-card-image img {
@@ -542,11 +550,28 @@
       object-fit: cover;
     }
 
+    .workspace-card-content {
+      padding: 1.5rem;
+    }
+
     .workspace-card h3 {
       color: var(--primary-blue);
       font-size: 1.3rem;
-      margin-bottom: 1rem;
+      margin-bottom: 0.5rem;
       text-transform: uppercase;
+    }
+
+    .workspace-price {
+      font-size: 1.75rem;
+      font-weight: 700;
+      color: var(--black);
+      margin-bottom: 1rem;
+    }
+
+    .workspace-price span {
+      font-size: 1rem;
+      font-weight: 400;
+      color: #666;
     }
 
     .workspace-card ul {
@@ -1125,13 +1150,16 @@
                  loading="lazy"
                  width="1529" height="2048" />
           </div>
-          <h3>Private Office</h3>
-          <ul>
-            <li><strong>Ideal for satellite enterprise teams or startups</strong></li>
-            <li>250 sq ft with exposed brick, high ceilings, and natural light</li>
-            <li>Space for up to 4 collaborators</li>
-            <li>Direct entrance to lobby &amp; conference room</li>
-          </ul>
+          <div class="workspace-card-content">
+            <h3>Private Office</h3>
+            <p class="workspace-price">$2,000 <span>/ month</span></p>
+            <ul>
+              <li><strong>Ideal for satellite enterprise teams or startups</strong></li>
+              <li>250 sq ft with exposed brick, high ceilings, and natural light</li>
+              <li>Space for up to 4 collaborators</li>
+              <li>Direct entrance to lobby &amp; conference room</li>
+            </ul>
+          </div>
         </article>
 
         <!-- Garage Card -->
@@ -1142,14 +1170,17 @@
                  loading="lazy"
                  width="1376" height="768" />
           </div>
-          <h3>Garage</h3>
-          <ul>
-            <li><strong>Ideal for teams actively working on hardware</strong></li>
-            <li>Space for 2 - 6 collaborators</li>
-            <li>Adjacent to workshop</li>
-            <li>Opportunity to bring your own equipment</li>
-            <li>Project material storage</li>
-          </ul>
+          <div class="workspace-card-content">
+            <h3>Garage</h3>
+            <p class="workspace-price">$500 <span>/ month</span></p>
+            <ul>
+              <li><strong>Ideal for teams actively working on hardware</strong></li>
+              <li>Space for 2 - 6 collaborators</li>
+              <li>Adjacent to workshop</li>
+              <li>Opportunity to bring your own equipment</li>
+              <li>Project material storage</li>
+            </ul>
+          </div>
         </article>
 
         <!-- Dedicated Desk Card -->
@@ -1160,13 +1191,16 @@
                  loading="lazy"
                  width="1529" height="2048" />
           </div>
-          <h3>Dedicated Desk</h3>
-          <ul>
-            <li><strong>Ideal for solopreneurs, remote workers, and freelancers</strong></li>
-            <li>Dedicated desk with electrical and ethernet ports</li>
-            <li>Full workshop &amp; conference room access</li>
-            <li>Business mailing address</li>
-          </ul>
+          <div class="workspace-card-content">
+            <h3>Dedicated Desk</h3>
+            <p class="workspace-price">$200 <span>/ month</span></p>
+            <ul>
+              <li><strong>Ideal for solopreneurs, remote workers, and freelancers</strong></li>
+              <li>Dedicated desk with electrical and ethernet ports</li>
+              <li>Full workshop &amp; conference room access</li>
+              <li>Business mailing address</li>
+            </ul>
+          </div>
         </article>
       </div>
     </section>
