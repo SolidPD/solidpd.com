@@ -418,6 +418,21 @@
       font-size: 1rem;
     }
 
+    .residents-list a,
+    .alumni-list a {
+      color: var(--black);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    .residents-list a:hover,
+    .residents-list a:focus,
+    .alumni-list a:hover,
+    .alumni-list a:focus {
+      color: var(--primary-blue);
+      text-decoration: underline;
+    }
+
     .benefits-image {
       display: flex;
       align-items: flex-start;
@@ -1111,18 +1126,18 @@
 
           <p class="residents-label">Current Residents:</p>
           <ul class="residents-list">
-            <li>p-Chip</li>
-            <li>Recupero Robotics</li>
-            <li>OsciFlex</li>
-            <li>Medusa Intelligence</li>
-            <li>Environmental and Engineering Solutions</li>
-            <li>Fortunato Design</li>
+            <li><a href="https://p-chip.com/" target="_blank" rel="noopener noreferrer">p-Chip</a></li>
+            <li><a href="https://recuperorobotics.com/" target="_blank" rel="noopener noreferrer">Recupero Robotics</a></li>
+            <li><a href="https://www.osciflex.com/" target="_blank" rel="noopener noreferrer">OsciFlex</a></li>
+            <li><a href="https://bradflaugher.com/" target="_blank" rel="noopener noreferrer">Medusa Intelligence</a></li>
+            <li><a href="https://www.eesolutions.net/" target="_blank" rel="noopener noreferrer">Environmental and Engineering Solutions</a></li>
+            <li><a href="https://chrisfortunatodesign.com/" target="_blank" rel="noopener noreferrer">Fortunato Design</a></li>
           </ul>
 
           <p class="alumni-label">Past Residents:</p>
           <ul class="alumni-list">
-            <li>Daxo Robotics</li>
-            <li>Big Idea Inc.</li>
+            <li><a href="https://daxo-robotics.com/" target="_blank" rel="noopener noreferrer">Daxo Robotics</a></li>
+            <li><a href="https://bigideaplatform.com/" target="_blank" rel="noopener noreferrer">Big Idea Inc.</a></li>
           </ul>
         </div>
         <div class="benefits-image">
