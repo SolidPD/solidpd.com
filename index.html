@@ -386,6 +386,7 @@
       height: 60px;
       margin-bottom: 1.5rem;
       opacity: 0.9;
+      object-fit: contain;
     }
 
     .pillar-card h3 {
@@ -1326,6 +1327,11 @@
         height: 320px;
       }
 
+      /* Ensure front title doesn't show through when flipped on mobile */
+      .flip-card.flipped .flip-card-front h3 {
+        visibility: hidden;
+      }
+
       .services-section {
         padding: 3rem 1.5rem 4rem;
       }
@@ -1373,6 +1379,11 @@
 
       .contact-form {
         padding: 2rem;
+      }
+
+      .contact-info-compact .info-row {
+        flex-direction: column;
+        gap: 1.5rem;
       }
 
       .cta-section {
