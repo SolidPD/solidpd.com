@@ -447,10 +447,9 @@
     }
 
     /* ==================== */
-    /* AMENITIES SECTION    */
+    /* AMENITIES SUBSECTION */
     /* ==================== */
-    .amenities-section {
-      background: var(--gray-bg);
+    .amenities-subsection {
       padding: 4rem 2rem;
     }
 
@@ -507,10 +506,9 @@
     }
 
     /* ==================== */
-    /* EQUIPMENT SECTION    */
+    /* EQUIPMENT SUBSECTION */
     /* ==================== */
-    .equipment-section {
-      background: var(--gray-bg);
+    .equipment-subsection {
       padding: 4rem 2rem;
     }
 
@@ -1045,8 +1043,8 @@
 
       .location-section,
       .benefits-section,
-      .amenities-section,
-      .equipment-section,
+      .amenities-subsection,
+      .equipment-subsection,
       .workspaces-section {
         padding: 3rem 1rem;
       }
@@ -1198,10 +1196,9 @@
                width="1529" height="2048" />
         </div>
       </div>
-    </section>
 
-    <!-- Amenities Section -->
-    <section class="amenities-section" id="amenities" aria-labelledby="amenities-title">
+      <!-- Amenities Subsection -->
+      <div id="amenities" class="amenities-subsection" aria-labelledby="amenities-title">
       <div class="section-header">
         <h3 class="subsection-title" id="amenities-title">Amenities</h3>
         <div class="title-underline" aria-hidden="true"></div>
@@ -1239,10 +1236,11 @@
           <li>Event space</li>
         </ul>
       </div>
-    </section>
+      </div>
+      <!-- End Amenities Subsection -->
 
-    <!-- Equipment Section -->
-    <section class="equipment-section" aria-labelledby="equipment-title">
+      <!-- Equipment Subsection -->
+      <div id="equipment" class="equipment-subsection" aria-labelledby="equipment-title">
       <div class="section-header">
         <h3 class="subsection-title" id="equipment-title">Equipment</h3>
         <div class="title-underline" aria-hidden="true"></div>
@@ -1278,7 +1276,10 @@
           <li>Workbenches</li>
         </ul>
       </div>
+      </div>
+      <!-- End Equipment Subsection -->
     </section>
+    <!-- End Resident Benefits Section -->
 
     <!-- Workspaces Section -->
     <section class="workspaces-section" id="workspaces" aria-labelledby="workspaces-title">
