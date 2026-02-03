@@ -384,6 +384,18 @@
       margin-bottom: 2rem;
     }
 
+    .benefits-text .intro-text a {
+      color: var(--primary-blue);
+      text-decoration: underline;
+      text-underline-offset: 2px;
+      transition: color 0.2s ease;
+    }
+
+    .benefits-text .intro-text a:hover,
+    .benefits-text .intro-text a:focus {
+      color: var(--black);
+    }
+
     .residents-label {
       color: var(--primary-blue);
       font-weight: 700;
@@ -1117,7 +1129,7 @@
 
       <ul class="nav-menu" role="list">
         <li><a href="#location">Location</a></li>
-        <li><a href="#amenities">Amenities</a></li>
+        <li><a href="#amenities">Member Benefits</a></li>
         <li><a href="#workspaces">Workspaces</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
@@ -1168,12 +1180,12 @@
 
     <!-- Resident Benefits Section -->
     <section class="benefits-section" aria-labelledby="benefits-title">
-      <h2 class="section-title" id="benefits-title">Resident Benefits</h2>
+      <h2 class="section-title" id="benefits-title">Everything You Need to Build</h2>
       <div class="benefits-content">
         <div class="benefits-text">
           <h3 class="subsection-title" id="community">Community</h3>
           <div class="title-underline" aria-hidden="true"></div>
-          <p class="intro-text">Co-locate with Solid Product Design, NextFab Ventures, and cutting edge Philly-based companies building the future of hardware.</p>
+          <p class="intro-text">Co-locate with <a href="https://solidpd.com" target="_blank" rel="noopener noreferrer">Solid Product Design</a>, <a href="https://nextfabventures.com" target="_blank" rel="noopener noreferrer">NextFab Ventures</a>, and cutting edge Philly-based companies building the future of hardware.</p>
 
           <p class="residents-label">Current Residents:</p>
           <ul class="residents-list">
@@ -1202,7 +1214,7 @@
       <!-- Amenities Subsection -->
       <div id="amenities" class="amenities-subsection" aria-labelledby="amenities-title">
       <div class="section-header">
-        <h3 class="subsection-title" id="amenities-title">Amenities</h3>
+        <h3 class="subsection-title" id="amenities-title">Facilities & Services</h3>
         <div class="title-underline" aria-hidden="true"></div>
       </div>
       <div class="amenities-images">
@@ -1244,7 +1256,7 @@
       <!-- Equipment Subsection -->
       <div id="equipment" class="equipment-subsection" aria-labelledby="equipment-title">
       <div class="section-header">
-        <h3 class="subsection-title" id="equipment-title">Equipment</h3>
+        <h3 class="subsection-title" id="equipment-title">Workshop & Tools</h3>
         <div class="title-underline" aria-hidden="true"></div>
       </div>
       <div class="equipment-images">
