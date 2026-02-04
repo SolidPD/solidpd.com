@@ -1,0 +1,10 @@
+{
+  "hooks": {
+    "pre-bash-command": [
+      {
+        "command": ".claude/hooks/pre-bash-command.sh \"$COMMAND\"",
+        "description": "Production merge protection - blocks unauthorized merges to main"
+      }
+    ]
+  }
+}

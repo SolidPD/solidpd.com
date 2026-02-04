@@ -10,19 +10,30 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 >
 > Merging to `main` immediately deploys to https://solidpd.com - the client's live website.
 
-### NEVER Do These Actions Without Explicit User Request
+### ABSOLUTE REQUIREMENTS FOR PRODUCTION DEPLOYMENT
 
-| Action | Allowed? | Requirement |
-|--------|----------|-------------|
-| Merge PR to `main` | 🚫 NEVER autonomous | User must explicitly say "merge to main" or "deploy to production" |
-| Create PR targeting `main` | 🚫 NEVER autonomous | User must explicitly request PR to main |
-| Push directly to `main` | 🚫 NEVER | Always blocked, even if requested |
-| `git checkout main` + commit | 🚫 NEVER | Work on feature branches only |
-| `netlify deploy --prod` | 🚫 NEVER autonomous | User must explicitly request production deploy |
+**Claude MUST obtain EXPLICIT user permission before ANY of these actions:**
 
-### When User Requests Merge to Main
+| Action | Requirement | What Counts as Permission |
+|--------|-------------|---------------------------|
+| `gh pr merge` to `main` | 🔴 MANDATORY permission | User says "merge to main", "merge the PR", "deploy to production" |
+| Create PR targeting `main` | 🔴 MANDATORY permission | User explicitly requests PR to main |
+| `netlify deploy --prod` | 🔴 MANDATORY permission | User says "deploy to production" |
+| Push directly to `main` | 🚫 ALWAYS BLOCKED | Never allowed, even with permission |
 
-**STOP and present this warning BEFORE proceeding:**
+### What Does NOT Count as Permission
+
+- User asking to "finish up" or "complete the work"
+- User approving a staging preview
+- User saying the changes "look good"
+- Implicit assumption that deployment is the next step
+- Workflow being "blocked" and needing an alternative
+
+**If in doubt, ASK. Do not assume permission.**
+
+### Before EVERY Merge to Main
+
+**Claude MUST present this warning and WAIT for explicit confirmation:**
 
 ```
 ⚠️  PRODUCTION DEPLOYMENT WARNING ⚠️
@@ -34,17 +45,31 @@ This will IMMEDIATELY deploy changes to the LIVE production site:
 
 This action will affect the client's live website visible to the public.
 
-Please confirm you want to proceed with production deployment.
+Type "yes" or "confirmed" to proceed with production deployment.
 ```
 
-**Only proceed after user confirms.**
+**Do NOT proceed until user explicitly confirms.** Silence or ambiguous responses = do not proceed.
+
+### If Merge Fails or Is Blocked
+
+**STOP and ask the user what they want to do.** Do NOT:
+- Attempt alternative deployment methods without asking
+- Use `--admin` or `--force` flags without explicit permission
+- Deploy via Netlify CLI as a workaround without asking
+- Assume the user wants you to find another way
+
+**Instead, explain what's blocking the merge and ask for direction.**
 
 ### Safe Workflow
 
-1. **Always work on feature branches** (e.g., `ms-cc-dev-multipage-v2`)
+1. **Always work on feature branches** (e.g., `SPD-MB-single-page`)
 2. **Deploy previews** using `netlify deploy --dir=.` (without `--prod`)
-3. **Create PRs to `dev` branch** for staging/review
-4. **Only merge to `main`** when user explicitly requests production deployment
+3. **Create PRs to feature branches** for staging/review
+4. **Only merge to `main`** when user explicitly requests AND confirms production deployment
+
+### Hook Enforcement
+
+A project-level hook at `.claude/hooks/pre-bash-command.sh` enforces these rules by blocking unauthorized merge attempts. This is a backup safety measure - Claude should follow the rules above without relying on the hook.
 
 ---
 
