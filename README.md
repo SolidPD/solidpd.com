@@ -86,7 +86,7 @@ solidpd-site/
 
 ## License
 
-© 2025 Solid Product Design. All rights reserved.
+© 2026 Solid Product Design. All rights reserved.
 
 ---
 

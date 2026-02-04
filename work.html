@@ -1,0 +1,891 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Portfolio of hardware product development projects across medical devices, IoT, and industrial applications.">
+  <link rel="icon" type="image/svg+xml" href="/favicon-adaptive.svg">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="canonical" href="https://solidpd.com/work">
+
+  <meta property="og:title" content="Our Work — Solid Product Design">
+  <meta property="og:description" content="Portfolio of hardware product development projects across medical devices, IoT, and industrial applications.">
+  <meta property="og:image" content="https://solidpd.com/images/logo-horizontal-white.png">
+  <meta property="og:url" content="https://solidpd.com/work">
+  <meta property="og:type" content="website">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Our Work — Solid Product Design">
+  <meta name="twitter:description" content="Portfolio of hardware product development projects across medical devices, IoT, and industrial applications.">
+  <meta name="twitter:image" content="https://solidpd.com/images/logo-horizontal-white.png">
+
+  <title>Our Work — Solid Product Design</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Quicksand:wght@600;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* CSS Variables */
+    :root {
+      --primary-blue: #0495F6;
+      --primary-yellow: #FFB75A;
+      --dark-bg: #1A1A1A;
+      --black: #000000;
+      --gray-70: #4D4D4D;
+      --gray-50: #808080;
+      --gray-30: #B3B3B3;
+      --gray-10: #E5E5E5;
+      --white: #FFFFFF;
+    }
+
+    /* Reset and Base Styles */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "DM Sans", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background: var(--black);
+      color: var(--white);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      overflow-x: hidden;
+    }
+
+    /* Typography System - Brand Headings (H1, Brand H2s) */
+    h1 {
+      font-family: "Quicksand", sans-serif;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      line-height: 1.2;
+    }
+
+    /* Typography System - Default H2 (Informational) */
+    h2 {
+      font-family: "DM Sans", sans-serif;
+      font-weight: 700;
+      text-transform: none;
+      letter-spacing: 0.01em;
+      line-height: 1.2;
+    }
+
+    /* Typography System - Brand H2s (CTAs, Flagship Sections) */
+    .cta-section h2,
+    .cta-content h2 {
+      font-family: "Quicksand", sans-serif;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    /* Typography System - H3 Subsection/Card Headings */
+    h3 {
+      font-family: "DM Sans", sans-serif;
+      font-weight: 700;
+      text-transform: none;
+      letter-spacing: 0.01em;
+      line-height: 1.2;
+    }
+
+    /* Typography System - H4-H6 Labels/Small Headers */
+    h4, h5, h6 {
+      font-family: "DM Sans", sans-serif;
+      font-weight: 400;
+      text-transform: none;
+      letter-spacing: 0.01em;
+      line-height: 1.2;
+    }
+
+    /* Skip Link */
+    .skip-link {
+      position: absolute;
+      top: 0;
+      left: 0;
+      transform: translateY(-100%);
+      background: var(--primary-blue);
+      color: var(--white);
+      padding: 0.5rem 1rem;
+      z-index: 2000;
+      text-decoration: none;
+      font-family: var(--font-body);
+    }
+    .skip-link:focus {
+      transform: translateY(0);
+    }
+
+    /* Navigation */
+    .nav-header {
+      position: sticky;
+      top: 0;
+      background: #E5E5E5;
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+      z-index: 1000;
+      padding: 1rem 2rem;
+    }
+
+    .nav-container {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .nav-logo img {
+      height: 68px;
+      width: auto;
+      max-width: 100%;
+      min-width: 75px;
+      display: block;
+    }
+
+    .nav-menu {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+      align-items: center;
+    }
+
+    .nav-menu a {
+      color: var(--black);
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      transition: color 0.2s ease;
+      position: relative;
+    }
+
+    .nav-menu a::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--primary-blue);
+      transition: width 0.3s ease;
+    }
+
+    .nav-menu a:hover {
+      color: var(--primary-blue);
+    }
+
+    .nav-menu a:hover::after {
+      width: 100%;
+    }
+
+    .nav-menu a.active {
+      color: var(--primary-blue);
+    }
+
+    /* Mobile Menu Toggle */
+    .nav-toggle {
+      display: none;
+      background: none;
+      border: none;
+      color: var(--black);
+      font-size: 1.5rem;
+      cursor: pointer;
+      padding: 0.5rem;
+    }
+
+    /* Page Header */
+    .page-header {
+      padding: 6rem 2rem 4rem;
+      text-align: center;
+      background: var(--black);
+    }
+
+    .page-header h1 {
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      margin-bottom: 2rem;
+      color: var(--white);
+    }
+
+    /* Portfolio Grid */
+    .portfolio-section {
+      padding: 2rem 2rem 6rem;
+      background: var(--black);
+    }
+
+    .portfolio-grid {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+
+    .portfolio-item {
+      position: relative;
+      aspect-ratio: 4/3;
+      overflow: hidden;
+      border-radius: 8px;
+      cursor: pointer;
+      background: var(--dark-bg);
+    }
+
+    .portfolio-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+
+    .portfolio-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.9));
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 2rem;
+      opacity: 0;
+      transition: opacity 0.4s ease;
+      color: var(--white);
+    }
+
+    .portfolio-item:hover img {
+      transform: scale(1.05);
+    }
+
+    .portfolio-item:hover .portfolio-overlay {
+      opacity: 1;
+    }
+
+    .portfolio-overlay h3 {
+      font-size: 1.3rem;
+      margin-bottom: 0.5rem;
+      color: var(--white);
+    }
+
+    .portfolio-overlay p {
+      font-size: 0.95rem;
+      color: var(--gray-10);
+      line-height: 1.5;
+    }
+
+    .portfolio-overlay .client {
+      font-size: 0.85rem;
+      color: var(--primary-blue);
+      margin-bottom: 0.25rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    /* Client Logos Section */
+    .clients-section {
+      padding: 6rem 2rem;
+      background: var(--primary-blue);
+      text-align: center;
+    }
+
+    .clients-section h2 {
+      font-size: clamp(2rem, 4vw, 3rem);
+      margin-bottom: 4rem;
+      color: var(--white);
+    }
+
+    .clients-grid {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 3rem;
+      align-items: center;
+    }
+
+    .client-logo {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+    }
+
+    .client-logo img {
+      max-width: 120px;
+      max-height: 60px;
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+      filter: brightness(0) invert(1);
+      opacity: 0.9;
+      transition: opacity 0.3s ease;
+    }
+
+    .client-logo:hover img {
+      opacity: 1;
+    }
+
+    /* CTA Section */
+    .cta-section {
+      position: relative;
+      padding: 6rem 2rem;
+      text-align: center;
+      background: var(--dark-bg);
+      overflow: hidden;
+    }
+
+    .cta-background {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+    }
+
+    .cta-background img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.2;
+    }
+
+    .cta-content {
+      position: relative;
+      z-index: 1;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .cta-section h2 {
+      font-size: clamp(1.8rem, 4vw, 3rem);
+      margin-bottom: 2rem;
+      color: var(--white);
+    }
+
+    .cta-buttons {
+      display: flex;
+      gap: 1.5rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 1rem 2rem;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      transition: all 0.3s ease;
+      border: none;
+      cursor: pointer;
+    }
+
+    .btn-primary {
+      background: var(--primary-blue);
+      color: var(--white);
+      border: 2px solid var(--primary-blue);
+    }
+
+    .btn-primary:hover {
+      background: transparent;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 20px rgba(4, 149, 246, 0.3);
+    }
+
+    .btn-secondary {
+      background: var(--white);
+      color: var(--black);
+      border: 2px solid var(--white);
+    }
+
+    .btn-secondary:hover {
+      background: transparent;
+      color: var(--white);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 20px rgba(255, 255, 255, 0.3);
+    }
+
+    /* Footer */
+    .footer {
+      background: var(--dark-bg);
+      color: var(--gray-30);
+      padding: 3.4rem 2rem 1.7rem;
+    }
+
+    .footer-content {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      gap: 3rem;
+      padding-bottom: 2.5rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      align-items: center;
+    }
+
+    .footer-section {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .footer-section:first-child {
+      text-align: left;
+      justify-self: start;
+    }
+
+    .footer-section:last-child {
+      text-align: right;
+      justify-self: end;
+      gap: 0.5rem;
+    }
+
+    .footer-section p,
+    .footer-section a {
+      color: var(--gray-30);
+      text-decoration: none;
+      font-size: 0.95rem;
+      line-height: 1.8;
+      display: block;
+    }
+
+    .footer-section a:hover {
+      color: var(--primary-blue);
+    }
+
+    .footer-section a.cta-primary {
+      color: var(--white);
+      font-weight: 600;
+    }
+
+    .footer-section a.cta-primary:hover {
+      color: var(--primary-blue);
+    }
+
+    .footer-logo {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .footer-logo img {
+      max-width: 209px;
+      height: auto;
+      opacity: 0.9;
+    }
+
+    .footer-bottom {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding-top: 1.5rem;
+      font-size: 0.85rem;
+      color: var(--gray-50);
+    }
+
+    .footer-contact-with-social {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 1rem;
+    }
+
+    .footer-contact-with-social .social-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 36px;
+      height: 36px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 50%;
+      transition: all 0.3s ease;
+    }
+
+    .footer-contact-with-social .social-link:hover {
+      background: var(--primary-blue);
+      transform: translateY(-2px);
+    }
+
+    .footer-contact-with-social svg {
+      width: 18px;
+      height: 18px;
+      fill: var(--white);
+    }
+
+    /* Responsive Design */
+    @media (max-width: 1024px) {
+      .portfolio-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .nav-header {
+        padding: 1rem;
+      }
+
+      .nav-logo img {
+        height: 45px;
+      }
+
+      .nav-toggle {
+        display: block;
+      }
+
+      .nav-menu {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: #333333;
+        flex-direction: column;
+        gap: 0;
+        padding: 1rem 0;
+        transform: translateY(-100%);
+        opacity: 0;
+        pointer-events: none;
+        transition: all 0.3s ease;
+      }
+
+      .nav-menu.active {
+        transform: translateY(0);
+        opacity: 1;
+        pointer-events: all;
+      }
+
+      .nav-menu li {
+        width: 100%;
+        text-align: center;
+      }
+
+      .nav-menu a {
+        display: block;
+        padding: 1rem;
+      }
+
+      .page-header {
+        padding: 4rem 1.5rem 3rem;
+      }
+
+      .portfolio-section {
+        padding: 2rem 1.5rem 4rem;
+      }
+
+      .portfolio-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+
+      .clients-section {
+        padding: 4rem 1.5rem;
+      }
+
+      .clients-grid {
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+        gap: 2rem;
+      }
+
+      .cta-section {
+        padding: 4rem 1.5rem;
+      }
+
+      .cta-buttons {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .btn {
+        width: 100%;
+        max-width: 300px;
+      }
+
+      .footer-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        text-align: center;
+      }
+
+      .footer-section:first-child,
+      .footer-section:last-child {
+        text-align: center;
+        justify-self: center;
+      }
+
+      .footer-logo {
+        order: -1;
+      }
+
+      .social-links {
+        justify-content: center;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .page-header h1 {
+        font-size: 2rem;
+      }
+
+      .portfolio-overlay {
+        padding: 1.5rem;
+      }
+
+      .portfolio-overlay h3 {
+        font-size: 1.1rem;
+      }
+
+      .portfolio-overlay p {
+        font-size: 0.85rem;
+      }
+
+      .clients-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    /* Accessibility */
+    @media (prefers-reduced-motion: reduce) {
+      * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+
+    .btn:focus,
+    a:focus {
+      outline: 2px solid var(--primary-blue);
+      outline-offset: 2px;
+    }
+
+    .portfolio-item:focus {
+      outline: none;
+      box-shadow: 0 0 0 3px rgba(4, 149, 246, 0.3);
+    }
+  </style>
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+  <!-- Navigation -->
+  <nav class="nav-header">
+    <div class="nav-container">
+      <div class="nav-logo">
+        <a href="index.html">
+          <img src="images/assets/Solid-O3-horizontal-black.png" alt="Solid Product Design" />
+        </a>
+      </div>
+      <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
+      <ul class="nav-menu">
+        <li><a href="work.html" class="active" aria-current="page">WORK</a></li>
+        <li><a href="about.html">ABOUT</a></li>
+        <li><a href="services.html">SERVICES</a></li>
+        <li><a href="contact.html">CONTACT</a></li>
+        <li><a href="labs.html">SOLID LABS</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main id="main-content">
+  <!-- Page Header -->
+  <section class="page-header">
+    <h1>Our Work</h1>
+  </section>
+
+  <!-- Portfolio Grid -->
+  <section class="portfolio-section">
+    <div class="portfolio-grid">
+      <!-- Project 1: Laminitis Sensor -->
+      <div class="portfolio-item" tabindex="0">
+        <img src="images/assets/Our Work - Laminitis Sensor.jpg" alt="Laminitis research device" width="3840" height="2560" loading="lazy" />
+        <div class="portfolio-overlay">
+          <span class="client">Penn Vet</span>
+          <h3>Animal Research Device</h3>
+          <p>Wearable sensor system for equine laminitis research, enabling continuous monitoring in field conditions.</p>
+        </div>
+      </div>
+
+      <!-- Project 2: Neuralert -->
+      <div class="portfolio-item" tabindex="0">
+        <img src="images/assets/Our Work - Neuralert.png" alt="Stroke detection wearable" width="3840" height="2160" loading="lazy" />
+        <div class="portfolio-overlay">
+          <span class="client">Neuralert</span>
+          <h3>Stroke Detection Wearable</h3>
+          <p>Clinical-grade wearable device for early stroke detection, integrating advanced sensors and real-time analytics.</p>
+        </div>
+      </div>
+
+      <!-- Project 3: Hala Systems IoT Switch -->
+      <div class="portfolio-item" tabindex="0">
+        <img src="images/placeholders/project-industrial-enclosures.png" alt="Hardened IoT switch" width="1024" height="485" loading="lazy" />
+        <div class="portfolio-overlay">
+          <span class="client">Hala Systems</span>
+          <h3>Hardened IoT Switch</h3>
+          <p>Ruggedized IoT device for critical infrastructure, designed for extreme environments and reliable connectivity.</p>
+        </div>
+      </div>
+
+      <!-- Project 4: UroGenie -->
+      <div class="portfolio-item" tabindex="0">
+        <img src="images/assets/Our Work - UroGenie.png" alt="Uroflow measurement device" width="726" height="493" loading="lazy" />
+        <div class="portfolio-overlay">
+          <span class="client">UroGenie</span>
+          <h3>Uroflow Device</h3>
+          <p>Home diagnostic device for urinary health monitoring, combining medical accuracy with user-friendly design.</p>
+        </div>
+      </div>
+
+      <!-- Project 5: Vagus Nerve Stimulation -->
+      <div class="portfolio-item" tabindex="0">
+        <img src="images/assets/Our Work - Mindvybe.png" alt="Vagus nerve stimulation device" width="832" height="1147" loading="lazy" />
+        <div class="portfolio-overlay">
+          <span class="client">MINDVYBE</span>
+          <h3>Vagus Nerve Stimulation Device</h3>
+          <p>Multi-mode vagus nerve stimulation device blending precision electronics and user-centered design to help balance the nervous system and promote overall well-being.</p>
+        </div>
+      </div>
+
+      <!-- Project 6: Argospire Spirometer -->
+      <div class="portfolio-item" tabindex="0">
+        <img src="images/placeholders/project-cylindrical-devices.jpg" alt="Connected spirometer" width="2048" height="1161" loading="lazy" />
+        <div class="portfolio-overlay">
+          <span class="client">Argospire</span>
+          <h3>Connected Spirometer</h3>
+          <p>Smart respiratory monitoring device with cloud connectivity, enabling remote patient monitoring and data analysis.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Client Logos Section -->
+  <section class="clients-section">
+    <h2>Our Clients</h2>
+    <div class="clients-grid">
+      <div class="client-logo">
+        <img src="images/placeholders/client-neuralert.png" alt="Neuralert" width="200" height="200" loading="lazy" />
+      </div>
+      <div class="client-logo">
+        <img src="images/placeholders/client-halasystems.png" alt="Hala Systems" width="752" height="132" loading="lazy" />
+      </div>
+      <div class="client-logo">
+        <img src="images/placeholders/client-argospire.png" alt="Argospire" width="1500" height="428" loading="lazy" />
+      </div>
+      <div class="client-logo">
+        <img src="images/placeholders/client-strella.png" alt="Strella" width="322" height="67" loading="lazy" />
+      </div>
+      <div class="client-logo">
+        <img src="images/placeholders/client-pike-robotics.png" alt="Pike Robotics" width="1085" height="702" loading="lazy" />
+      </div>
+      <div class="client-logo">
+        <img src="images/placeholders/client-neurava.png" alt="Neurava" width="177" height="28" loading="lazy" />
+      </div>
+      <div class="client-logo">
+        <img src="images/placeholders/client-hexmodal.png" alt="Hexmodal" width="442" height="122" loading="lazy" />
+      </div>
+      <div class="client-logo">
+        <img src="images/placeholders/client-aepnus.png" alt="Aepnus" width="1024" height="512" loading="lazy" />
+      </div>
+      <div class="client-logo">
+        <img src="images/placeholders/client-agtech-logic.png" alt="AgTech Logic" width="512" height="512" loading="lazy" />
+      </div>
+      <div class="client-logo">
+        <img src="images/placeholders/client-dottir-labs.png" alt="Dottir Labs" width="747" height="267" loading="lazy" />
+      </div>
+      <div class="client-logo">
+        <img src="images/placeholders/client-stepwise.png" alt="Stepwise" width="1356" height="904" loading="lazy" />
+      </div>
+      <div class="client-logo">
+        <img src="images/placeholders/client-hubly-surgical.png" alt="Hubly Surgical" width="200" height="70" loading="lazy" />
+      </div>
+      <div class="client-logo">
+        <img src="images/placeholders/client-precision-livestock.png" alt="Precision Livestock" width="1342" height="358" loading="lazy" />
+      </div>
+      <div class="client-logo">
+        <img src="images/placeholders/client-portable-diagnostics.png" alt="Portable Diagnostics" width="726" height="410" loading="lazy" />
+      </div>
+      <div class="client-logo">
+        <img src="images/placeholders/client-tourstream.png" alt="TourStream" width="871" height="201" loading="lazy" />
+      </div>
+      <div class="client-logo">
+        <img src="images/placeholders/client-florrent.png" alt="Florrent" width="2048" height="462" loading="lazy" />
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="cta-section">
+    <div class="cta-background">
+      <img src="images/assets/Let_s Build Something Extraordinary Image - Rezzi.jpg" alt="Engineering workspace" width="1400" height="788" loading="lazy" />
+    </div>
+    <div class="cta-content">
+      <h2>Let's Build Something Extraordinary Together</h2>
+      <div class="cta-buttons">
+        <a href="https://calendar.app.google/8KWMbY5n79jBBe4U9" target="_blank" rel="noopener" class="btn btn-primary">Schedule a Call</a>
+        <a href="contact.html" class="btn btn-secondary">Send a Message</a>
+      </div>
+    </div>
+  </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-section">
+        <p>2212 Walnut Street, 1st Floor<br>Philadelphia, PA 19103</p>
+      </div>
+
+      <div class="footer-logo">
+        <img src="images/assets/Solid-Product-Design-logo-stacked-white-blue.png" alt="Solid Product Design" loading="lazy" />
+      </div>
+
+      <div class="footer-section">
+        <a href="mailto:hello@solidpd.com">hello@solidpd.com</a>
+        <div class="footer-contact-with-social">
+          <a href="https://calendar.app.google/8KWMbY5n79jBBe4U9" target="_blank" rel="noopener" class="cta-primary">Schedule a Call</a>
+          <a href="https://www.linkedin.com/company/solidpd/" target="_blank" rel="noopener" aria-label="LinkedIn" class="social-link">
+            <svg viewBox="0 0 24 24">
+              <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.026-3.039-1.852-3.039-1.853 0-2.136 1.447-2.136 2.943v5.665H9.35V9h3.414v1.561h.049c.476-.9 1.637-1.852 3.369-1.852 3.602 0 4.268 2.371 4.268 5.455v6.288zM5.337 7.433a2.062 2.062 0 1 1 0-4.124 2.062 2.062 0 0 1 0 4.124zM6.997 20.452H3.675V9h3.322v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.226.792 24 1.771 24h20.451C23.2 24 24 23.226 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; 2026 Solid Product Design. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile navigation toggle
+    const navToggle = document.querySelector('.nav-toggle');
+    const navMenu = document.querySelector('.nav-menu');
+
+    navToggle.addEventListener('click', () => {
+      navMenu.classList.toggle('active');
+    });
+
+    // Close menu when clicking a link
+    document.querySelectorAll('.nav-menu a').forEach(link => {
+      link.addEventListener('click', () => {
+        navMenu.classList.remove('active');
+      });
+    });
+  </script>
+</body>
+</html>
+
