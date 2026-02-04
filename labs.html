@@ -776,6 +776,71 @@
       background: #0380d6;
     }
 
+    /* Form Status States */
+    .form-status {
+      padding: 1rem 1.25rem;
+      border-radius: 6px;
+      margin-bottom: 1.5rem;
+      display: none;
+    }
+
+    .form-status.success {
+      display: block;
+      background: rgba(34, 197, 94, 0.15);
+      border: 1px solid rgba(34, 197, 94, 0.4);
+      color: #86efac;
+    }
+
+    .form-status.error {
+      display: block;
+      background: rgba(239, 68, 68, 0.15);
+      border: 1px solid rgba(239, 68, 68, 0.4);
+      color: #fca5a5;
+    }
+
+    .form-status h3 {
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
+      text-transform: none;
+      letter-spacing: normal;
+    }
+
+    .form-status p {
+      margin: 0;
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+
+    /* Loading State */
+    .btn-primary.loading {
+      position: relative;
+      color: transparent;
+      pointer-events: none;
+    }
+
+    .btn-primary.loading::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 20px;
+      height: 20px;
+      margin: -10px 0 0 -10px;
+      border: 2px solid var(--white);
+      border-top-color: transparent;
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    /* Hide form when success */
+    .contact-form.submitted form {
+      display: none;
+    }
+
     .contact-info-row {
       display: flex;
       justify-content: center;
@@ -1380,9 +1445,10 @@
     <section class="contact-section" id="contact" aria-labelledby="contact-title">
       <div class="contact-form-container">
         <h2 id="contact-title">Get In Touch</h2>
-        <div class="contact-form">
+        <div class="contact-form" id="labs-form-container">
           <h3>Apply to our waitlist, schedule a tour, or reach out with questions about Solid Labs</h3>
-          <form name="labs-waitlist" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+          <div id="labs-form-status" class="form-status" role="alert" aria-live="polite"></div>
+          <form id="labs-waitlist-form" name="labs-waitlist" method="POST" data-netlify="true" netlify-honeypot="bot-field">
             <input type="hidden" name="form-name" value="labs-waitlist" />
             <p style="display:none;">
               <label>Don't fill this out if you're human: <input name="bot-field" /></label>
@@ -1491,6 +1557,61 @@
           });
         }
       });
+    });
+
+    // Labs Waitlist Form Handling
+    const labsForm = document.getElementById('labs-waitlist-form');
+    const labsFormContainer = document.getElementById('labs-form-container');
+    const labsFormStatus = document.getElementById('labs-form-status');
+    const labsSubmitBtn = labsForm.querySelector('.btn-primary');
+
+    labsForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      // Show loading state
+      labsSubmitBtn.classList.add('loading');
+      labsSubmitBtn.disabled = true;
+      labsFormStatus.className = 'form-status';
+      labsFormStatus.innerHTML = '';
+
+      try {
+        const formData = new FormData(labsForm);
+
+        const response = await fetch('/', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+          body: new URLSearchParams(formData).toString()
+        });
+
+        if (response.ok) {
+          // Success
+          labsFormStatus.className = 'form-status success';
+          labsFormStatus.innerHTML = `
+            <h3>Request Received!</h3>
+            <p>Thank you for your interest in Solid Labs. We'll be in touch within 1-2 business days.</p>
+          `;
+          labsFormContainer.classList.add('submitted');
+
+          // Scroll to status message
+          labsFormStatus.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        } else {
+          throw new Error('Form submission failed');
+        }
+      } catch (error) {
+        // Error
+        labsFormStatus.className = 'form-status error';
+        labsFormStatus.innerHTML = `
+          <h3>Something went wrong</h3>
+          <p>We couldn't send your request. Please try again, or email us directly at <a href="mailto:solidlabs@solidpd.com" style="color: inherit; text-decoration: underline;">solidlabs@solidpd.com</a>.</p>
+        `;
+
+        // Reset button
+        labsSubmitBtn.classList.remove('loading');
+        labsSubmitBtn.disabled = false;
+
+        // Scroll to error message
+        labsFormStatus.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
     });
   </script>
 </body>
