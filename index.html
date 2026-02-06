@@ -2084,6 +2084,7 @@
     });
 
     // Smooth scroll offset for sticky nav
+    const navHeader = document.querySelector('.nav-header');
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function (e) {
         const href = this.getAttribute('href');
@@ -2092,7 +2093,7 @@
         const target = document.querySelector(href);
         if (target) {
           e.preventDefault();
-          const navHeight = document.querySelector('.nav-header').offsetHeight;
+          const navHeight = navHeader ? navHeader.offsetHeight : 0;
           const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - navHeight;
 
           window.scrollTo({
