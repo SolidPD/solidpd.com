@@ -1,9 +1,14 @@
 {
   "hooks": {
-    "pre-bash-command": [
+    "PreToolUse": [
       {
-        "command": ".claude/hooks/pre-bash-command.sh \"$COMMAND\"",
-        "description": "Production merge protection - blocks unauthorized merges to main"
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": ".claude/hooks/pre-bash-command.sh \"$COMMAND\""
+          }
+        ]
       }
     ]
   }
