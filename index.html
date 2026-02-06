@@ -1965,7 +1965,7 @@
             <div class="info-row">
               <div class="info-item">
                 <h3>Email</h3>
-                <a href="mailto:hello@solidpd.com">hello@solidpd.com</a>
+                <a href="#" class="protected-email" data-user="hello" data-domain="solidpd.com">Email us</a>
               </div>
               <div class="info-item">
                 <h3>Office</h3>
@@ -1998,6 +1998,7 @@
     </div>
   </footer>
 
+  <script src="js/email-protection.js"></script>
   <script>
     // Mobile navigation toggle
     const navToggle = document.querySelector('.nav-toggle');
@@ -2069,9 +2070,10 @@
       } catch (error) {
         // Error
         formStatus.className = 'form-status error';
+        const contactEmail = 'hello' + '@' + 'solidpd.com';
         formStatus.innerHTML = `
           <h3>Something went wrong</h3>
-          <p>We couldn't send your message. Please try again, or email us directly at <a href="mailto:hello@solidpd.com" style="color: inherit; text-decoration: underline;">hello@solidpd.com</a>.</p>
+          <p>We couldn't send your message. Please try again, or email us directly at <a href="mailto:${contactEmail}" style="color: inherit; text-decoration: underline;">${contactEmail}</a>.</p>
         `;
 
         // Reset button
