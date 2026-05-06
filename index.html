@@ -575,6 +575,20 @@
       grid-template-columns: repeat(3, 1fr);
       gap: 2rem;
     }
+    /* 5-item layout: switch to 6-col scaffold so the last row of 2 sits centered (Issue #165) */
+    .portfolio-grid:has(> .portfolio-item:nth-last-child(1):nth-child(5)) {
+      grid-template-columns: repeat(6, 1fr);
+    }
+    .portfolio-grid:has(> .portfolio-item:nth-last-child(1):nth-child(5)) > .portfolio-item {
+      grid-column: span 2;
+    }
+    .portfolio-grid:has(> .portfolio-item:nth-last-child(1):nth-child(5)) > .portfolio-item:nth-child(4) {
+      grid-column: 2 / span 2;
+    }
+    .portfolio-grid:has(> .portfolio-item:nth-last-child(1):nth-child(5)) > .portfolio-item:nth-child(5) {
+      grid-column: 4 / span 2;
+    }
+
 
     .portfolio-item {
       position: relative;
@@ -1256,6 +1270,15 @@
       .portfolio-grid {
         grid-template-columns: repeat(2, 1fr);
       }
+      /* Tablet: undo 6-col scaffold (Issue #165) — match :has() specificity to override default */
+      .portfolio-grid:has(> .portfolio-item:nth-last-child(1):nth-child(5)) {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .portfolio-grid:has(> .portfolio-item:nth-last-child(1):nth-child(5)) > .portfolio-item,
+      .portfolio-grid:has(> .portfolio-item:nth-last-child(1):nth-child(5)) > .portfolio-item:nth-child(4),
+      .portfolio-grid:has(> .portfolio-item:nth-last-child(1):nth-child(5)) > .portfolio-item:nth-child(5) {
+        grid-column: auto;
+      }
     }
 
     @media (max-width: 768px) {
@@ -1354,6 +1377,10 @@
       .portfolio-grid {
         grid-template-columns: 1fr;
         gap: 1.5rem;
+      }
+
+      .portfolio-grid:has(> .portfolio-item:nth-last-child(1):nth-child(5)) {
+        grid-template-columns: 1fr;
       }
 
       .clients-section {
@@ -1869,16 +1896,6 @@
             <p>Multi-mode vagus nerve stimulation device blending precision electronics and user-centered design to help balance the nervous system and promote overall well-being.</p>
           </div>
         </div>
-
-        <!-- Project 6: Argospire Spirometer -->
-        <div class="portfolio-item" tabindex="0">
-          <img src="images/assets/Our Work - Argo Placeholder.png" alt="Connected spirometer" width="2048" height="1161" loading="lazy" />
-          <div class="portfolio-overlay">
-            <span class="client">Argospire</span>
-            <h3>Connected Spirometer</h3>
-            <p>Smart respiratory monitoring device with cloud connectivity, enabling remote patient monitoring and data analysis.</p>
-          </div>
-        </div>
       </div>
     </section>
 
@@ -2084,6 +2101,7 @@
     });
 
     // Smooth scroll offset for sticky nav
+    const navHeader = document.querySelector('.nav-header');
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function (e) {
         const href = this.getAttribute('href');
@@ -2092,8 +2110,8 @@
         const target = document.querySelector(href);
         if (target) {
           e.preventDefault();
-          const navHeight = document.querySelector('.nav-header').offsetHeight;
-          const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - navHeight;
+          const navHeight = navHeader ? navHeader.offsetHeight : 0;
+          const targetPosition = target.getBoundingClientRect().top + window.scrollY - navHeight;
 
           window.scrollTo({
             top: targetPosition,
