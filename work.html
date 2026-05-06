@@ -230,6 +230,20 @@
       grid-template-columns: repeat(3, 1fr);
       gap: 2rem;
     }
+    /* 5-item layout: switch to 6-col scaffold so the last row of 2 sits centered (Issue #165) */
+    .portfolio-grid:has(> .portfolio-item:nth-last-child(1):nth-child(5)) {
+      grid-template-columns: repeat(6, 1fr);
+    }
+    .portfolio-grid:has(> .portfolio-item:nth-last-child(1):nth-child(5)) > .portfolio-item {
+      grid-column: span 2;
+    }
+    .portfolio-grid:has(> .portfolio-item:nth-last-child(1):nth-child(5)) > .portfolio-item:nth-child(4) {
+      grid-column: 2 / span 2;
+    }
+    .portfolio-grid:has(> .portfolio-item:nth-last-child(1):nth-child(5)) > .portfolio-item:nth-child(5) {
+      grid-column: 4 / span 2;
+    }
+
 
     .portfolio-item {
       position: relative;
@@ -533,6 +547,15 @@
       .portfolio-grid {
         grid-template-columns: repeat(2, 1fr);
       }
+      /* Tablet: undo 6-col scaffold (Issue #165) — match :has() specificity to override default */
+      .portfolio-grid:has(> .portfolio-item:nth-last-child(1):nth-child(5)) {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .portfolio-grid:has(> .portfolio-item:nth-last-child(1):nth-child(5)) > .portfolio-item,
+      .portfolio-grid:has(> .portfolio-item:nth-last-child(1):nth-child(5)) > .portfolio-item:nth-child(4),
+      .portfolio-grid:has(> .portfolio-item:nth-last-child(1):nth-child(5)) > .portfolio-item:nth-child(5) {
+        grid-column: auto;
+      }
     }
 
     @media (max-width: 768px) {
@@ -590,6 +613,10 @@
       .portfolio-grid {
         grid-template-columns: 1fr;
         gap: 1.5rem;
+      }
+
+      .portfolio-grid:has(> .portfolio-item:nth-last-child(1):nth-child(5)) {
+        grid-template-columns: 1fr;
       }
 
       .clients-section {
@@ -675,6 +702,10 @@
 
     .portfolio-item:focus {
       outline: none;
+      box-shadow: none;
+    }
+
+    .portfolio-item:focus-visible {
       box-shadow: 0 0 0 3px rgba(4, 149, 246, 0.3);
     }
   </style>
@@ -758,16 +789,6 @@
           <p>Multi-mode vagus nerve stimulation device blending precision electronics and user-centered design to help balance the nervous system and promote overall well-being.</p>
         </div>
       </div>
-
-      <!-- Project 6: Argospire Spirometer -->
-      <div class="portfolio-item" tabindex="0">
-        <img src="images/placeholders/project-cylindrical-devices.jpg" alt="Connected spirometer" width="2048" height="1161" loading="lazy" />
-        <div class="portfolio-overlay">
-          <span class="client">Argospire</span>
-          <h3>Connected Spirometer</h3>
-          <p>Smart respiratory monitoring device with cloud connectivity, enabling remote patient monitoring and data analysis.</p>
-        </div>
-      </div>
     </div>
   </section>
 
@@ -780,9 +801,6 @@
       </div>
       <div class="client-logo">
         <img src="images/placeholders/client-halasystems.png" alt="Hala Systems" width="752" height="132" loading="lazy" />
-      </div>
-      <div class="client-logo">
-        <img src="images/placeholders/client-argospire.png" alt="Argospire" width="1500" height="428" loading="lazy" />
       </div>
       <div class="client-logo">
         <img src="images/placeholders/client-strella.png" alt="Strella" width="322" height="67" loading="lazy" />
