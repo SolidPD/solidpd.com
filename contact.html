@@ -55,7 +55,7 @@
 
     body {
       font-family: "DM Sans", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      background: var(--black);
+      background: var(--dark-bg);
       color: var(--white);
       line-height: 1.6;
       -webkit-font-smoothing: antialiased;
@@ -206,27 +206,30 @@
     }
 
     .nav-logo img {
-      height: 68px;
+      height: 40px;
       width: auto;
       max-width: 100%;
-      min-width: 75px;
       display: block;
     }
 
     .nav-menu {
       display: flex;
-      gap: 2rem;
+      flex-wrap: wrap;
+      gap: 1.25rem;
+      row-gap: 0.5rem;
       list-style: none;
       align-items: center;
+      justify-content: flex-end;
     }
 
     .nav-menu a {
       color: var(--black);
       text-decoration: none;
       font-weight: 500;
-      font-size: 0.9rem;
+      font-size: 0.8rem;
       text-transform: uppercase;
-      letter-spacing: 0.05em;
+      letter-spacing: 0.04em;
+      white-space: nowrap;
       transition: color 0.2s ease;
       position: relative;
     }
@@ -269,7 +272,7 @@
     .page-header {
       padding: 6rem 2rem 4rem;
       text-align: center;
-      background: var(--black);
+      background: var(--dark-bg);
     }
 
     .page-header h1 {
@@ -288,7 +291,7 @@
     /* Contact Section */
     .contact-section {
       padding: 4rem 2rem 6rem;
-      background: var(--black);
+      background: var(--dark-bg);
     }
 
     .contact-container {
@@ -329,7 +332,7 @@
     .form-group textarea {
       width: 100%;
       padding: 0.875rem;
-      background: var(--black);
+      background: var(--dark-bg);
       border: 1px solid rgba(255, 255, 255, 0.2);
       border-radius: 4px;
       color: var(--white);
@@ -530,7 +533,7 @@
       align-items: center;
       padding-top: 1.5rem;
       font-size: 0.85rem;
-      color: var(--gray-50);
+      color: var(--gray-30);
     }
 
     .footer-contact-with-social {
@@ -569,7 +572,7 @@
       }
 
       .nav-logo img {
-        height: 45px;
+        height: 26px;
       }
 
       .nav-toggle {
@@ -605,6 +608,7 @@
       .nav-menu a {
         display: block;
         padding: 1rem;
+        color: var(--white);
       }
 
       .page-header {
@@ -693,16 +697,18 @@
     <div class="nav-container">
       <div class="nav-logo">
         <a href="index.html">
-          <img src="images/assets/Solid-O3-horizontal-black.png" alt="Solid Product Design" />
+          <img src="images/email/logo-horizontal-black-blue-trimmed.png" alt="Solid Product Design" />
         </a>
       </div>
       <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
       <ul class="nav-menu">
-        <li><a href="work.html">WORK</a></li>
+        <li><a href="index.html">HOME</a></li>
         <li><a href="about.html">ABOUT</a></li>
         <li><a href="services.html">SERVICES</a></li>
+        <li><a href="agentic.html">AGENTIC AI</a></li>
+        <li><a href="work.html">WORK</a></li>
+        <li><a href="team.html">TEAM</a></li>
         <li><a href="contact.html" class="active" aria-current="page">CONTACT</a></li>
-        <li><a href="labs.html">SOLID LABS</a></li>
       </ul>
     </div>
   </nav>

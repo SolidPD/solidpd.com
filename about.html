@@ -33,6 +33,7 @@
     :root {
       --primary-blue: #0495F6;
       --primary-yellow: #FFB75A;
+      --dark-blue: #013253;
       --dark-bg: #1A1A1A;
       --black: #000000;
       --gray-70: #4D4D4D;
@@ -55,7 +56,7 @@
 
     body {
       font-family: "DM Sans", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      background: var(--black);
+      background: var(--dark-bg);
       color: var(--white);
       line-height: 1.6;
       -webkit-font-smoothing: antialiased;
@@ -129,27 +130,30 @@
     }
 
     .nav-logo img {
-      height: 68px;
+      height: 40px;
       width: auto;
       max-width: 100%;
-      min-width: 75px;
       display: block;
     }
 
     .nav-menu {
       display: flex;
-      gap: 2rem;
+      flex-wrap: wrap;
+      gap: 1.25rem;
+      row-gap: 0.5rem;
       list-style: none;
       align-items: center;
+      justify-content: flex-end;
     }
 
     .nav-menu a {
       color: var(--black);
       text-decoration: none;
       font-weight: 500;
-      font-size: 0.9rem;
+      font-size: 0.8rem;
       text-transform: uppercase;
-      letter-spacing: 0.05em;
+      letter-spacing: 0.04em;
+      white-space: nowrap;
       transition: color 0.2s ease;
       position: relative;
     }
@@ -192,7 +196,7 @@
     .page-header {
       padding: 6rem 2rem 4rem;
       text-align: center;
-      background: var(--black);
+      background: var(--dark-bg);
     }
 
     .page-header h1 {
@@ -233,7 +237,7 @@
     /* Pillars Grid */
     .pillars-section {
       padding: 6rem 2rem;
-      background: var(--black);
+      background: var(--dark-bg);
     }
 
     .pillars-section h2 {
@@ -248,7 +252,7 @@
     }
 
     .solid-text-inline {
-      color: var(--primary-yellow);
+      color: var(--primary-blue);
       font-weight: 700;
     }
 
@@ -262,6 +266,7 @@
 
     .pillar-card {
       background: var(--dark-bg);
+      border: 1px solid rgba(255, 255, 255, 0.08);
       border-radius: 8px;
       padding: 2.5rem;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -290,10 +295,11 @@
     }
 
     .pillar-icon {
-      width: 60px;
-      height: 60px;
+      width: 96px;
+      height: 96px;
       margin-bottom: 1.5rem;
       opacity: 0.9;
+      object-fit: contain;
     }
 
     .pillar-card h3 {
@@ -469,7 +475,7 @@
       align-items: center;
       padding-top: 1.5rem;
       font-size: 0.85rem;
-      color: var(--gray-50);
+      color: var(--gray-30);
     }
 
     .footer-contact-with-social {
@@ -508,7 +514,7 @@
       }
 
       .nav-logo img {
-        height: 45px;
+        height: 26px;
       }
 
       .nav-toggle {
@@ -544,6 +550,7 @@
       .nav-menu a {
         display: block;
         padding: 1rem;
+        color: var(--white);
       }
 
       .page-header {
@@ -653,16 +660,18 @@
     <div class="nav-container">
       <div class="nav-logo">
         <a href="index.html">
-          <img src="images/assets/Solid-O3-horizontal-black.png" alt="Solid Product Design" />
+          <img src="images/email/logo-horizontal-black-blue-trimmed.png" alt="Solid Product Design" />
         </a>
       </div>
       <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
       <ul class="nav-menu">
-        <li><a href="work.html">WORK</a></li>
+        <li><a href="index.html">HOME</a></li>
         <li><a href="about.html" class="active" aria-current="page">ABOUT</a></li>
         <li><a href="services.html">SERVICES</a></li>
+        <li><a href="agentic.html">AGENTIC AI</a></li>
+        <li><a href="work.html">WORK</a></li>
+        <li><a href="team.html">TEAM</a></li>
         <li><a href="contact.html">CONTACT</a></li>
-        <li><a href="labs.html">SOLID LABS</a></li>
       </ul>
     </div>
   </nav>
@@ -692,7 +701,7 @@
     <h2>The <span class="solid-text-inline">SOLID</span> Difference</h2>
     <div class="pillars-grid">
       <div class="pillar-card accent">
-        <img src="images/placeholders/icon-growth.png" alt="Chart icon" class="pillar-icon" width="1024" height="1024" loading="lazy" />
+        <img src="images/placeholders/icon-evidence-based-512-squarepad.png" alt="Evidence-based development icon" class="pillar-icon" width="512" height="512" loading="lazy" />
         <h3>Evidence-Based Development</h3>
         <p>
           Our work is guided by data - from testing and user feedback, not assumptions. We minimize risk by validating key design choices throughout the development process.
@@ -700,15 +709,15 @@
       </div>
 
       <div class="pillar-card accent">
-        <img src="images/placeholders/icon-team.png" alt="Team icon" class="pillar-icon" width="1024" height="1024" loading="lazy" />
+        <img src="images/placeholders/icon-team-512-squarepad.png" alt="Expert team icon" class="pillar-icon" width="512" height="512" loading="lazy" />
         <h3>Small, Expert Team</h3>
         <p>
-          We've built a team of senior engineers and designers who have helped scores of clients succeed. Our low overhead, direct access approach lets you work directly with the talent you need to solve your pressing development challenges.
+          We've built a team of senior engineers and designers who have helped scores of clients succeed. Our low overhead, direct access approach lets you work directly with the talent you need to solve problems.
         </p>
       </div>
 
       <div class="pillar-card accent">
-        <img src="images/placeholders/icon-iceberg.png" alt="Iceberg icon" class="pillar-icon" width="1024" height="1024" loading="lazy" />
+        <img src="images/placeholders/icon-deep-engagement-512-squarepad.png" alt="Deep engagement icon" class="pillar-icon" width="512" height="512" loading="lazy" />
         <h3>Deep Engagement</h3>
         <p>
           We go deep with our projects, investing in understanding before execution. That upfront clarity ensures our work is grounded in reality and built to withstand rigorous review and real-world testing.
@@ -716,10 +725,10 @@
       </div>
 
       <div class="pillar-card accent">
-        <img src="images/placeholders/icon-lightning.png" alt="Lightning icon" class="pillar-icon" width="1024" height="1024" loading="lazy" />
+        <img src="images/placeholders/icon-startup-dna-512-squarepad.png" alt="Startup DNA icon" class="pillar-icon" width="512" height="512" loading="lazy" />
         <h3>Startup DNA</h3>
         <p>
-          Our fast, agile approach was honed through years of collaboration with clients on the cutting edge of hardware innovation. We're about making maximum impact with minimal overhead and zero bureaucracy.
+          Our fast, agile approach was honed through years of collaboration with clients on the cutting edge of hardware innovation. We're about making maximum impact with minimal overhead and zero corporate bureaucracy.
         </p>
       </div>
     </div>
