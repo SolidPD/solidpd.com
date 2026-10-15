@@ -19,6 +19,18 @@ The renders below are screenshots of the real HTML on this branch
 | `A5-home-menu-mobile.png` | Hamburger menu with the AGENTIC AI pill as the last item. |
 | `A6-home-bridge-mobile-1.png`, `A7-home-bridge-mobile-2.png` | The bridge band on mobile: copy, loop strip, CTAs, then the Hapimatic window. |
 
+## Services grid (`index.html`, decision E2)
+
+| File | What it shows |
+| --- | --- |
+| `C1-home-services-firmware-desktop.png` | A seventh card, **Firmware & Embedded Software**, as a full-width featured row under the six existing cards (an odd seventh card would otherwise orphan in the two-column grid). Photo: the Solid Labs electronics workstation. |
+| `C2-home-services-firmware-back-desktop.png` | The flipped side: four bullets in two columns, the last naming the agentic test cells. |
+| `C3-home-services-firmware-mobile.png` | Same card at 393 px, where it is simply one more card in the single column. |
+
+## Decisions taken 2026-10-15 (Matt S)
+
+Nav pill as rendered; hero secondary button kept; bridge band stays after The SOLID Difference; the Hapimatic window keeps Hapimatic's own palette; a Firmware & Embedded Software card is added to Services.
+
 ## Landing page (`agentic.html`)
 
 Matt Bell's 2026-08-02 draft (`draft/agentic-ai-page`) with three changes: the

@@ -1830,6 +1830,11 @@
     .bridge-window .pcbg .hole { fill: #14062b; stroke: #cfd3d6; stroke-width: 1.1; }
     .bridge-window .pcbg .silk { font: 700 6.5px var(--hb-mono); fill: rgba(255, 255, 255, 0.8); }
     .bridge-window .pcbg .led { fill: #5ae6ab; }
+    .flip-card-wide { grid-column: 1 / -1; }
+    .flip-card-wide .flip-card-back ul { columns: 2; column-gap: 3rem; }
+    @media (max-width: 768px) {
+      .flip-card-wide .flip-card-back ul { columns: 1; }
+    }
 
   </style>
 </head>
@@ -2126,6 +2131,24 @@
                 <li>Certification and compliance support</li>
                 <li>In-house pilot production</li>
                 <li>Full-scale manufacturing support</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <!-- Card 7: Firmware & Embedded Software (full-width row) -->
+        <div class="flip-card flip-card-wide" tabindex="0" role="button" aria-label="Firmware & Embedded Software service details">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <img src="images/assets/Other Images/optimized/firmware.jpg" alt="" class="flip-card-front-image" loading="lazy" width="1200" height="670" />
+              <h3>Firmware &amp; Embedded Software</h3>
+            </div>
+            <div class="flip-card-back">
+              <h3>Firmware &amp; Embedded Software</h3>
+              <ul>
+                <li>Board bring-up, drivers, and device firmware</li>
+                <li>Power optimization, with battery life verified on the device</li>
+                <li>Protocol, connectivity, and sensor integration</li>
+                <li>Hardware-in-the-loop regression testing on our agentic test cells</li>
               </ul>
             </div>
           </div>
