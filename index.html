@@ -1620,6 +1620,217 @@
     .skip-link:focus {
       transform: translateY(0);
     }
+    /* ==================== Agentic AI / Hapimatic bridge (prototype 2026-10) ==================== */
+    .nav-menu a.nav-highlight {
+      background: var(--primary-blue);
+      color: var(--white);
+      padding: 0.45em 0.8em;
+      border-radius: 4px;
+      font-weight: 600;
+    }
+    .nav-menu a.nav-highlight::after { display: none; }
+    .nav-menu a.nav-highlight:hover { background: #0263A3; color: var(--white); }
+    .btn-ghost {
+      background: transparent;
+      color: var(--white);
+      border: 2px solid rgba(255, 255, 255, 0.7);
+    }
+    .btn-ghost:hover {
+      background: var(--white);
+      color: var(--black);
+      border-color: var(--white);
+      transform: translateY(-2px);
+    }
+
+    .hero-ctas {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
+    }
+    .bridge-section {
+      background: var(--dark-bg);
+      padding: 6rem 2rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    }
+    .bridge-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+      gap: 4rem;
+      align-items: center;
+    }
+    .bridge-eyebrow {
+      font-family: "Quicksand", sans-serif;
+      font-weight: 700;
+      font-size: 0.85rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--primary-yellow);
+      margin-bottom: 1rem;
+    }
+    .bridge-title {
+      font-family: "Quicksand", sans-serif;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      line-height: 1.2;
+      font-size: clamp(1.9rem, 3.4vw, 2.75rem);
+      color: var(--white);
+      margin-bottom: 1.5rem;
+    }
+    .bridge-lead {
+      color: var(--gray-10);
+      font-size: 1.1rem;
+      line-height: 1.7;
+      margin-bottom: 1.25rem;
+      max-width: 56ch;
+    }
+    .bridge-loop {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.5rem;
+      margin: 1.75rem 0 2.25rem;
+    }
+    .bridge-loop span {
+      font-family: "Quicksand", sans-serif;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-size: 0.8rem;
+      color: var(--white);
+      background: var(--black);
+      border: 1px solid rgba(4, 149, 246, 0.45);
+      border-radius: 6px;
+      padding: 0.55rem 0.9rem;
+    }
+    .bridge-loop .arrow,
+    .bridge-loop .repeat {
+      background: none;
+      border: none;
+      padding: 0 0.1rem;
+      color: var(--primary-blue);
+      font-size: 1.1rem;
+    }
+    .bridge-ctas { display: flex; flex-wrap: wrap; gap: 1rem; }
+    .bridge-window {
+      --hb-font: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+      --hb-mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+      display: block;
+      text-decoration: none;
+      color: inherit;
+      border-radius: 12px;
+      overflow: hidden;
+      background: #1c1c1e;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      transition: transform 0.3s ease, border-color 0.3s ease;
+    }
+    .bridge-window:hover { transform: translateY(-3px); border-color: rgba(90, 230, 171, 0.5); }
+    .bridge-window-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.9rem 1.1rem;
+      background: #161618;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .bridge-window-bar img { height: 24px; width: auto; display: block; }
+    .bridge-window-tag {
+      font-family: var(--hb-mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #a78bfa;
+    }
+    .bridge-window-body { background: #1e0a3e; padding: 1.25rem 1.25rem 0.5rem; }
+    .bridge-window-body svg { width: 100%; height: auto; display: block; }
+    .bridge-window-body .anim { display: none; }
+    .bridge-window-cap {
+      font-family: var(--hb-mono);
+      font-size: 0.68rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #c7c7cc;
+      padding: 0.6rem 0 0.5rem;
+    }
+    .bridge-window-foot {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      padding: 0.9rem 1.1rem;
+      font-family: var(--hb-font);
+      font-size: 0.85rem;
+      color: #c7c7cc;
+    }
+    .bridge-window-foot .link { color: #5ae6ab; font-weight: 600; white-space: nowrap; }
+    .footer-hapimatic {
+      max-width: 720px;
+      margin: 1.25rem auto 0;
+      text-align: center;
+      font-size: 0.82rem;
+      color: rgba(255, 255, 255, 0.6);
+      line-height: 1.7;
+    }
+    .footer-hapimatic img { height: 18px; width: auto; display: inline-block; vertical-align: -3px; margin-right: 0.35em; opacity: 0.9; }
+    .footer-hapimatic a.mark { display: inline-block; }
+    .footer-hapimatic a:not(.mark) { margin-left: 0.4em; white-space: nowrap; }
+    .footer-hapimatic a { color: rgba(255, 255, 255, 0.85); text-decoration: none; border-bottom: 1px solid rgba(255, 255, 255, 0.25); }
+    .footer-hapimatic a.mark { border-bottom: none; }
+    .footer-hapimatic a:hover { color: #5ae6ab; border-color: #5ae6ab; }
+    @media (max-width: 900px) {
+      .bridge-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+    }
+    @media (max-width: 768px) {
+      .nav-menu a.nav-highlight { display: block; margin: 0.5rem 1.5rem; border-radius: 6px; text-align: center; }
+      .bridge-section { padding: 4rem 1.5rem; }
+      .bridge-window-foot { flex-direction: column; align-items: flex-start; }
+      .bridge-ctas .btn { width: 100%; max-width: 300px; text-align: center; }
+    }
+
+    .bridge-window .dg .ln{fill: none; stroke: rgba(255, 255, 255, 0.24); stroke-width: 1.3;}
+    .bridge-window .dg .ln-v{fill: none; stroke: rgba(167, 139, 250, 0.6); stroke-width: 1.2; stroke-dasharray: 4 4;}
+    .bridge-window .dg .ln-m{fill: none; stroke: rgba(90, 230, 171, 0.5); stroke-width: 1.2; stroke-dasharray: 4 4;}
+    .bridge-window .dg .nd{fill: #1e0a3e; stroke: #a78bfa; stroke-width: 1.4;}
+    .bridge-window .dg .nd-m{fill: #0c3327; stroke: #5ae6ab; stroke-width: 1.4;}
+    .bridge-window .dg .nd-p{fill: #3b1578; stroke: #a78bfa; stroke-width: 1.4;}
+    .bridge-window .dg .cone{fill: rgba(90, 230, 171, 0.07); stroke: none;}
+    .bridge-window .dg .tx{font: 600 10.5px var(--hb-mono); fill: #c7c7cc;}
+    .bridge-window .dg .tx-s{font: 500 9.5px var(--hb-mono); fill: #c7c7cc;}
+    .bridge-window .dg .tx-b{font: 700 12.5px var(--hb-font); fill: #ffffff;}
+    .bridge-window .dg .tx-v{font: 600 10.5px var(--hb-mono); fill: #a78bfa;}
+    .bridge-window .dg .tok{fill: #5ae6ab;}
+    .bridge-window .dg .tok-v{fill: #a78bfa;}
+    .bridge-window .dg .wave{fill: none; stroke: #5ae6ab; stroke-width: 1.8; stroke-linecap: round;}
+    .bridge-window .dg .led{fill: #5ae6ab;}
+    .bridge-window .dg .scr{fill: #0b1210; stroke: rgba(90, 230, 171, 0.38); stroke-width: 1;}
+    .bridge-window .dg .grd{fill: none; stroke: rgba(255, 255, 255, 0.1); stroke-width: 1;}
+    .bridge-window .dg .dig{font: 700 12px var(--hb-mono); fill: #5ae6ab;}
+    .bridge-window .dg .dig.s{font-size: 10px; fill: #c7c7cc;}
+    .bridge-window .dg .tm{fill: #5ae6ab; stroke: #0c3327; stroke-width: 1;}
+    .bridge-window .dg .tm.v{fill: #a78bfa; stroke: #1e0a3e;}
+    .bridge-window .dg .kn{fill: #a78bfa;}
+    .bridge-window .dg .mat{fill: rgba(167, 139, 250, 0.05); stroke: rgba(167, 139, 250, 0.34); stroke-width: 1; stroke-dasharray: 3 4;}
+
+
+    /* PCB sub-figure rules (hapimatic.com site.css .pcbg) */
+    .bridge-window .pcbg * { vector-effect: non-scaling-stroke; }
+    .bridge-window .pcbg .bd { fill: #0d2a21; stroke: #2f9c74; stroke-width: 1.4; }
+    .bridge-window .pcbg .tr { fill: none; stroke: #2f9c74; stroke-width: 1.2; stroke-linecap: round; stroke-linejoin: round; }
+    .bridge-window .pcbg .ic { fill: #17171a; stroke: #a78bfa; stroke-width: 1.2; }
+    .bridge-window .pcbg .pin { fill: none; stroke: #cfd3d6; stroke-width: 1.3; }
+    .bridge-window .pcbg .pad { fill: #cfd3d6; }
+    .bridge-window .pcbg .via { fill: #0d2a21; stroke: #cfd3d6; stroke-width: 1; }
+    .bridge-window .pcbg .tp { fill: #0d2a21; stroke: #5ae6ab; stroke-width: 1.5; }
+    .bridge-window .pcbg .cn { fill: #2c2c2e; stroke: #8e8e93; stroke-width: 1; }
+    .bridge-window .pcbg .ps { fill: #3a3a3e; stroke: #8e8e93; stroke-width: 0.8; }
+    .bridge-window .pcbg .hole { fill: #14062b; stroke: #cfd3d6; stroke-width: 1.1; }
+    .bridge-window .pcbg .silk { font: 700 6.5px var(--hb-mono); fill: rgba(255, 255, 255, 0.8); }
+    .bridge-window .pcbg .led { fill: #5ae6ab; }
+
   </style>
 </head>
 <body>
@@ -1639,6 +1850,7 @@
         <li><a href="#services">SERVICES</a></li>
         <li><a href="#work">WORK</a></li>
         <li><a href="#contact">CONTACT</a></li>
+        <li><a href="agentic.html" class="nav-highlight">AGENTIC AI</a></li>
       </ul>
     </div>
   </nav>
@@ -1670,7 +1882,10 @@
         <h1><span class="text-highlight">Hardware</span> from Concept to Commercialization</h1>
         <p class="hero-subhead">Deep Research • Time-Tested Strategy • Thoughtful Design • Systematic Engineering</p>
         <p class="hero-tagline">Product design that ships, for companies building the future of hardware.</p>
-        <a href="#contact" class="btn btn-primary">Let's Build Together</a>
+        <div class="hero-ctas">
+          <a href="#contact" class="btn btn-primary">Let's Build Together</a>
+          <a href="agentic.html" class="btn btn-ghost">AI at the Bench &rarr;</a>
+        </div>
       </div>
     </section>
 
@@ -1728,6 +1943,61 @@
             Our fast, agile approach was honed through years of collaboration with clients on the cutting edge of hardware innovation. We're about making maximum impact with minimal overhead and zero corporate bureaucracy.
           </p>
         </div>
+      </div>
+    </section>
+
+    <!-- ==================== AGENTIC AI BRIDGE SECTION (prototype 2026-10) ==================== -->
+    <section id="agentic" class="bridge-section" aria-labelledby="bridge-title">
+      <div class="bridge-inner">
+        <div class="bridge-copy">
+          <p class="bridge-eyebrow">New &middot; Agentic Hardware Development</p>
+          <h2 id="bridge-title" class="bridge-title">AI Agents at a <span class="text-highlight">Real</span> Test Bench</h2>
+          <p class="bridge-lead">We put AI agents inside the develop-test loop. They write firmware, flash it to the actual device, drive real lab instruments, read back real measurements, and go around again, around the clock, with a senior engineer in command.</p>
+          <p class="bridge-lead">Firmware problems that used to consume weeks of bench time get found, fixed, and verified in days, with every claim backed by a measurement.</p>
+          <div class="bridge-loop" aria-label="The closed loop: write, flash, measure, analyze, repeat">
+            <span>Write</span><span class="arrow" aria-hidden="true">&rarr;</span><span>Flash</span><span class="arrow" aria-hidden="true">&rarr;</span><span>Measure</span><span class="arrow" aria-hidden="true">&rarr;</span><span>Analyze</span><span class="repeat" aria-hidden="true">&#8635;</span>
+          </div>
+          <div class="bridge-ctas">
+            <a href="agentic.html" class="btn btn-primary">Explore Agentic AI</a>
+            <a href="https://hapimatic.com/" target="_blank" rel="noopener" class="btn btn-ghost">Hapimatic.com &nearr;</a>
+          </div>
+        </div>
+        <a class="bridge-window" href="https://hapimatic.com/hosted/hardware-bench" target="_blank" rel="noopener" aria-label="Hapimatic Hardware Bench, opens hapimatic.com in a new tab">
+          <div class="bridge-window-bar">
+            <img src="images/assets/hapimatic/wordmark-still.svg" alt="Hapimatic" width="111" height="30">
+            <span class="bridge-window-tag">Hardware Bench</span>
+          </div>
+          <div class="bridge-window-body">
+            <svg xmlns="http://www.w3.org/2000/svg" class="dg" viewBox="0 0 560 270" role="img" focusable="false" aria-label="Diagram: a session uses a bench camera, an oscilloscope, and a power supply to look at, measure, and power a circuit board under test.">
+<rect class="mat" x="24" y="22" width="168" height="196" rx="10"/>
+<rect class="nd" x="36" y="34" width="144" height="74" rx="8"/><rect class="scr" x="44" y="42" width="108" height="58" rx="4"/><path class="grd" d="M44 71h108M98 42v58M71 42v58M125 42v58"/>
+<g class="still"><path class="wave" d="M48 71L50.1 65.0L52.2 59.7L54.3 55.6L56.3 53.1L58.4 52.5L60.5 53.9L62.6 57.0L64.7 61.7L66.8 67.4L68.8 73.4L70.9 79.2L73.0 84.1L75.1 87.6L77.2 89.4L79.3 89.2L81.3 87.1L83.4 83.2L85.5 78.1L87.6 72.2L89.7 66.2L91.8 60.7L93.8 56.3L95.9 53.4L98.0 52.4L100.1 53.4L102.2 56.3L104.3 60.7L106.3 66.2L108.4 72.2L110.5 78.1L112.6 83.2L114.7 87.1L116.8 89.2L118.8 89.4L120.9 87.6L123.0 84.1L125.1 79.2L127.2 73.4L129.3 67.4L131.3 61.7L133.4 57.0L135.5 53.9L137.6 52.5L139.7 53.1L141.8 55.6L143.8 59.7L145.9 65.0L148.0 71.0"/></g><g class="anim"><path class="wave" pathLength="100" stroke-dasharray="100" stroke-dashoffset="100" d="M48 71L50.1 65.0L52.2 59.7L54.3 55.6L56.3 53.1L58.4 52.5L60.5 53.9L62.6 57.0L64.7 61.7L66.8 67.4L68.8 73.4L70.9 79.2L73.0 84.1L75.1 87.6L77.2 89.4L79.3 89.2L81.3 87.1L83.4 83.2L85.5 78.1L87.6 72.2L89.7 66.2L91.8 60.7L93.8 56.3L95.9 53.4L98.0 52.4L100.1 53.4L102.2 56.3L104.3 60.7L106.3 66.2L108.4 72.2L110.5 78.1L112.6 83.2L114.7 87.1L116.8 89.2L118.8 89.4L120.9 87.6L123.0 84.1L125.1 79.2L127.2 73.4L129.3 67.4L131.3 61.7L133.4 57.0L135.5 53.9L137.6 52.5L139.7 53.1L141.8 55.6L143.8 59.7L145.9 65.0L148.0 71.0"><animate attributeName="stroke-dashoffset" values="100;0;0" keyTimes="0;0.7;1" dur="2.6s" repeatCount="indefinite"/></path></g>
+<circle class="nd-p" cx="166" cy="52" r="5"/><circle class="nd-p" cx="166" cy="70" r="5"/><circle class="kn" cx="166" cy="94" r="2.6"/><text class="tx" x="108" y="123" text-anchor="middle">oscilloscope</text><rect class="nd" x="36" y="134" width="144" height="56" rx="8"/><rect class="scr" x="44" y="142" width="100" height="40" rx="4"/>
+<text class="dig" x="51" y="161">3.30 V</text><text class="dig s" x="51" y="174">0.12 A</text>
+<circle class="tm" cx="162" cy="152" r="4.5"/><circle class="tm v" cx="162" cy="172" r="4.5"/><text class="tx" x="108" y="207" text-anchor="middle">power supply</text>
+<path class="ln" d="M150 22V8H402V22"/><path class="cone" d="M402 40L330 96H474z"/><rect class="nd" x="382" y="22" width="40" height="11" rx="3.5"/><path class="nd" d="M387 33a15 15 0 0 0 30 0z"/><circle class="nd-m" cx="402" cy="38" r="5.5"/><text class="tx" x="432" y="34" text-anchor="start">camera</text>
+<g transform="translate(316 96) scale(1)"><g class="pcbg"><rect class="bd" width="172" height="118" rx="8"/>
+<circle class="hole" cx="10" cy="10" r="3.2"/><circle class="hole" cx="162" cy="10" r="3.2"/><circle class="hole" cx="10" cy="108" r="3.2"/><circle class="hole" cx="162" cy="108" r="3.2"/>
+<path class="tr" d="M96 35V28h26l6 6h13M110 49h18l6-6h7M110 54h25l2-2h4M110 59h25l2 2h4M110 64h18l6 6h7M110 69h12l10 10h9M110 74h6l14 14h11M81 35V20M91 35V20M76 35V27H60M71 35V31H47V22M62 49H44l-6-6H20M62 54H20M62 64H46l-8 8v8M32 85h-8V68M76 83v12H56M91 83v17h29M101 83v6h10"/>
+<rect class="cn" x="140" y="28" width="13" height="66" rx="2.5"/><circle class="pad" cx="146.5" cy="34" r="2.3"/><circle class="pad" cx="146.5" cy="43" r="2.3"/><circle class="pad" cx="146.5" cy="52" r="2.3"/><circle class="pad" cx="146.5" cy="61" r="2.3"/><circle class="pad" cx="146.5" cy="70" r="2.3"/><circle class="pad" cx="146.5" cy="79" r="2.3"/><circle class="pad" cx="146.5" cy="88" r="2.3"/>
+<rect class="cn" x="-6" y="42" width="26" height="26" rx="3"/><rect class="ps" x="-2" y="48" width="12" height="14" rx="1.5"/>
+<rect class="ps" x="79" y="12" width="14" height="8" rx="3"/><rect class="ps" x="52" y="24" width="8" height="6" rx="1"/><rect class="ps" x="43" y="15" width="8" height="6" rx="1"/><rect class="ps" x="111" y="86" width="9" height="6" rx="1"/>
+<rect class="ic" x="32" y="80" width="13" height="9" rx="1.5"/>
+<circle class="via" cx="122" cy="28" r="1.8"/><circle class="via" cx="46" cy="64" r="1.8"/><circle class="via" cx="91" cy="100" r="1.8"/>
+<rect class="ic" x="66" y="39" width="40" height="40" rx="3"/><path class="pin" d="M71 39v-4M71 79v4M66 44h-4M106 44h4M76 39v-4M76 79v4M66 49h-4M106 49h4M81 39v-4M81 79v4M66 54h-4M106 54h4M86 39v-4M86 79v4M66 59h-4M106 59h4M91 39v-4M91 79v4M66 64h-4M106 64h4M96 39v-4M96 79v4M66 69h-4M106 69h4M101 39v-4M101 79v4M66 74h-4M106 74h4"/><circle class="pad" cx="72" cy="45" r="1.3"/>
+<text class="silk" x="86" y="61.5" text-anchor="middle">MCU</text>
+<circle class="tp" cx="124" cy="100" r="3.2"/>
+<g class="still"><circle class="led" cx="52" cy="95" r="3.4"/></g><g class="anim"><circle class="led" cx="52" cy="95" r="3.4"><animate attributeName="opacity" values="1;0.25;1" dur="1.8s" repeatCount="indefinite"/></circle></g></g></g><path class="ln" d="M340 214v8h124v-8"/><text class="tx" x="470" y="240" text-anchor="middle">pcb dut</text>
+<path class="ln-m" d="M192 128H270V151H310"/><path class="ln" d="M192 198H316"/>
+<rect class="nd-m" x="30" y="228" width="156" height="34" rx="9"/><text class="tx-b" x="108" y="249.5" text-anchor="middle">session</text><path class="ln-v" d="M108 228V218"/>
+<path class="ln-m" d="M402 222V246H186"/><g class="still"><circle class="tok" r="4" cx="186" cy="246"/></g><g class="anim"><circle class="tok" r="4"><animateMotion dur="5s" repeatCount="indefinite" keyPoints="0;0;1;1" keyTimes="0;0.3;0.8;1" calcMode="linear" path="M402 222V246H186"/></circle></g></svg>
+            <p class="bridge-window-cap">fig. 1 &mdash; a session at the bench</p>
+          </div>
+          <div class="bridge-window-foot">
+            <span>Our open-source agent platform. The bench runs as a hosted service.</span>
+            <span class="link">hapimatic.com &nearr;</span>
+          </div>
+        </a>
       </div>
     </section>
 
@@ -2035,6 +2305,11 @@
         <img src="images/assets/Solid-Product-Design-logo-stacked-white-blue.png" alt="Solid Product Design" loading="lazy" />
       </div>
       <p class="footer-copyright">&copy; 2026 Solid Product Design. All rights reserved.</p>
+      <p class="footer-hapimatic">
+        <a class="mark" href="https://hapimatic.com/" target="_blank" rel="noopener" aria-label="Hapimatic"><img src="images/assets/hapimatic/wordmark-still.svg" alt="Hapimatic" width="74" height="20"></a>
+        <span>is our open-source platform for running AI agents as a distributed fleet. Its Hardware Bench is where our agentic engineering work runs.</span>
+        <a href="https://github.com/SolidPD/hapimatic-core" target="_blank" rel="noopener">GitHub &nearr;</a>
+      </p>
     </div>
   </footer>
 
