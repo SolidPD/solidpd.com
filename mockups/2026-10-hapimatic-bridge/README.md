@@ -8,6 +8,47 @@ The renders below are screenshots of the real HTML on this branch
 (`index.html`, `agentic.html`), not drawings. Serve the repo root locally
 (`python3 -m http.server 8000`) to click through the same thing.
 
+## Handoff: read this first (2026-10-15)
+
+**Everything is on this branch.** The prototype is hand-edited static HTML with no build step: `index.html`,
+`agentic.html`, the assets under `images/assets/hapimatic/` and `images/assets/Other Images/optimized/firmware.jpg`,
+and these renders. Nothing outside the repo is needed to continue.
+
+**Preview.** Every push to this branch runs `.github/workflows/deploy.yml`, which publishes a Netlify draft
+deploy with its own URL. The URL reviewed on 2026-10-15 was https://6ad0c02cae53d41bbb5d83c9--solidpd.netlify.app/ .
+To find the URL of the latest push:
+
+```
+gh run list --repo SolidPD/solidpd.com --branch ms/hapimatic-bridge-mockups --limit 1
+gh run view <run-id> --repo SolidPD/solidpd.com --log | grep -o 'https://[^ >]*--solidpd.netlify.app' | sort -u
+```
+
+**This branch and `feature/multipage-rebuild` both start from `main` (9c32d96) and diverge.** That branch (Matt
+Bell, 2026-10-09) splits the site into pages, moves the services cards to `services.html`, turns the homepage
+sections into teasers, and rebuilds `agentic.html`. This branch keeps the single-page homepage. Merging one into the
+other conflicts across the whole of `index.html`, so the recommended path is to keep `feature/multipage-rebuild`
+as the base and port the pieces below into it. Use this branch as the visual reference.
+
+| Piece on this branch | Where it goes on `feature/multipage-rebuild` |
+| --- | --- |
+| AGENTIC AI nav pill: class `nav-highlight` plus its CSS, including the 768 px rule | Every page already has an AGENTIC AI nav item. Add the class and CSS on each page. |
+| Hero second button "AI at the Bench": `.hero-ctas`, `.btn-ghost` | `index.html` hero, beside "Let's Build Together". |
+| Bridge band `#agentic`: copy, loop strip, Hapimatic window with the inlined bench figure, `.bridge-*` CSS, and the `.dg` / `.pcbg` figure rules scoped under `.bridge-window` | Replaces or extends the "AGENTIC AI TEASER" section of `index.html`. That branch sets the page background to `#1A1A1A`, the same color as the band, so give the band a different background or a border. |
+| Firmware & Embedded Software card: `.flip-card-wide` plus `firmware.jpg` | `services.html`, after its six flip cards. |
+| Footer Hapimatic byline: `.footer-hapimatic` | `.footer-bottom` on every page. |
+| "Built on Hapimatic" section on `agentic.html`: `#hapimatic`, `.hapimatic-card*`, and `id="engagements"` on "What We Can Do for You" | That branch's `agentic.html`, after "We Closed the Loop — In-House". |
+
+**Open framing decision.** The `feature/multipage-rebuild` version of `agentic.html` says the capability was
+"built in-house" and names no tools, so it never mentions Hapimatic. This branch names Hapimatic and links to
+hapimatic.com and to GitHub. The in-house framing predates the hapimatic.com launch. Decide which framing ships before
+porting the agentic page.
+
+**Line endings.** The site's HTML files use CRLF. The first push of this branch converted `index.html` to LF by
+mistake; a later commit restored CRLF, so `git diff origin/main` shows only the real change. Keep CRLF when porting.
+
+**Production.** Merging to `main` deploys solidpd.com immediately. The repo's `CLAUDE.md` requires an explicit
+production confirmation first. The publish blockers are listed under "Before publishing" below.
+
 ## Homepage (`index.html`)
 
 | File | What it shows |
