@@ -632,16 +632,26 @@
       position: absolute;
       top: 0;
       left: 0;
-      transform: translateY(-100%);
       background: var(--primary-blue);
       color: var(--white);
-      padding: 0.5rem 1rem;
       z-index: 2000;
       text-decoration: none;
       font-family: var(--font-body);
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      overflow: hidden;
+      clip: rect(0 0 0 0);
+      clip-path: inset(50%);
+      white-space: nowrap;
     }
     .skip-link:focus {
-      transform: translateY(0);
+      width: auto;
+      height: auto;
+      padding: 0.5rem 1rem;
+      overflow: visible;
+      clip: auto;
+      clip-path: none;
     }
   </style>
 </head>
