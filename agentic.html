@@ -722,6 +722,40 @@
     @media (max-width: 768px) {
       .nav-menu a.nav-highlight { display: block; margin: 0.5rem 1.5rem; border-radius: 6px; text-align: center; }
     }
+
+    /* ============ Hapimatic bridge: Built on Hapimatic section (ported 2026-10) ============ */
+    .hapimatic-mark { text-align: center; margin-bottom: 1.25rem; }
+    .hapimatic-mark img { height: 40px; width: auto; display: inline-block; }
+    .hapimatic-card { display: block; text-decoration: none; color: inherit; }
+    .hapimatic-card:hover { border-color: var(--primary-blue); transform: translateY(-3px); }
+    .hapimatic-card-link {
+      display: block;
+      margin-top: 1.25rem;
+      color: var(--primary-blue);
+      font-weight: 600;
+      font-size: 0.9rem;
+      word-break: break-all;
+    }
+    .section-lead a { color: var(--primary-blue); text-decoration: none; border-bottom: 1px solid rgba(4, 149, 246, 0.5); }
+
+    /* ============ Hapimatic bridge: footer byline (ported 2026-10) ============ */
+    /* .footer-bottom is a centred flex row on this branch; stack so the byline
+       sits under the copyright line rather than beside it. */
+    .footer-bottom { flex-direction: column; }
+    .footer-hapimatic {
+      max-width: 720px;
+      margin: 1.25rem auto 0;
+      text-align: center;
+      font-size: 0.82rem;
+      color: rgba(255, 255, 255, 0.6);
+      line-height: 1.7;
+    }
+    .footer-hapimatic img { height: 18px; width: auto; display: inline-block; vertical-align: -3px; margin-right: 0.35em; opacity: 0.9; }
+    .footer-hapimatic a.mark { display: inline-block; }
+    .footer-hapimatic a:not(.mark) { margin-left: 0.4em; white-space: nowrap; }
+    .footer-hapimatic a { color: rgba(255, 255, 255, 0.85); text-decoration: none; border-bottom: 1px solid rgba(255, 255, 255, 0.25); }
+    .footer-hapimatic a.mark { border-bottom: none; }
+    .footer-hapimatic a:hover { color: #5ae6ab; border-color: #5ae6ab; }
   </style>
 </head>
 <body>
@@ -755,7 +789,7 @@
       We've built closed-loop agentic AI hardware development in-house — our own engineering team's system,
       doing the same hardware engineering work Solid has always done, just covering far more bench time per
       day. For you, that means more of your project's scope gets completed, faster, with every result backed
-      by a real measurement on real hardware — not a third-party tool we're reselling.
+      by a real measurement on real hardware — on a platform we built ourselves.
     </p>
     <div class="hero-cta">
       <a href="contact.html" class="btn btn-primary">Tell Us What You Need Built</a>
@@ -788,8 +822,8 @@
       <p class="section-lead">
         For the past two years, Solid has been building something we believe is genuinely new, built
         entirely by our own engineering team for our own clients: a system that puts AI agents
-        <span class="accent">inside</span> the develop-test loop, not just beside it. This isn't a
-        third-party platform we license and resell — it's technology our engineers designed, from the
+        <span class="accent">inside</span> the develop-test loop, not just beside it. It isn't a
+        platform we license from anyone — it's technology our engineers designed, from the
         ground up, so that Solid can do more of the hardware engineering work we've always done, in less
         calendar time.
       </p>
@@ -823,8 +857,44 @@
     </div>
   </section>
 
+  <!-- Built on Hapimatic -->
+  <section class="content-section" id="hapimatic" aria-labelledby="hapimatic-title">
+    <div class="section-inner-wide">
+      <p class="hapimatic-mark"><a href="https://hapimatic.com/" target="_blank" rel="noopener"><img src="images/assets/hapimatic/wordmark-still.svg" alt="Hapimatic" width="148" height="40"></a></p>
+      <h2 class="section-heading" id="hapimatic-title">Built on Hapimatic</h2>
+      <p class="section-lead" style="text-align: center;">
+        The system behind this work is <a href="https://hapimatic.com/" target="_blank" rel="noopener">Hapimatic</a>, our platform for running AI agents as a
+        distributed fleet, and its Hardware Bench, which gives those agents instrument-grade eyes and hands. We built it
+        for our own bench first. The core is open source, and the bench is available as a hosted service.
+      </p>
+      <div class="card-grid">
+        <a class="info-card hapimatic-card" href="https://github.com/SolidPD/hapimatic-core" target="_blank" rel="noopener">
+          <span class="card-label">Open source</span>
+          <h3>Run the core yourself</h3>
+          <p>The fleet platform itself: run your agents on your own machines, reach them from any browser or phone, and
+          keep sessions alive across reboots, network drops, and rate limits. Open source under AGPL-3.0.</p>
+          <span class="hapimatic-card-link">github.com/SolidPD/hapimatic-core &nearr;</span>
+        </a>
+        <a class="info-card hapimatic-card" href="https://hapimatic.com/hosted/hardware-bench" target="_blank" rel="noopener">
+          <span class="card-label">Hosted service</span>
+          <h3>Put your agents at our bench</h3>
+          <p>Hardware Bench, a paid add-on of the hosted service: a camera over the board, an oscilloscope, programmable
+          supplies and loads, a power profiler, and debug probes, all within your agent's reach. In pilot, contact us.</p>
+          <span class="hapimatic-card-link">hapimatic.com/hosted/hardware-bench &nearr;</span>
+        </a>
+        <a class="info-card hapimatic-card" href="#engagements">
+          <span class="card-label">Engineering services</span>
+          <h3>Let us run the loop for you</h3>
+          <p>Bring us the problem. Our engineers fixture your device, direct the agents, review every result, and deliver
+          the fix with its evidence trail. No platform to learn, no bench to build.</p>
+          <span class="hapimatic-card-link">See engagements &darr;</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
   <!-- Sweet Spot -->
-  <section class="content-section">
+  <section class="content-section alt">
     <div class="section-inner-wide">
       <h2 class="section-heading">Where This Lets Us Move Fastest For You</h2>
       <div class="section-inner">
@@ -875,7 +945,7 @@
   </section>
 
   <!-- Real-World Results (placeholder — pending sign-off) -->
-  <section class="content-section alt">
+  <section class="content-section">
     <div class="section-inner">
       <h2 class="section-heading">Real-World Results</h2>
       <p class="placeholder-note">
@@ -900,7 +970,7 @@
   </section>
 
   <!-- Trust -->
-  <section class="content-section">
+  <section class="content-section alt">
     <div class="section-inner-wide">
       <h2 class="section-heading">Why You Can Trust It</h2>
       <div class="section-inner">
@@ -945,7 +1015,7 @@
   </section>
 
   <!-- Engagements -->
-  <section class="content-section alt">
+  <section class="content-section" id="engagements">
     <div class="section-inner-wide">
       <h2 class="section-heading">What We Can Do for You</h2>
       <div class="card-grid">
@@ -1028,6 +1098,11 @@
 
     <div class="footer-bottom">
       <p>&copy; 2026 Solid Product Design. All rights reserved.</p>
+      <p class="footer-hapimatic">
+        <a class="mark" href="https://hapimatic.com/" target="_blank" rel="noopener" aria-label="Hapimatic"><img src="images/assets/hapimatic/wordmark-still.svg" alt="Hapimatic" width="74" height="20"></a>
+        <span>is our open-source platform for running AI agents as a distributed fleet. Its Hardware Bench is where our agentic engineering work runs.</span>
+        <a href="https://github.com/SolidPD/hapimatic-core" target="_blank" rel="noopener">GitHub &nearr;</a>
+      </p>
     </div>
   </footer>
 
