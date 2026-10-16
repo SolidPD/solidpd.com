@@ -708,6 +708,20 @@
       outline: 2px solid var(--primary-blue);
       outline-offset: 2px;
     }
+
+    /* ============ Hapimatic bridge: AGENTIC AI nav pill (ported 2026-10) ============ */
+    .nav-menu a.nav-highlight {
+      background: var(--primary-blue);
+      color: var(--white);
+      padding: 0.45em 0.8em;
+      border-radius: 4px;
+      font-weight: 600;
+    }
+    .nav-menu a.nav-highlight::after { display: none; }
+    .nav-menu a.nav-highlight:hover { background: #0263A3; color: var(--white); }
+    @media (max-width: 768px) {
+      .nav-menu a.nav-highlight { display: block; margin: 0.5rem 1.5rem; border-radius: 6px; text-align: center; }
+    }
   </style>
 </head>
 <body>
@@ -725,7 +739,7 @@
         <li><a href="index.html">HOME</a></li>
         <li><a href="about.html">ABOUT</a></li>
         <li><a href="services.html">SERVICES</a></li>
-        <li><a href="agentic.html" class="active" aria-current="page">AGENTIC AI</a></li>
+        <li><a href="agentic.html" class="active nav-highlight" aria-current="page">AGENTIC AI</a></li>
         <li><a href="work.html">WORK</a></li>
         <li><a href="team.html">TEAM</a></li>
         <li><a href="contact.html">CONTACT</a></li>

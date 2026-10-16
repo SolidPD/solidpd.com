@@ -650,6 +650,39 @@
     .skip-link:focus {
       transform: translateY(0);
     }
+
+    /* ============ Hapimatic bridge: AGENTIC AI nav pill (ported 2026-10) ============ */
+    .nav-menu a.nav-highlight {
+      background: var(--primary-blue);
+      color: var(--white);
+      padding: 0.45em 0.8em;
+      border-radius: 4px;
+      font-weight: 600;
+    }
+    .nav-menu a.nav-highlight::after { display: none; }
+    .nav-menu a.nav-highlight:hover { background: #0263A3; color: var(--white); }
+    @media (max-width: 768px) {
+      .nav-menu a.nav-highlight { display: block; margin: 0.5rem 1.5rem; border-radius: 6px; text-align: center; }
+    }
+
+    /* ============ Hapimatic bridge: footer byline (ported 2026-10) ============ */
+    /* .footer-bottom is a centred flex row on this branch; stack so the byline
+       sits under the copyright line rather than beside it. */
+    .footer-bottom { flex-direction: column; }
+    .footer-hapimatic {
+      max-width: 720px;
+      margin: 1.25rem auto 0;
+      text-align: center;
+      font-size: 0.82rem;
+      color: rgba(255, 255, 255, 0.6);
+      line-height: 1.7;
+    }
+    .footer-hapimatic img { height: 18px; width: auto; display: inline-block; vertical-align: -3px; margin-right: 0.35em; opacity: 0.9; }
+    .footer-hapimatic a.mark { display: inline-block; }
+    .footer-hapimatic a:not(.mark) { margin-left: 0.4em; white-space: nowrap; }
+    .footer-hapimatic a { color: rgba(255, 255, 255, 0.85); text-decoration: none; border-bottom: 1px solid rgba(255, 255, 255, 0.25); }
+    .footer-hapimatic a.mark { border-bottom: none; }
+    .footer-hapimatic a:hover { color: #5ae6ab; border-color: #5ae6ab; }
   </style>
 </head>
 <body>
@@ -668,7 +701,7 @@
         <li><a href="index.html">HOME</a></li>
         <li><a href="about.html" class="active" aria-current="page">ABOUT</a></li>
         <li><a href="services.html">SERVICES</a></li>
-        <li><a href="agentic.html">AGENTIC AI</a></li>
+        <li><a href="agentic.html" class="nav-highlight">AGENTIC AI</a></li>
         <li><a href="work.html">WORK</a></li>
         <li><a href="team.html">TEAM</a></li>
         <li><a href="contact.html">CONTACT</a></li>
@@ -775,6 +808,11 @@
 
     <div class="footer-bottom">
       <p>&copy; 2026 Solid Product Design. All rights reserved.</p>
+      <p class="footer-hapimatic">
+        <a class="mark" href="https://hapimatic.com/" target="_blank" rel="noopener" aria-label="Hapimatic"><img src="images/assets/hapimatic/wordmark-still.svg" alt="Hapimatic" width="74" height="20"></a>
+        <span>is our open-source platform for running AI agents as a distributed fleet. Its Hardware Bench is where our agentic engineering work runs.</span>
+        <a href="https://github.com/SolidPD/hapimatic-core" target="_blank" rel="noopener">GitHub &nearr;</a>
+      </p>
     </div>
   </footer>
 
