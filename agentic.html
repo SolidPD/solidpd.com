@@ -3,8 +3,6 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- DRAFT PAGE — remove noindex before publishing -->
-  <meta name="robots" content="noindex, nofollow">
   <meta name="description" content="Closed-loop agentic AI hardware development: AI agents at a real test bench, solving firmware problems in hardware devices — power optimization, bug troubleshooting, and hardware regression testing.">
   <link rel="icon" type="image/svg+xml" href="/favicon-adaptive.svg">
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
@@ -27,7 +25,9 @@
       --black: #000000;
       --gray-70: #4D4D4D;
       --gray-50: #808080;
-      --gray-30: #B3B3B3;
+      --gray-30: #B2B2B2;
+      /* Brand blue-600: the AA-safe fill for white text (default blue is 3.17:1) */
+      --primary-blue-aa: #0263A3;
       --gray-10: #E5E5E5;
       --white: #FFFFFF;
     }
@@ -87,18 +87,6 @@
       line-height: 1.2;
     }
 
-    /* Draft Banner */
-    .draft-banner {
-      background: var(--primary-yellow);
-      color: var(--black);
-      text-align: center;
-      padding: 0.5rem 1rem;
-      font-weight: 700;
-      font-size: 0.85rem;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-    }
-
     /* Skip Link */
     .skip-link {
       position: absolute;
@@ -121,6 +109,7 @@
       top: 0;
       background: #E5E5E5;
       backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
       border-bottom: 1px solid rgba(0, 0, 0, 0.1);
       z-index: 1000;
       padding: 1rem 2rem;
@@ -386,16 +375,6 @@
       margin-bottom: 0.25rem;
     }
 
-    .metric-placeholder {
-      background: rgba(255, 183, 90, 0.15);
-      border: 1px dashed var(--primary-yellow);
-      border-radius: 4px;
-      color: var(--primary-yellow);
-      padding: 0.1rem 0.5rem;
-      font-size: 0.9rem;
-      font-weight: 700;
-    }
-
     /* Quote strip */
     .quote-strip {
       text-align: center;
@@ -475,9 +454,9 @@
     }
 
     .btn-primary {
-      background: var(--primary-blue);
+      background: var(--primary-blue-aa);
       color: var(--white);
-      border: 2px solid var(--primary-blue);
+      border: 2px solid var(--primary-blue-aa);
     }
 
     .btn-primary:hover {
@@ -727,7 +706,7 @@
     }
     /* ==================== Agentic AI / Hapimatic bridge (prototype 2026-10) ==================== */
     .nav-menu a.nav-highlight {
-      background: var(--primary-blue);
+      background: var(--primary-blue-aa);
       color: var(--white);
       padding: 0.45em 0.8em;
       border-radius: 4px;
@@ -767,7 +746,6 @@
   </style>
 </head>
 <body>
-  <div class="draft-banner">Draft — internal review only — not linked from site navigation</div>
   <a href="#main-content" class="skip-link">Skip to main content</a>
   <!-- Navigation -->
   <nav class="nav-header">
@@ -954,7 +932,6 @@
           What began as an advisory review for a client's energy-harvesting device became a complete,
           delivered power-optimization implementation — analysis, firmware changes, and hardware-verified
           results — executed through our agentic system under engineer direction.
-          <span class="metric-placeholder">[headline metric TBD — do not publish with this placeholder]</span>
         </li>
         <li>
           <strong>Firmware stabilized.</strong>
