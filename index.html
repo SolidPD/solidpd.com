@@ -685,11 +685,10 @@
     }
 
     .client-logo img {
-      max-width: 140px;
-      max-height: 50px;
+      /* Sizing is baked into the assets: each logo is pre-trimmed and scaled
+         to equal optical weight, so no bounding-box caps here. */
       width: auto;
       height: auto;
-      object-fit: contain;
       filter: brightness(0) invert(1);
       opacity: 0.85;
       transition: opacity 0.3s ease;
@@ -2233,31 +2232,28 @@
       <h2>Our Clients</h2>
       <div class="clients-grid">
         <div class="client-logo">
-          <img src="images/placeholders/client-halasystems.png" alt="Hala Systems" width="752" height="132" loading="lazy" />
+          <img src="images/assets/clients/client-halasystems.png" alt="Hala Systems" width="131" height="23" loading="lazy" />
         </div>
         <div class="client-logo">
-          <img src="images/placeholders/client-strella.png" alt="Strella" width="322" height="67" loading="lazy" />
+          <img src="images/assets/clients/client-strella.png" alt="Strella" width="111" height="23" loading="lazy" />
         </div>
         <div class="client-logo">
-          <img src="images/placeholders/client-pike-robotics.png" alt="Pike Robotics" width="1085" height="702" loading="lazy" />
+          <img src="images/assets/clients/client-pike-robotics.png" alt="Pike Robotics" width="70" height="43" loading="lazy" />
         </div>
         <div class="client-logo">
-          <img src="images/placeholders/client-neurava.png" alt="Neurava" width="177" height="28" loading="lazy" />
+          <img src="images/assets/clients/client-neurava.png" alt="Neurava" width="143" height="23" loading="lazy" />
         </div>
         <div class="client-logo">
-          <img src="images/placeholders/client-aepnus.png" alt="Aepnus" width="1024" height="512" loading="lazy" />
+          <img src="images/assets/clients/client-aepnus.png" alt="Aepnus" width="97" height="39" loading="lazy" />
         </div>
         <div class="client-logo">
-          <img src="images/placeholders/client-agtech-logic.png" alt="AgTech Logic" width="512" height="512" loading="lazy" />
+          <img src="images/assets/clients/client-dottir-labs.png" alt="Dottir Labs" width="92" height="33" loading="lazy" />
         </div>
         <div class="client-logo">
-          <img src="images/placeholders/client-dottir-labs.png" alt="Dottir Labs" width="747" height="267" loading="lazy" />
+          <img src="images/assets/clients/client-tourstream.png" alt="TourStream" width="114" height="26" loading="lazy" />
         </div>
         <div class="client-logo">
-          <img src="images/placeholders/client-tourstream.png" alt="TourStream" width="871" height="201" loading="lazy" />
-        </div>
-        <div class="client-logo">
-          <img src="images/placeholders/client-florrent.png" alt="Florrent" width="2048" height="462" loading="lazy" />
+          <img src="images/assets/clients/client-florrent.png" alt="Florrent" width="111" height="25" loading="lazy" />
         </div>
       </div>
     </section>
