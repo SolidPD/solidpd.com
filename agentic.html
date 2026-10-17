@@ -1,0 +1,1206 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Closed-loop agentic AI hardware development: AI agents at a real test bench, solving firmware problems in hardware devices — power optimization, bug troubleshooting, and hardware regression testing.">
+  <link rel="icon" type="image/svg+xml" href="/favicon-adaptive.svg">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+
+  <title>Agentic AI Hardware Development — Solid Product Design</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Quicksand:wght@600;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* CSS Variables */
+    :root {
+      --primary-blue: #0495F6;
+      --primary-yellow: #FFB75A;
+      --dark-bg: #1A1A1A;
+      --black: #000000;
+      --gray-70: #4D4D4D;
+      --gray-50: #808080;
+      --gray-30: #B2B2B2;
+      /* Filled brand-blue surfaces take blue-900 text. White on #0495F6 is only
+         3.17:1 and fails AA at body size; #011A2B on it is 5.60:1, so the bright
+         blue stays and the text carries the contrast. */
+      --on-primary: #011A2B;
+      --gray-10: #E5E5E5;
+      --white: #FFFFFF;
+    }
+
+    /* Reset and Base Styles */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "DM Sans", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background: var(--black);
+      color: var(--white);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      overflow-x: hidden;
+    }
+
+    /* Typography System - Brand Headings (H1, Brand H2s) */
+    h1 {
+      font-family: "Quicksand", sans-serif;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      line-height: 1.2;
+    }
+
+    h2 {
+      font-family: "DM Sans", sans-serif;
+      font-weight: 700;
+      text-transform: none;
+      letter-spacing: 0.01em;
+      line-height: 1.2;
+    }
+
+    .cta-section h2,
+    .cta-content h2,
+    .section-heading {
+      font-family: "Quicksand", sans-serif;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    h3 {
+      font-family: "DM Sans", sans-serif;
+      font-weight: 700;
+      text-transform: none;
+      letter-spacing: 0.01em;
+      line-height: 1.2;
+    }
+
+    /* Skip Link */
+    .skip-link {
+      position: absolute;
+      top: 0;
+      left: 0;
+      background: var(--primary-blue);
+      color: var(--on-primary);
+      z-index: 2000;
+      text-decoration: none;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      overflow: hidden;
+      clip: rect(0 0 0 0);
+      clip-path: inset(50%);
+      white-space: nowrap;
+    }
+    .skip-link:focus {
+      width: auto;
+      height: auto;
+      padding: 0.5rem 1rem;
+      overflow: visible;
+      clip: auto;
+      clip-path: none;
+    }
+
+    /* Navigation */
+    .nav-header {
+      position: sticky;
+      top: 0;
+      background: #E5E5E5;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+      z-index: 1000;
+      padding: 1rem 2rem;
+    }
+
+    .nav-container {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .nav-logo img {
+      height: 68px;
+      width: auto;
+      max-width: 100%;
+      min-width: 75px;
+      display: block;
+    }
+
+    .nav-menu {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+      align-items: center;
+    }
+
+    .nav-menu a {
+      color: var(--black);
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      transition: color 0.2s ease;
+      position: relative;
+    }
+
+    .nav-menu a::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--primary-blue);
+      transition: width 0.3s ease;
+    }
+
+    .nav-menu a:hover {
+      color: var(--primary-blue);
+    }
+
+    .nav-menu a:hover::after {
+      width: 100%;
+    }
+
+    .nav-toggle {
+      display: none;
+      background: none;
+      border: none;
+      color: var(--black);
+      font-size: 1.5rem;
+      cursor: pointer;
+      padding: 0.5rem;
+    }
+
+    /* Page Header / Hero */
+    .page-header {
+      padding: 6rem 2rem 2rem;
+      text-align: center;
+      background: var(--black);
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .page-header h1 {
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      margin-bottom: 1.5rem;
+      color: var(--white);
+    }
+
+    .page-header h1 .accent {
+      color: var(--primary-blue);
+    }
+
+    .page-header p {
+      font-size: 1.2rem;
+      color: var(--gray-10);
+      line-height: 1.7;
+      max-width: 800px;
+      margin: 0 auto 2rem;
+    }
+
+    .hero-cta {
+      margin-top: 1rem;
+    }
+
+    /* Generic Section */
+    .content-section {
+      padding: 4rem 2rem;
+      background: var(--black);
+    }
+
+    .content-section.alt {
+      background: var(--dark-bg);
+    }
+
+    .section-inner {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .section-inner-wide {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .section-heading {
+      font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+      color: var(--white);
+      margin-bottom: 1.5rem;
+      text-align: center;
+    }
+
+    .section-lead {
+      font-size: 1.15rem;
+      color: var(--gray-10);
+      line-height: 1.8;
+      margin-bottom: 1.25rem;
+    }
+
+    .section-lead strong {
+      color: var(--white);
+    }
+
+    .section-lead .accent {
+      color: var(--primary-blue);
+      font-weight: 700;
+    }
+
+    /* The Loop visual */
+    .loop-strip {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin: 2.5rem auto;
+      max-width: 900px;
+    }
+
+    .loop-step {
+      background: var(--dark-bg);
+      border: 1px solid rgba(4, 149, 246, 0.4);
+      border-radius: 8px;
+      padding: 0.9rem 1.4rem;
+      font-family: "Quicksand", sans-serif;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-size: 0.9rem;
+      color: var(--white);
+    }
+
+    .loop-arrow {
+      color: var(--primary-blue);
+      font-size: 1.4rem;
+      font-weight: 700;
+    }
+
+    .loop-repeat {
+      width: 100%;
+      text-align: center;
+      color: var(--primary-yellow);
+      font-family: "Quicksand", sans-serif;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      font-size: 0.85rem;
+      margin-top: 0.5rem;
+    }
+
+    /* Card Grid */
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 2.5rem;
+    }
+
+    .info-card {
+      background: var(--dark-bg);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 8px;
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .content-section.alt .info-card {
+      background: var(--black);
+    }
+
+    .info-card .card-label {
+      font-family: "Quicksand", sans-serif;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      font-size: 0.8rem;
+      color: var(--primary-blue);
+      margin-bottom: 0.75rem;
+    }
+
+    .info-card h3 {
+      font-size: 1.3rem;
+      color: var(--white);
+      margin-bottom: 1rem;
+    }
+
+    .info-card p {
+      font-size: 0.98rem;
+      color: var(--gray-10);
+      line-height: 1.75;
+    }
+
+    .info-card p + p {
+      margin-top: 0.75rem;
+    }
+
+    /* Results list */
+    .results-list {
+      list-style: none;
+      margin-top: 2rem;
+    }
+
+    .results-list li {
+      position: relative;
+      padding: 1.25rem 1.5rem 1.25rem 3rem;
+      background: var(--black);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 8px;
+      margin-bottom: 1.25rem;
+      font-size: 1.02rem;
+      color: var(--gray-10);
+      line-height: 1.75;
+    }
+
+    .results-list li::before {
+      content: '✓';
+      position: absolute;
+      left: 1.1rem;
+      top: 1.2rem;
+      color: var(--primary-blue);
+      font-weight: 700;
+      font-size: 1.2rem;
+    }
+
+    .results-list strong {
+      color: var(--white);
+      display: block;
+      margin-bottom: 0.25rem;
+    }
+
+    /* Quote strip */
+    .quote-strip {
+      text-align: center;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 1rem 0 0;
+    }
+
+    .quote-strip p {
+      font-size: 1.3rem;
+      font-weight: 500;
+      color: var(--white);
+      line-height: 1.6;
+    }
+
+    .quote-strip .accent {
+      color: var(--primary-blue);
+    }
+
+    /* CTA Section */
+    .cta-section {
+      position: relative;
+      padding: 6rem 2rem;
+      text-align: center;
+      background: var(--dark-bg);
+      overflow: hidden;
+    }
+
+    .cta-background {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+    }
+
+    .cta-background img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.2;
+    }
+
+    .cta-content {
+      position: relative;
+      z-index: 1;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .cta-section h2 {
+      font-size: clamp(1.8rem, 4vw, 3rem);
+      margin-bottom: 2rem;
+      color: var(--white);
+    }
+
+    .cta-buttons {
+      display: flex;
+      gap: 1.5rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 1rem 2rem;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      transition: all 0.3s ease;
+      border: none;
+      cursor: pointer;
+    }
+
+    .btn-primary {
+      background: var(--primary-blue);
+      color: var(--on-primary);
+      border: 2px solid var(--primary-blue);
+    }
+
+    .btn-primary:hover {
+      background: transparent;
+      /* background drops out on hover, so the dark fill text must go white */
+      color: var(--white);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 20px rgba(4, 149, 246, 0.3);
+    }
+
+    .btn-secondary {
+      background: var(--white);
+      color: var(--black);
+      border: 2px solid var(--white);
+    }
+
+    .btn-secondary:hover {
+      background: transparent;
+      color: var(--white);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 20px rgba(255, 255, 255, 0.3);
+    }
+
+    /* Footer */
+    .footer {
+      background: var(--dark-bg);
+      color: rgba(255, 255, 255, 0.7);
+      padding: 48px 24px;
+    }
+
+    /* Minimal Footer — matches index.html */
+    .footer-minimal { padding: 2rem; text-align: center; }
+    .footer-content-minimal {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .footer-minimal .footer-logo img { height: 80px; max-height: none; width: auto; max-width: 100%; }
+    .footer-copyright { color: rgba(255, 255, 255, 0.6); font-size: 0.85rem; margin: 0; }
+
+    .footer-content {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      gap: 3rem;
+      padding-bottom: 2.5rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      align-items: center;
+    }
+
+    .footer-section {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .footer-section:first-child {
+      text-align: left;
+      justify-self: start;
+    }
+
+    .footer-section:last-child {
+      text-align: right;
+      justify-self: end;
+      gap: 0.5rem;
+    }
+
+    .footer-section p,
+    .footer-section a {
+      color: var(--gray-30);
+      text-decoration: none;
+      font-size: 0.95rem;
+      line-height: 1.8;
+      display: block;
+    }
+
+    .footer-section a:hover {
+      color: var(--primary-blue);
+    }
+
+    .footer-section a.cta-primary {
+      color: var(--white);
+      font-weight: 600;
+    }
+
+    .footer-section a.cta-primary:hover {
+      color: var(--primary-blue);
+    }
+
+    .footer-logo {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .footer-logo img {
+      max-width: 209px;
+      height: auto;
+      opacity: 0.9;
+    }
+
+    .footer-bottom {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding-top: 1.5rem;
+      font-size: 0.85rem;
+      color: var(--gray-50);
+    }
+
+    .footer-contact-with-social {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 1rem;
+    }
+
+    .footer-contact-with-social .social-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 36px;
+      height: 36px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 50%;
+      transition: all 0.3s ease;
+    }
+
+    .footer-contact-with-social .social-link:hover {
+      background: var(--primary-blue);
+      transform: translateY(-2px);
+    }
+
+    .footer-contact-with-social svg {
+      width: 18px;
+      height: 18px;
+      fill: var(--white);
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .nav-header {
+        padding: 1rem;
+      }
+
+      .nav-logo img {
+        height: 45px;
+      }
+
+      .nav-toggle {
+        display: block;
+      }
+
+      .nav-menu {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: #333333;
+        flex-direction: column;
+        gap: 0;
+        padding: 1rem 0;
+        transform: translateY(-100%);
+        opacity: 0;
+        pointer-events: none;
+        transition: all 0.3s ease;
+      }
+
+      .nav-menu.active {
+        transform: translateY(0);
+        opacity: 1;
+        pointer-events: all;
+      }
+
+      .nav-menu li {
+        width: 100%;
+        text-align: center;
+      }
+
+      .nav-menu a {
+        display: block;
+        padding: 1rem;
+      }
+
+      .page-header {
+        padding: 4rem 1.5rem 2rem;
+      }
+
+      .content-section {
+        padding: 3rem 1.5rem;
+      }
+
+      .card-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+
+      .cta-section {
+        padding: 4rem 1.5rem;
+      }
+
+      .cta-buttons {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .btn {
+        width: 100%;
+        max-width: 300px;
+      }
+
+      .footer-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        text-align: center;
+      }
+
+      .footer-section:first-child,
+      .footer-section:last-child {
+        text-align: center;
+        justify-self: center;
+      }
+
+      .footer-logo {
+        order: -1;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .page-header h1 {
+        font-size: 2rem;
+      }
+
+      .page-header p {
+        font-size: 1rem;
+      }
+
+      .quote-strip p {
+        font-size: 1.1rem;
+      }
+    }
+
+    /* Accessibility */
+    @media (prefers-reduced-motion: reduce) {
+      * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+
+    .btn:focus,
+    a:focus {
+      outline: 2px solid var(--primary-blue);
+      outline-offset: 2px;
+    }
+    /* ==================== Agentic AI / Hapimatic bridge (prototype 2026-10) ==================== */
+    .nav-menu a.nav-highlight {
+      background: var(--primary-blue);
+      color: var(--on-primary);
+      padding: 0.45em 0.8em;
+      border-radius: 4px;
+      font-weight: 600;
+    }
+    .nav-menu a.nav-highlight::after { display: none; }
+    .nav-menu a.nav-highlight:hover { background: #0263A3; color: var(--white); }
+    .btn-ghost {
+      background: transparent;
+      color: var(--white);
+      border: 2px solid rgba(255, 255, 255, 0.7);
+    }
+    .btn-ghost:hover {
+      background: var(--white);
+      color: var(--black);
+      border-color: var(--white);
+      transform: translateY(-2px);
+    }
+
+    .hapimatic-mark { text-align: center; margin-bottom: 1.25rem; }
+    /* Item 10: the odd fourth engagement card spans the row as a short wide
+       box rather than being orphaned under the first column. */
+    .info-card-wide {
+      grid-column: 1 / -1;
+      align-items: center;
+      text-align: center;
+    }
+    .info-card-wide p { max-width: 62ch; margin-inline: auto; }
+    .hapimatic-mark img { height: 40px; width: auto; display: inline-block; }
+    .hapimatic-card { display: block; text-decoration: none; color: inherit; }
+    .hapimatic-card:hover { border-color: var(--primary-blue); transform: translateY(-3px); }
+    .hapimatic-card-link {
+      display: block;
+      /* push to the card foot so the three links sit on one line across the row */
+      margin-top: auto;
+      padding-top: 1.25rem;
+      color: var(--primary-blue);
+      font-weight: 600;
+      font-size: 0.9rem;
+      word-break: break-all;
+    }
+    .section-lead a { color: var(--primary-blue); text-decoration: none; border-bottom: 1px solid rgba(4, 149, 246, 0.5); }
+    @media (max-width: 768px) {
+      .nav-menu a.nav-highlight { display: block; margin: 0.5rem 1.5rem; border-radius: 6px; text-align: center; }
+    }
+
+
+    /* ==================== Site Footer (doc item 11) ====================
+       One footer on every page: logo + Email/Office/Connect on the top tier,
+       copyright + Hapimatic byline on a hairline-separated bottom tier. */
+    .site-footer { padding: 3.5rem 2rem 1.75rem; }
+    .site-footer-main {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      /* Email / Office / Connect each centred in an equal third, so the row
+         reads left-centre-right and the whole block is centred on the page. */
+      grid-template-columns: repeat(3, 1fr);
+      justify-items: center;
+      text-align: center;
+      align-items: start;
+      gap: 2.5rem;
+    }
+    .site-footer-col h3 {
+      font-family: "DM Sans", sans-serif;
+      font-weight: 700;
+      font-size: 0.8rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--primary-blue);
+      margin-bottom: 0.6rem;
+    }
+    .site-footer-col a,
+    .site-footer-col p {
+      color: var(--gray-10);
+      font-size: 0.9rem;
+      line-height: 1.6;
+      margin: 0;
+    }
+    .site-footer-col a { text-decoration: none; }
+    .site-footer-col a:hover { color: var(--primary-blue); }
+    .site-footer-bottom {
+      max-width: 1200px;
+      margin: 2.25rem auto 0;
+      padding-top: 1.5rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.25rem 2rem;
+    }
+    /* Official white+blue horizontal lockup (vector). The all-white variant
+       disappeared on the dark bar. At 46px tall "SOLID" renders 76px wide,
+       over the guide's 60px screen minimum. */
+    .site-footer-brand { height: 46px; width: auto; display: block; }
+    .site-footer-bottom .footer-copyright { margin: 0; }
+    @media (max-width: 900px) {
+      .site-footer { padding: 2.25rem 1.5rem 1.5rem; }
+      /* Email and Connect pair up (each is one line); the address spans below. */
+      .site-footer-main {
+        grid-template-columns: 1fr 1fr;
+        gap: 1.25rem 2rem;
+      }
+      .site-footer-col--office { grid-column: 1 / -1; order: 1; }
+      .site-footer-bottom {
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+        margin-top: 1.5rem;
+        gap: 1rem;
+      }
+      .site-footer-brand { height: 40px; }
+    }
+    .labs-link { color: var(--primary-blue); text-decoration: underline; text-underline-offset: 2px; }
+    .social-link-inline { display: inline-flex; align-items: center; gap: 0.5rem; color: var(--gray-10); text-decoration: none; }
+    .social-link-inline:hover { color: var(--primary-blue); }
+    .social-link-inline svg { width: 20px; height: 20px; fill: currentColor; }
+  </style>
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+  <!-- Navigation -->
+  <nav class="nav-header">
+    <div class="nav-container">
+      <div class="nav-logo">
+        <a href="index.html">
+          <img src="images/assets/Solid-O3-horizontal-black.png" alt="Solid Product Design" />
+        </a>
+      </div>
+      <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
+      <ul class="nav-menu">
+        <li><a href="index.html#about">ABOUT</a></li>
+        <li><a href="index.html#services">SERVICES</a></li>
+        <li><a href="index.html#work">WORK</a></li>
+        <li><a href="index.html#contact">CONTACT</a></li>
+        <li><a href="agentic.html" class="nav-highlight" aria-current="page">AGENTIC AI</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main id="main-content">
+  <!-- Hero -->
+  <section class="page-header">
+    <h1>AI that debugs <span class="accent">real hardware</span></h1>
+    <p>
+      We put AI agents at a physical test bench — with instrument-grade eyes and hands, hard safety
+      interlocks, and a senior engineer in command. The result: firmware problems that used to consume
+      weeks of bench time get found, fixed, and verified in days, with every claim backed by a hardware
+      measurement.
+    </p>
+    <div class="hero-cta">
+      <a href="contact.html" class="btn btn-primary">Bring Us Your Hardest Bug</a>
+    </div>
+  </section>
+
+  <!-- The Bottleneck -->
+  <section class="content-section">
+    <div class="section-inner">
+      <h2 class="section-heading">The Bottleneck</h2>
+      <p class="section-lead">
+        The hardest problems in a hardware product live at the boundary between
+        <strong>firmware and physics</strong>.
+      </p>
+      <p class="section-lead">
+        A simulator won't catch the charge controller that only fails when a thermistor is disconnected.
+        A code review won't find the sensor that never sleeps and quietly drains your battery. These bugs
+        only reveal themselves on real hardware, under live conditions — and finding them takes an
+        engineer, a bench full of instruments, and time: flash, measure, think, adjust, repeat. That loop
+        is slow, expensive, and it doesn't scale. It is the quiet bottleneck of almost every hardware
+        program.
+      </p>
+    </div>
+  </section>
+
+  <!-- What We Built -->
+  <section class="content-section alt">
+    <div class="section-inner">
+      <h2 class="section-heading">We Closed the Loop</h2>
+      <p class="section-lead">
+        For the past two years, Solid has been building something we believe is genuinely new: a system
+        that puts AI agents <span class="accent">inside</span> the develop-test loop, not just beside it.
+        Our agents don't stop at writing firmware. They flash it to the actual device, drive lab
+        instruments — programmable power supplies and loads, power profilers, waveform generators, logic
+        and protocol analyzers — and read back measurements, including continuous visual and thermal
+        camera coverage of the board itself. Then they form a hypothesis, change one thing, and measure
+        again. And again. Around the clock, without fatigue, with a senior electrical engineer directing
+        the work and reviewing every result.
+      </p>
+
+      <div class="loop-strip" aria-label="The closed loop: write firmware, flash the device, measure on instruments, analyze, and repeat">
+        <span class="loop-step">Write</span>
+        <span class="loop-arrow" aria-hidden="true">→</span>
+        <span class="loop-step">Flash</span>
+        <span class="loop-arrow" aria-hidden="true">→</span>
+        <span class="loop-step">Measure</span>
+        <span class="loop-arrow" aria-hidden="true">→</span>
+        <span class="loop-step">Analyze</span>
+        <span class="loop-repeat">↻ repeat — around the clock, on real hardware</span>
+      </div>
+
+      <p class="section-lead">
+        We run this on our own self-contained, remotely operable test cells: your device is fixtured once
+        inside an instrumented enclosure, and from that moment the full test capability of the bench —
+        flashing, power cycling, probing, imaging — is available on demand, from anywhere, in parallel
+        across as many devices as the problem needs. <strong>One engineer, many benches.</strong>
+      </p>
+    </div>
+  </section>
+
+  <!-- Built on Hapimatic (bridge to hapimatic.com) -->
+  <section class="content-section" id="hapimatic" aria-labelledby="hapimatic-title">
+    <div class="section-inner-wide">
+      <p class="hapimatic-mark"><a href="https://hapimatic.com/" target="_blank" rel="noopener"><img src="images/assets/hapimatic/wordmark-still.svg" alt="Hapimatic" width="148" height="40"></a></p>
+      <h2 class="section-heading" id="hapimatic-title">Built on Hapimatic</h2>
+      <p class="section-lead" style="text-align: center;">
+        The system behind this work is <a href="https://hapimatic.com/" target="_blank" rel="noopener">Hapimatic</a>, our platform for running AI agents as a
+        distributed fleet, and its Hardware Bench, which gives those agents instrument-grade eyes and hands. We built it
+        for our own bench first. The core is open source, and the bench is available as a hosted service.
+      </p>
+      <div class="card-grid">
+        <a class="info-card hapimatic-card" href="https://github.com/SolidPD/hapimatic-core" target="_blank" rel="noopener">
+          <span class="card-label">Open source</span>
+          <h3>Run the core yourself</h3>
+          <p>The fleet platform itself: run your agents on your own machines, reach them from any browser or phone, and
+          keep sessions alive across reboots, network drops, and rate limits. Open source under AGPL-3.0.</p>
+          <span class="hapimatic-card-link">github.com/SolidPD/hapimatic-core &nearr;</span>
+        </a>
+        <a class="info-card hapimatic-card" href="https://hapimatic.com/hosted/hardware-bench" target="_blank" rel="noopener">
+          <span class="card-label">Hosted service</span>
+          <h3>Put your agents at our bench</h3>
+          <p>Hardware Bench, a paid add-on of the hosted service: a camera over the board, an oscilloscope, programmable
+          supplies and loads, a power profiler, and debug probes, all within your agent's reach. In pilot, contact us.</p>
+          <span class="hapimatic-card-link">hapimatic.com/hosted/hardware-bench &nearr;</span>
+        </a>
+        <a class="info-card hapimatic-card" href="#engagements">
+          <span class="card-label">Engineering services</span>
+          <h3>Let us run the loop for you</h3>
+          <p>Bring us the problem. Our engineers fixture your device, direct the agents, review every result, and deliver
+          the fix with its evidence trail. No platform to learn, no bench to build.</p>
+          <span class="hapimatic-card-link">See engagements &darr;</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sweet Spot -->
+  <section class="content-section alt">
+    <div class="section-inner-wide">
+      <h2 class="section-heading">Built for Firmware Problems</h2>
+      <div class="section-inner">
+        <p class="section-lead">
+          This system is ideal for solving firmware problems in hardware devices — and that's by design.
+          Firmware iterates in seconds, its effects are physically measurable (current draw, timing,
+          temperature, RF behavior), and the hardware itself is the objective referee: a fix either holds
+          on the bench or it doesn't. That makes firmware the perfect material for a closed loop that can
+          run thousands of build-flash-measure iterations while your team sleeps.
+        </p>
+      </div>
+      <div class="card-grid">
+        <div class="info-card">
+          <h3>Power Optimization</h3>
+          <p>
+            Battery life is a firmware problem wearing a hardware costume. Our agents profile current draw
+            correlated line-by-line with firmware execution, find the waste — wake locks, chatty polling,
+            radios that never rest, peripherals left powered — then implement the fixes and verify every
+            milliamp of improvement on the physical device.
+          </p>
+          <p>You get back a battery-life number, and the evidence trail behind it.</p>
+        </div>
+        <div class="info-card">
+          <h3>Bug Identification &amp; Troubleshooting</h3>
+          <p>
+            The intermittent fault. The protocol handshake that fails one time in fifty. The inherited
+            codebase nobody fully understands anymore. Our agents reproduce the failure on the
+            device itself, instrument the code, bisect the behavior, and watch the result on the instruments —
+            logic analyzer, power profiler, thermal camera — until the root cause has nowhere left to hide.
+          </p>
+          <p>Then they prove the fix by trying to break it.</p>
+        </div>
+        <div class="info-card">
+          <h3>Regression &amp; Endurance Testing</h3>
+          <p>
+            Fixture your board once, and your full hardware test suite re-runs on demand or on a schedule —
+            against real rails, sensors, and loads. Soak tests, characterization sweeps, and
+            overnight captures run unattended.
+          </p>
+          <p>The regressions simulators miss get caught before they ship.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Results -->
+  <section class="content-section">
+    <div class="section-inner">
+      <h2 class="section-heading">Results We've Demonstrated</h2>
+      <p class="section-lead" style="text-align: center;">This isn't a concept page. The system has already delivered on client work:</p>
+      <ul class="results-list">
+        <li>
+          <strong>Power optimization, end to end.</strong>
+          What began as an advisory review for a client's energy-harvesting device became a complete,
+          delivered power-optimization implementation — analysis, firmware changes, and hardware-verified
+          results — executed through our agentic system under engineer direction.
+        </li>
+        <li>
+          <strong>Firmware stabilized.</strong>
+          A client's power-management firmware was oscillating so wildly the feature was unusable. Our
+          closed-loop process reproduced the behavior, isolated the cause, and delivered stabilized
+          firmware verified on the client's own hardware.
+        </li>
+        <li>
+          <strong>Stalled projects rescued.</strong>
+          Inherited, undocumented designs are where this approach shines brightest: the system methodically
+          maps what exists, tests its assumptions against the board itself, and drives the project to a
+          working outcome. We've now done this more than once — including work our clients had written off
+          as stuck.
+        </li>
+        <li>
+          <strong>Our own lab, built the same way.</strong>
+          The test cells themselves — instrument drivers, safety firmware, evidence pipeline — were
+          developed with the same closed-loop process we sell.
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Trust -->
+  <section class="content-section alt">
+    <div class="section-inner-wide">
+      <h2 class="section-heading">Why You Can Trust It</h2>
+      <div class="section-inner">
+        <p class="section-lead" style="text-align: center;">
+          AI with its hands on hardware raises fair questions. We designed for them from day one.
+        </p>
+      </div>
+      <div class="card-grid">
+        <div class="info-card">
+          <div class="card-label">Safety</div>
+          <h3>Enforced Below the AI</h3>
+          <p>
+            The agent never touches an instrument directly — it can only ask. A policy layer owns every
+            instrument handle and refuses or clamps any request outside the device's safety envelope.
+            Below that sits a non-overridable hardware safety floor: absolute thermal ceilings,
+            smoke-triggered power cutoff, an e-stop chain, and a watchdog that fails to a safe state even
+            if everything above it is dead.
+          </p>
+        </div>
+        <div class="info-card">
+          <div class="card-label">Evidence</div>
+          <h3>Measurements, Not Claims</h3>
+          <p>
+            Every measurement writes a durable, append-only record: timestamped raw data, the exact intent
+            that requested it, the device profile it ran under, a safety-state snapshot, and camera frames
+            of the board at capture time. Refusals are logged too.
+          </p>
+          <p>Every number in our reports traces back to who asked, what ran, and what the device looked like when it happened.</p>
+        </div>
+        <div class="info-card">
+          <div class="card-label">Accountability</div>
+          <h3>An Engineer in Command</h3>
+          <p>
+            The loop is agentic, not autonomous-and-unaccountable. A senior electrical engineer with two
+            decades of embedded experience scopes the work, watches the same live session the AI runs, and
+            stands behind every deliverable.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Engagements -->
+  <section class="content-section" id="engagements">
+    <div class="section-inner-wide">
+      <h2 class="section-heading">What We Can Do for You</h2>
+      <div class="card-grid">
+        <div class="info-card">
+          <h3>Firmware Debug Sprint</h3>
+          <p>
+            Bring us the bug nobody can find. We fixture your device, reproduce the failure, and hunt it to
+            root cause — then deliver the fix, the proof, and the evidence trail. Fixed scope, fast
+            turnaround.
+          </p>
+        </div>
+        <div class="info-card">
+          <h3>Power Optimization Sprint</h3>
+          <p>
+            A battery-life audit that ends in shipped firmware, not a slide deck: profiling, prioritized
+            findings, implemented fixes, and measured, hardware-verified improvement.
+          </p>
+        </div>
+        <div class="info-card">
+          <h3>Dedicated Test Cell</h3>
+          <p>
+            Your product, permanently fixtured in its own instrumented, safety-interlocked test cell.
+            On-demand regression runs, scheduled soak testing, and a remote bench your team can reach from
+            a browser — parallel test capacity without parallel headcount.
+          </p>
+        </div>
+        <div class="info-card info-card-wide">
+          <h3>Something Else?</h3>
+          <p>
+            If your problem lives at the firmware/hardware boundary, it's probably a fit. Tell us what's
+            broken — the first conversation is free.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="cta-section">
+    <div class="cta-background">
+      <img src="images/assets/Let_s Build Something Extraordinary Image - Rezzi.jpg" alt="Engineering workspace" width="1400" height="788" loading="lazy" />
+    </div>
+    <div class="cta-content">
+      <h2>Bring Us Your Hardest Firmware Bug</h2>
+      <div class="cta-buttons">
+        <a href="https://calendar.app.google/8KWMbY5n79jBBe4U9" target="_blank" rel="noopener" class="btn btn-primary">Schedule a Call</a>
+        <a href="contact.html" class="btn btn-secondary">Send a Message</a>
+      </div>
+    </div>
+  </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer site-footer">
+    <div class="site-footer-main">
+      <div class="site-footer-col">
+        <h3>Email</h3>
+        <a href="#" class="protected-email" data-user="hello" data-domain="solidpd.com">hello [at] solidpd [dot] com</a>
+      </div>
+      <div class="site-footer-col site-footer-col--office">
+        <h3>Office</h3>
+        <p><a href="labs.html" class="labs-link">SOLID LABS</a></p>
+        <p>2212 Walnut Street, 1st Floor<br>Philadelphia, PA 19103</p>
+      </div>
+      <div class="site-footer-col">
+        <h3>Connect</h3>
+        <a href="https://www.linkedin.com/company/solidpd/" target="_blank" rel="noopener" aria-label="Visit Solid Product Design on LinkedIn" class="social-link-inline">
+          <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false">
+            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.026-3.039-1.852-3.039-1.853 0-2.136 1.447-2.136 2.943v5.665H9.35V9h3.414v1.561h.049c.476-.9 1.637-1.852 3.369-1.852 3.602 0 4.268 2.371 4.268 5.455v6.288zM5.337 7.433a2.062 2.062 0 1 1 0-4.124 2.062 2.062 0 0 1 0 4.124zM6.997 20.452H3.675V9h3.322v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.226.792 24 1.771 24h20.451C23.2 24 24 23.226 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+    <div class="site-footer-bottom">
+      <img src="images/assets/Solid-Product-Design-logo-horizontal-white-blue.svg" alt="Solid Product Design" width="276" height="46" loading="lazy" class="site-footer-brand" />
+      <p class="footer-copyright">&copy; 2026 Solid Product Design. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="js/email-protection.js"></script>
+  <script>
+    // Mobile navigation toggle
+    const navToggle = document.querySelector('.nav-toggle');
+    const navMenu = document.querySelector('.nav-menu');
+
+    navToggle.addEventListener('click', () => {
+      navMenu.classList.toggle('active');
+    });
+
+    // Close menu when clicking a link
+    document.querySelectorAll('.nav-menu a').forEach(link => {
+      link.addEventListener('click', () => {
+        navMenu.classList.remove('active');
+      });
+    });
+  </script>
+</body>
+</html>

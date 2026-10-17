@@ -32,6 +32,9 @@
     /* CSS Variables */
     :root {
       --primary-blue: #0495F6;
+      /* Filled brand-blue surfaces take blue-900 text. White on #0495F6 is only
+         3.17:1 and fails AA at body size; #011A2B on it is 5.60:1. */
+      --on-primary: #011A2B;
       --primary-yellow: #FFB75A;
       --dark-bg: #1A1A1A;
       --black: #000000;
@@ -108,18 +111,29 @@
     /* Skip Link for Accessibility */
     .skip-link {
       position: absolute;
-      top: -100%;
+      top: 0;
       left: 0;
       background: var(--primary-blue);
-      color: var(--white);
-      padding: 0.5rem 1rem;
+      color: var(--on-primary);
       z-index: 9999;
       text-decoration: none;
       font-weight: 500;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      overflow: hidden;
+      clip: rect(0 0 0 0);
+      clip-path: inset(50%);
+      white-space: nowrap;
     }
 
     .skip-link:focus {
-      top: 0;
+      width: auto;
+      height: auto;
+      padding: 0.5rem 1rem;
+      overflow: visible;
+      clip: auto;
+      clip-path: none;
     }
 
     /* ==================== */
@@ -768,12 +782,13 @@
 
     .btn-primary {
       background: var(--primary-blue);
-      color: var(--white);
+      color: var(--on-primary);
     }
 
     .btn-primary:hover,
     .btn-primary:focus {
-      background: #0380d6;
+      background: #0263A3;
+      color: var(--white);
     }
 
     /* Form Status States */
