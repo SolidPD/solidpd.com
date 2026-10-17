@@ -825,10 +825,10 @@
       justify-content: space-between;
       gap: 1.25rem 2rem;
     }
-    /* The blue stylised O keeps the mark from disappearing on the dark bar;
-       the guide allows a blue O with white letters. 139px wide clears the
-       60px minimum for "SOLID" comfortably. */
-    .site-footer-brand { height: 64px; width: auto; display: block; }
+    /* Horizontal lockup with the brand-blue stylised O — the all-white version
+       disappeared on the dark bar. The guide allows a blue O with white
+       letters. At 46px tall "SOLID" renders 76px wide, over the 60px minimum. */
+    .site-footer-brand { height: 46px; width: auto; display: block; }
     .site-footer-bottom .footer-copyright { margin: 0; }
     @media (max-width: 900px) {
       .site-footer { padding: 2.25rem 1.5rem 1.5rem; }
@@ -845,7 +845,7 @@
         margin-top: 1.5rem;
         gap: 1rem;
       }
-      .site-footer-brand { height: 56px; }
+      .site-footer-brand { height: 40px; }
     }
     .labs-link { color: var(--primary-blue); text-decoration: underline; text-underline-offset: 2px; }
     .social-link-inline { display: inline-flex; align-items: center; gap: 0.5rem; color: var(--gray-10); text-decoration: none; }
@@ -1185,8 +1185,8 @@
     </div>
     <div class="site-footer-bottom">
       <picture>
-        <source srcset="images/assets/optimized/solid-mark-white-blue.webp" type="image/webp">
-        <img src="images/assets/optimized/solid-mark-white-blue.png" alt="Solid Product Design" width="139" height="64" loading="lazy" class="site-footer-brand" />
+        <source srcset="images/assets/optimized/solid-horizontal-white-blue.webp" type="image/webp">
+        <img src="images/assets/optimized/solid-horizontal-white-blue.png" alt="Solid Product Design" width="276" height="46" loading="lazy" class="site-footer-brand" />
       </picture>
       <p class="footer-copyright">&copy; 2026 Solid Product Design. All rights reserved.</p>
     </div>
