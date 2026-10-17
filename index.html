@@ -38,8 +38,10 @@
       --gray-70: #4D4D4D;
       --gray-50: #808080;
       --gray-30: #B2B2B2;
-      /* Brand blue-600: the AA-safe fill for white text (default blue is 3.17:1) */
-      --primary-blue-aa: #0263A3;
+      /* Filled brand-blue surfaces take blue-900 text. White on #0495F6 is only
+         3.17:1 and fails AA at body size; #011A2B on it is 5.60:1, so the bright
+         blue stays and the text carries the contrast. */
+      --on-primary: #011A2B;
       --gray-10: #E5E5E5;
       --white: #FFFFFF;
     }
@@ -282,13 +284,15 @@
     }
 
     .btn-primary {
-      background: var(--primary-blue-aa);
-      color: var(--white);
-      border: 2px solid var(--primary-blue-aa);
+      background: var(--primary-blue);
+      color: var(--on-primary);
+      border: 2px solid var(--primary-blue);
     }
 
     .btn-primary:hover {
       background: transparent;
+      /* background drops out on hover, so the dark fill text must go white */
+      color: var(--white);
       transform: translateY(-2px);
       box-shadow: 0 4px 20px rgba(4, 149, 246, 0.3);
     }
@@ -1626,8 +1630,8 @@
     }
     /* ==================== Agentic AI / Hapimatic bridge (prototype 2026-10) ==================== */
     .nav-menu a.nav-highlight {
-      background: var(--primary-blue-aa);
-      color: var(--white);
+      background: var(--primary-blue);
+      color: var(--on-primary);
       padding: 0.45em 0.8em;
       border-radius: 4px;
       font-weight: 600;
