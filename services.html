@@ -37,7 +37,10 @@
       --black: #000000;
       --gray-70: #4D4D4D;
       --gray-50: #808080;
-      --gray-30: #B3B3B3;
+      --gray-30: #B2B2B2;
+      /* Filled brand-blue surfaces take blue-900 text. White on #0495F6 is only
+         3.17:1 and fails AA at body size; #011A2B on it is 5.60:1. */
+      --on-primary: #011A2B;
       --gray-10: #E5E5E5;
       --white: #FFFFFF;
     }
@@ -113,16 +116,26 @@
       position: absolute;
       top: 0;
       left: 0;
-      transform: translateY(-100%);
       background: var(--primary-blue);
       color: var(--white);
-      padding: 0.5rem 1rem;
       z-index: 2000;
       text-decoration: none;
       font-family: var(--font-body);
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      overflow: hidden;
+      clip: rect(0 0 0 0);
+      clip-path: inset(50%);
+      white-space: nowrap;
     }
     .skip-link:focus {
-      transform: translateY(0);
+      width: auto;
+      height: auto;
+      padding: 0.5rem 1rem;
+      overflow: visible;
+      clip: auto;
+      clip-path: none;
     }
 
     /* Navigation */
@@ -420,12 +433,14 @@
 
     .btn-primary {
       background: var(--primary-blue);
-      color: var(--white);
+      color: var(--on-primary);
       border: 2px solid var(--primary-blue);
     }
 
     .btn-primary:hover {
       background: transparent;
+      /* background drops out on hover, so the dark fill text must go white */
+      color: var(--white);
       transform: translateY(-2px);
       box-shadow: 0 4px 20px rgba(4, 149, 246, 0.3);
     }
@@ -608,7 +623,7 @@
       }
 
       .flip-card {
-        height: 320px;
+        height: 340px;
       }
 
       .services-section {
@@ -660,12 +675,12 @@
       }
 
       .flip-card {
-        height: 300px;
+        height: 380px;
       }
 
       .flip-card-front,
       .flip-card-back {
-        padding: 2rem;
+        padding: 1.5rem;
       }
 
       .flip-card-front h3 {
@@ -674,10 +689,13 @@
 
       .flip-card-back h3 {
         font-size: 1.1rem;
+        margin-bottom: 0.75rem;
       }
 
       .flip-card-back li {
         font-size: 0.9rem;
+        line-height: 1.65;
+        margin-bottom: 0.375rem;
       }
     }
 
@@ -709,7 +727,7 @@
     /* ============ Hapimatic bridge: AGENTIC AI nav pill (ported 2026-10) ============ */
     .nav-menu a.nav-highlight {
       background: var(--primary-blue);
-      color: var(--white);
+      color: var(--on-primary);
       padding: 0.45em 0.8em;
       border-radius: 4px;
       font-weight: 600;
@@ -740,10 +758,17 @@
     .footer-hapimatic a:hover { color: #5ae6ab; border-color: #5ae6ab; }
 
     /* ============ Hapimatic bridge: full-width seventh service card (ported 2026-10) ============ */
-    .flip-card-wide { grid-column: 1 / -1; }
-    .flip-card-wide .flip-card-back ul { columns: 2; column-gap: 3rem; }
+    /* With an odd number of tiles the last would sit against the left edge of
+       the 2-column grid; span the row and centre it at one column's width. */
+    .services-grid > .flip-card:last-child:nth-child(odd) {
+      grid-column: 1 / -1;
+      width: calc(50% - 1.25rem);
+      margin-inline: auto;
+    }
     @media (max-width: 768px) {
-      .flip-card-wide .flip-card-back ul { columns: 1; }
+      .services-grid > .flip-card:last-child:nth-child(odd) {
+        width: auto;
+      }
     }
   </style>
 </head>
@@ -863,7 +888,25 @@
         </div>
       </div>
 
-      <!-- Card 5: Prototyping & Testing -->
+      <!-- Card 5: Firmware & Embedded Software -->
+      <div class="flip-card" tabindex="0" role="button" aria-label="Firmware & Embedded Software service details">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <img src="images/assets/Other Images/optimized/firmware.jpg" alt="" class="flip-card-front-image" loading="lazy" width="1200" height="670" />
+            <h3>Firmware &amp; Embedded Software</h3>
+          </div>
+          <div class="flip-card-back">
+            <h3>Firmware &amp; Embedded Software</h3>
+            <ul>
+              <li>Board bring-up, drivers, and device firmware</li>
+              <li>Power optimization, with battery life verified on the device</li>
+              <li>Protocol, connectivity, and sensor integration</li>
+              <li>Hardware-in-the-loop regression testing on our agentic test cells</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <!-- Card 6: Prototyping & Testing -->
       <div class="flip-card" tabindex="0" role="button" aria-label="Prototyping & Testing service details">
         <div class="flip-card-inner">
           <div class="flip-card-front">
@@ -882,7 +925,7 @@
         </div>
       </div>
 
-      <!-- Card 6: Manufacturing Preparation -->
+      <!-- Card 7: Manufacturing Preparation -->
       <div class="flip-card" tabindex="0" role="button" aria-label="Manufacturing Preparation service details">
         <div class="flip-card-inner">
           <div class="flip-card-front">
@@ -897,24 +940,6 @@
               <li>Certification and compliance support</li>
               <li>In-house pilot production</li>
               <li>Full-scale manufacturing support</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-      <!-- Card 7: Firmware & Embedded Software (full-width row) -->
-      <div class="flip-card flip-card-wide" tabindex="0" role="button" aria-label="Firmware & Embedded Software service details">
-        <div class="flip-card-inner">
-          <div class="flip-card-front">
-            <img src="images/assets/Other Images/optimized/firmware.jpg" alt="" class="flip-card-front-image" loading="lazy" width="1200" height="670" />
-            <h3>Firmware &amp; Embedded Software</h3>
-          </div>
-          <div class="flip-card-back">
-            <h3>Firmware &amp; Embedded Software</h3>
-            <ul>
-              <li>Board bring-up, drivers, and device firmware</li>
-              <li>Power optimization, with battery life verified on the device</li>
-              <li>Protocol, connectivity, and sensor integration</li>
-              <li>Hardware-in-the-loop regression testing on our agentic test cells</li>
             </ul>
           </div>
         </div>
@@ -965,7 +990,7 @@
       <p>&copy; 2026 Solid Product Design. All rights reserved.</p>
       <p class="footer-hapimatic">
         <a class="mark" href="https://hapimatic.com/" target="_blank" rel="noopener" aria-label="Hapimatic"><img src="images/assets/hapimatic/wordmark-still.svg" alt="Hapimatic" width="74" height="20"></a>
-        <span>is our open-source platform for running AI agents as a distributed fleet. Its Hardware Bench is where our agentic engineering work runs.</span>
+        <span>is our open-source platform for running AI agents as a distributed fleet.</span>
         <a href="https://github.com/SolidPD/hapimatic-core" target="_blank" rel="noopener">GitHub &nearr;</a>
       </p>
     </div>

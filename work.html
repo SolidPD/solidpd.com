@@ -37,7 +37,10 @@
       --black: #000000;
       --gray-70: #4D4D4D;
       --gray-50: #808080;
-      --gray-30: #B3B3B3;
+      --gray-30: #B2B2B2;
+      /* Filled brand-blue surfaces take blue-900 text. White on #0495F6 is only
+         3.17:1 and fails AA at body size; #011A2B on it is 5.60:1. */
+      --on-primary: #011A2B;
       --gray-10: #E5E5E5;
       --white: #FFFFFF;
     }
@@ -113,16 +116,26 @@
       position: absolute;
       top: 0;
       left: 0;
-      transform: translateY(-100%);
       background: var(--primary-blue);
       color: var(--white);
-      padding: 0.5rem 1rem;
       z-index: 2000;
       text-decoration: none;
       font-family: var(--font-body);
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      overflow: hidden;
+      clip: rect(0 0 0 0);
+      clip-path: inset(50%);
+      white-space: nowrap;
     }
     .skip-link:focus {
-      transform: translateY(0);
+      width: auto;
+      height: auto;
+      padding: 0.5rem 1rem;
+      overflow: visible;
+      clip: auto;
+      clip-path: none;
     }
 
     /* Navigation */
@@ -413,12 +426,14 @@
 
     .btn-primary {
       background: var(--primary-blue);
-      color: var(--white);
+      color: var(--on-primary);
       border: 2px solid var(--primary-blue);
     }
 
     .btn-primary:hover {
       background: transparent;
+      /* background drops out on hover, so the dark fill text must go white */
+      color: var(--white);
       transform: translateY(-2px);
       box-shadow: 0 4px 20px rgba(4, 149, 246, 0.3);
     }
@@ -716,7 +731,7 @@
     /* ============ Hapimatic bridge: AGENTIC AI nav pill (ported 2026-10) ============ */
     .nav-menu a.nav-highlight {
       background: var(--primary-blue);
-      color: var(--white);
+      color: var(--on-primary);
       padding: 0.45em 0.8em;
       border-radius: 4px;
       font-weight: 600;
@@ -781,7 +796,10 @@
     <div class="portfolio-grid">
       <!-- Project 1: Laminitis Sensor -->
       <div class="portfolio-item" tabindex="0">
-        <img src="images/assets/Our Work - Laminitis Sensor.jpg" alt="Laminitis research device" width="3840" height="2560" loading="lazy" />
+        <picture>
+          <source srcset="images/assets/optimized/our-work-laminitis.webp" type="image/webp">
+          <img src="images/assets/optimized/our-work-laminitis.jpg" alt="Laminitis research device" width="1200" height="800" loading="lazy" />
+        </picture>
         <div class="portfolio-overlay">
           <span class="client">Penn Vet</span>
           <h3>Animal Research Device</h3>
@@ -791,7 +809,10 @@
 
       <!-- Project 2: Neuralert -->
       <div class="portfolio-item" tabindex="0">
-        <img src="images/assets/Our Work - Neuralert.png" alt="Stroke detection wearable" width="3840" height="2160" loading="lazy" />
+        <picture>
+          <source srcset="images/assets/optimized/our-work-neuralert.webp" type="image/webp">
+          <img src="images/assets/optimized/our-work-neuralert.png" alt="Stroke detection wearable" width="1200" height="675" loading="lazy" />
+        </picture>
         <div class="portfolio-overlay">
           <span class="client">Neuralert</span>
           <h3>Stroke Detection Wearable</h3>
@@ -811,7 +832,10 @@
 
       <!-- Project 4: UroGenie -->
       <div class="portfolio-item" tabindex="0">
-        <img src="images/assets/Our Work - UroGenie.png" alt="Uroflow measurement device" width="726" height="493" loading="lazy" />
+        <picture>
+          <source srcset="images/assets/optimized/our-work-urogenie.webp" type="image/webp">
+          <img src="images/assets/optimized/our-work-urogenie.png" alt="Uroflow measurement device" width="726" height="493" loading="lazy" />
+        </picture>
         <div class="portfolio-overlay">
           <span class="client">UroGenie</span>
           <h3>Uroflow Device</h3>
@@ -821,7 +845,10 @@
 
       <!-- Project 5: Vagus Nerve Stimulation -->
       <div class="portfolio-item" tabindex="0">
-        <img src="images/assets/Our Work - Mindvybe.png" alt="Vagus nerve stimulation device" width="832" height="1147" loading="lazy" />
+        <picture>
+          <source srcset="images/assets/optimized/our-work-mindvybe.webp" type="image/webp">
+          <img src="images/assets/optimized/our-work-mindvybe.png" alt="Vagus nerve stimulation device" width="832" height="1147" loading="lazy" />
+        </picture>
         <div class="portfolio-overlay">
           <span class="client">MINDVYBE</span>
           <h3>Vagus Nerve Stimulation Device</h3>
@@ -855,9 +882,6 @@
       </div>
       <div class="client-logo">
         <img src="images/placeholders/client-aepnus.png" alt="Aepnus" width="1024" height="512" loading="lazy" />
-      </div>
-      <div class="client-logo">
-        <img src="images/placeholders/client-agtech-logic.png" alt="AgTech Logic" width="512" height="512" loading="lazy" />
       </div>
       <div class="client-logo">
         <img src="images/placeholders/client-dottir-labs.png" alt="Dottir Labs" width="747" height="267" loading="lazy" />
@@ -926,7 +950,7 @@
       <p>&copy; 2026 Solid Product Design. All rights reserved.</p>
       <p class="footer-hapimatic">
         <a class="mark" href="https://hapimatic.com/" target="_blank" rel="noopener" aria-label="Hapimatic"><img src="images/assets/hapimatic/wordmark-still.svg" alt="Hapimatic" width="74" height="20"></a>
-        <span>is our open-source platform for running AI agents as a distributed fleet. Its Hardware Bench is where our agentic engineering work runs.</span>
+        <span>is our open-source platform for running AI agents as a distributed fleet.</span>
         <a href="https://github.com/SolidPD/hapimatic-core" target="_blank" rel="noopener">GitHub &nearr;</a>
       </p>
     </div>

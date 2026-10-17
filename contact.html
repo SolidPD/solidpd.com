@@ -37,7 +37,10 @@
       --black: #000000;
       --gray-70: #4D4D4D;
       --gray-50: #808080;
-      --gray-30: #B3B3B3;
+      --gray-30: #B2B2B2;
+      /* Filled brand-blue surfaces take blue-900 text. White on #0495F6 is only
+         3.17:1 and fails AA at body size; #011A2B on it is 5.60:1. */
+      --on-primary: #011A2B;
       --gray-10: #E5E5E5;
       --white: #FFFFFF;
     }
@@ -104,16 +107,26 @@
       position: absolute;
       top: 0;
       left: 0;
-      transform: translateY(-100%);
       background: var(--primary-blue);
       color: var(--white);
-      padding: 0.5rem 1rem;
       z-index: 2000;
       text-decoration: none;
       font-family: var(--font-body);
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      overflow: hidden;
+      clip: rect(0 0 0 0);
+      clip-path: inset(50%);
+      white-space: nowrap;
     }
     .skip-link:focus {
-      transform: translateY(0);
+      width: auto;
+      height: auto;
+      padding: 0.5rem 1rem;
+      overflow: visible;
+      clip: auto;
+      clip-path: none;
     }
 
     /* Honeypot (spam protection) */
@@ -692,7 +705,7 @@
     /* ============ Hapimatic bridge: AGENTIC AI nav pill (ported 2026-10) ============ */
     .nav-menu a.nav-highlight {
       background: var(--primary-blue);
-      color: var(--white);
+      color: var(--on-primary);
       padding: 0.45em 0.8em;
       border-radius: 4px;
       font-weight: 600;
@@ -858,7 +871,7 @@
       <p>&copy; 2026 Solid Product Design. All rights reserved.</p>
       <p class="footer-hapimatic">
         <a class="mark" href="https://hapimatic.com/" target="_blank" rel="noopener" aria-label="Hapimatic"><img src="images/assets/hapimatic/wordmark-still.svg" alt="Hapimatic" width="74" height="20"></a>
-        <span>is our open-source platform for running AI agents as a distributed fleet. Its Hardware Bench is where our agentic engineering work runs.</span>
+        <span>is our open-source platform for running AI agents as a distributed fleet.</span>
         <a href="https://github.com/SolidPD/hapimatic-core" target="_blank" rel="noopener">GitHub &nearr;</a>
       </p>
     </div>

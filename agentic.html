@@ -38,7 +38,10 @@
       --black: #000000;
       --gray-70: #4D4D4D;
       --gray-50: #808080;
-      --gray-30: #B3B3B3;
+      --gray-30: #B2B2B2;
+      /* Filled brand-blue surfaces take blue-900 text. White on #0495F6 is only
+         3.17:1 and fails AA at body size; #011A2B on it is 5.60:1. */
+      --on-primary: #011A2B;
       --gray-10: #E5E5E5;
       --white: #FFFFFF;
     }
@@ -102,15 +105,25 @@
       position: absolute;
       top: 0;
       left: 0;
-      transform: translateY(-100%);
       background: var(--primary-blue);
       color: var(--white);
-      padding: 0.5rem 1rem;
       z-index: 2000;
       text-decoration: none;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      overflow: hidden;
+      clip: rect(0 0 0 0);
+      clip-path: inset(50%);
+      white-space: nowrap;
     }
     .skip-link:focus {
-      transform: translateY(0);
+      width: auto;
+      height: auto;
+      padding: 0.5rem 1rem;
+      overflow: visible;
+      clip: auto;
+      clip-path: none;
     }
 
     /* Navigation */
@@ -458,12 +471,14 @@
 
     .btn-primary {
       background: var(--primary-blue);
-      color: var(--white);
+      color: var(--on-primary);
       border: 2px solid var(--primary-blue);
     }
 
     .btn-primary:hover {
       background: transparent;
+      /* background drops out on hover, so the dark fill text must go white */
+      color: var(--white);
       transform: translateY(-2px);
       box-shadow: 0 4px 20px rgba(4, 149, 246, 0.3);
     }
@@ -712,7 +727,7 @@
     /* ============ Hapimatic bridge: AGENTIC AI nav pill (ported 2026-10) ============ */
     .nav-menu a.nav-highlight {
       background: var(--primary-blue);
-      color: var(--white);
+      color: var(--on-primary);
       padding: 0.45em 0.8em;
       border-radius: 4px;
       font-weight: 600;
@@ -725,12 +740,21 @@
 
     /* ============ Hapimatic bridge: Built on Hapimatic section (ported 2026-10) ============ */
     .hapimatic-mark { text-align: center; margin-bottom: 1.25rem; }
+    /* Item 10: the odd fourth engagement card spans the row as a short wide box. */
+    .info-card-wide {
+      grid-column: 1 / -1;
+      align-items: center;
+      text-align: center;
+    }
+    .info-card-wide p { max-width: 62ch; margin-inline: auto; }
     .hapimatic-mark img { height: 40px; width: auto; display: inline-block; }
     .hapimatic-card { display: block; text-decoration: none; color: inherit; }
     .hapimatic-card:hover { border-color: var(--primary-blue); transform: translateY(-3px); }
     .hapimatic-card-link {
       display: block;
-      margin-top: 1.25rem;
+      /* push to the card foot so the three links align across the row */
+      margin-top: auto;
+      padding-top: 1.25rem;
       color: var(--primary-blue);
       font-weight: 600;
       font-size: 0.9rem;
@@ -789,7 +813,7 @@
       We've built closed-loop agentic AI hardware development in-house — our own engineering team's system,
       doing the same hardware engineering work Solid has always done, just covering far more bench time per
       day. For you, that means more of your project's scope gets completed, faster, with every result backed
-      by a real measurement on real hardware — on a platform we built ourselves.
+      by a measurement on real hardware — on a platform we built ourselves.
     </p>
     <div class="hero-cta">
       <a href="contact.html" class="btn btn-primary">Tell Us What You Need Built</a>
@@ -807,7 +831,7 @@
       <p class="section-lead">
         A simulator won't catch the charge controller that only fails when a thermistor is disconnected.
         A code review won't find the sensor that never sleeps and quietly drains your battery. These bugs
-        only reveal themselves on real hardware, under real conditions — and finding them takes an
+        only reveal themselves on real hardware, under live conditions — and finding them takes an
         engineer, a bench full of instruments, and time: flash, measure, think, adjust, repeat. That loop
         is slow, expensive, and it doesn't scale. It is the quiet bottleneck that slows down almost every
         hardware program, and the scope that quietly gets cut when time runs out.
@@ -828,15 +852,15 @@
         calendar time.
       </p>
       <p class="section-lead">
-        Our agents don't stop at writing firmware. They flash it to the actual device, drive real lab
+        Our agents don't stop at writing firmware. They flash it to the actual device, drive lab
         instruments — programmable power supplies and loads, power profilers, waveform generators, logic
-        and protocol analyzers — and read back real measurements, including continuous visual and thermal
+        and protocol analyzers — and read back measurements, including continuous visual and thermal
         camera coverage of the board itself. Then they form a hypothesis, change one thing, and measure
         again. And again. Around the clock, without fatigue, with a senior engineer directing the work and
         reviewing every result.
       </p>
 
-      <div class="loop-strip" aria-label="The closed loop: write firmware, flash the device, measure on real instruments, analyze, and repeat">
+      <div class="loop-strip" aria-label="The closed loop: write firmware, flash the device, measure on instruments, analyze, and repeat">
         <span class="loop-step">Write</span>
         <span class="loop-arrow" aria-hidden="true">→</span>
         <span class="loop-step">Flash</span>
@@ -909,7 +933,6 @@
       </div>
       <div class="card-grid">
         <div class="info-card">
-          <div class="card-label">Where it shines · 01</div>
           <h3>Power Optimization</h3>
           <p>
             Battery life is a firmware problem wearing a hardware costume. Our agents profile current draw
@@ -920,22 +943,20 @@
           <p>You get back a battery-life number, and the evidence trail behind it.</p>
         </div>
         <div class="info-card">
-          <div class="card-label">Where it shines · 02</div>
           <h3>Bug Identification &amp; Troubleshooting</h3>
           <p>
             The intermittent fault. The protocol handshake that fails one time in fifty. The inherited
-            codebase nobody fully understands anymore. Our agents reproduce the failure on the real
-            device, instrument the code, bisect the behavior, and watch the result on real instruments —
+            codebase nobody fully understands anymore. Our agents reproduce the failure on the
+            device itself, instrument the code, bisect the behavior, and watch the result on the instruments —
             logic analyzer, power profiler, thermal camera — until the root cause has nowhere left to hide.
           </p>
           <p>Then they prove the fix by trying to break it.</p>
         </div>
         <div class="info-card">
-          <div class="card-label">Where it shines · 03</div>
           <h3>Regression &amp; Endurance Testing</h3>
           <p>
             Fixture your board once, and your full hardware test suite re-runs on demand or on a schedule —
-            against real rails, real sensors, real loads. Soak tests, characterization sweeps, and
+            against real rails, sensors, and loads. Soak tests, characterization sweeps, and
             overnight captures run unattended.
           </p>
           <p>The regressions simulators miss get caught before they ship.</p>
@@ -989,7 +1010,6 @@
             smoke-triggered power cutoff, an e-stop chain, and a watchdog that fails to a safe state even
             if everything above it is dead.
           </p>
-          <p>A misbehaving — or even compromised — AI session structurally cannot push your device outside its envelope.</p>
         </div>
         <div class="info-card">
           <div class="card-label">Evidence</div>
@@ -1045,7 +1065,7 @@
             a browser — parallel test capacity without parallel headcount.
           </p>
         </div>
-        <div class="info-card">
+        <div class="info-card info-card-wide">
           <div class="card-label">Engagement</div>
           <h3>Something Else?</h3>
           <p>
@@ -1100,7 +1120,7 @@
       <p>&copy; 2026 Solid Product Design. All rights reserved.</p>
       <p class="footer-hapimatic">
         <a class="mark" href="https://hapimatic.com/" target="_blank" rel="noopener" aria-label="Hapimatic"><img src="images/assets/hapimatic/wordmark-still.svg" alt="Hapimatic" width="74" height="20"></a>
-        <span>is our open-source platform for running AI agents as a distributed fleet. Its Hardware Bench is where our agentic engineering work runs.</span>
+        <span>is our open-source platform for running AI agents as a distributed fleet.</span>
         <a href="https://github.com/SolidPD/hapimatic-core" target="_blank" rel="noopener">GitHub &nearr;</a>
       </p>
     </div>
