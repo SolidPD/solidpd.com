@@ -1834,10 +1834,18 @@
     .bridge-window .pcbg .hole { fill: #14062b; stroke: #cfd3d6; stroke-width: 1.1; }
     .bridge-window .pcbg .silk { font: 700 6.5px var(--hb-mono); fill: rgba(255, 255, 255, 0.8); }
     .bridge-window .pcbg .led { fill: #5ae6ab; }
-    .flip-card-wide { grid-column: 1 / -1; }
-    .flip-card-wide .flip-card-back ul { columns: 2; column-gap: 3rem; }
+    /* With an odd number of service tiles the last one would sit against
+       the left edge of the 2-column grid; span the row and centre it so it
+       stays the same width as the others. */
+    .services-grid > .flip-card:last-child:nth-child(odd) {
+      grid-column: 1 / -1;
+      width: calc(50% - 1.25rem);
+      margin-inline: auto;
+    }
     @media (max-width: 768px) {
-      .flip-card-wide .flip-card-back ul { columns: 1; }
+      .services-grid > .flip-card:last-child:nth-child(odd) {
+        width: auto;
+      }
     }
 
   </style>
@@ -2097,7 +2105,25 @@
           </div>
         </div>
 
-        <!-- Card 5: Prototyping & Testing -->
+        <!-- Card 5: Firmware & Embedded Software -->
+        <div class="flip-card" tabindex="0" role="button" aria-label="Firmware & Embedded Software service details">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <img src="images/assets/Other Images/optimized/firmware.jpg" alt="" class="flip-card-front-image" loading="lazy" width="1200" height="670" />
+              <h3>Firmware &amp; Embedded Software</h3>
+            </div>
+            <div class="flip-card-back">
+              <h3>Firmware &amp; Embedded Software</h3>
+              <ul>
+                <li>Board bring-up, drivers, and device firmware</li>
+                <li>Power optimization, with battery life verified on the device</li>
+                <li>Protocol, connectivity, and sensor integration</li>
+                <li>Hardware-in-the-loop regression testing on our agentic test cells</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <!-- Card 6: Prototyping & Testing -->
         <div class="flip-card" tabindex="0" role="button" aria-label="Prototyping & Testing service details">
           <div class="flip-card-inner">
             <div class="flip-card-front">
@@ -2116,7 +2142,7 @@
           </div>
         </div>
 
-        <!-- Card 6: Manufacturing Preparation -->
+        <!-- Card 7: Manufacturing Preparation -->
         <div class="flip-card" tabindex="0" role="button" aria-label="Manufacturing Preparation service details">
           <div class="flip-card-inner">
             <div class="flip-card-front">
@@ -2131,24 +2157,6 @@
                 <li>Certification and compliance support</li>
                 <li>In-house pilot production</li>
                 <li>Full-scale manufacturing support</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-        <!-- Card 7: Firmware & Embedded Software (full-width row) -->
-        <div class="flip-card flip-card-wide" tabindex="0" role="button" aria-label="Firmware & Embedded Software service details">
-          <div class="flip-card-inner">
-            <div class="flip-card-front">
-              <img src="images/assets/Other Images/optimized/firmware.jpg" alt="" class="flip-card-front-image" loading="lazy" width="1200" height="670" />
-              <h3>Firmware &amp; Embedded Software</h3>
-            </div>
-            <div class="flip-card-back">
-              <h3>Firmware &amp; Embedded Software</h3>
-              <ul>
-                <li>Board bring-up, drivers, and device firmware</li>
-                <li>Power optimization, with battery life verified on the device</li>
-                <li>Protocol, connectivity, and sensor integration</li>
-                <li>Hardware-in-the-loop regression testing on our agentic test cells</li>
               </ul>
             </div>
           </div>
