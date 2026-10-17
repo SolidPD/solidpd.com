@@ -804,11 +804,19 @@
       display: flex;
       flex-wrap: wrap;
       align-items: flex-start;
-      justify-content: space-between;
-      gap: 2.5rem 3rem;
+      gap: 2.5rem 3.5rem;
     }
-    .site-footer-brand img { height: 72px; width: auto; max-width: 100%; display: block; opacity: 0.9; }
-    .site-footer-cols { display: flex; flex-wrap: wrap; gap: 3rem; }
+    .site-footer-brand { flex: 0 0 auto; }
+    .site-footer-brand img { height: 84px; width: auto; max-width: 100%; display: block; opacity: 0.9; }
+    /* The three groups share the remaining width evenly. With space-between on
+       the parent instead, the logo and the group block were pushed to opposite
+       edges and left a void across the middle of the footer. */
+    .site-footer-cols {
+      flex: 1 1 420px;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 2rem;
+    }
     .site-footer-col h3 {
       font-family: "DM Sans", sans-serif;
       font-weight: 700;
@@ -846,7 +854,7 @@
       .site-footer-brand img { height: 56px; }
       /* Stack the three groups. Left to wrap they break 1-then-2, because the
          address column is far wider than Email or Connect. */
-      .site-footer-cols { flex-direction: column; align-items: center; gap: 1.5rem; }
+      .site-footer-cols { grid-template-columns: 1fr; justify-items: center; gap: 1.5rem; }
       .site-footer-bottom { flex-direction: column; text-align: center; margin-top: 1.5rem; gap: 0.75rem; }
       .site-footer-bottom .footer-hapimatic { text-align: center; }
     }
