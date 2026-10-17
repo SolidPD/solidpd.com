@@ -32,6 +32,9 @@
     /* CSS Variables */
     :root {
       --primary-blue: #0495F6;
+      /* Filled brand-blue surfaces take blue-900 text. White on #0495F6 is only
+         3.17:1 and fails AA at body size; #011A2B on it is 5.60:1. */
+      --on-primary: #011A2B;
       --primary-yellow: #FFB75A;
       --dark-bg: #1A1A1A;
       --black: #000000;
@@ -363,12 +366,14 @@
 
     .btn-primary {
       background: var(--primary-blue);
-      color: var(--white);
+      color: var(--on-primary);
       border: 2px solid var(--primary-blue);
     }
 
     .btn-primary:hover {
       background: transparent;
+      /* background drops out on hover, so the dark fill text must go white */
+      color: var(--white);
       transform: translateY(-2px);
       box-shadow: 0 4px 20px rgba(4, 149, 246, 0.3);
     }
@@ -627,7 +632,7 @@
       top: 0;
       left: 0;
       background: var(--primary-blue);
-      color: var(--white);
+      color: var(--on-primary);
       z-index: 2000;
       text-decoration: none;
       font-family: var(--font-body);
