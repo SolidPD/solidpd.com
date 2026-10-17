@@ -1780,20 +1780,6 @@
       color: #c7c7cc;
     }
     .bridge-window-foot .link { color: #5ae6ab; font-weight: 600; white-space: nowrap; }
-    .footer-hapimatic {
-      max-width: 720px;
-      margin: 1.25rem auto 0;
-      text-align: center;
-      font-size: 0.82rem;
-      color: rgba(255, 255, 255, 0.6);
-      line-height: 1.7;
-    }
-    .footer-hapimatic img { height: 18px; width: auto; display: inline-block; vertical-align: -3px; margin-right: 0.35em; opacity: 0.9; }
-    .footer-hapimatic a.mark { display: inline-block; }
-    .footer-hapimatic a:not(.mark) { margin-left: 0.4em; white-space: nowrap; }
-    .footer-hapimatic a { color: rgba(255, 255, 255, 0.85); text-decoration: none; border-bottom: 1px solid rgba(255, 255, 255, 0.25); }
-    .footer-hapimatic a.mark { border-bottom: none; }
-    .footer-hapimatic a:hover { color: #5ae6ab; border-color: #5ae6ab; }
     @media (max-width: 900px) {
       .bridge-inner { grid-template-columns: 1fr; gap: 2.5rem; }
     }
@@ -1907,9 +1893,7 @@
        the guide allows a blue O with white letters. 139px wide clears the
        60px minimum for "SOLID" comfortably. */
     .site-footer-brand { height: 64px; width: auto; display: block; }
-    .site-footer-legal { text-align: right; }
-    .site-footer-legal .footer-copyright { margin: 0 0 0.4rem; }
-    .site-footer-legal .footer-hapimatic { margin: 0; max-width: 68ch; text-align: right; }
+    .site-footer-bottom .footer-copyright { margin: 0; }
     @media (max-width: 900px) {
       .site-footer { padding: 2.25rem 1.5rem 1.5rem; }
       /* Email and Connect pair up (each is one line); the address spans below. */
@@ -1923,11 +1907,9 @@
         justify-content: center;
         text-align: center;
         margin-top: 1.5rem;
-        gap: 1.25rem;
+        gap: 1rem;
       }
       .site-footer-brand { height: 56px; }
-      .site-footer-legal { text-align: center; }
-      .site-footer-legal .footer-hapimatic { text-align: center; }
     }
   </style>
 </head>
@@ -2423,14 +2405,7 @@
         <source srcset="images/assets/optimized/solid-mark-white-blue.webp" type="image/webp">
         <img src="images/assets/optimized/solid-mark-white-blue.png" alt="Solid Product Design" width="139" height="64" loading="lazy" class="site-footer-brand" />
       </picture>
-      <div class="site-footer-legal">
-        <p class="footer-copyright">&copy; 2026 Solid Product Design. All rights reserved.</p>
-        <p class="footer-hapimatic">
-          <a class="mark" href="https://hapimatic.com/" target="_blank" rel="noopener" aria-label="Hapimatic"><img src="images/assets/hapimatic/wordmark-still.svg" alt="Hapimatic" width="74" height="20"></a>
-          <span>is our open-source platform for running AI agents as a distributed fleet.</span>
-          <a href="https://github.com/SolidPD/hapimatic-core" target="_blank" rel="noopener">GitHub &nearr;</a>
-        </p>
-      </div>
+      <p class="footer-copyright">&copy; 2026 Solid Product Design. All rights reserved.</p>
     </div>
   </footer>
 
