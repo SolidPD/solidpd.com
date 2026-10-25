@@ -851,6 +851,14 @@
     .social-link-inline { display: inline-flex; align-items: center; gap: 0.5rem; color: var(--gray-10); text-decoration: none; }
     .social-link-inline:hover { color: var(--primary-blue); }
     .social-link-inline svg { width: 20px; height: 20px; fill: currentColor; }
+
+    /* The talk video (Closing the Loop, Philly Hardware Meetup at Drexel, 2026-10-21) */
+    .talk-embed { position: relative; aspect-ratio: 16 / 9; max-width: 900px; margin: 0 auto;
+      border: 1px solid rgba(4, 149, 246, 0.4); border-radius: 8px; overflow: hidden; background: var(--black); }
+    .talk-embed iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+    .talk-caption { max-width: 900px; margin: 1rem auto 0; text-align: center; color: var(--gray-30); font-size: 0.98rem; line-height: 1.6; }
+    .talk-caption strong { color: var(--white); }
+    .talk-caption .nw { white-space: nowrap; }
   </style>
 </head>
 <body>
@@ -940,6 +948,22 @@
         flashing, power cycling, probing, imaging — is available on demand, from anywhere, in parallel
         across as many devices as the problem needs. <strong>One engineer, many benches.</strong>
       </p>
+    </div>
+  </section>
+
+  <!-- The talk (Closing the Loop, Philly Hardware Meetup at Drexel, 2026-10-21) -->
+  <section class="content-section" id="talk" aria-labelledby="talk-title">
+    <div class="section-inner">
+      <h2 class="section-heading" id="talk-title">See the Loop in Action</h2>
+      <div class="talk-embed">
+        <iframe src="https://www.youtube-nocookie.com/embed/FA4J1-CL8w4" width="1280" height="720"
+          title="Closing the Loop: Hardware Development with Advanced Agentic AI, Matt Starfield at the 15th Philly Hardware Meetup"
+          loading="lazy" referrerpolicy="strict-origin-when-cross-origin"
+          allow="accelerometer; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+      </div>
+      <p class="talk-caption"><strong>Closing the Loop: Hardware Development with Advanced Agentic AI</strong><br>
+        Matt Starfield, the Senior Electrical Engineer at Solid Product Design<br>
+        <span class="nw">15th Philly Hardware Meetup</span> · <span class="nw">Drexel University</span> · <span class="nw">October 21, 2026</span></p>
     </div>
   </section>
 
