@@ -852,13 +852,30 @@
     .social-link-inline:hover { color: var(--primary-blue); }
     .social-link-inline svg { width: 20px; height: 20px; fill: currentColor; }
 
-    /* The talk video (Closing the Loop, Philly Hardware Meetup at Drexel, 2026-10-21) */
-    .talk-embed { position: relative; aspect-ratio: 16 / 9; max-width: 900px; margin: 0 auto;
+    /* The talk (Closing the Loop, Philly Hardware Meetup at Drexel, 2026-10-21): the player beside its
+       description, three photos beneath (layout SA, Matt's pick, 2026-10-26). The player is a click-to-play
+       poster (js/talk-facade-v1.js) that loads the youtube-nocookie embed only on a click. */
+    .talk-wide { max-width: 1200px; margin: 0 auto; }
+    .talk-two { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); gap: 2rem; align-items: center; }
+    .talk-embed { position: relative; aspect-ratio: 16 / 9; margin: 0;
       border: 1px solid rgba(4, 149, 246, 0.4); border-radius: 8px; overflow: hidden; background: var(--black); }
     .talk-embed iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
-    .talk-caption { max-width: 900px; margin: 1rem auto 0; text-align: center; color: var(--gray-30); font-size: 0.98rem; line-height: 1.6; }
-    .talk-caption strong { color: var(--white); }
-    .talk-caption .nw { white-space: nowrap; }
+    .talk-facade { position: absolute; inset: 0; display: block; }
+    .talk-facade img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .talk-facade:hover img, .talk-facade:focus-visible img { opacity: 0.88; }
+    .talk-facade .talk-yt { position: absolute; left: 80.5%; top: 46.5%; width: 10%; aspect-ratio: 68 / 48;
+      transform: translate(-50%, -50%); }
+    .talk-facade .talk-yt svg { width: 100%; height: 100%; display: block; }
+    .talk-copy p { color: var(--gray-30); line-height: 1.65; margin: 0 0 1rem; font-size: 1rem; }
+    .talk-copy .talk-title { color: var(--white); font-size: 1.15rem; line-height: 1.35; }
+    .talk-copy .talk-meta { color: var(--gray-50); font-size: 0.9rem; letter-spacing: 0.02em; margin-bottom: 0; }
+    .talk-photos { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; margin-top: 1.5rem; }
+    .talk-photos img { display: block; width: 100%; height: auto; border-radius: 8px; border: 1px solid rgba(255, 255, 255, 0.1); }
+    @media (max-width: 860px) {
+      .talk-two { grid-template-columns: 1fr; gap: 1.5rem; }
+      .talk-photos { grid-template-columns: 1fr 1fr; }
+      .talk-photos img:last-child { display: none; }
+    }
   </style>
 </head>
 <body>
@@ -951,19 +968,33 @@
     </div>
   </section>
 
-  <!-- The talk (Closing the Loop, Philly Hardware Meetup at Drexel, 2026-10-21) -->
+  <!-- The talk (Closing the Loop, Philly Hardware Meetup at Drexel, 2026-10-21): layout SA, Matt's pick of four
+       mockups (2026-10-26). The poster links to YouTube; js/talk-facade-v1.js swaps in the player on a click. -->
   <section class="content-section" id="talk" aria-labelledby="talk-title">
-    <div class="section-inner">
+    <div class="talk-wide">
       <h2 class="section-heading" id="talk-title">See the Loop in Action</h2>
-      <div class="talk-embed">
-        <iframe src="https://www.youtube-nocookie.com/embed/FA4J1-CL8w4" width="1280" height="720"
-          title="Closing the Loop: Hardware Development with Advanced Agentic AI, Matt Starfield at the 15th Philly Hardware Meetup"
-          loading="lazy" referrerpolicy="strict-origin-when-cross-origin"
-          allow="accelerometer; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+      <div class="talk-two">
+        <div class="talk-embed">
+          <a class="talk-facade" href="https://youtu.be/FA4J1-CL8w4" target="_blank" rel="noopener"
+            data-embed="https://www.youtube-nocookie.com/embed/FA4J1-CL8w4?autoplay=1"
+            data-title="Closing the Loop: Hardware Development with Advanced Agentic AI, Matt Starfield at the 15th Philly Hardware Meetup"
+            aria-label="Play Closing the Loop: Hardware Development with Advanced Agentic AI">
+            <img src="images/assets/talk/closing-the-loop-talk-thumbnail-v1.webp" width="1280" height="720" alt="">
+            <span class="talk-yt" aria-hidden="true"><svg viewBox="0 0 68 48" focusable="false"><path d="M66.5 7.7a8.5 8.5 0 0 0-6-6C55.2.3 34 .3 34 .3S12.8.3 7.5 1.7a8.5 8.5 0 0 0-6 6C.1 13 .1 24 .1 24s0 11 1.4 16.3a8.5 8.5 0 0 0 6 6C12.8 47.7 34 47.7 34 47.7s21.2 0 26.5-1.4a8.5 8.5 0 0 0 6-6C67.9 35 67.9 24 67.9 24s0-11-1.4-16.3z" fill="#f00"/><path d="M45 24 27 14v20z" fill="#fff"/></svg></span>
+          </a>
+        </div>
+        <div class="talk-copy">
+          <p class="talk-title"><strong>Closing the Loop: Hardware Development with Advanced Agentic AI</strong></p>
+          <p>At the 15th Philly Hardware Meetup at Drexel University on October 21, 2026, Matt Starfield, the Senior Electrical Engineer at Solid Product Design, showed how we close the loop on real hardware: agents that flash firmware onto live boards, drive oscilloscopes and electronic loads, read displays through a camera, and prove every fix with a measurement.</p>
+          <p>Six bench case studies follow, from a battery that would not charge to a misconfigured fuel gauge that cut a wearable's runtime to one day.</p>
+          <p class="talk-meta">29 minutes · English captions</p>
+        </div>
       </div>
-      <p class="talk-caption"><strong>Closing the Loop: Hardware Development with Advanced Agentic AI</strong><br>
-        Matt Starfield, the Senior Electrical Engineer at Solid Product Design<br>
-        <span class="nw">15th Philly Hardware Meetup</span> · <span class="nw">Drexel University</span> · <span class="nw">October 21, 2026</span></p>
+      <div class="talk-photos">
+        <img src="images/assets/talk/closing-the-loop-talk-photo-speaking-v2.webp" width="1200" height="800" alt="Matt Starfield speaking at the 15th Philly Hardware Meetup" loading="lazy">
+        <img src="images/assets/talk/closing-the-loop-talk-photo-stage-chart-v1.webp" width="1200" height="800" alt="Matt Starfield on stage beside a chart of code commits per week" loading="lazy">
+        <img src="images/assets/talk/closing-the-loop-talk-photo-stage-audience-v1.webp" width="1200" height="800" alt="The audience at Drexel University watching a slide on the loop reaching the fab and the lab" loading="lazy">
+      </div>
     </div>
   </section>
 
@@ -1210,6 +1241,7 @@
   </footer>
 
   <script src="js/email-protection.js"></script>
+  <script src="js/talk-facade-v1.js"></script>
   <script>
     // Mobile navigation toggle
     const navToggle = document.querySelector('.nav-toggle');
